@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
  <head>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23111111'/%3E%3Ctext x='32' y='44' font-family='Poppins,Helvetica,Arial' font-size='38' font-weight='300' fill='%23F7F6F3' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E">
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
   <title>
-   MΛTOBΛ — Contractant Général
+   CIMENTA — Contractant Général
   </title>
-  <meta content="MΛTOBΛ conçoit, coordonne et réalise vos projets de construction, rénovation et aménagement en Provence-Alpes-Côte d’Azur." name="description"/>
+  <meta content="CIMENTA conçoit, coordonne et réalise vos projets de construction, rénovation et aménagement en Provence-Alpes-Côte d’Azur." name="description"/>
   <script>
    (function () {
       if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
@@ -17,30 +18,30 @@
         history.replaceState(null, '', window.location.pathname + window.location.search);
       }
 
-      window.resetMatobaScroll = function () {
+      window.resetCimentaScroll = function () {
         window.scrollTo(0, 0);
         document.documentElement.scrollTop = 0;
         if (document.body) document.body.scrollTop = 0;
       };
 
-      window.resetMatobaScroll();
+      window.resetCimentaScroll();
       window.addEventListener('pageshow', function () {
-        window.resetMatobaScroll();
-        requestAnimationFrame(window.resetMatobaScroll);
-        setTimeout(window.resetMatobaScroll, 80);
-        setTimeout(window.resetMatobaScroll, 300);
+        window.resetCimentaScroll();
+        requestAnimationFrame(window.resetCimentaScroll);
+        setTimeout(window.resetCimentaScroll, 80);
+        setTimeout(window.resetCimentaScroll, 300);
       });
     })();
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600&family=Space+Mono&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet"/>
   <style>
    :root {
-  --ink: #0a0a0a;
-  --white: #ffffff;
-  --fog: #f7f6f4;
-  --bone: #eeece8;
-  --rule: #d8d5cf;
-  --stone: #6b6762;
+  --ink: #111111;
+  --white: #f7f6f3;
+  --fog: #f7f6f3;
+  --bone: #e5e4e1;
+  --rule: #d2d1cf;
+  --stone: #6d6c6b;
   --x: clamp(24px, 6vw, 96px);
   --gap: clamp(72px, 10vw, 128px);
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
@@ -59,7 +60,7 @@ html {
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 400;
   background: var(--white);
   color: var(--ink);
@@ -79,7 +80,7 @@ img {
 }
 
 .brand {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: inherit;
   font-style: normal;
   font-synthesis: none;
@@ -89,15 +90,15 @@ img {
 }
 
 .gate-name .brand {
-  font-weight: 200;
+  font-weight: 300;
 }
 
 .nav-name .brand {
-  font-weight: 200;
+  font-weight: 300;
 }
 
 .ft-name .brand {
-  font-weight: 200;
+  font-weight: 300;
 }
 
 .modele-quote .brand, .garantie-text .brand {
@@ -146,9 +147,10 @@ img {
 
 .gate-name {
   font-size: clamp(24px, 5vw, 56px);
-  font-weight: 200;
-  letter-spacing: .9em;
-  padding-left: .9em;
+  font-weight: 300;
+  letter-spacing: .46em;
+  padding-left: 0;
+  margin-right: -.46em;
   color: var(--ink);
   opacity: 0;
   animation: up .8s var(--ease) .2s forwards;
@@ -176,23 +178,24 @@ nav {
   justify-content: space-between;
   padding: 20px var(--x);
   border-bottom: 1px solid rgba(216,213,207,.7);
-  background: rgba(255,255,255,.88);
+  background: rgba(247,246,243,.88);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   transition: background .3s;
 }
 
 nav.stuck {
-  background: rgba(255,255,255,.96);
+  background: rgba(247,246,243,.96);
   backdrop-filter: blur(16px);
   border-color: var(--rule);
 }
 
 .nav-name {
   font-size: 13px;
-  font-weight: 200;
-  letter-spacing: .72em;
-  padding-left: .72em;
+  font-weight: 300;
+  letter-spacing: .46em;
+  padding-left: 0;
+  margin-right: -.46em;
   color: var(--ink);
 }
 
@@ -296,7 +299,7 @@ nav.stuck {
 
 .nav-dropdown-links a {
   font-size: 26px;
-  font-weight: 200;
+  font-weight: 300;
   letter-spacing: -.01em;
   color: var(--ink);
   text-decoration: none;
@@ -354,7 +357,7 @@ nav.stuck {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(255,255,255,.9) 10%, rgba(255,255,255,.58) 42%, rgba(255,255,255,.14) 78%), linear-gradient(180deg, rgba(255,255,255,.34) 0%, rgba(255,255,255,.08) 24%, rgba(255,255,255,.18) 54%, rgba(255,255,255,.78) 88%, rgba(255,255,255,.98) 100%), radial-gradient(90% 42% at 50% 100%, rgba(255,255,255,.75) 0%, rgba(255,255,255,0) 68%);
+  background: linear-gradient(90deg, rgba(247,246,243,.9) 10%, rgba(247,246,243,.58) 42%, rgba(247,246,243,.14) 78%), linear-gradient(180deg, rgba(247,246,243,.34) 0%, rgba(247,246,243,.08) 24%, rgba(247,246,243,.18) 54%, rgba(247,246,243,.78) 88%, rgba(247,246,243,.98) 100%), radial-gradient(90% 42% at 50% 100%, rgba(247,246,243,.75) 0%, rgba(247,246,243,0) 68%);
   z-index: 1;
 }
 
@@ -384,7 +387,7 @@ nav.stuck {
   padding-left: var(--x);
   padding-right: var(--x);
   margin-top: clamp(32px, 5vw, 64px);
-  background: rgba(255,255,255,.85);
+  background: rgba(247,246,243,.85);
 }
 
 h1 {
@@ -425,7 +428,7 @@ h1 {
 }
 
 .btn:hover {
-  background: #2a2a2a;
+  background: #232322;
   transform: translateY(-1px);
 }
 
@@ -495,8 +498,9 @@ h1 {
 .hero-baseline-word {
   white-space: nowrap;
   align-self: center;
-  letter-spacing: .28em;
-  padding-left: .28em;
+  letter-spacing: .46em;
+  padding-left: 0;
+  margin-right: -.46em;
 }
 
 .hero-baseline-sep {
@@ -519,8 +523,9 @@ h1 {
   }
 
   .hero-baseline-word {
-    letter-spacing: .14em;
-    padding-left: .14em;
+    letter-spacing: .46em;
+    padding-left: 0;
+    margin-right: -.46em;
   }
 
 }
@@ -547,7 +552,7 @@ section {
 }
 
 .eyebrow {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 9px;
   letter-spacing: .24em;
   text-transform: uppercase;
@@ -556,7 +561,7 @@ section {
 }
 
 .bg-ink .eyebrow {
-  color: rgba(255,255,255,.5);
+  color: rgba(247,246,243,.5);
 }
 
 h2 {
@@ -584,7 +589,7 @@ h2 {
 
 .modele-quote {
   font-size: clamp(14px, 1.6vw, 18px);
-  font-weight: 200;
+  font-weight: 300;
   line-height: 1.6;
   color: var(--stone);
   border-left: 2px solid var(--rule);
@@ -616,7 +621,7 @@ h2 {
 }
 
 .orga-eyebrow {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 9px;
   letter-spacing: .18em;
   text-transform: uppercase;
@@ -636,8 +641,8 @@ h2 {
 }
 
 .orga-cell.center .orga-title {
-  color: #ffffff;
-  font-weight: 600;
+  color: #f7f6f3;
+  font-weight: 400;
   font-size: clamp(15px, 1.8vw, 20px);
   letter-spacing: .38em;
 }
@@ -650,7 +655,7 @@ h2 {
 }
 
 .orga-cell.center .orga-sub {
-  color: rgba(255,255,255,.7);
+  color: rgba(247,246,243,.7);
 }
 
 .orga-arrow {
@@ -672,7 +677,7 @@ h2 {
 }
 
 .orga-arrow-label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 9px;
   letter-spacing: .18em;
   text-transform: uppercase;
@@ -680,7 +685,7 @@ h2 {
   writing-mode: vertical-rl;
   text-orientation: mixed;
   transform: rotate(180deg);
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .orga-list {
@@ -728,19 +733,19 @@ h2 {
 }
 
 .garantie-tag {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 8px;
   letter-spacing: .2em;
   text-transform: uppercase;
-  color: rgba(255,255,255,.75);
+  color: rgba(247,246,243,.75);
   flex-shrink: 0;
 }
 
 .garantie-text {
   font-size: clamp(13px, 1.5vw, 16px);
-  font-weight: 200;
+  font-weight: 300;
   line-height: 1.6;
-  color: rgba(255,255,255,.75);
+  color: rgba(247,246,243,.75);
 }
 
 .garantie-text strong {
@@ -763,7 +768,7 @@ h2 {
 }
 
 .etape-num {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 9px;
   letter-spacing: .1em;
   color: var(--stone);
@@ -793,7 +798,7 @@ h2 {
 }
 
 .apropos-label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 9px;
   letter-spacing: .24em;
   text-transform: uppercase;
@@ -838,7 +843,7 @@ h2 {
 }
 
 .sf-label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 8px;
   letter-spacing: .14em;
   text-transform: uppercase;
@@ -872,13 +877,13 @@ h2 {
 }
 
 .sf-note-tag {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 9px;
   letter-spacing: .18em;
   text-transform: uppercase;
   color: var(--ink);
   flex-shrink: 0;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .sf-note-text {
@@ -911,7 +916,7 @@ h2 {
 }
 
 .proj-tag {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 8px;
   letter-spacing: .14em;
   text-transform: uppercase;
@@ -921,7 +926,7 @@ h2 {
 
 .proj-name {
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.3;
 }
 
@@ -948,7 +953,7 @@ h2 {
 }
 
 .c-lbl {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 8.5px;
   letter-spacing: .14em;
   text-transform: uppercase;
@@ -986,7 +991,7 @@ h2 {
 }
 
 .flabel {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 8.5px;
   letter-spacing: .16em;
   text-transform: uppercase;
@@ -999,7 +1004,7 @@ h2 {
   background: var(--white);
   color: var(--ink);
   padding: 11px 13px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 14px;
   font-weight: 300;
   outline: none;
@@ -1041,7 +1046,7 @@ h2 {
   background: var(--ink);
   color: var(--white);
   border: 1px solid var(--ink);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 11px;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -1050,7 +1055,7 @@ h2 {
 }
 
 .fsubmit:hover {
-  background: #2a2a2a;
+  background: #232322;
   transform: translateY(-1px);
 }
 
@@ -1101,18 +1106,20 @@ footer {
 
 .ft-name {
   font-size: 13px;
-  font-weight: 500;
-  color: #666;
-  letter-spacing: .5em;
-  padding-left: .5em;
+  font-weight: 400;
+  color: #6d6c6b;
+  letter-spacing: .46em;
+  padding-left: 0;
+  margin-right: -.46em;
   text-align: center;
 }
 
 .ft-baseline {
   font-size: 10px;
   font-weight: 400;
-  letter-spacing: .18em;
-  padding-left: .18em;
+  letter-spacing: .46em;
+  padding-left: 0;
+  margin-right: -.46em;
   color: var(--stone);
   text-align: center;
 }
@@ -1234,7 +1241,7 @@ footer {
     min-height: 72px;
     padding: 14px var(--x);
     padding-top: calc(14px + env(safe-area-inset-top));
-    background: rgba(255,255,255,.96);
+    background: rgba(247,246,243,.96);
   }
 
   .nav-links {
@@ -1351,8 +1358,9 @@ footer {
   .hero-baseline-word {
     justify-self: center;
     font-size: 9px;
-    letter-spacing: .1em;
-    padding-left: .1em;
+    letter-spacing: .46em;
+    padding-left: 0;
+    margin-right: -.46em;
   }
 
   .hero-baseline-sep {
@@ -1502,8 +1510,9 @@ footer {
 
   .hero-baseline-word {
     font-size: 8px;
-    letter-spacing: .06em;
-    padding-left: .06em;
+    letter-spacing: .46em;
+    padding-left: 0;
+    margin-right: -.46em;
   }
 
 }
@@ -1565,7 +1574,7 @@ button, input, select, textarea {
 
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   nav {
-    background: rgba(255,255,255,.98);
+    background: rgba(247,246,243,.98);
   }
 
 }
@@ -1587,7 +1596,7 @@ button, input, select, textarea {
     padding: 14px var(--x);
     padding-top: calc(14px + env(safe-area-inset-top));
     gap: 10px;
-    background: rgba(255,255,255,.96);
+    background: rgba(247,246,243,.96);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
   }
@@ -1603,8 +1612,9 @@ button, input, select, textarea {
   .nav-name {
     min-width: 0;
     font-size: 12px;
-    letter-spacing: .34em;
-    padding-left: .34em;
+    letter-spacing: .46em;
+    padding-left: 0;
+    margin-right: -.46em;
   }
 
   .nav-name > span:last-child {
@@ -1684,7 +1694,7 @@ button, input, select, textarea {
     left: 0;
     right: 0;
     height: calc(min(48svh, 430px) + 2px);
-    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.03) 34%, rgba(255,255,255,.18) 54%, rgba(255,255,255,.78) 81%, rgba(255,255,255,.97) 93%, rgba(255,255,255,1) 100%), linear-gradient(90deg, rgba(255,255,255,.09) 0%, rgba(255,255,255,0) 62%);
+    background: linear-gradient(180deg, rgba(247,246,243,0) 0%, rgba(247,246,243,.03) 34%, rgba(247,246,243,.18) 54%, rgba(247,246,243,.78) 81%, rgba(247,246,243,.97) 93%, rgba(247,246,243,1) 100%), linear-gradient(90deg, rgba(247,246,243,.09) 0%, rgba(247,246,243,0) 62%);
   }
 
   .hero-body {
@@ -1707,7 +1717,7 @@ button, input, select, textarea {
     border: 1px solid rgba(216,213,207,.82);
     border-radius: 24px;
     overflow: hidden;
-    background: rgba(255,255,255,.95);
+    background: rgba(247,246,243,.95);
     box-shadow: 0 18px 42px rgba(10,10,10,.08);
   }
 
@@ -1728,7 +1738,7 @@ button, input, select, textarea {
     font-size: clamp(11px, 3.2vw, 13px);
     line-height: 1.45;
     white-space: nowrap;
-    color: #5f5a55;
+    color: #6d6c6b;
   }
 
   .hero .btn {
@@ -1762,8 +1772,9 @@ button, input, select, textarea {
   .hero-baseline-word {
     justify-self: center;
     font-size: 10px;
-    letter-spacing: .12em;
-    padding-left: .12em;
+    letter-spacing: .46em;
+    padding-left: 0;
+    margin-right: -.46em;
     text-align: center;
   }
 
@@ -1908,7 +1919,7 @@ button, input, select, textarea {
   .garantie-tag {
     font-size: 8px;
     letter-spacing: .18em;
-    color: rgba(255,255,255,.58);
+    color: rgba(247,246,243,.58);
   }
 
   .garantie-text {
@@ -1917,7 +1928,7 @@ button, input, select, textarea {
     font-size: 13.5px !important;
     line-height: 1.65 !important;
     text-align: center;
-    color: rgba(255,255,255,.72);
+    color: rgba(247,246,243,.72);
   }
 
   .garantie-text .brand, .garantie-text strong {
@@ -1993,8 +2004,9 @@ button, input, select, textarea {
   }
 
   .ft-name {
-    letter-spacing: .38em;
-    padding-left: .38em;
+    letter-spacing: .46em;
+    padding-left: 0;
+    margin-right: -.46em;
   }
 
   .ft-baseline {
@@ -2019,8 +2031,9 @@ button, input, select, textarea {
 
   .hero-baseline-word {
     font-size: 9px;
-    letter-spacing: .08em;
-    padding-left: .08em;
+    letter-spacing: .46em;
+    padding-left: 0;
+    margin-right: -.46em;
   }
 
   .sf-list {
@@ -2047,9 +2060,9 @@ button, input, select, textarea {
 }
 
 .sf-note-tag {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 8px;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: .2em;
   text-transform: uppercase;
   color: var(--stone);
@@ -2104,9 +2117,9 @@ button, input, select, textarea {
 
 }
 
-/* Footer premium MATOBA */ footer {
-  background:#0c0c0c;
-  color:#f3f1ed;
+/* Footer premium CIMENTA */ footer {
+  background:#111111;
+  color:#eeedea;
   padding:clamp(48px,7vw,86px) var(--x) clamp(28px,4vw,42px);
   display:grid;
   grid-template-columns:1.15fr .85fr;
@@ -2124,7 +2137,7 @@ button, input, select, textarea {
 
 .ft-name {
   font-size:clamp(22px,2.2vw,34px);
-  font-weight:200;
+  font-weight:300;
   letter-spacing:.48em;
   padding-left:.48em
 }
@@ -2133,7 +2146,7 @@ button, input, select, textarea {
   font-size:8px;
   letter-spacing:.18em;
   text-transform:uppercase;
-  color:rgba(255,255,255,.56)
+  color:rgba(247,246,243,.56)
 }
 
 .footer-legal {
@@ -2146,7 +2159,7 @@ button, input, select, textarea {
 
 .footer-company {
   font-size:11px;
-  color:rgba(255,255,255,.58)
+  color:rgba(247,246,243,.58)
 }
 
 .footer-links {
@@ -2158,7 +2171,7 @@ button, input, select, textarea {
 
 .footer-links a {
   font-size:11px;
-  color:rgba(255,255,255,.9)
+  color:rgba(247,246,243,.9)
 }
 
 @media(max-width:760px) {
@@ -2186,11 +2199,11 @@ button, input, select, textarea {
     .footer-links a,
     .ft-name,
     .ft-baseline {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Poppins', sans-serif;
     }
 
     .ft-name {
-      font-weight: 200;
+      font-weight: 300;
     }
 
     .ft-baseline,
@@ -2283,7 +2296,7 @@ button, input, select, textarea {
     padding: 0 !important;
     font-size: 18px !important;
     line-height: 1 !important;
-    font-weight: 200 !important;
+    font-weight: 300 !important;
     letter-spacing: .42em !important;
     color: var(--ink) !important;
     text-align: left !important;
@@ -2362,7 +2375,7 @@ button, input, select, textarea {
 
 
 <style id="mobile-header-final-fix">
-/* En-tête mobile : priorité à la lisibilité, sans tasser la signature MATOBA. */
+/* En-tête mobile : priorité à la lisibilité, sans tasser la signature CIMENTA. */
 @media (max-width: 640px) {
   nav {
     min-height: 78px !important;
@@ -2383,8 +2396,9 @@ button, input, select, textarea {
   .nav-name .brand {
     font-size: 12px !important;
     line-height: 1 !important;
-    letter-spacing: .34em !important;
-    padding-left: .34em !important;
+    letter-spacing: .46em !important;
+    padding-left: 0 !important;
+    margin-right: -.46em !important;
     white-space: nowrap !important;
   }
 
@@ -2456,6 +2470,31 @@ button, input, select, textarea {
     letter-spacing: .045em !important;
   }
 }
+
+/* --- CIMENTA — logotype (charte v2, sections 01 et 02) --- */
+.brand{
+  font-family:'Poppins',sans-serif;
+  font-weight:300;
+  text-transform:uppercase;
+  letter-spacing:.46em;
+  padding-left:0;
+  margin-right:-.46em;
+  font-style:normal;
+  font-synthesis:none;
+  white-space:nowrap;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:geometricPrecision;
+}
+.gate-name .brand,.nav-name .brand,.ft-name .brand,
+.modele-quote .brand,.garantie-text .brand{font-weight:300;}
+
+.proj-intro{
+  max-width:56ch;
+  margin:-6px 0 34px;
+  font-size:13px;
+  line-height:1.75;
+  color:var(--stone);
+}
 </style>
 
 </head>
@@ -2464,18 +2503,18 @@ button, input, select, textarea {
    <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px;">
     <div class="gate-name" id="gateName">
      <span class="brand">
-      MΛTOBΛ
+      CIMENTA
      </span>
     </div>
     <div id="gateBaseline" style="font-size:11px;letter-spacing:.18em;color:var(--stone);text-transform:uppercase;font-weight:400;">
-     Construction · Rénovation · Aménagement
+     Construction
     </div>
    </div>
   </div>
   <nav id="nav">
    <a class="nav-name" href="/" style="display:flex;flex-direction:column;gap:4px;">
     <span class="brand">
-     MΛTOBΛ
+     CIMENTA
     </span>
     <span style="font-size:7.5px;letter-spacing:.16em;color:var(--stone);font-weight:400;text-transform:uppercase;">
      Contractant général
@@ -2484,7 +2523,7 @@ button, input, select, textarea {
      </span>
     </span>
     <span style="font-size:6.5px;line-height:1.35;letter-spacing:.13em;color:var(--stone);font-weight:400;text-transform:uppercase;">
-     Construction · Rénovation · Aménagement
+     Construction
     </span>
    </a>
    <ul class="nav-links">
@@ -2591,132 +2630,132 @@ button, input, select, textarea {
      <svg fill="none" viewbox="0 0 560 400" xmlns="http://www.w3.org/2000/svg">
       <defs>
        <pattern height="40" id="grid" patternunits="userSpaceOnUse" width="40">
-        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#eceae5" stroke-width=".5">
+        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e5e4e1" stroke-width=".5">
         </path>
        </pattern>
       </defs>
       <rect fill="url(#grid)" height="400" width="560">
       </rect>
-      <line class="dp dp4" stroke="#111" stroke-width="1.5" x1="0" x2="560" y1="340" y2="340">
+      <line class="dp dp4" stroke="#111111" stroke-width="1.5" x1="0" x2="560" y1="340" y2="340">
       </line>
-      <rect class="dp dp4" fill="none" height="20" stroke="#111" stroke-width=".8" width="480" x="40" y="340">
+      <rect class="dp dp4" fill="none" height="20" stroke="#111111" stroke-width=".8" width="480" x="40" y="340">
       </rect>
-      <line class="dp dp4" stroke="#111" stroke-width=".5" x1="40" x2="60" y1="340" y2="360">
+      <line class="dp dp4" stroke="#111111" stroke-width=".5" x1="40" x2="60" y1="340" y2="360">
       </line>
-      <line class="dp dp4" stroke="#111" stroke-width=".5" x1="80" x2="100" y1="340" y2="360">
+      <line class="dp dp4" stroke="#111111" stroke-width=".5" x1="80" x2="100" y1="340" y2="360">
       </line>
-      <line class="dp dp4" stroke="#111" stroke-width=".5" x1="120" x2="140" y1="340" y2="360">
+      <line class="dp dp4" stroke="#111111" stroke-width=".5" x1="120" x2="140" y1="340" y2="360">
       </line>
-      <line class="dp dp4" stroke="#111" stroke-width=".5" x1="160" x2="180" y1="340" y2="360">
+      <line class="dp dp4" stroke="#111111" stroke-width=".5" x1="160" x2="180" y1="340" y2="360">
       </line>
-      <line class="dp dp4" stroke="#111" stroke-width=".5" x1="200" x2="220" y1="340" y2="360">
+      <line class="dp dp4" stroke="#111111" stroke-width=".5" x1="200" x2="220" y1="340" y2="360">
       </line>
-      <line class="dp dp4" stroke="#111" stroke-width=".5" x1="240" x2="260" y1="340" y2="360">
+      <line class="dp dp4" stroke="#111111" stroke-width=".5" x1="240" x2="260" y1="340" y2="360">
       </line>
-      <line class="dp dp4" stroke="#111" stroke-width=".5" x1="280" x2="300" y1="340" y2="360">
+      <line class="dp dp4" stroke="#111111" stroke-width=".5" x1="280" x2="300" y1="340" y2="360">
       </line>
-      <line class="dp dp4" stroke="#111" stroke-width=".5" x1="320" x2="340" y1="340" y2="360">
+      <line class="dp dp4" stroke="#111111" stroke-width=".5" x1="320" x2="340" y1="340" y2="360">
       </line>
-      <line class="dp dp4" stroke="#111" stroke-width=".5" x1="360" x2="380" y1="340" y2="360">
+      <line class="dp dp4" stroke="#111111" stroke-width=".5" x1="360" x2="380" y1="340" y2="360">
       </line>
-      <line class="dp dp4" stroke="#111" stroke-width=".5" x1="400" x2="420" y1="340" y2="360">
+      <line class="dp dp4" stroke="#111111" stroke-width=".5" x1="400" x2="420" y1="340" y2="360">
       </line>
-      <line class="dp dp4" stroke="#111" stroke-width=".5" x1="440" x2="460" y1="340" y2="360">
+      <line class="dp dp4" stroke="#111111" stroke-width=".5" x1="440" x2="460" y1="340" y2="360">
       </line>
-      <line class="dp dp4" stroke="#111" stroke-width=".5" x1="480" x2="500" y1="340" y2="360">
+      <line class="dp dp4" stroke="#111111" stroke-width=".5" x1="480" x2="500" y1="340" y2="360">
       </line>
-      <rect class="dp" fill="rgba(0,0,0,0.06)" height="280" stroke="#111" stroke-width="1" width="20" x="40" y="60">
+      <rect class="dp" fill="rgba(0,0,0,0.06)" height="280" stroke="#111111" stroke-width="1" width="20" x="40" y="60">
       </rect>
-      <rect class="dp" fill="rgba(0,0,0,0.06)" height="280" stroke="#111" stroke-width="1" width="20" x="500" y="60">
+      <rect class="dp" fill="rgba(0,0,0,0.06)" height="280" stroke="#111111" stroke-width="1" width="20" x="500" y="60">
       </rect>
-      <rect class="dp dp2" fill="rgba(0,0,0,0.04)" height="12" stroke="#111" stroke-width=".8" width="480" x="40" y="220">
+      <rect class="dp dp2" fill="rgba(0,0,0,0.04)" height="12" stroke="#111111" stroke-width=".8" width="480" x="40" y="220">
       </rect>
-      <rect class="dp dp2" fill="rgba(0,0,0,0.04)" height="12" stroke="#111" stroke-width=".8" width="480" x="40" y="120">
+      <rect class="dp dp2" fill="rgba(0,0,0,0.04)" height="12" stroke="#111111" stroke-width=".8" width="480" x="40" y="120">
       </rect>
-      <path class="dp dp2" d="M 20 60 L 280 16 L 540 60 L 520 60 L 280 36 L 40 60 Z" fill="rgba(0,0,0,0.05)" stroke="#111" stroke-width="1">
+      <path class="dp dp2" d="M 20 60 L 280 16 L 540 60 L 520 60 L 280 36 L 40 60 Z" fill="rgba(0,0,0,0.05)" stroke="#111111" stroke-width="1">
       </path>
-      <rect class="dp dp2" fill="rgba(0,0,0,0.04)" height="160" stroke="#111" stroke-width=".7" width="10" x="170" y="60">
+      <rect class="dp dp2" fill="rgba(0,0,0,0.04)" height="160" stroke="#111111" stroke-width=".7" width="10" x="170" y="60">
       </rect>
-      <rect class="dp dp2" fill="rgba(0,0,0,0.04)" height="160" stroke="#111" stroke-width=".7" width="10" x="380" y="60">
+      <rect class="dp dp2" fill="rgba(0,0,0,0.04)" height="160" stroke="#111111" stroke-width=".7" width="10" x="380" y="60">
       </rect>
-      <rect class="dp dp3" fill="rgba(0,0,0,0.04)" height="108" stroke="#111" stroke-width=".7" width="10" x="170" y="232">
+      <rect class="dp dp3" fill="rgba(0,0,0,0.04)" height="108" stroke="#111111" stroke-width=".7" width="10" x="170" y="232">
       </rect>
-      <rect class="dp dp3" fill="rgba(0,0,0,0.04)" height="108" stroke="#111" stroke-width=".7" width="10" x="380" y="232">
+      <rect class="dp dp3" fill="rgba(0,0,0,0.04)" height="108" stroke="#111111" stroke-width=".7" width="10" x="380" y="232">
       </rect>
-      <rect class="dp dp3" fill="white" height="60" stroke="#111" stroke-width=".8" width="80" x="72" y="140">
+      <rect class="dp dp3" fill="white" height="60" stroke="#111111" stroke-width=".8" width="80" x="72" y="140">
       </rect>
-      <line class="dp dp3" stroke="#111" stroke-width=".5" x1="112" x2="112" y1="140" y2="200">
+      <line class="dp dp3" stroke="#111111" stroke-width=".5" x1="112" x2="112" y1="140" y2="200">
       </line>
-      <line class="dp dp3" stroke="#111" stroke-width=".5" x1="72" x2="152" y1="170" y2="170">
+      <line class="dp dp3" stroke="#111111" stroke-width=".5" x1="72" x2="152" y1="170" y2="170">
       </line>
-      <rect class="dp dp3" fill="white" height="60" stroke="#111" stroke-width=".8" width="174" x="196" y="140">
+      <rect class="dp dp3" fill="white" height="60" stroke="#111111" stroke-width=".8" width="174" x="196" y="140">
       </rect>
-      <line class="dp dp3" stroke="#111" stroke-width=".5" x1="283" x2="283" y1="140" y2="200">
+      <line class="dp dp3" stroke="#111111" stroke-width=".5" x1="283" x2="283" y1="140" y2="200">
       </line>
-      <line class="dp dp3" stroke="#111" stroke-width=".5" x1="196" x2="370" y1="170" y2="170">
+      <line class="dp dp3" stroke="#111111" stroke-width=".5" x1="196" x2="370" y1="170" y2="170">
       </line>
-      <rect class="dp dp3" fill="white" height="60" stroke="#111" stroke-width=".8" width="80" x="408" y="140">
+      <rect class="dp dp3" fill="white" height="60" stroke="#111111" stroke-width=".8" width="80" x="408" y="140">
       </rect>
-      <line class="dp dp3" stroke="#111" stroke-width=".5" x1="448" x2="448" y1="140" y2="200">
+      <line class="dp dp3" stroke="#111111" stroke-width=".5" x1="448" x2="448" y1="140" y2="200">
       </line>
-      <line class="dp dp3" stroke="#111" stroke-width=".5" x1="408" x2="488" y1="170" y2="170">
+      <line class="dp dp3" stroke="#111111" stroke-width=".5" x1="408" x2="488" y1="170" y2="170">
       </line>
-      <rect class="dp dp3" fill="white" height="70" stroke="#111" stroke-width=".8" width="80" x="72" y="248">
+      <rect class="dp dp3" fill="white" height="70" stroke="#111111" stroke-width=".8" width="80" x="72" y="248">
       </rect>
-      <line class="dp dp4" stroke="#111" stroke-width=".5" x1="112" x2="112" y1="248" y2="318">
+      <line class="dp dp4" stroke="#111111" stroke-width=".5" x1="112" x2="112" y1="248" y2="318">
       </line>
-      <line class="dp dp4" stroke="#111" stroke-width=".5" x1="72" x2="152" y1="283" y2="283">
+      <line class="dp dp4" stroke="#111111" stroke-width=".5" x1="72" x2="152" y1="283" y2="283">
       </line>
-      <rect class="dp dp3" fill="white" height="80" stroke="#111" stroke-width=".9" width="100" x="230" y="260">
+      <rect class="dp dp3" fill="white" height="80" stroke="#111111" stroke-width=".9" width="100" x="230" y="260">
       </rect>
-      <path class="dp dp4" d="M230 260 Q280 230 330 260" fill="none" stroke="#111" stroke-width=".75">
+      <path class="dp dp4" d="M230 260 Q280 230 330 260" fill="none" stroke="#111111" stroke-width=".75">
       </path>
-      <line class="dp dp4" stroke="#111" stroke-width="1.2" x1="250" x2="262" y1="302" y2="302">
+      <line class="dp dp4" stroke="#111111" stroke-width="1.2" x1="250" x2="262" y1="302" y2="302">
       </line>
-      <rect class="dp dp3" fill="white" height="70" stroke="#111" stroke-width=".8" width="80" x="408" y="248">
+      <rect class="dp dp3" fill="white" height="70" stroke="#111111" stroke-width=".8" width="80" x="408" y="248">
       </rect>
-      <line class="dp dp4" stroke="#111" stroke-width=".5" x1="448" x2="448" y1="248" y2="318">
+      <line class="dp dp4" stroke="#111111" stroke-width=".5" x1="448" x2="448" y1="248" y2="318">
       </line>
-      <line class="dp dp4" stroke="#111" stroke-width=".5" x1="408" x2="488" y1="283" y2="283">
+      <line class="dp dp4" stroke="#111111" stroke-width=".5" x1="408" x2="488" y1="283" y2="283">
       </line>
       <g class="dl">
-       <line stroke="#9a9792" stroke-width=".6" x1="16" x2="16" y1="132" y2="220">
+       <line stroke="#908f8d" stroke-width=".6" x1="16" x2="16" y1="132" y2="220">
        </line>
-       <line stroke="#9a9792" stroke-width=".6" x1="10" x2="22" y1="132" y2="132">
+       <line stroke="#908f8d" stroke-width=".6" x1="10" x2="22" y1="132" y2="132">
        </line>
-       <line stroke="#9a9792" stroke-width=".6" x1="10" x2="22" y1="220" y2="220">
+       <line stroke="#908f8d" stroke-width=".6" x1="10" x2="22" y1="220" y2="220">
        </line>
-       <text fill="#9a9792" font-family="Space Mono,monospace" font-size="7" letter-spacing="0.5" text-anchor="middle" transform="rotate(-90,8,180)" x="8" y="180">
+       <text fill="#908f8d" font-family="Poppins,monospace" font-size="7" letter-spacing="0.5" text-anchor="middle" transform="rotate(-90,8,180)" x="8" y="180">
         2.70 m
        </text>
-       <line stroke="#9a9792" stroke-width=".6" x1="16" x2="16" y1="232" y2="340">
+       <line stroke="#908f8d" stroke-width=".6" x1="16" x2="16" y1="232" y2="340">
        </line>
-       <line stroke="#9a9792" stroke-width=".6" x1="10" x2="22" y1="232" y2="232">
+       <line stroke="#908f8d" stroke-width=".6" x1="10" x2="22" y1="232" y2="232">
        </line>
-       <line stroke="#9a9792" stroke-width=".6" x1="10" x2="22" y1="340" y2="340">
+       <line stroke="#908f8d" stroke-width=".6" x1="10" x2="22" y1="340" y2="340">
        </line>
-       <text fill="#9a9792" font-family="Space Mono,monospace" font-size="7" letter-spacing="0.5" text-anchor="middle" transform="rotate(-90,8,292)" x="8" y="292">
+       <text fill="#908f8d" font-family="Poppins,monospace" font-size="7" letter-spacing="0.5" text-anchor="middle" transform="rotate(-90,8,292)" x="8" y="292">
         3.00 m
        </text>
-       <line stroke="#9a9792" stroke-width=".6" x1="40" x2="520" y1="376" y2="376">
+       <line stroke="#908f8d" stroke-width=".6" x1="40" x2="520" y1="376" y2="376">
        </line>
-       <line stroke="#9a9792" stroke-width=".6" x1="40" x2="40" y1="370" y2="382">
+       <line stroke="#908f8d" stroke-width=".6" x1="40" x2="40" y1="370" y2="382">
        </line>
-       <line stroke="#9a9792" stroke-width=".6" x1="520" x2="520" y1="370" y2="382">
+       <line stroke="#908f8d" stroke-width=".6" x1="520" x2="520" y1="370" y2="382">
        </line>
-       <text fill="#9a9792" font-family="Space Mono,monospace" font-size="7.5" letter-spacing="1" text-anchor="middle" x="280" y="390">
+       <text fill="#908f8d" font-family="Poppins,monospace" font-size="7.5" letter-spacing="1" text-anchor="middle" x="280" y="390">
         L = 24.00 m
        </text>
-       <text fill="#c0bdb8" font-family="Space Mono,monospace" font-size="7" letter-spacing="1.5" text-anchor="middle" x="280" y="406">
+       <text fill="#aaa9a7" font-family="Poppins,monospace" font-size="7" letter-spacing="1.5" text-anchor="middle" x="280" y="406">
         COUPE TRANSVERSALE — ÉCH. 1/100
        </text>
-       <text fill="#9a9792" font-family="Space Mono,monospace" font-size="7" letter-spacing="0.5" x="530" y="344">
+       <text fill="#908f8d" font-family="Poppins,monospace" font-size="7" letter-spacing="0.5" x="530" y="344">
         RDC
        </text>
-       <text fill="#9a9792" font-family="Space Mono,monospace" font-size="7" letter-spacing="0.5" x="530" y="224">
+       <text fill="#908f8d" font-family="Poppins,monospace" font-size="7" letter-spacing="0.5" x="530" y="224">
         R+1
        </text>
-       <text fill="#9a9792" font-family="Space Mono,monospace" font-size="7" letter-spacing="0.5" x="530" y="64">
+       <text fill="#908f8d" font-family="Poppins,monospace" font-size="7" letter-spacing="0.5" x="530" y="64">
         R+2
        </text>
       </g>
@@ -2777,9 +2816,9 @@ button, input, select, textarea {
     </div>
     <div class="orga-arrow">
      <svg fill="none" viewbox="0 0 20 20">
-      <line stroke="#111" stroke-width="1" x1="2" x2="15" y1="10" y2="10">
+      <line stroke="#111111" stroke-width="1" x1="2" x2="15" y1="10" y2="10">
       </line>
-      <polyline fill="none" points="11,6 15,10 11,14" stroke="#111" stroke-width="1">
+      <polyline fill="none" points="11,6 15,10 11,14" stroke="#111111" stroke-width="1">
       </polyline>
      </svg>
      <span class="orga-arrow-label">
@@ -2792,7 +2831,7 @@ button, input, select, textarea {
      </div>
      <div class="orga-title">
       <span class="brand">
-       MΛTOBΛ
+       CIMENTA
       </span>
      </div>
      <div class="orga-sub">
@@ -2807,9 +2846,9 @@ button, input, select, textarea {
     </div>
     <div class="orga-arrow">
      <svg fill="none" viewbox="0 0 20 20">
-      <line stroke="#111" stroke-width="1" x1="2" x2="15" y1="10" y2="10">
+      <line stroke="#111111" stroke-width="1" x1="2" x2="15" y1="10" y2="10">
       </line>
-      <polyline fill="none" points="11,6 15,10 11,14" stroke="#111" stroke-width="1">
+      <polyline fill="none" points="11,6 15,10 11,14" stroke="#111111" stroke-width="1">
       </polyline>
      </svg>
      <span class="orga-arrow-label">
@@ -2867,7 +2906,7 @@ button, input, select, textarea {
     </div>
     <div class="garantie-text">
      <span class="brand">
-      MΛTOBΛ
+      CIMENTA
      </span>
      reste votre
      <strong>
@@ -2947,7 +2986,7 @@ button, input, select, textarea {
     </div>
     <div>
      <p class="lead apropos-text">
-      Deux associés qui ont créé MΛTOBΛ parce qu'ils en avaient assez de voir des clients perdus entre dix interlocuteurs, des projets professionnels livrés en retard et des budgets qui dérapent.
+      Deux associés qui ont créé CIMENTA parce qu'ils en avaient assez de voir des clients perdus entre dix interlocuteurs, des projets professionnels livrés en retard et des budgets qui dérapent.
      </p>
      <p class="apropos-conclusion">
       On a pris la responsabilité
@@ -3078,11 +3117,14 @@ button, input, select, textarea {
   </section>
   <section id="projets">
    <div class="eyebrow" data-reveal="">
-    Projets
+    Références
    </div>
    <h2 data-reveal="1">
-    Projets menés.
+    Opérations menées par les associés.
    </h2>
+   <p class="proj-intro" data-reveal="1">
+    Opérations conduites par Tom Piras et Max Garnier avant la création de CIMENTA. Les chantiers menés sous CIMENTA seront publiés à leur réception.
+   </p>
    <div class="proj-grid" data-reveal="2">
     <div class="proj">
      <div class="proj-tag">
@@ -3124,11 +3166,6 @@ button, input, select, textarea {
       Installation de climatisation et traitement de l'air — centre dentaire
      </div>
     </div>
-    <div class="proj" style="display:flex;align-items:center;justify-content:center;background:var(--fog);min-height:80px;">
-     <span style="font-family:'Inter',sans-serif;font-size:8px;letter-spacing:.2em;color:var(--stone);">
-      EN COURS
-     </span>
-    </div>
    </div>
   </section>
   <section class="bg-bone" id="contact">
@@ -3151,8 +3188,8 @@ button, input, select, textarea {
         Email
        </div>
        <div class="c-val">
-        <a href="mailto:contact@matoba.fr">
-         contact@matoba.fr
+        <a href="mailto:contact@cimenta.fr">
+         contact@cimenta.fr
         </a>
        </div>
       </div>
@@ -3167,8 +3204,8 @@ button, input, select, textarea {
      </div>
     </div>
     <div data-reveal="2">
-     <form action="https://formsubmit.co/contact@matoba.fr" class="form" id="contactForm" method="POST">
-      <input name="_subject" type="hidden" value="Nouveau message depuis matoba.fr"/>
+     <form action="https://formsubmit.co/contact@cimenta.fr" class="form" id="contactForm" method="POST">
+      <input name="_subject" type="hidden" value="Nouveau message depuis cimenta.fr"/>
       <input name="_captcha" type="hidden" value="false"/>
       <input name="_template" type="hidden" value="table"/>
       <input name="_next" type="hidden" value="https://matoba.pages.dev/?contact=success"/>
@@ -3331,10 +3368,10 @@ button, input, select, textarea {
    </div>
   </section>
   <footer>
-   <a aria-label="Accueil MATOBA" class="footer-brand" href="/">
+   <a aria-label="Accueil CIMENTA" class="footer-brand" href="/">
     <div class="ft-name">
      <span class="brand">
-      MΛTOBΛ
+      CIMENTA
      </span>
     </div>
     <div class="ft-baseline">
@@ -3343,7 +3380,7 @@ button, input, select, textarea {
    </a>
    <div class="footer-legal">
     <p class="footer-company">
-     © 2026 MATOBA — SAS au capital de 6 000 €
+     © 2026 CIMENTA — SAS au capital de 10 000 €
     </p>
     <div aria-label="Informations légales" class="footer-links" role="navigation">
      <a href="/mentions-legales.html">
@@ -3352,7 +3389,7 @@ button, input, select, textarea {
      <a href="/politique-confidentialite.html">
       Politique de confidentialité
      </a>
-     <a href="mailto:contact@matoba.fr">
+     <a href="mailto:contact@cimenta.fr">
       Contact
      </a>
     </div>
@@ -3360,9 +3397,9 @@ button, input, select, textarea {
   </footer>
   <script>
    window.addEventListener('load', () => {
-    if (window.resetMatobaScroll) window.resetMatobaScroll();
-    requestAnimationFrame(() => window.resetMatobaScroll && window.resetMatobaScroll());
-    setTimeout(() => window.resetMatobaScroll && window.resetMatobaScroll(), 150);
+    if (window.resetCimentaScroll) window.resetCimentaScroll();
+    requestAnimationFrame(() => window.resetCimentaScroll && window.resetCimentaScroll());
+    setTimeout(() => window.resetCimentaScroll && window.resetCimentaScroll(), 150);
     const gateName     = document.getElementById('gateName');
     const gateBaseline = document.getElementById('gateBaseline');
     if (gateName && gateBaseline) {
