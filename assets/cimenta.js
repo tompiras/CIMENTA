@@ -25,7 +25,7 @@
       if (e.key === 'Escape') setMenu(false);
     });
     window.addEventListener('resize', function () {
-      if (window.innerWidth > 900) setMenu(false);
+      if (window.innerWidth > 1180) setMenu(false);
     });
   }
 
