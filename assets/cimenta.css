@@ -645,3 +645,4 @@ ul.plain li { padding: 4px 0; font-size: 15px; color: var(--ink-soft); }
 @media (max-width: 700px) { .team-shared .team-tasks { grid-template-columns: repeat(2, auto); gap: 10px 24px; } }
 .about-txt + .about-txt { margin-top: 14px; }
 .about-types { margin-top: 26px; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-mute); }
+.team-shared { max-width: 860px; } .team-shared .team-tasks { gap: 12px 32px; }
