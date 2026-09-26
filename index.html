@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>CIMENTA — Contractant général à Marseille</title>
-  <meta name="description" content="CIMENTA, contractant général à Marseille : rénovation et construction tous corps d'état. Un contrat, un interlocuteur, un prix et une date de livraison fixés avant les travaux.">
+  <title>CIMENTA — Contractant général</title>
+  <meta name="description" content="CIMENTA, contractant général basé à Marseille, intervient partout en France : rénovation et construction tous corps d'état. Un contrat, un interlocuteur, un prix et une date de livraison fixés avant les travaux.">
   <link rel="canonical" href="https://cimenta.fr/">
   <meta name="theme-color" content="#111111">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="CIMENTA">
-  <meta property="og:title" content="CIMENTA — Contractant général à Marseille">
+  <meta property="og:title" content="CIMENTA — Contractant général">
   <meta property="og:description" content="Rénovation et construction tous corps d'état. Un contrat, un interlocuteur, une date de livraison.">
   <meta property="og:url" content="https://cimenta.fr/">
   <meta property="og:image" content="https://cimenta.fr/assets/og.png">
@@ -37,7 +37,7 @@
       "addressLocality": "Marseille",
       "addressCountry": "FR"
     },
-    "areaServed": ["Marseille", "Aix-en-Provence", "Toulon", "Provence-Alpes-Côte d'Azur"],
+    "areaServed": "France",
     "founder": [
       { "@type": "Person", "name": "Tom Piras" },
       { "@type": "Person", "name": "Max Garnier" }
@@ -46,10 +46,14 @@
   </script>
 </head>
 <body>
+  <div class="gate" id="gate" aria-hidden="true">
+    <div class="gate-logo"><span class="word">Cimenta</span><span class="act">Construction</span></div>
+  </div>
+  <script>try{if(sessionStorage.getItem('cimenta-gate')){document.getElementById('gate').remove();}else{sessionStorage.setItem('cimenta-gate','1');}}catch(e){}</script>
   <a class="skip" href="#main">Aller au contenu</a>
 
   <!-- Navigation -->
-  <header class="nav" id="nav">
+  <header class="nav light" id="nav">
     <div class="wrap">
       <a class="logo" href="/" aria-label="CIMENTA, accueil">
         <span class="word">Cimenta</span>
@@ -90,53 +94,38 @@
   <main id="main">
 
     <!-- Haut de page -->
-    <section class="hero dark" aria-labelledby="hero-title">
-      <div class="wrap hero-main">
-        <div>
-          <p class="label" data-reveal>Contractant général — Marseille</p>
-          <h1 id="hero-title" style="margin-top:22px" data-reveal>Rénovation et construction, un seul interlocuteur.</h1>
-          <p class="lead" data-reveal>Un contrat, un prix et une date de livraison fixés avant le début des travaux. Nous choisissons les entreprises, coordonnons le chantier et vous remettons les clés.</p>
-          <div class="ctas" data-reveal>
-            <a class="btn btn-solid" href="#contact">Présenter un projet <span class="arr" aria-hidden="true">→</span></a>
-            <a class="link" href="#methode">La méthode</a>
+    <section class="hero-a" aria-labelledby="hero-title">
+      <div class="wrap">
+        <h1 id="hero-title">Rénovation et construction.</h1>
+        <p class="sub">Un interlocuteur. Un contrat. Une date de livraison.</p>
+        <div class="ha-links">
+          <a class="btn btn-solid" href="#contact">Présenter un projet</a>
+          <a class="alink" href="#apropos">En savoir plus <span aria-hidden="true">›</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- À propos -->
+    <section class="section" id="apropos" aria-labelledby="apropos-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="label" data-reveal>01 · À propos</p>
+          <div data-reveal>
+            <h2 id="apropos-title">Une exigence, une méthode.</h2>
+            <p class="intro">CIMENTA accompagne les particuliers et les professionnels exigeants. Notre siège est à Marseille ; nous intervenons partout en France, selon les projets.</p>
+            <p class="intro" style="margin-top:14px">De la conception à la livraison, chaque projet est piloté avec la même attention au détail : appartement, maison, local commercial ou cabinet professionnel.</p>
           </div>
         </div>
-
-        <svg class="coupe" viewBox="0 0 560 420" fill="none" stroke="#F7F6F3" role="img" aria-label="Dessin : coupe transversale d'un bâtiment de trois niveaux">
-          <!-- sol et fondations -->
-          <path class="d" pathLength="1" stroke-width="1.2" d="M0 360H560"/>
-          <path class="d" pathLength="1" stroke-width=".5" stroke-opacity=".5" d="M0 374L12 362M14 374L26 362M28 374L40 362M42 374L54 362M126 374L138 362M140 374L152 362M154 374L166 362M168 374L180 362M182 374L194 362M196 374L208 362M210 374L222 362M224 374L236 362M238 374L250 362M252 374L264 362M266 374L278 362M280 374L292 362M294 374L306 362M308 374L320 362M322 374L334 362M336 374L348 362M350 374L362 362M364 374L376 362M378 374L390 362M392 374L404 362M406 374L418 362M420 374L432 362M434 374L446 362M518 374L530 362M532 374L544 362M546 374L558 362"/>
-          <path class="d" pathLength="1" stroke-width=".9" d="M52 360V384H112V360M448 360V384H508V360"/>
-          <!-- murs -->
-          <path class="d" pathLength="1" stroke-width="1" d="M60 360V60M72 360V70M488 360V70M500 360V60"/>
-          <!-- planchers et toiture -->
-          <path class="d d2" pathLength="1" stroke-width=".9" d="M72 250H488M72 240H488M72 150H488M72 140H488"/>
-          <path class="d d2" pathLength="1" stroke-width="1" d="M44 60H516M60 70H500M44 60V48H52V60M516 60V48H508V60"/>
-          <!-- cloisons, escalier, baies -->
-          <path class="d d3" pathLength="1" stroke-width=".6" d="M300 360V250M300 240V150M300 140V70"/>
-          <path class="d d3" pathLength="1" stroke-width=".7" d="M338 360H350V348H362V336H374V324H386V312H398V300H410V288H422V276H434V264H446V250"/>
-          <path class="d d3" pathLength="1" stroke-width=".7" d="M338 240H350V228H362V216H374V204H386V192H398V180H410V168H422V156H434V150"/>
-          <path class="d d3" pathLength="1" stroke-width=".5" stroke-opacity=".7" d="M488 290V330M494 290V330M500 290V330M488 190V230M494 190V230M500 190V230M488 95V125M494 95V125M500 95V125"/>
-          <!-- cotes -->
-          <path class="d d4" pathLength="1" stroke-width=".5" stroke-opacity=".6" d="M28 360V60M22 366L34 354M22 256L34 244M22 156L34 144M22 76L34 64M60 30H500M54 36L66 24M494 36L506 24"/>
-          <g class="t" fill="#F7F6F3" fill-opacity=".6" stroke="none" font-family="Poppins, sans-serif" font-size="9" letter-spacing="1.2">
-            <text x="18" y="305" transform="rotate(-90 18 305)" text-anchor="middle">3,00</text>
-            <text x="18" y="195" transform="rotate(-90 18 195)" text-anchor="middle">3,00</text>
-            <text x="18" y="105" transform="rotate(-90 18 105)" text-anchor="middle">2,70</text>
-            <text x="280" y="22" text-anchor="middle">24,00</text>
-            <text x="524" y="310">RDC</text>
-            <text x="524" y="200">R+1</text>
-            <text x="524" y="110">R+2</text>
-            <text x="0" y="410" letter-spacing="2">COUPE TRANSVERSALE — ÉCH. 1/100</text>
-          </g>
-        </svg>
-      </div>
-
-      <div class="wrap">
-        <div class="hero-facts" data-reveal>
-          <div><strong>1 contrat</strong><span>Prix et périmètre écrits avant le démarrage</span></div>
-          <div><strong>1 interlocuteur</strong><span>Du premier rendez-vous à la réception</span></div>
-          <div><strong>1 date de livraison</strong><span>Inscrite au contrat</span></div>
+        <div class="points" data-reveal>
+          <div><h3>Contractant général</h3><p>Un seul contrat pour l'ensemble des travaux, tous corps d'état.</p></div>
+          <div><h3>Conception intégrée</h3><p>Plans et choix techniques arrêtés avec des architectes, avant le début du chantier.</p></div>
+          <div><h3>Sur mesure</h3><p>Chaque projet est chiffré et organisé à partir de votre programme.</p></div>
+          <div><h3>Réactivité</h3><p>Un interlocuteur joignable, des entreprises choisies près de votre chantier.</p></div>
+        </div>
+        <div class="facts" data-reveal>
+          <div><strong>Marseille</strong><span>Siège</span></div>
+          <div><strong>France</strong><span>Zone d'intervention</span></div>
+          <div><strong>Tous corps d'état</strong><span>Coordonnés par CIMENTA</span></div>
         </div>
       </div>
     </section>
@@ -145,7 +134,7 @@
     <section class="section" id="methode" aria-labelledby="methode-title">
       <div class="wrap">
         <div class="sec-head">
-          <p class="label" data-reveal>01 · Méthode</p>
+          <p class="label" data-reveal>02 · Méthode</p>
           <div data-reveal>
             <h2 id="methode-title">Cinq étapes, un seul responsable.</h2>
             <p class="intro">Vous signez un contrat. CIMENTA porte la responsabilité du chantier, de la première visite à la réception.</p>
@@ -165,7 +154,7 @@
     <section class="section" id="prestations" aria-labelledby="prestations-title">
       <div class="wrap">
         <div class="sec-head">
-          <p class="label" data-reveal>02 · Prestations</p>
+          <p class="label" data-reveal>03 · Prestations</p>
           <div data-reveal>
             <h2 id="prestations-title">Tous corps d'état.</h2>
             <p class="intro">Nous réunissons les métiers nécessaires à votre projet et en assurons la coordination.</p>
@@ -197,7 +186,7 @@
     <section class="section" id="clients" aria-labelledby="clients-title">
       <div class="wrap">
         <div class="sec-head">
-          <p class="label" data-reveal>03 · Pour qui</p>
+          <p class="label" data-reveal>04 · Pour qui</p>
           <div data-reveal>
             <h2 id="clients-title">Particuliers, promoteurs, professionnels.</h2>
           </div>
@@ -225,11 +214,31 @@
       </div>
     </section>
 
+    <!-- Sécurité -->
+    <section class="section" id="garanties" aria-labelledby="garanties-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="label" data-reveal>05 · Sécurité</p>
+          <div data-reveal>
+            <h2 id="garanties-title">Vos garanties.</h2>
+            <p class="intro">Chaque chantier est couvert par les garanties légales et les assurances obligatoires du bâtiment.</p>
+          </div>
+        </div>
+        <div class="guarantees" data-reveal>
+          <div><span class="dur">1 an</span><h3>Garantie de parfait achèvement</h3><p>Réparation des désordres signalés dans l'année qui suit la réception.</p></div>
+          <div><span class="dur">2 ans</span><h3>Garantie de bon fonctionnement</h3><p>Couvre les équipements dissociables de l'ouvrage : volets, robinetterie, radiateurs.</p></div>
+          <div><span class="dur">10 ans</span><h3>Garantie décennale</h3><p>Couvre les dommages qui compromettent la solidité de l'ouvrage ou le rendent impropre à sa destination.</p></div>
+          <div><span class="dur">Chantier</span><h3>Responsabilité civile professionnelle</h3><p>Couvre les dommages causés aux tiers pendant les travaux.</p></div>
+        </div>
+        <p class="g-note" data-reveal>Les attestations d'assurance sont jointes à chaque devis.</p>
+      </div>
+    </section>
+
     <!-- Équipe -->
     <section class="section dark" id="equipe" aria-labelledby="equipe-title">
       <div class="wrap">
         <div class="sec-head">
-          <p class="label" data-reveal>04 · Équipe</p>
+          <p class="label" data-reveal>06 · Équipe</p>
           <div data-reveal>
             <h2 id="equipe-title">Un gestionnaire, un architecte.</h2>
             <p class="intro">CIMENTA est dirigée par ses deux co-fondateurs. Ils suivent chaque projet personnellement.</p>
@@ -254,7 +263,7 @@
     <section class="section" id="projets" aria-labelledby="projets-title">
       <div class="wrap">
         <div class="sec-head">
-          <p class="label" data-reveal>05 · Projets</p>
+          <p class="label" data-reveal>07 · Projets</p>
           <div data-reveal>
             <h2 id="projets-title">Projets menés.</h2>
           </div>
@@ -273,14 +282,14 @@
     <section class="section" id="contact" aria-labelledby="contact-title">
       <div class="wrap contact-grid">
         <div data-reveal>
-          <p class="label">06 · Contact</p>
+          <p class="label">08 · Contact</p>
           <h2 id="contact-title" style="margin-top:24px">Parlez-nous de votre projet.</h2>
           <p class="intro">Quelques informations suffisent. Nous vous rappelons pour fixer un premier rendez-vous.</p>
           <dl class="coords">
             <div><dt>E-mail</dt><dd><a href="mailto:contact@cimenta.fr">contact@cimenta.fr</a></dd></div>
             <div><dt>Téléphone</dt><dd><a href="tel:+33664773700">06 64 77 37 00</a></dd></div>
             <div><dt>Adresse</dt><dd>4 rue André Isaïa<br>13013 Marseille</dd></div>
-            <div><dt>Zone</dt><dd>Marseille et Provence-Alpes-Côte d'Azur</dd></div>
+            <div><dt>Zone</dt><dd>France</dd></div>
           </dl>
         </div>
 
@@ -298,7 +307,7 @@
             </div>
             <div class="row">
               <div class="field"><label for="f-tel">Téléphone</label><input id="f-tel" name="Téléphone" type="tel" autocomplete="tel" required></div>
-              <div class="field"><label for="f-lieu">Ville du projet</label><input id="f-lieu" name="Localisation" type="text" placeholder="Marseille 7e, Aix-en-Provence…"></div>
+              <div class="field"><label for="f-lieu">Ville du projet</label><input id="f-lieu" name="Localisation" type="text" placeholder="Marseille, Paris, Lyon…"></div>
             </div>
             <div class="field">
               <label for="f-type">Votre projet</label>

@@ -62,6 +62,13 @@
     history.replaceState(null, '', window.location.pathname + (q ? '?' + q : ''));
   }
 
+
+  // Écran d'accueil : un clic le ferme
+  var gate = document.getElementById('gate');
+  if (gate) {
+    gate.addEventListener('click', function () { gate.classList.add('out'); });
+  }
+
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 })();
