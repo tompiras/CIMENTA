@@ -1,423 +1,93 @@
 <!DOCTYPE html>
 <html lang="fr">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width,initial-scale=1" name="viewport"/>
-  <title>
-   Politique de confidentialité — MΛTOBΛ
-  </title>
-  <meta content="Politique de confidentialité du site MΛTOBΛ." name="description"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet"/>
-  <style>
-   :root{--i:#0a0a0a;--s:#6f6962;--r:#d9d4cc;--f:#f5f3ef;--x:clamp(24px,6vw,96px)}*{box-sizing:border-box;margin:0;padding:0}body{font-family:Inter,Arial,sans-serif;color:var(--i);-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}.nav{min-height:94px;padding:0 var(--x);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #eee}.brand{display:flex;flex-direction:column;gap:8px}.bn{font-size:18px;font-weight:200;letter-spacing:.52em;padding-left:.52em}.bs{font-size:7px;letter-spacing:.18em;text-transform:uppercase;color:var(--s);text-align:center}.back{font-size:11px;color:var(--s)}.hero{padding:clamp(80px,10vw,145px) var(--x) clamp(60px,8vw,100px);display:grid;grid-template-columns:1.15fr .85fr;gap:8vw;align-items:end}.k{font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--s);margin-bottom:22px}h1{font-size:clamp(54px,8vw,106px);font-weight:200;line-height:.92;letter-spacing:-.055em;max-width:10ch}.intro{font-size:15px;line-height:1.75;color:var(--s);max-width:34ch}.grid{padding:0 var(--x) clamp(90px,12vw,160px);display:grid;grid-template-columns:260px 1fr;gap:8vw}.toc{position:sticky;top:30px;align-self:start;border-top:1px solid var(--r);padding-top:22px}.toc b{display:block;font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--s);margin-bottom:14px}.toc a{display:block;font-size:12px;color:var(--s);padding:8px 0}.content{border-top:1px solid var(--r)}section{display:grid;grid-template-columns:210px 1fr;gap:5vw;padding:36px 0 40px;border-bottom:1px solid var(--r)}h2{font-size:15px;font-weight:400}.body{display:grid;gap:12px}p,li{font-size:14px;line-height:1.85;color:var(--s)}ul{padding-left:18px}strong{font-weight:500;color:var(--i)}.pending{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid var(--r);border-radius:999px;background:var(--f);font-size:10px;letter-spacing:.08em;text-transform:uppercase}.pending:before{content:'';width:6px;height:6px;border-radius:50%;background:#b3aaa0}.card{margin-top:36px;padding:32px;background:var(--f);display:flex;justify-content:space-between;align-items:center;gap:24px}.card a{padding:14px 18px;border:1px solid var(--i);font-size:11px}footer{background:#0c0c0c;color:#fff;padding:64px var(--x) 30px}.fi{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:end}.fm{text-align:right;font-size:10px;line-height:1.7;color:#999}.fl{display:flex;justify-content:flex-end;gap:20px;margin-top:14px;color:#eee}@media(max-width:900px){.hero,.grid,.fi{grid-template-columns:1fr}.toc{display:none}section{grid-template-columns:1fr}.fm{text-align:left}.fl{justify-content:flex-start}}@media(max-width:600px){.nav{min-height:76px}.bn{font-size:14px}.hero{padding-top:60px}h1{font-size:55px}.grid{padding-inline:20px}.card{flex-direction:column;align-items:flex-start}}
-   /* =========================================================
-   FOOTER LÉGAL — ALIGNÉ SUR LE SITE PRINCIPAL
-   ========================================================= */
-footer {
-  background: #fff;
-  color: var(--i);
-  padding: 38px var(--x) 30px;
-  border-top: 1px solid var(--r);
-}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Politique de confidentialité — CIMENTA</title>
+  <meta name="description" content="Données collectées par le site cimenta.fr, finalités, durées de conservation et droits des personnes.">
+  <link rel="canonical" href="https://cimenta.fr/politique-confidentialite.html">
+  <meta name="theme-color" content="#111111">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="CIMENTA">
+  <meta property="og:title" content="Politique de confidentialité — CIMENTA">
+  <meta property="og:description" content="Données collectées par le site cimenta.fr, finalités, durées de conservation et droits des personnes.">
+  <meta property="og:image" content="https://cimenta.fr/assets/og.png">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="preload" href="/assets/fonts/poppins-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/poppins-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/cimenta.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <a class="skip" href="#main">Aller au contenu</a>
 
-footer .fi {
-  display: grid;
-  grid-template-columns: minmax(220px, 1fr) minmax(320px, 1fr);
-  gap: 36px;
-  align-items: end;
-}
-
-footer .brand {
-  width: fit-content;
-  gap: 8px;
-}
-
-footer .bn {
-  color: var(--i);
-  font-size: 18px;
-  font-weight: 200;
-  letter-spacing: .52em;
-  padding-left: .52em;
-}
-
-footer .bs {
-  color: var(--s);
-  font-size: 7px;
-  letter-spacing: .18em;
-  text-align: center;
-}
-
-footer .fm {
-  text-align: right;
-  color: var(--s);
-  font-size: 10px;
-  line-height: 1.7;
-}
-
-footer .fl {
-  display: flex;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-  gap: 12px 20px;
-  margin-top: 14px;
-  color: var(--i);
-}
-
-footer .fl a {
-  font-size: 10px;
-  letter-spacing: .04em;
-  color: var(--i);
-}
-
-@media (max-width: 760px) {
-  footer {
-    padding: 28px 22px calc(26px + env(safe-area-inset-bottom));
-  }
-
-  footer .fi {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    align-items: start;
-  }
-
-  footer .brand {
-    align-items: flex-start;
-    text-align: left;
-  }
-
-  footer .bn {
-    font-size: 18px;
-    letter-spacing: .42em;
-    padding-left: 0;
-  }
-
-  footer .bs {
-    font-size: 6.5px;
-    letter-spacing: .12em;
-    text-align: left;
-    white-space: nowrap;
-  }
-
-  footer .fm {
-    text-align: left;
-    font-size: 9px;
-    line-height: 1.55;
-  }
-
-  footer .fl {
-    justify-content: flex-start;
-    gap: 10px 18px;
-    margin-top: 14px;
-    padding-top: 13px;
-    border-top: 1px solid var(--r);
-  }
-
-  footer .fl a {
-    font-size: 9px;
-    letter-spacing: .07em;
-    white-space: nowrap;
-  }
-}
-   /* Footer centré — desktop et mobile */
-footer,
-footer .fi,
-footer .brand,
-footer .fm,
-footer .fl {
-  text-align: center !important;
-  justify-items: center !important;
-  justify-content: center !important;
-  align-items: center !important;
-}
-
-footer .brand {
-  margin: 0 auto !important;
-}
-
-footer .bn,
-footer .bs {
-  text-align: center !important;
-}
-
-footer .fl {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  justify-content: center !important;
-}
-
-@media (max-width: 760px) {
-  footer .fi {
-    justify-items: center !important;
-  }
-
-  footer .brand,
-  footer .fm,
-  footer .fl {
-    width: 100% !important;
-    text-align: center !important;
-    justify-content: center !important;
-    align-items: center !important;
-  }
-
-  footer .bn,
-  footer .bs {
-    text-align: center !important;
-  }
-}
-  </style>
- </head>
- <body>
-  <header>
-   <div class="nav">
-    <a class="brand" href="/">
-     <div class="bn">
-      MΛTOBΛ
-     </div>
-     <div class="bs">
-      Conception · Ingénierie · Construction
-     </div>
-    </a>
-    <a class="back" href="/">
-     Retour au site
-    </a>
-   </div>
+  <header class="nav light" id="nav">
+    <div class="wrap">
+      <a class="logo" href="/" aria-label="CIMENTA, accueil">
+        <span class="word">Cimenta</span>
+        <span class="act">Construction</span>
+      </a>
+      <nav class="nav-links" aria-label="Navigation principale">
+        <a href="/#methode">Méthode</a>
+        <a href="/#prestations">Prestations</a>
+        <a href="/#clients">Pour qui</a>
+        <a href="/#equipe">Équipe</a>
+        <a href="/#projets">Projets</a>
+        <a class="btn" href="/#contact">Présenter un projet</a>
+      </nav>
+      <button class="burger" id="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="drawer">
+        <span></span><span></span>
+      </button>
+    </div>
   </header>
-  <main>
-   <div class="hero">
-    <div>
-     <div class="k">
-      Données personnelles
-     </div>
-     <h1>
-      Politique de confidentialité.
-     </h1>
+
+  <div class="drawer dark" id="drawer" aria-hidden="true">
+    <nav aria-label="Navigation mobile">
+      <a href="/">Accueil</a>
+      <a href="/#methode">Méthode</a>
+      <a href="/#prestations">Prestations</a>
+      <a href="/#equipe">Équipe</a>
+      <a href="/#projets">Projets</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+    <div class="drawer-foot">
+      <a class="btn btn-solid" href="/#contact">Présenter un projet <span class="arr" aria-hidden="true">→</span></a>
+      <a href="mailto:contact@cimenta.fr">contact@cimenta.fr</a>
+      <a href="tel:+33664773700">06 64 77 37 00</a>
     </div>
-    <p class="intro">
-     Une information claire sur les données collectées, leur utilisation et les droits dont vous disposez.
-    </p>
-   </div>
-   <div class="grid">
-    <aside class="toc">
-     <b>
-      Sommaire
-     </b>
-     <a href="#responsable">
-      Responsable
-     </a>
-     <a href="#donnees">
-      Données collectées
-     </a>
-     <a href="#finalites">
-      Finalités
-     </a>
-     <a href="#base">
-      Base légale
-     </a>
-     <a href="#destinataires">
-      Destinataires
-     </a>
-     <a href="#conservation">
-      Conservation
-     </a>
-     <a href="#droits">
-      Vos droits
-     </a>
-     <a href="#cookies">
-      Cookies
-     </a>
-     <a href="#securite">
-      Sécurité
-     </a>
-    </aside>
-    <div class="content">
-     <section id="responsable">
-      <h2>
-       Responsable du traitement
-      </h2>
-      <div class="body">
-       <p>
-        <strong>
-         MATOBA
-        </strong>
-        est responsable des traitements réalisés via le site
-        <strong>
-         matoba.fr
-        </strong>
-        .
-       </p>
-       <p>
-        Contact :
-        <a href="mailto:contact@matoba.fr">
-         <strong>
-          contact@matoba.fr
-         </strong>
-        </a>
-       </p>
+  </div>
+
+  <main id="main" class="legal">
+    <div class="wrap">
+      <p class="label">Données personnelles</p>
+      <h1 style="margin-top:20px">Politique de confidentialité.</h1>
+      <p class="intro">Les données collectées par le site, leur utilisation et les droits dont vous disposez.</p>
+      <div class="legal-grid">
+        <nav class="toc" aria-label="Sommaire"><a href="#responsable">Responsable du traitement</a><a href="#donnees">Données collectées</a><a href="#finalites">Finalités</a><a href="#base">Base légale</a><a href="#destinataires">Destinataires</a><a href="#conservation">Durée de conservation</a><a href="#droits">Vos droits</a><a href="#cookies">Cookies</a></nav>
+        <article><section id="responsable"><h2>Responsable du traitement</h2><p><strong>CIMENTA</strong>, SAS au capital de 5 000 €, 4 rue André Isaïa, 13013 Marseille, est responsable des traitements réalisés via le site cimenta.fr.</p><p>Contact : <a href="mailto:contact@cimenta.fr">contact@cimenta.fr</a>.</p></section><section id="donnees"><h2>Données collectées</h2><p>Via les formulaires du site, CIMENTA collecte :</p><ul><li>vos nom et prénom ;</li><li>votre adresse e-mail et votre numéro de téléphone ;</li><li>les informations relatives à votre projet (nature, localisation, budget, avancement) ;</li><li>le contenu de votre message.</li></ul></section><section id="finalites"><h2>Finalités</h2><ul><li>étudier votre demande et vous recontacter ;</li><li>préparer une proposition commerciale et, le cas échéant, un contrat ;</li><li>assurer la sécurité et le bon fonctionnement du site.</li></ul></section><section id="base"><h2>Base légale</h2><p>Les traitements reposent sur l'exécution de mesures précontractuelles prises à votre demande et, pour la sécurité du site, sur l'intérêt légitime de CIMENTA.</p></section><section id="destinataires"><h2>Destinataires</h2><p>Vos données sont accessibles aux seuls dirigeants de CIMENTA et aux prestataires techniques strictement nécessaires :</p><ul><li>Cloudflare, Inc. (hébergement du site) ;</li><li>FormSubmit (transmission des formulaires par e-mail) ;</li><li>OVHcloud (messagerie).</li></ul><p>Certains de ces prestataires sont situés hors de l'Union européenne. Vos données ne sont ni vendues ni cédées à des tiers.</p></section><section id="conservation"><h2>Durée de conservation</h2><p>Les données d'une demande sans suite sont conservées 3 ans à compter du dernier échange. Les données des clients sont conservées pendant la durée du contrat, puis archivées pendant les durées légales applicables.</p></section><section id="droits"><h2>Vos droits</h2><p>Vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation, d'opposition et de portabilité de vos données.</p><p>Pour les exercer, écrivez à <a href="mailto:contact@cimenta.fr">contact@cimenta.fr</a>. Vous pouvez également adresser une réclamation à la CNIL (cnil.fr).</p></section><section id="cookies"><h2>Cookies</h2><p>Le site ne dépose aucun cookie publicitaire ni de mesure d'audience. Seuls des cookies techniques nécessaires à la sécurité peuvent être déposés par l'hébergeur.</p><p>Les polices de caractères sont hébergées sur le site : aucune donnée n'est transmise à un service tiers lors de leur chargement.</p></section><p class="updated">Dernière mise à jour : 26 septembre 2026.</p></article>
       </div>
-     </section>
-     <section id="donnees">
-      <h2>
-       Données collectées
-      </h2>
-      <div class="body">
-       <p>
-        Selon les services utilisés, MATOBA peut collecter :
-       </p>
-       <ul>
-        <li>
-         vos nom et prénom ;
-        </li>
-        <li>
-         vos coordonnées ;
-        </li>
-        <li>
-         les informations relatives à votre projet ;
-        </li>
-        <li>
-         les messages et documents transmis ;
-        </li>
-        <li>
-         les données techniques nécessaires au fonctionnement et à la sécurité du site.
-        </li>
-       </ul>
-      </div>
-     </section>
-     <section id="finalites">
-      <h2>
-       Finalités
-      </h2>
-      <div class="body">
-       <ul>
-        <li>
-         répondre à vos demandes et étudier votre projet ;
-        </li>
-        <li>
-         organiser les échanges commerciaux et contractuels ;
-        </li>
-        <li>
-         gérer l’accès à l’espace client ;
-        </li>
-        <li>
-         assurer la sécurité, la maintenance et l’amélioration du site.
-        </li>
-       </ul>
-      </div>
-     </section>
-     <section id="base">
-      <h2>
-       Base légale
-      </h2>
-      <div class="body">
-       <p>
-        Les traitements reposent, selon leur nature, sur votre consentement, l’exécution de mesures précontractuelles, l’exécution d’un contrat, le respect d’une obligation légale ou l’intérêt légitime de MATOBA.
-       </p>
-      </div>
-     </section>
-     <section id="destinataires">
-      <h2>
-       Destinataires
-      </h2>
-      <div class="body">
-       <p>
-        Les données sont accessibles aux personnes habilitées au sein de MATOBA et aux prestataires techniques strictement nécessaires au fonctionnement du site, de l’authentification, du stockage et de l’hébergement.
-       </p>
-       <p>
-        Elles ne sont ni vendues ni cédées à des tiers à des fins commerciales.
-       </p>
-      </div>
-     </section>
-     <section id="conservation">
-      <h2>
-       Durée de conservation
-      </h2>
-      <div class="body">
-       <p>
-        Les données sont conservées pendant la durée nécessaire à la gestion de votre demande, de votre projet ou de la relation contractuelle, puis archivées pendant les durées légales applicables.
-       </p>
-      </div>
-     </section>
-     <section id="droits">
-      <h2>
-       Vos droits
-      </h2>
-      <div class="body">
-       <p>
-        Vous disposez d’un droit d’accès, de rectification, d’effacement, de limitation, d’opposition et, lorsque cela s’applique, de portabilité.
-       </p>
-       <p>
-        Vous pouvez exercer vos droits à
-        <a href="mailto:contact@matoba.fr">
-         <strong>
-          contact@matoba.fr
-         </strong>
-        </a>
-        et saisir la CNIL.
-       </p>
-      </div>
-     </section>
-     <section id="cookies">
-      <h2>
-       Cookies
-      </h2>
-      <div class="body">
-       <p>
-        Le site peut déposer des cookies strictement nécessaires à son fonctionnement, à sa sécurité et à la gestion de l’authentification.
-       </p>
-       <p>
-        Les cookies non essentiels ne sont déposés qu’après recueil de votre consentement.
-       </p>
-      </div>
-     </section>
-     <section id="securite">
-      <h2>
-       Sécurité
-      </h2>
-      <div class="body">
-       <p>
-        MATOBA met en œuvre des mesures techniques et organisationnelles adaptées afin de limiter les risques de perte, d’altération, de divulgation ou d’accès non autorisé aux données.
-       </p>
-       <p>
-        Dernière mise à jour : 5 août 2026.
-       </p>
-      </div>
-     </section>
-     <div class="card">
-      <p>
-       Une question concernant cette page ?
-      </p>
-      <a href="mailto:contact@matoba.fr">
-       Écrire à MΛTOBΛ
-      </a>
-     </div>
     </div>
-   </div>
   </main>
-  <footer>
-   <div class="fi">
-    <a class="brand" href="/">
-     <div class="bn">
-      MΛTOBΛ
-     </div>
-     <div class="bs">
-      Conception · Ingénierie · Construction
-     </div>
-    </a>
-    <div class="fm">
-     © 2026 MΛTOBΛ — SAS au capital de 6 000 €
-     <div class="fl">
-      <a href="/mentions-legales.html">
-       Mentions légales
-      </a>
-      <a href="/politique-confidentialite.html">
-       Confidentialité
-      </a>
-      <a href="mailto:contact@matoba.fr">
-       Contact
-      </a>
-     </div>
+
+  <footer class="footer dark">
+    <div class="wrap">
+      <div class="top">
+        <a class="logo" href="/" aria-label="CIMENTA, accueil"><span class="word">Cimenta</span><span class="act">Construction</span></a>
+        <div class="cols">
+          <div><a href="/#methode">Méthode</a><a href="/#prestations">Prestations</a><a href="/#projets">Projets</a><a href="/#contact">Contact</a></div>
+          <div><a href="mailto:contact@cimenta.fr">contact@cimenta.fr</a><a href="tel:+33664773700">06 64 77 37 00</a><span style="color:var(--iv-soft)">4 rue André Isaïa, 13013 Marseille</span></div>
+          <div><a href="/apporteur-affaires.html">Apporteurs d'affaires</a><a href="/mentions-legales.html">Mentions légales</a><a href="/politique-confidentialite.html">Confidentialité</a></div>
+        </div>
+      </div>
+      <div class="bottom">
+        <span>© <span id="year">2026</span> CIMENTA SAS — capital de 5 000 €</span>
+        <span>Contractant général</span>
+      </div>
     </div>
-   </div>
   </footer>
- </body>
+
+  <script src="/assets/cimenta.js" defer></script>
+</body>
 </html>

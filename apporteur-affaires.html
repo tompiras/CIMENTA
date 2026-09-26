@@ -1,488 +1,178 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>MΛTOBΛ — Présenter un projet</title>
-  <meta name="description" content="Présentez un projet à MΛTOBΛ. Nous vous indiquons si nous pouvons intervenir." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --ink: #0a0a0a;
-      --white: #fff;
-      --fog: #f7f6f4;
-      --bone: #eeece8;
-      --rule: #d8d5cf;
-      --stone: #6b6762;
-      --x: clamp(22px, 6vw, 96px);
-      --gap: clamp(70px, 9vw, 124px);
-      --ease: cubic-bezier(.16,1,.3,1);
-      --radius: 18px;
-      --radius-lg: 26px;
-      --shadow-soft: 0 12px 34px rgba(10,10,10,.055);
-      --shadow-card: 0 24px 70px rgba(10,10,10,.10);
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-    body {
-      font-family: Inter, sans-serif;
-      color: var(--ink);
-      background: var(--white);
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-      text-wrap: pretty;
-    }
-    a { color: inherit; text-decoration: none; }
-    button, input, select, textarea { font: inherit; -webkit-tap-highlight-color: transparent; }
-    button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
-      outline: 1px solid var(--ink);
-      outline-offset: 3px;
-    }
-
-    [data-reveal] { opacity: 0; transform: translateY(14px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
-    [data-reveal].on { opacity: 1; transform: none; }
-    [data-reveal="1"] { transition-delay: .08s; }
-    [data-reveal="2"] { transition-delay: .16s; }
-
-    nav {
-      position: fixed;
-      inset: 0 0 auto;
-      z-index: 300;
-      min-height: 76px;
-      padding: 16px var(--x);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      border-bottom: 1px solid rgba(216,213,207,.72);
-      background: rgba(255,255,255,.91);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-    }
-    .brand-link { display: flex; flex-direction: column; gap: 7px; min-width: 0; }
-    .brand-name { font-size: 13px; font-weight: 200; letter-spacing: .55em; padding-left: .55em; line-height: 1; }
-    .brand-sub { font-size: 7.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--stone); }
-    .nav-links { display: flex; align-items: center; gap: 20px; list-style: none; }
-    .nav-links a { font-size: 10.5px; color: var(--stone); white-space: nowrap; }
-    .nav-links a:hover { color: var(--ink); }
-    .nav-pill {
-      min-height: 38px;
-      padding: 0 16px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--rule);
-      border-radius: 999px;
-      background: var(--white);
-      color: var(--ink) !important;
-      font-size: 9.5px !important;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-    .nav-burger { display: none; width: 44px; height: 44px; border: 0; background: transparent; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
-    .nav-burger span { width: 24px; height: 1px; background: var(--ink); transition: .35s var(--ease); }
-    .nav-burger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
-    .nav-burger.open span:nth-child(2) { opacity: 0; }
-    .nav-burger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 250;
-      padding: calc(104px + env(safe-area-inset-top)) var(--x) calc(32px + env(safe-area-inset-bottom));
-      background: var(--white);
-      flex-direction: column;
-    }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a { padding: 17px 0; border-bottom: 1px solid var(--rule); font-size: 24px; font-weight: 200; }
-    .mobile-menu-footer { margin-top: auto; display: grid; gap: 10px; }
-    .mobile-menu-footer a { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--stone); }
-
-    .hero {
-      position: relative;
-      min-height: 100svh;
-      padding: 76px var(--x) 0;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      background: var(--white);
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 76px 0 0;
-      background: url('/hero.jpg') center right / cover no-repeat;
-      z-index: 0;
-    }
-    .hero::after {
-      content: '';
-      position: absolute;
-      inset: 76px 0 0;
-      z-index: 1;
-      background:
-        linear-gradient(90deg, rgba(255,255,255,.92) 10%, rgba(255,255,255,.64) 42%, rgba(255,255,255,.15) 79%),
-        linear-gradient(180deg, rgba(255,255,255,.28) 0%, rgba(255,255,255,.06) 38%, rgba(255,255,255,.26) 68%, rgba(255,255,255,.96) 100%);
-    }
-    .hero-inner {
-      position: relative;
-      z-index: 2;
-      flex: 1;
-      display: flex;
-      align-items: center;
-      padding: clamp(70px, 9vw, 118px) 0 clamp(52px, 7vw, 88px);
-    }
-    .hero-copy { max-width: 760px; }
-    .eyebrow { margin-bottom: 26px; font-size: 9px; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: var(--stone); }
-    h1 { max-width: 760px; font-size: clamp(42px, 5.6vw, 76px); font-weight: 300; line-height: .98; letter-spacing: -.04em; }
-    .hero-lead { max-width: 440px; margin-top: 24px; font-size: 14px; line-height: 1.85; color: var(--stone); }
-    .hero-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 30px; }
-    .btn {
-      min-height: 48px;
-      padding: 0 24px;
-      border: 1px solid var(--ink);
-      border-radius: 999px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 10px;
-      letter-spacing: .11em;
-      text-transform: uppercase;
-      transition: .2s;
-    }
-    .btn-dark { background: var(--ink); color: var(--white); }
-    .btn-light { background: rgba(255,255,255,.8); color: var(--ink); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
-    .btn:hover { transform: translateY(-1px); }
-
-    .hero-card {
-      align-self: center;
-      padding: clamp(26px, 4vw, 38px);
-      border: 1px solid rgba(216,213,207,.92);
-      border-radius: 28px;
-      background: rgba(255,255,255,.88);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      box-shadow: var(--shadow-card);
-    }
-    .hero-card-label { font-size: 8px; letter-spacing: .2em; text-transform: uppercase; color: var(--stone); }
-    .hero-card-title { margin-top: 14px; font-size: clamp(22px, 2.6vw, 31px); font-weight: 300; line-height: 1.15; letter-spacing: -.02em; }
-    .hero-card-list { margin-top: 24px; display: grid; gap: 0; }
-    .hero-card-row { padding: 13px 0; display: flex; gap: 12px; align-items: center; border-top: 1px solid var(--rule); font-size: 13px; color: var(--stone); }
-    .hero-card-num { width: 26px; height: 26px; display: grid; place-items: center; border-radius: 50%; background: var(--ink); color: var(--white); font-size: 9px; flex: 0 0 auto; }
-
-    .hero-baseline { display: none; }
-
-    section { padding: var(--gap) var(--x); }
-    .bg-fog { background: var(--fog); }
-    .bg-bone { background: var(--bone); }
-    .section-head { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(38px, 7vw, 96px); align-items: end; margin-bottom: clamp(38px, 5vw, 64px); }
-    h2 { font-size: clamp(30px, 3.8vw, 52px); font-weight: 300; line-height: 1.03; letter-spacing: -.035em; }
-    .lead { max-width: 500px; font-size: 14px; line-height: 1.85; color: var(--stone); }
-
-    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-    .step {
-      min-height: 210px;
-      padding: clamp(24px, 3vw, 34px);
-      border: 1px solid var(--rule);
-      border-radius: var(--radius-lg);
-      background: var(--white);
-      box-shadow: var(--shadow-soft);
-      display: flex;
-      flex-direction: column;
-    }
-    .step-num { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 50%; background: var(--fog); font-size: 9px; color: var(--stone); }
-    .step-title { margin-top: 44px; font-size: 20px; font-weight: 400; letter-spacing: -.02em; }
-    .step-text { margin-top: 12px; font-size: 13px; line-height: 1.75; color: var(--stone); }
-
-    .commitments { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
-    .commitment {
-      padding: 26px 28px;
-      border: 1px solid var(--rule);
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.8);
-      display: grid;
-      grid-template-columns: 36px 1fr;
-      gap: 16px;
-      align-items: start;
-    }
-    .commitment-icon { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 50%; background: var(--ink); color: var(--white); font-size: 12px; }
-    .commitment-title { font-size: 15px; font-weight: 500; }
-    .commitment-text { margin-top: 6px; font-size: 13px; line-height: 1.7; color: var(--stone); }
-
-    .project-types { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-    .project-type { padding: 24px 26px; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--white); box-shadow: var(--shadow-soft); }
-    .project-type-label { font-size: 8px; letter-spacing: .18em; text-transform: uppercase; color: var(--stone); }
-    .project-type-title { margin-top: 10px; font-size: 18px; font-weight: 400; }
-    .project-type-list { margin-top: 18px; list-style: none; display: grid; gap: 10px; color: var(--stone); font-size: 13px; line-height: 1.5; }
-
-    .notice {
-      margin-top: 22px;
-      padding: 20px 22px;
-      border: 1px solid var(--rule);
-      border-radius: var(--radius);
-      background: var(--white);
-      font-size: 13px;
-      line-height: 1.75;
-      color: var(--stone);
-    }
-    .notice strong { color: var(--ink); font-weight: 500; }
-
-    .contact-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(42px, 8vw, 110px); align-items: start; }
-    .contact-list { margin-top: 34px; }
-    .contact-row { padding: 13px 0; display: grid; grid-template-columns: 74px 1fr; gap: 16px; border-top: 1px solid var(--rule); }
-    .contact-row:last-child { border-bottom: 1px solid var(--rule); }
-    .contact-label { font-size: 8px; letter-spacing: .16em; text-transform: uppercase; color: var(--stone); }
-    .contact-value { font-size: 13px; }
-
-    .form { display: grid; gap: 14px; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .field { display: grid; gap: 7px; }
-    .label { font-size: 8.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--stone); }
-    .input, .select, .textarea {
-      width: 100%;
-      min-height: 52px;
-      padding: 14px 16px;
-      border: 1px solid var(--rule);
-      border-radius: 14px;
-      background: var(--white);
-      color: var(--ink);
-      font-size: 16px;
-      outline: 0;
-    }
-    .textarea { min-height: 126px; resize: vertical; line-height: 1.6; }
-    .input:focus, .select:focus, .textarea:focus { border-color: var(--ink); }
-    .submit {
-      width: fit-content;
-      min-height: 50px;
-      padding: 0 28px;
-      border: 0;
-      border-radius: 999px;
-      background: var(--ink);
-      color: var(--white);
-      font-size: 10px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      cursor: pointer;
-    }
-    .success { display: none; padding: 22px; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--white); color: var(--stone); font-size: 13px; line-height: 1.75; }
-
-    footer { padding: 28px var(--x) calc(28px + env(safe-area-inset-bottom)); border-top: 1px solid var(--rule); display: flex; flex-direction: column; align-items: center; gap: 9px; text-align: center; }
-    .footer-name { font-size: 13px; font-weight: 200; letter-spacing: .48em; padding-left: .48em; color: #666; }
-    .footer-sub { font-size: 9px; letter-spacing: .16em; color: var(--stone); }
-
-    @media (max-width: 900px) {
-      .hero-inner, .section-head, .contact-grid { grid-template-columns: 1fr; }
-      .hero-inner { align-items: end; }
-      .hero-card { max-width: 560px; }
-      .steps, .project-types { grid-template-columns: 1fr 1fr; }
-    }
-
-    @media (max-width: 700px) {
-      :root { --x: 18px; --gap: 60px; }
-      nav { min-height: 76px; padding-top: calc(14px + env(safe-area-inset-top)); padding-bottom: 14px; }
-      .nav-links { display: none; }
-      .nav-burger { display: flex; }
-      .brand-name { font-size: 12px; letter-spacing: .42em; padding-left: .42em; }
-      .brand-sub { font-size: 7px; }
-
-      .hero { min-height: auto; padding-top: calc(76px + env(safe-area-inset-top)); }
-      .hero::before, .hero::after { top: calc(76px + env(safe-area-inset-top)); bottom: auto; height: min(48svh, 430px); }
-      .hero::before { background-position: center center; transform: none; }
-      .hero::after {
-        background:
-          linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.03) 34%, rgba(255,255,255,.18) 54%, rgba(255,255,255,.78) 81%, rgba(255,255,255,.97) 93%, #fff 100%),
-          linear-gradient(90deg, rgba(255,255,255,.09), rgba(255,255,255,0) 62%);
-      }
-      .hero-inner { display: block; padding: 0 0 24px; }
-      .hero-copy {
-        position: relative;
-        margin-top: min(44svh, 390px);
-        padding: 24px 22px;
-        border: 1px solid rgba(216,213,207,.78);
-        border-radius: 24px;
-        background: #fff;
-        box-shadow: 0 18px 44px rgba(10,10,10,.075);
-      }
-      h1 { font-size: clamp(36px, 10.6vw, 50px); }
-      .hero-lead { margin-top: 16px; font-size: 13.5px; line-height: 1.65; }
-      .hero-actions { display: grid; grid-template-columns: 1fr; margin-top: 24px; }
-      .btn { width: 100%; }
-
-      section { padding: var(--gap) var(--x); }
-      .section-head { gap: 22px; margin-bottom: 30px; }
-      h2 { font-size: 31px; }
-      .steps, .project-types, .commitments { grid-template-columns: 1fr; }
-      .step { min-height: 0; padding: 22px 20px; }
-      .step-title { margin-top: 28px; }
-      .commitment { padding: 20px; grid-template-columns: 32px 1fr; }
-      .project-type { padding: 20px; }
-      .contact-grid { gap: 34px; }
-      .form-row { grid-template-columns: 1fr; }
-      .submit { width: 100%; }
-    }
-
-    @media (max-width: 370px) {
-      .brand-sub { display: none; }
-      h1 { font-size: 37px; }
-      .hero-baseline span { font-size: 8px; letter-spacing: .06em; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
-      html { scroll-behavior: auto; }
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Apporteurs d'affaires — CIMENTA</title>
+  <meta name="description" content="Architectes, agents immobiliers, notaires, artisans : présentez un projet de construction ou de rénovation à CIMENTA, contractant général à Marseille.">
+  <link rel="canonical" href="https://cimenta.fr/apporteur-affaires.html">
+  <meta name="theme-color" content="#111111">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="CIMENTA">
+  <meta property="og:title" content="Apporteurs d'affaires — CIMENTA">
+  <meta property="og:description" content="Architectes, agents immobiliers, notaires, artisans : présentez un projet de construction ou de rénovation à CIMENTA, contractant général à Marseille.">
+  <meta property="og:image" content="https://cimenta.fr/assets/og.png">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="preload" href="/assets/fonts/poppins-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/poppins-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/cimenta.css">
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
+  <a class="skip" href="#main">Aller au contenu</a>
 
-<nav>
-  <a href="/" class="brand-link" aria-label="Retour à l’accueil MΛTOBΛ">
-    <span class="brand-name">MΛTOBΛ</span>
-    <span class="brand-sub">Contractant général</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="/#modele">Notre modèle</a></li>
-    <li><a href="/#savoir-faire">Savoir-faire</a></li>
-    <li><a href="/#projets">Projets</a></li>
-    <li><a href="#contact">Nous contacter</a></li>
-    <li><a href="/suivi-chantier.html" class="nav-pill">Connexion</a></li>
-  </ul>
-  <button class="nav-burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" onclick="toggleMenu()"><span></span><span></span><span></span></button>
-</nav>
+  <header class="nav" id="nav">
+    <div class="wrap">
+      <a class="logo" href="/" aria-label="CIMENTA, accueil">
+        <span class="word">Cimenta</span>
+        <span class="act">Construction</span>
+      </a>
+      <nav class="nav-links" aria-label="Navigation principale">
+        <a href="/#methode">Méthode</a>
+        <a href="/#prestations">Prestations</a>
+        <a href="/#clients">Pour qui</a>
+        <a href="/#equipe">Équipe</a>
+        <a href="/#projets">Projets</a>
+        <a class="btn" href="/#contact">Présenter un projet</a>
+      </nav>
+      <button class="burger" id="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="drawer">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
 
-<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-  <a href="/" onclick="toggleMenu()">Accueil</a>
-  <a href="#principe" onclick="toggleMenu()">Comment ça fonctionne</a>
-  <a href="#projets" onclick="toggleMenu()">Projets étudiés</a>
-  <a href="#contact" onclick="toggleMenu()">Nous contacter</a>
-  <div class="mobile-menu-footer">
-    <a href="/suivi-chantier.html">Espace apporteur — Connexion</a>
-  </div>
-</div>
-
-<header class="hero">
-  <div class="hero-inner">
-    <div class="hero-copy">
-      <div class="eyebrow">Présenter un projet</div>
-      <h1>Vous connaissez<br>un projet ?</h1>
-      <p class="hero-lead">Présentez-le-nous. Nous vous indiquons si MΛTOBΛ peut intervenir.</p>
-      <div class="hero-actions">
-        <a href="#contact" class="btn btn-dark">Nous contacter</a>
-        <a href="/suivi-chantier.html" class="btn btn-light">Mon espace</a>
-      </div>
+  <div class="drawer dark" id="drawer" aria-hidden="true">
+    <nav aria-label="Navigation mobile">
+      <a href="/">Accueil</a>
+      <a href="/#methode">Méthode</a>
+      <a href="/#prestations">Prestations</a>
+      <a href="/#equipe">Équipe</a>
+      <a href="/#projets">Projets</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+    <div class="drawer-foot">
+      <a class="btn btn-solid" href="/#contact">Présenter un projet <span class="arr" aria-hidden="true">→</span></a>
+      <a href="mailto:contact@cimenta.fr">contact@cimenta.fr</a>
+      <a href="tel:+33664773700">06 64 77 37 00</a>
     </div>
   </div>
-</header>
 
-<main>
-  <section id="principe">
-    <div class="section-head">
-      <div>
-        <div class="eyebrow" data-reveal>Comment ça fonctionne</div>
-        <h2 data-reveal="1">Trois étapes simples.</h2>
-      </div>
-      
-    </div>
-    <div class="steps" data-reveal>
-      <article class="step"><div class="step-num">01</div><div class="step-title">Vous nous contactez</div><p class="step-text">Les informations essentielles du projet.</p></article>
-      <article class="step"><div class="step-num">02</div><div class="step-title">Nous étudions</div><p class="step-text">Nous vérifions si le projet correspond à notre activité.</p></article>
-      <article class="step"><div class="step-num">03</div><div class="step-title">Nous revenons vers vous</div><p class="step-text">Si le projet est retenu, nous définissons la suite.</p></article>
-    </div>
-  </section>
-
-
-  <section id="projets" class="bg-fog">
-    <div class="section-head">
-      <div>
-        <div class="eyebrow" data-reveal>Projets étudiés</div>
-        <h2 data-reveal="1">Nous intervenons notamment.</h2>
-      </div>
-      
-    </div>
-    <div class="project-types" data-reveal>
-      <article class="project-type"><div class="project-type-label">Résidentiel</div><div class="project-type-title">Habitations</div></article>
-      <article class="project-type"><div class="project-type-label">Commerce</div><div class="project-type-title">Commerces</div></article>
-      <article class="project-type"><div class="project-type-label">Professionnel</div><div class="project-type-title">Locaux professionnels</div></article>
-    </div>
-    <div class="notice">Chaque projet est étudié individuellement. Une collaboration n’est engagée qu’après validation des deux parties.</div>
-  </section>
-
-  <section class="bg-bone" id="contact">
-    <div class="contact-grid">
-      <div>
-        <div class="eyebrow" data-reveal>Présenter un projet</div>
-        <h2 data-reveal="1">Parlez-nous du projet.</h2>
-        <p class="lead" data-reveal="2" style="margin-top:20px;">Quelques informations suffisent pour démarrer l’étude.</p>
-        <div class="contact-list">
-          <div class="contact-row"><div class="contact-label">Email</div><div class="contact-value"><a href="mailto:contact@matoba.fr">contact@matoba.fr</a></div></div>
-          <div class="contact-row"><div class="contact-label">Zone</div><div class="contact-value">Provence-Alpes-Côte d’Azur</div></div>
+  <main id="main">
+    <section class="page-hero dark" aria-labelledby="ap-title">
+      <div class="wrap">
+        <p class="label" data-reveal>Apporteurs d'affaires</p>
+        <h1 id="ap-title" data-reveal>Vous connaissez un projet ?</h1>
+        <p class="lead" data-reveal>Architectes, agents immobiliers, notaires, artisans : présentez-nous le projet. Nous vous indiquons si CIMENTA peut intervenir.</p>
+        <div class="ctas" data-reveal>
+          <a class="btn btn-solid" href="#presenter">Présenter un projet <span class="arr" aria-hidden="true">→</span></a>
+          <a class="link" href="#fonctionnement">Comment ça fonctionne</a>
         </div>
       </div>
-      <div data-reveal="2">
-        <form class="form" id="apporteurForm" action="https://formsubmit.co/contact@matoba.fr" method="POST">
-          <input type="hidden" name="_subject" value="Nouveau projet présenté à MΛTOBΛ" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_next" value="https://matoba.pages.dev/apporteur-affaires.html?contact=success#contact" />
-          <label class="field"><span class="label">Nom</span><input class="input" type="text" name="nom" placeholder="Votre nom" required /></label>
-          <div class="form-row">
-            <label class="field"><span class="label">Email</span><input class="input" type="email" name="email" placeholder="votre@email.fr" required /></label>
-            <label class="field"><span class="label">Téléphone</span><input class="input" type="tel" name="telephone" placeholder="06 00 00 00 00" required /></label>
+    </section>
+
+    <section class="section" id="fonctionnement" aria-labelledby="fn-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="label" data-reveal>01 · Fonctionnement</p>
+          <div data-reveal><h2 id="fn-title">Trois étapes.</h2></div>
+        </div>
+        <ol class="steps three" data-reveal>
+          <li><span class="n">01</span><h3>Vous présentez le projet</h3><p>Nature des travaux, localisation et coordonnées du porteur de projet.</p></li>
+          <li><span class="n">02</span><h3>Nous l'étudions</h3><p>Nous vérifions qu'il correspond à notre activité et à notre zone d'intervention.</p></li>
+          <li><span class="n">03</span><h3>Nous revenons vers vous</h3><p>Si le projet est retenu, nous convenons ensemble des suites.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="projets-etudies" aria-labelledby="pe-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="label" data-reveal>02 · Projets étudiés</p>
+          <div data-reveal>
+            <h2 id="pe-title">Ce que nous étudions.</h2>
+            <p class="intro">Chaque projet est étudié individuellement. Une collaboration n'est engagée qu'après accord écrit des deux parties.</p>
           </div>
-          <label class="field"><span class="label">Type de projet</span><select class="select" name="type_de_projet" required><option value="" selected disabled>Sélectionnez une catégorie</option><option>Résidentiel</option><option>Commerce ou restauration</option><option>Professionnel ou tertiaire</option><option>Autre</option></select></label>
-          <label class="field"><span class="label">Informations</span><textarea class="textarea" name="message" placeholder="Localisation, type de projet et coordonnées du contact…" required></textarea></label>
-          <button class="submit" type="submit">Envoyer le projet</button>
-        </form>
-        <div class="success" id="success">Votre projet a bien été envoyé.<br>Nous revenons vers vous rapidement.</div>
+        </div>
+        <div class="trades" data-reveal>
+          <div><h3>Résidentiel</h3><ul><li>Rénovation d'appartement</li><li>Rénovation de maison</li><li>Extension et surélévation</li></ul></div>
+          <div><h3>Promotion</h3><ul><li>Gestion de chantier</li><li>Opérations de logements</li><li>Restructuration d'immeuble</li></ul></div>
+          <div><h3>Commerce</h3><ul><li>Commerces et enseignes</li><li>Restaurants</li><li>Hôtellerie</li></ul></div>
+          <div><h3>Professionnel</h3><ul><li>Cabinets médicaux et dentaires</li><li>Bureaux</li><li>Locaux d'activité</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="presenter" aria-labelledby="pr-title">
+      <div class="wrap contact-grid">
+        <div data-reveal>
+          <p class="label">03 · Présenter un projet</p>
+          <h2 id="pr-title" style="margin-top:24px">Parlez-nous du projet.</h2>
+          <p class="intro">Quelques informations suffisent pour démarrer l'étude.</p>
+          <dl class="coords">
+            <div><dt>E-mail</dt><dd><a href="mailto:contact@cimenta.fr">contact@cimenta.fr</a></dd></div>
+            <div><dt>Téléphone</dt><dd><a href="tel:+33664773700">06 64 77 37 00</a></dd></div>
+            <div><dt>Zone</dt><dd>Marseille et Provence-Alpes-Côte d'Azur</dd></div>
+          </dl>
+        </div>
+        <div data-reveal>
+          <form class="form" data-form="presenter" action="https://formsubmit.co/contact@cimenta.fr" method="POST">
+            <input type="hidden" name="_subject" value="Apporteur d'affaires — cimenta.fr">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://cimenta.fr/apporteur-affaires.html?envoi=ok">
+            <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <div class="row">
+              <div class="field"><label for="a-nom">Nom et prénom</label><input id="a-nom" name="Nom" type="text" autocomplete="name" required></div>
+              <div class="field"><label for="a-mail">E-mail</label><input id="a-mail" name="email" type="email" autocomplete="email" required></div>
+            </div>
+            <div class="row">
+              <div class="field"><label for="a-tel">Téléphone</label><input id="a-tel" name="Téléphone" type="tel" autocomplete="tel" required></div>
+              <div class="field">
+                <label for="a-type">Type de projet</label>
+                <select id="a-type" name="Type de projet" required>
+                  <option value="" disabled selected>Sélectionnez</option>
+                  <option>Résidentiel</option>
+                  <option>Promotion immobilière</option>
+                  <option>Commerce ou restauration</option>
+                  <option>Professionnel ou tertiaire</option>
+                  <option>Autre</option>
+                </select>
+              </div>
+            </div>
+            <div class="field"><label for="a-msg">Informations sur le projet</label><textarea id="a-msg" name="Informations" placeholder="Localisation, nature des travaux, délai, contact du porteur de projet…"></textarea></div>
+            <div class="form-foot">
+              <small>Vos informations servent uniquement à étudier le projet. <a href="/politique-confidentialite.html">Politique de confidentialité</a>.</small>
+              <button class="btn btn-solid" type="submit">Envoyer le projet <span class="arr" aria-hidden="true">→</span></button>
+            </div>
+          </form>
+          <div class="success" id="success" role="status">
+            <h3>Le projet a bien été envoyé.</h3>
+            <p>Nous revenons vers vous après étude.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer dark">
+    <div class="wrap">
+      <div class="top">
+        <a class="logo" href="/" aria-label="CIMENTA, accueil"><span class="word">Cimenta</span><span class="act">Construction</span></a>
+        <div class="cols">
+          <div><a href="/#methode">Méthode</a><a href="/#prestations">Prestations</a><a href="/#projets">Projets</a><a href="/#contact">Contact</a></div>
+          <div><a href="mailto:contact@cimenta.fr">contact@cimenta.fr</a><a href="tel:+33664773700">06 64 77 37 00</a><span style="color:var(--iv-soft)">4 rue André Isaïa, 13013 Marseille</span></div>
+          <div><a href="/apporteur-affaires.html">Apporteurs d'affaires</a><a href="/mentions-legales.html">Mentions légales</a><a href="/politique-confidentialite.html">Confidentialité</a></div>
+        </div>
+      </div>
+      <div class="bottom">
+        <span>© <span id="year">2026</span> CIMENTA SAS — capital de 5 000 €</span>
+        <span>Contractant général</span>
       </div>
     </div>
-  </section>
-</main>
+  </footer>
 
-<footer>
-  <a href="/" class="footer-name">MΛTOBΛ</a>
-  <div class="footer-sub">Conception&nbsp;&nbsp;|&nbsp;&nbsp;Ingénierie&nbsp;&nbsp;|&nbsp;&nbsp;Construction</div>
-</footer>
-
-<script>
-  function toggleMenu() {
-    const burger = document.getElementById('burger');
-    const menu = document.getElementById('mobileMenu');
-    const open = !menu.classList.contains('open');
-    menu.classList.toggle('open', open);
-    burger.classList.toggle('open', open);
-    burger.setAttribute('aria-expanded', String(open));
-    burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
-    menu.setAttribute('aria-hidden', String(!open));
-    document.body.style.overflow = open ? 'hidden' : '';
-  }
-
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && document.getElementById('mobileMenu').classList.contains('open')) toggleMenu();
-  });
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('on');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: .06, rootMargin: '0px 0px -24px' });
-
-  document.querySelectorAll('[data-reveal]').forEach(element => observer.observe(element));
-
-  const params = new URLSearchParams(window.location.search);
-  if (params.get('contact') === 'success') {
-    const form = document.getElementById('apporteurForm');
-    const success = document.getElementById('success');
-    if (form && success) {
-      form.style.display = 'none';
-      success.style.display = 'block';
-    }
-  }
-</script>
+  <script src="/assets/cimenta.js" defer></script>
 </body>
 </html>

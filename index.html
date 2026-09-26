@@ -1,3424 +1,379 @@
 <!DOCTYPE html>
 <html lang="fr">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
-  <title>
-   MΛTOBΛ — Contractant Général
-  </title>
-  <meta content="MΛTOBΛ conçoit, coordonne et réalise vos projets de construction, rénovation et aménagement en Provence-Alpes-Côte d’Azur." name="description"/>
-  <script>
-   (function () {
-      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-
-      // A full page opening must always start at the top.
-      // Internal anchor links continue to work normally after loading.
-      if (window.location.hash) {
-        history.replaceState(null, '', window.location.pathname + window.location.search);
-      }
-
-      window.resetMatobaScroll = function () {
-        window.scrollTo(0, 0);
-        document.documentElement.scrollTop = 0;
-        if (document.body) document.body.scrollTop = 0;
-      };
-
-      window.resetMatobaScroll();
-      window.addEventListener('pageshow', function () {
-        window.resetMatobaScroll();
-        requestAnimationFrame(window.resetMatobaScroll);
-        setTimeout(window.resetMatobaScroll, 80);
-        setTimeout(window.resetMatobaScroll, 300);
-      });
-    })();
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>CIMENTA — Contractant général à Marseille</title>
+  <meta name="description" content="CIMENTA, contractant général à Marseille : rénovation et construction tous corps d'état. Un contrat, un interlocuteur, un prix et une date de livraison fixés avant les travaux.">
+  <link rel="canonical" href="https://cimenta.fr/">
+  <meta name="theme-color" content="#111111">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="CIMENTA">
+  <meta property="og:title" content="CIMENTA — Contractant général à Marseille">
+  <meta property="og:description" content="Rénovation et construction tous corps d'état. Un contrat, un interlocuteur, une date de livraison.">
+  <meta property="og:url" content="https://cimenta.fr/">
+  <meta property="og:image" content="https://cimenta.fr/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="preload" href="/assets/fonts/poppins-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/poppins-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/cimenta.css">
+  <script>document.documentElement.classList.add('js');</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "GeneralContractor",
+    "name": "CIMENTA",
+    "url": "https://cimenta.fr/",
+    "email": "contact@cimenta.fr",
+    "telephone": "+33 6 64 77 37 00",
+    "image": "https://cimenta.fr/assets/og.png",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "4 rue André Isaïa",
+      "postalCode": "13013",
+      "addressLocality": "Marseille",
+      "addressCountry": "FR"
+    },
+    "areaServed": ["Marseille", "Aix-en-Provence", "Toulon", "Provence-Alpes-Côte d'Azur"],
+    "founder": [
+      { "@type": "Person", "name": "Tom Piras" },
+      { "@type": "Person", "name": "Max Garnier" }
+    ]
+  }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600&family=Space+Mono&display=swap" rel="stylesheet"/>
-  <style>
-   :root {
-  --ink: #0a0a0a;
-  --white: #ffffff;
-  --fog: #f7f6f4;
-  --bone: #eeece8;
-  --rule: #d8d5cf;
-  --stone: #6b6762;
-  --x: clamp(24px, 6vw, 96px);
-  --gap: clamp(72px, 10vw, 128px);
-  --ease: cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
-  overflow-anchor: none;
-}
-
-body {
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  background: var(--white);
-  color: var(--ink);
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-  overflow-anchor: none;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
-.brand {
-  font-family: 'Inter', sans-serif;
-  font-weight: inherit;
-  font-style: normal;
-  font-synthesis: none;
-  letter-spacing: inherit;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: geometricPrecision;
-}
-
-.gate-name .brand {
-  font-weight: 200;
-}
-
-.nav-name .brand {
-  font-weight: 200;
-}
-
-.ft-name .brand {
-  font-weight: 200;
-}
-
-.modele-quote .brand, .garantie-text .brand {
-  font-weight: 300;
-}
-
-[data-reveal] {
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity .9s var(--ease), transform .9s var(--ease);
-}
-
-[data-reveal].on {
-  opacity: 1;
-  transform: none;
-}
-
-[data-reveal="1"] {
-  transition-delay: .07s;
-}
-
-[data-reveal="2"] {
-  transition-delay: .15s;
-}
-
-[data-reveal="3"] {
-  transition-delay: .23s;
-}
-
-#gate {
-  position: fixed;
-  inset: 0;
-  z-index: 2000;
-  background: var(--white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity .7s var(--ease), visibility .7s;
-}
-
-#gate.out {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.gate-name {
-  font-size: clamp(24px, 5vw, 56px);
-  font-weight: 200;
-  letter-spacing: .9em;
-  padding-left: .9em;
-  color: var(--ink);
-  opacity: 0;
-  animation: up .8s var(--ease) .2s forwards;
-}
-
-@keyframes up {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: none;
-  }
-
-}
-
-nav {
-  position: fixed;
-  inset: 0 0 auto 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px var(--x);
-  border-bottom: 1px solid rgba(216,213,207,.7);
-  background: rgba(255,255,255,.88);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  transition: background .3s;
-}
-
-nav.stuck {
-  background: rgba(255,255,255,.96);
-  backdrop-filter: blur(16px);
-  border-color: var(--rule);
-}
-
-.nav-name {
-  font-size: 13px;
-  font-weight: 200;
-  letter-spacing: .72em;
-  padding-left: .72em;
-  color: var(--ink);
-}
-
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 20px;
-  flex-wrap: nowrap;
-  align-items: center;
-}
-
-.nav-links a {
-  font-size: 11px;
-  letter-spacing: .04em;
-  color: var(--stone);
-  transition: color .2s;
-  white-space: nowrap;
-}
-
-.nav-links a:hover {
-  color: var(--ink);
-}
-
-.nav-cta {
-  color: var(--ink) !important;
-  border-bottom: 1px solid var(--rule);
-  padding-bottom: 1px;
-}
-
-.nav-client-mobile {
-  display: none;
-  font-size: 10px;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--stone);
-  border: 1px solid var(--rule);
-  padding: 5px 10px;
-  white-space: nowrap;
-}
-
-.nav-mobile-actions {
-  display: none;
-}
-
-.nav-burger {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 4px;
-  flex-direction: column;
-  gap: 5px;
-  z-index: 300;
-}
-
-.nav-burger span {
-  display: block;
-  width: 22px;
-  height: 1px;
-  background: var(--ink);
-  transition: all .4s var(--ease);
-}
-
-.nav-burger:focus-visible {
-  outline: 1px solid var(--ink);
-  outline-offset: 3px;
-}
-
-.nav-burger.open span:nth-child(1) {
-  transform: translateY(6px) rotate(45deg);
-}
-
-.nav-burger.open span:nth-child(2) {
-  opacity: 0;
-}
-
-.nav-burger.open span:nth-child(3) {
-  transform: translateY(-6px) rotate(-45deg);
-}
-
-.nav-dropdown {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 200;
-  background: var(--white);
-  flex-direction: column;
-  padding: 100px var(--x) 48px;
-}
-
-.nav-dropdown.open {
-  display: flex;
-}
-
-.nav-dropdown-links {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  flex: 1;
-}
-
-.nav-dropdown-links a {
-  font-size: 26px;
-  font-weight: 200;
-  letter-spacing: -.01em;
-  color: var(--ink);
-  text-decoration: none;
-  padding: 16px 0;
-  border-bottom: 1px solid var(--rule);
-  transition: color .2s;
-}
-
-.nav-dropdown-links a:first-child {
-  border-top: 1px solid var(--rule);
-}
-
-.nav-dropdown-links a:hover {
-  color: var(--stone);
-}
-
-.nav-dropdown-footer {
-  margin-top: 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.nav-dropdown-footer a {
-  font-size: 11px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--stone);
-  text-decoration: none;
-}
-
-.hero {
-  min-height: 100svh;
-  background: var(--white);
-  display: flex;
-  flex-direction: column;
-  padding: 0 var(--x);
-  padding-top: 88px;
-  border-bottom: 1px solid var(--rule);
-  position: relative;
-  overflow: hidden;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url('/hero.jpg');
-  background-size: cover;
-  background-position: center right;
-  z-index: 0;
-}
-
-.hero::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(255,255,255,.9) 10%, rgba(255,255,255,.58) 42%, rgba(255,255,255,.14) 78%), linear-gradient(180deg, rgba(255,255,255,.34) 0%, rgba(255,255,255,.08) 24%, rgba(255,255,255,.18) 54%, rgba(255,255,255,.78) 88%, rgba(255,255,255,.98) 100%), radial-gradient(90% 42% at 50% 100%, rgba(255,255,255,.75) 0%, rgba(255,255,255,0) 68%);
-  z-index: 1;
-}
-
-.hero-body {
-  position: relative;
-  z-index: 2;
-  flex: 1;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(32px, 5vw, 72px);
-  align-items: center;
-  padding-top: clamp(48px, 7vw, 88px);
-  padding-bottom: clamp(48px, 7vw, 88px);
-  overflow: hidden;
-}
-
-.hero-baseline {
-  position: relative;
-  z-index: 2;
-  border-top: 1px solid var(--rule);
-  padding: clamp(16px, 2.2vw, 24px) var(--x);
-  display: flex;
-  align-items: center;
-  animation: up 1s var(--ease) .8s both;
-  flex-shrink: 0;
-  margin: 0 calc(-1 * var(--x));
-  padding-left: var(--x);
-  padding-right: var(--x);
-  margin-top: clamp(32px, 5vw, 64px);
-  background: rgba(255,255,255,.85);
-}
-
-h1 {
-  font-size: clamp(32px, 4.2vw, 62px);
-  font-weight: 300;
-  line-height: 1.05;
-  letter-spacing: -.025em;
-  margin-bottom: 20px;
-  animation: up 1s var(--ease) .35s both;
-}
-
-.hero-sub {
-  font-size: 13px;
-  line-height: 1.8;
-  color: var(--stone);
-  max-width: 320px;
-  margin-bottom: 32px;
-  animation: up 1s var(--ease) .45s both;
-  white-space: nowrap;
-}
-
-.hero-cta {
-  animation: up 1s var(--ease) .55s both;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  height: 44px;
-  padding: 0 24px;
-  font-size: 11px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  background: var(--ink);
-  color: var(--white);
-  border: 1px solid var(--ink);
-  transition: background .2s, transform .15s;
-}
-
-.btn:hover {
-  background: #2a2a2a;
-  transform: translateY(-1px);
-}
-
-.hero-drawing {
-  display: none;
-}
-
-.hero-drawing svg {
-  width: 100%;
-  max-width: 580px;
-  height: auto;
-}
-
-.dp {
-  stroke-dasharray: 1800;
-  stroke-dashoffset: 1800;
-  animation: draw 3s var(--ease) 1s forwards;
-}
-
-.dp2 {
-  animation-delay: 1.3s;
-}
-
-.dp3 {
-  animation-delay: 1.6s;
-}
-
-.dp4 {
-  animation-delay: 1.9s;
-}
-
-.dl {
-  opacity: 0;
-  animation: up .6s var(--ease) 2.8s forwards;
-}
-
-@keyframes draw {
-  to {
-    stroke-dashoffset: 0;
-  }
-
-}
-
-.hero-baseline {
-  border-top: 1px solid var(--rule);
-  padding: clamp(16px, 2.2vw, 24px) var(--x);
-  display: flex;
-  align-items: center;
-  animation: up 1s var(--ease) .8s both;
-  flex-shrink: 0;
-  margin: 0 calc(-1 * var(--x));
-  padding-left: var(--x);
-  padding-right: var(--x);
-  margin-top: clamp(32px, 5vw, 64px);
-}
-
-.hero-baseline-text {
-  width: 100%;
-  font-size: 13px;
-  font-weight: 300;
-  color: var(--stone);
-  display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-}
-
-.hero-baseline-word {
-  white-space: nowrap;
-  align-self: center;
-  letter-spacing: .28em;
-  padding-left: .28em;
-}
-
-.hero-baseline-sep {
-  width: 1px;
-  background: var(--rule);
-  align-self: stretch;
-  flex-shrink: 0;
-}
-
-@media (min-width: 980px) {
-  .hero-baseline-text {
-    font-size: 16px;
-  }
-
-}
-
-@media (max-width: 600px) {
-  .hero-baseline-text {
-    font-size: 10px;
-  }
-
-  .hero-baseline-word {
-    letter-spacing: .14em;
-    padding-left: .14em;
-  }
-
-}
-
-section {
-  padding: var(--gap) var(--x);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.bg-fog {
-  background: var(--fog);
-}
-
-.bg-bone {
-  background: var(--bone);
-}
-
-.bg-ink {
-  background: var(--ink);
-  color: var(--white);
-}
-
-.eyebrow {
-  font-family: 'Inter', sans-serif;
-  font-size: 9px;
-  letter-spacing: .24em;
-  text-transform: uppercase;
-  color: var(--stone);
-  margin-bottom: 36px;
-}
-
-.bg-ink .eyebrow {
-  color: rgba(255,255,255,.5);
-}
-
-h2 {
-  font-size: clamp(22px, 2.8vw, 38px);
-  font-weight: 300;
-  line-height: 1.08;
-  letter-spacing: -.02em;
-}
-
-.lead {
-  margin-top: 16px;
-  font-size: 14.5px;
-  line-height: 1.9;
-  color: var(--stone);
-  max-width: 460px;
-}
-
-.modele-head {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(40px, 7vw, 100px);
-  align-items: start;
-  margin-bottom: clamp(48px, 6vw, 72px);
-}
-
-.modele-quote {
-  font-size: clamp(14px, 1.6vw, 18px);
-  font-weight: 200;
-  line-height: 1.6;
-  color: var(--stone);
-  border-left: 2px solid var(--rule);
-  padding-left: 20px;
-  margin-top: 8px;
-}
-
-.orga {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr auto 1fr;
-  align-items: stretch;
-  border: 1px solid var(--rule);
-}
-
-.orga-cell {
-  padding: clamp(20px, 2.5vw, 32px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: var(--white);
-}
-
-.orga-cell.center {
-  background: var(--ink);
-}
-
-.orga-cell.light {
-  background: var(--fog);
-}
-
-.orga-eyebrow {
-  font-family: 'Inter', sans-serif;
-  font-size: 9px;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  color: var(--stone);
-  margin-bottom: 10px;
-}
-
-.orga-cell.center .orga-eyebrow {
-  color: var(--stone);
-}
-
-.orga-title {
-  font-size: clamp(16px, 1.8vw, 22px);
-  font-weight: 400;
-  color: var(--ink);
-  line-height: 1.2;
-}
-
-.orga-cell.center .orga-title {
-  color: #ffffff;
-  font-weight: 600;
-  font-size: clamp(15px, 1.8vw, 20px);
-  letter-spacing: .38em;
-}
-
-.orga-sub {
-  margin-top: 12px;
-  font-size: 13px;
-  line-height: 2;
-  color: var(--stone);
-}
-
-.orga-cell.center .orga-sub {
-  color: rgba(255,255,255,.7);
-}
-
-.orga-arrow {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0 clamp(8px, 1.5vw, 20px);
-  background: var(--white);
-  border-left: 1px solid var(--rule);
-  border-right: 1px solid var(--rule);
-  gap: 6px;
-}
-
-.orga-arrow svg {
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
-}
-
-.orga-arrow-label {
-  font-family: 'Inter', sans-serif;
-  font-size: 9px;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  color: var(--stone);
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  transform: rotate(180deg);
-  font-weight: 500;
-}
-
-.orga-list {
-  display: flex;
-  flex-direction: column;
-}
-
-.orga-item {
-  flex: 1;
-  padding: clamp(12px, 1.5vw, 18px) clamp(16px, 2vw, 24px);
-  border-bottom: 1px solid var(--rule);
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-}
-
-.orga-item:last-child {
-  border-bottom: none;
-}
-
-.orga-item-name {
-  font-size: 13px;
-  font-weight: 400;
-  color: var(--ink);
-  white-space: nowrap;
-}
-
-.orga-item-sub {
-  font-size: 11px;
-  color: var(--stone);
-}
-
-.garantie {
-  margin-top: clamp(40px, 5vw, 64px);
-  padding: clamp(22px, 3vw, 36px) clamp(24px, 4vw, 48px);
-  background: var(--ink);
-  color: var(--white);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.garantie-tag {
-  font-family: 'Inter', sans-serif;
-  font-size: 8px;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.75);
-  flex-shrink: 0;
-}
-
-.garantie-text {
-  font-size: clamp(13px, 1.5vw, 16px);
-  font-weight: 200;
-  line-height: 1.6;
-  color: rgba(255,255,255,.75);
-}
-
-.garantie-text strong {
-  font-weight: 400;
-  color: var(--white);
-}
-
-.etapes {
-  margin-top: clamp(48px, 6vw, 72px);
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  border-top: 1px solid var(--rule);
-  border-left: 1px solid var(--rule);
-}
-
-.etape {
-  border-right: 1px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
-  padding: clamp(18px, 2vw, 28px);
-}
-
-.etape-num {
-  font-family: 'Inter', sans-serif;
-  font-size: 9px;
-  letter-spacing: .1em;
-  color: var(--stone);
-  margin-bottom: 14px;
-}
-
-.etape-title {
-  font-size: 13px;
-  font-weight: 400;
-  margin-bottom: 8px;
-  line-height: 1.3;
-}
-
-.etape-body {
-  font-size: 13px;
-  line-height: 1.8;
-  color: var(--stone);
-}
-
-/* ── À PROPOS intégré ── */ .apropos-wrap {
-  margin-top: clamp(48px, 6vw, 72px);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(40px, 7vw, 100px);
-  border-top: 1px solid var(--rule);
-  padding-top: clamp(40px, 5vw, 64px);
-}
-
-.apropos-label {
-  font-family: 'Inter', sans-serif;
-  font-size: 9px;
-  letter-spacing: .24em;
-  text-transform: uppercase;
-  color: var(--stone);
-  margin-bottom: 28px;
-}
-
-.apropos-text {
-  font-size: 14.5px;
-  line-height: 1.9;
-  color: var(--stone);
-}
-
-.apropos-conclusion {
-  margin-top: 28px;
-  font-size: clamp(18px, 2.2vw, 26px);
-  font-weight: 300;
-  line-height: 1.2;
-  letter-spacing: -.01em;
-  color: var(--ink);
-}
-
-.sf-head {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(40px, 7vw, 100px);
-  align-items: end;
-  margin-bottom: clamp(40px, 5vw, 60px);
-}
-
-.sf-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  border-top: 1px solid var(--rule);
-  border-left: 1px solid var(--rule);
-}
-
-.sf-col {
-  border-right: 1px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
-  padding: clamp(18px, 2vw, 26px);
-}
-
-.sf-label {
-  font-family: 'Inter', sans-serif;
-  font-size: 8px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--stone);
-  margin-bottom: 12px;
-}
-
-.sf-list {
-  list-style: none;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-  font-size: 14px;
-  line-height: 1.45;
-  color: var(--ink);
-  font-weight: 400;
-}
-
-.sf-list li {
-  break-inside: avoid;
-}
-
-.sf-note {
-  margin-top: 24px;
-  padding: 20px 22px;
-  border: 1px solid var(--rule);
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.sf-note-tag {
-  font-family: 'Inter', sans-serif;
-  font-size: 9px;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  color: var(--ink);
-  flex-shrink: 0;
-  font-weight: 600;
-}
-
-.sf-note-text {
-  font-size: 14px;
-  color: var(--ink);
-  line-height: 1.7;
-}
-
-.projects-lead {
-  margin-top: 18px;
-}
-
-.proj-grid {
-  margin-top: 34px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  border-top: 1px solid var(--rule);
-  border-left: 1px solid var(--rule);
-}
-
-.proj {
-  border-right: 1px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
-  padding: clamp(20px, 2.5vw, 32px);
-  transition: background .2s;
-}
-
-.proj:hover {
-  background: var(--fog);
-}
-
-.proj-tag {
-  font-family: 'Inter', sans-serif;
-  font-size: 8px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--stone);
-  margin-bottom: 10px;
-}
-
-.proj-name {
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 1.3;
-}
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(40px, 7vw, 96px);
-  align-items: start;
-}
-
-.c-list {
-  margin-top: 36px;
-}
-
-.c-row {
-  display: flex;
-  gap: 16px;
-  padding: 13px 0;
-  border-bottom: 1px solid var(--rule);
-}
-
-.c-row:first-child {
-  border-top: 1px solid var(--rule);
-}
-
-.c-lbl {
-  font-family: 'Inter', sans-serif;
-  font-size: 8.5px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--stone);
-  min-width: 56px;
-  padding-top: 2px;
-}
-
-.c-val {
-  font-size: 13.5px;
-  line-height: 1.6;
-  color: var(--ink);
-}
-
-.c-val a {
-  border-bottom: 1px solid var(--rule);
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-
-.fg {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.flabel {
-  font-family: 'Inter', sans-serif;
-  font-size: 8.5px;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  color: var(--stone);
-}
-
-.finput, .fselect, .ftextarea {
-  width: 100%;
-  border: 1px solid var(--rule);
-  background: var(--white);
-  color: var(--ink);
-  padding: 11px 13px;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 300;
-  outline: none;
-  border-radius: 0;
-  appearance: none;
-  transition: border-color .2s;
-}
-
-.finput::placeholder, .ftextarea::placeholder {
-  color: var(--rule);
-}
-
-.finput:focus, .fselect:focus, .ftextarea:focus {
-  border-color: var(--ink);
-}
-
-.fselect {
-  cursor: pointer;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23999490' stroke-width='1' fill='none'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 13px center;
-  background-color: var(--white);
-}
-
-.fselect option {
-  background: var(--white);
-}
-
-.ftextarea {
-  min-height: 96px;
-  resize: vertical;
-  line-height: 1.7;
-}
-
-.fsubmit {
-  align-self: flex-start;
-  height: 44px;
-  padding: 0 26px;
-  background: var(--ink);
-  color: var(--white);
-  border: 1px solid var(--ink);
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background .2s, transform .15s;
-}
-
-.fsubmit:hover {
-  background: #2a2a2a;
-  transform: translateY(-1px);
-}
-
-.fsuccess {
-  display: none;
-  padding: 20px 16px;
-  border: 1px solid var(--rule);
-  background: var(--fog);
-}
-
-.fsuccess p {
-  font-size: 13px;
-  line-height: 1.8;
-  color: var(--stone);
-}
-
-.form-privacy {
-  max-width: 620px;
-  font-size: 10px;
-  line-height: 1.65;
-  color: var(--stone);
-}
-
-.form-privacy a {
-  color: var(--ink);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
-}
-
-footer {
-  padding: 32px var(--x);
-  border-top: 1px solid var(--rule);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 18px;
-  text-align: center;
-}
-
-.footer-brand {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-}
-
-.ft-name {
-  font-size: 13px;
-  font-weight: 500;
-  color: #666;
-  letter-spacing: .5em;
-  padding-left: .5em;
-  text-align: center;
-}
-
-.ft-baseline {
-  font-size: 10px;
-  font-weight: 400;
-  letter-spacing: .18em;
-  padding-left: .18em;
-  color: var(--stone);
-  text-align: center;
-}
-
-.footer-legal {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
-.footer-company {
-  font-size: 9px;
-  line-height: 1.6;
-  letter-spacing: .08em;
-  color: var(--stone);
-}
-
-.footer-links {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 8px 18px;
-}
-
-.footer-links a {
-  font-size: 9px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--stone);
-  transition: color .2s;
-}
-
-.footer-links a:hover {
-  color: var(--ink);
-}
-
-@media (max-width: 980px) {
-  .hero-body {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-drawing {
-    display: none;
-  }
-
-  .modele-head, .sf-head, .contact-grid, .apropos-wrap {
-    grid-template-columns: 1fr;
-  }
-
-  .etapes {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .proj-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .sf-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .orga {
-    grid-template-columns: 1fr;
-  }
-
-  .orga-arrow {
-    flex-direction: row;
-    border: none;
-    border-top: 1px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
-    padding: 12px var(--x);
-    height: auto;
-    justify-content: flex-start;
-    gap: 12px;
-  }
-
-  .orga-arrow svg {
-    transform: rotate(90deg);
-    flex-shrink: 0;
-  }
-
-  .orga-arrow-label {
-    writing-mode: horizontal-tb;
-    transform: none;
-  }
-
-}
-
-@media (max-width: 600px) {
-  :root {
-    --x: 20px;
-    --gap: 56px;
-  }
-
-  h1 {
-    font-size: clamp(30px, 8.2vw, 34px);
-    line-height: 1.03;
-    letter-spacing: -.028em;
-    margin-bottom: 16px;
-  }
-
-  h2 {
-    font-size: 26px;
-    line-height: 1.12;
-  }
-
-  .lead {
-    font-size: 14px;
-  }
-
-  .eyebrow {
-    margin-bottom: 24px;
-  }
-
-  nav {
-    z-index: 300;
-    min-height: 72px;
-    padding: 14px var(--x);
-    padding-top: calc(14px + env(safe-area-inset-top));
-    background: rgba(255,255,255,.96);
-  }
-
-  .nav-links {
-    display: none;
-  }
-
-  .nav-region {
-    display: none;
-  }
-
-  .nav-mobile-actions {
-    display: none;
-  }
-
-  .nav-burger {
-    display: flex;
-    width: 44px;
-    height: 44px;
-    align-items: center;
-    justify-content: center;
-    margin-right: -10px;
-  }
-
-  .nav-burger span {
-    width: 24px;
-  }
-
-  .nav-name {
-    font-size: 13px;
-    letter-spacing: .44em;
-  }
-
-  .nav-name > span:last-child {
-    font-size: 8px !important;
-    letter-spacing: .14em !important;
-  }
-
-  .nav-dropdown {
-    padding-top: calc(96px + env(safe-area-inset-top));
-    padding-bottom: calc(32px + env(safe-area-inset-bottom));
-  }
-
-  /* Mobile hero: composition éditoriale nette, sans carte superposée. */ .hero {
-    min-height: auto;
-    padding: calc(72px + env(safe-area-inset-top)) 0 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    background: var(--white);
-    overflow: hidden;
-  }
-
-  .hero::before {
-    inset: calc(72px + env(safe-area-inset-top)) 0 auto;
-    height: clamp(330px, 44svh, 380px);
-    background-position: 60% 0;
-    background-size: auto 160%;
-  }
-
-  .hero::after {
-    inset: calc(72px + env(safe-area-inset-top)) 0 auto;
-    height: clamp(330px, 44svh, 380px);
-    background: linear-gradient(to bottom, rgba(10,10,10,0) 60%, rgba(10,10,10,.08) 100%);
-  }
-
-  .hero-body {
-    display: block;
-    width: 100%;
-    padding: 0 var(--x) 28px !important;
-    overflow: visible;
-  }
-
-  .hero-body > div:first-child {
-    position: relative;
-    margin-top: clamp(330px, 44svh, 380px);
-    padding: 28px 0 0;
-    background: transparent;
-    border: 0;
-    box-shadow: none;
-  }
-
-  .hero-sub {
-    max-width: 30ch;
-    margin-bottom: 20px;
-    font-size: 13.5px;
-    line-height: 1.65;
-    white-space: normal;
-    color: var(--stone);
-  }
-
-  .hero .btn {
-    width: auto;
-    min-width: 190px;
-    height: 48px;
-    justify-content: center;
-  }
-
-  .hero-baseline {
-    min-height: 56px;
-    margin: 0;
-    padding: 0;
-    background: var(--white);
-    border-top: 1px solid var(--rule);
-  }
-
-  .hero-baseline-text {
-    display: grid;
-    grid-template-columns: 1fr 1px 1fr 1px 1fr;
-    min-height: 56px;
-    padding: 0 14px;
-    align-items: center;
-  }
-
-  .hero-baseline-word {
-    justify-self: center;
-    font-size: 9px;
-    letter-spacing: .1em;
-    padding-left: .1em;
-  }
-
-  .hero-baseline-sep {
-    height: 18px;
-    align-self: center;
-  }
-
-  section {
-    min-height: auto;
-    padding: 52px var(--x);
-    justify-content: flex-start;
-  }
-
-  .modele-head {
-    margin-bottom: 32px;
-    gap: 24px;
-  }
-
-  .modele-quote {
-    font-size: 14px;
-    padding-left: 14px;
-  }
-
-  .orga-cell {
-    padding: 20px var(--x);
-  }
-
-  .orga-cell.light {
-    padding: 0;
-  }
-
-  .orga-item {
-    padding: 14px var(--x);
-  }
-
-  .orga-eyebrow {
-    font-size: 8px;
-    margin-bottom: 6px;
-  }
-
-  .orga-title {
-    font-size: 16px;
-  }
-
-  .orga-sub {
-    font-size: 13px;
-  }
-
-  .orga-cell.center .orga-title {
-    font-size: 15px;
-    letter-spacing: .28em;
-  }
-
-  .garantie {
-    flex-direction: column;
-    gap: 12px;
-    padding: 24px var(--x);
-  }
-
-  .garantie-text {
-    font-size: 13px;
-  }
-
-  .etapes {
-    grid-template-columns: 1fr;
-    margin-top: 32px;
-  }
-
-  .etape {
-    padding: 18px var(--x);
-  }
-
-  .sf-head {
-    gap: 20px;
-    margin-bottom: 28px;
-  }
-
-  .sf-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .sf-col {
-    padding: 16px;
-  }
-
-  .sf-list {
-    font-size: 12px;
-    line-height: 1.9;
-  }
-
-  .sf-note {
-    padding: 16px;
-    gap: 10px;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .proj-grid {
-    grid-template-columns: 1fr;
-    margin-top: 28px;
-  }
-
-  .proj {
-    padding: 18px;
-  }
-
-  .contact-grid {
-    gap: 32px;
-  }
-
-  .c-list {
-    margin-top: 24px;
-  }
-
-  .form-row {
-    grid-template-columns: 1fr;
-  }
-
-  .finput, .fselect, .ftextarea {
-    font-size: 16px;
-  }
-
-  footer {
-    padding: 24px var(--x);
-  }
-
-  #qui-sommes-nous {
-    grid-template-columns: 1fr !important;
-    gap: 24px !important;
-  }
-
-  #qui-sommes-nous p:last-child {
-    font-size: 20px !important;
-    margin-top: 20px !important;
-  }
-
-}
-
-@media (max-width: 370px) {
-  .hero-body > div:first-child {
-    padding-top: 24px;
-  }
-
-  h1 {
-    font-size: 29px;
-  }
-
-  .hero-baseline-word {
-    font-size: 8px;
-    letter-spacing: .06em;
-    padding-left: .06em;
-  }
-
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *, *::before, *::after {
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: .01ms !important;
-  }
-
-}
-
-/* ========================================================= FINITIONS RESPONSIVE — MOBILE / TABLETTE ========================================================= */ :root {
-  --radius: 18px;
-  --radius-lg: 24px;
-  --shadow-soft: 0 10px 30px rgba(10,10,10,.06);
-  --shadow-card: 0 18px 50px rgba(10,10,10,.09);
-}
-
-body {
-  text-wrap: pretty;
-}
-
-a, button, input, select, textarea {
-  -webkit-tap-highlight-color: transparent;
-}
-
-button, input, select, textarea {
-  font: inherit;
-}
-
-.hero-copy {
-  max-width: 520px;
-}
-
-.btn, .fsubmit {
-  min-height: 48px;
-  border-radius: 999px;
-  padding-inline: 24px;
-}
-
-.finput, .fselect, .ftextarea, .fsuccess {
-  border-radius: 14px;
-}
-
-.apropos-wrap {
-  margin-top: clamp(48px, 6vw, 72px);
-  padding-top: clamp(40px, 5vw, 64px);
-  border-top: 1px solid var(--rule);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(40px, 7vw, 100px);
-}
-
-@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  nav {
-    background: rgba(255,255,255,.98);
-  }
-
-}
-
-.sf-note-line {
-  display: inline;
-  white-space: nowrap;
-}
-
-@media (max-width: 820px) {
-  :root {
-    --x: 18px;
-    --gap: 56px;
-  }
-
-  nav {
-    z-index: 300;
-    min-height: 76px;
-    padding: 14px var(--x);
-    padding-top: calc(14px + env(safe-area-inset-top));
-    gap: 10px;
-    background: rgba(255,255,255,.96);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-  }
-
-  .nav-links {
-    display: none;
-  }
-
-  .nav-region {
-    display: none;
-  }
-
-  .nav-name {
-    min-width: 0;
-    font-size: 12px;
-    letter-spacing: .34em;
-    padding-left: .34em;
-  }
-
-  .nav-name > span:last-child {
-    font-size: 8px !important;
-    letter-spacing: .12em !important;
-    line-height: 1.4;
-  }
-
-  .nav-mobile-actions {
-    display: flex;
-    gap: 6px;
-    margin-left: auto;
-  }
-
-  .nav-client-mobile {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 34px;
-    padding: 0 9px;
-    border-radius: 999px;
-    background: var(--white);
-    font-size: 8.5px;
-    letter-spacing: .045em;
-  }
-
-  .nav-burger {
-    display: flex;
-    width: 44px;
-    height: 44px;
-    align-items: center;
-    justify-content: center;
-    margin-right: -6px;
-    margin-left: 2px;
-  }
-
-  .nav-burger span {
-    width: 24px;
-  }
-
-  .nav-dropdown {
-    padding: calc(88px + env(safe-area-inset-top)) var(--x) calc(24px + env(safe-area-inset-bottom));
-  }
-
-  .nav-dropdown-links a {
-    font-size: 24px;
-    padding: 18px 0;
-  }
-
-  .nav-dropdown-footer {
-    margin-top: 24px;
-    gap: 10px;
-  }
-
-  .hero {
-    min-height: auto;
-    padding: calc(76px + env(safe-area-inset-top)) var(--x) 0;
-    background: var(--white);
-    border-bottom: none;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    inset: auto;
-    top: calc(76px + env(safe-area-inset-top));
-    left: 0;
-    right: 0;
-    height: min(48svh, 430px);
-    background-position: center center;
-    background-size: cover;
-    transform: none;
-  }
-
-  .hero::after {
-    inset: auto;
-    top: calc(76px + env(safe-area-inset-top));
-    left: 0;
-    right: 0;
-    height: calc(min(48svh, 430px) + 2px);
-    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.03) 34%, rgba(255,255,255,.18) 54%, rgba(255,255,255,.78) 81%, rgba(255,255,255,.97) 93%, rgba(255,255,255,1) 100%), linear-gradient(90deg, rgba(255,255,255,.09) 0%, rgba(255,255,255,0) 62%);
-  }
-
-  .hero-body {
-    display: flex;
-    align-items: flex-end;
-    width: 100%;
-    min-height: min(48svh, 430px);
-    padding: 0 !important;
-    overflow: visible;
-  }
-
-  .hero-body > .hero-copy {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    max-width: none;
-    margin-top: auto;
-    margin-bottom: -10px;
-    padding: 26px 24px 24px;
-    border: 1px solid rgba(216,213,207,.82);
-    border-radius: 24px;
-    overflow: hidden;
-    background: rgba(255,255,255,.95);
-    box-shadow: 0 18px 42px rgba(10,10,10,.08);
-  }
-
-  .hero-drawing {
-    display: none;
-  }
-
-  h1 {
-    font-size: clamp(31px, 8vw, 40px);
-    line-height: 1;
-    letter-spacing: -.03em;
-    margin-bottom: 14px;
-  }
-
-  .hero-sub {
-    max-width: none;
-    margin-bottom: 20px;
-    font-size: clamp(11px, 3.2vw, 13px);
-    line-height: 1.45;
-    white-space: nowrap;
-    color: #5f5a55;
-  }
-
-  .hero .btn {
-    width: 100%;
-    min-width: 0;
-    justify-content: center;
-  }
-
-  .hero-baseline {
-    min-height: 58px;
-    margin: 26px calc(-1 * var(--x)) 0;
-    padding: 0;
-    background: var(--white);
-    border-top: 1px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .hero-baseline-text {
-    min-height: 58px;
-    padding: 0 var(--x);
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    align-items: center;
-  }
-
-  .hero-baseline-sep {
-    display: none;
-  }
-
-  .hero-baseline-word {
-    justify-self: center;
-    font-size: 10px;
-    letter-spacing: .12em;
-    padding-left: .12em;
-    text-align: center;
-  }
-
-  section {
-    min-height: auto;
-    padding: 56px var(--x);
-    justify-content: flex-start;
-  }
-
-  h2 {
-    font-size: 28px;
-    line-height: 1.1;
-  }
-
-  .lead {
-    max-width: 100%;
-    font-size: 14px;
-    line-height: 1.75;
-  }
-
-  .eyebrow {
-    margin-bottom: 22px;
-  }
-
-  .modele-head, .sf-head, .contact-grid, .apropos-wrap, #qui-sommes-nous {
-    grid-template-columns: 1fr !important;
-    gap: 24px !important;
-  }
-
-  .modele-head {
-    margin-bottom: 32px;
-  }
-
-  .modele-quote {
-    margin-top: 0;
-    padding-left: 14px;
-    font-size: 14px;
-    line-height: 1.7;
-  }
-
-  .orga, .sf-grid, .etapes, .proj-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 12px;
-    border: none;
-  }
-
-  .orga-cell, .sf-col, .etape, .proj {
-    border: 1px solid var(--rule);
-    border-radius: 18px;
-    overflow: hidden;
-    box-shadow: var(--shadow-soft);
-  }
-
-  .orga-cell {
-    padding: 20px;
-    background: var(--white);
-  }
-
-  .orga-cell.light {
-    padding: 0;
-  }
-
-  .orga-cell.center .orga-title {
-    font-size: 15px;
-    letter-spacing: .28em;
-  }
-
-  .orga-arrow {
-    flex-direction: row;
-    justify-content: center;
-    height: auto;
-    padding: 4px 0;
-    gap: 10px;
-    border: none;
-    background: transparent;
-  }
-
-  .orga-arrow svg {
-    transform: rotate(90deg);
-    flex-shrink: 0;
-  }
-
-  .orga-arrow-label {
-    writing-mode: horizontal-tb;
-    transform: none;
-    font-size: 8px;
-  }
-
-  .orga-item {
-    padding: 14px 18px;
-  }
-
-  .sf-col, .etape, .proj {
-    padding: 18px;
-    background: var(--white);
-  }
-
-  .sf-col {
-    padding: 16px 18px 18px;
-  }
-
-  .sf-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px 22px;
-    font-size: 13px;
-    line-height: 1.32;
-  }
-
-  .sf-list li {
-    min-width: 0;
-    text-wrap: balance;
-  }
-
-  .proj:hover {
-    background: var(--white);
-  }
-
-  .proj-name {
-    font-size: 15px;
-    line-height: 1.4;
-  }
-
-  .garantie, .sf-note {
-    padding: 18px;
-    border-radius: 18px;
-    overflow: hidden;
-  }
-
-  .garantie {
-    margin-top: 32px;
-    padding: 24px 20px 26px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    text-align: center;
-    border-radius: 20px;
-    box-shadow: var(--shadow-soft);
-  }
-
-  .garantie-tag {
-    font-size: 8px;
-    letter-spacing: .18em;
-    color: rgba(255,255,255,.58);
-  }
-
-  .garantie-text {
-    width: 100%;
-    max-width: none;
-    font-size: 13.5px !important;
-    line-height: 1.65 !important;
-    text-align: center;
-    color: rgba(255,255,255,.72);
-  }
-
-  .garantie-text .brand, .garantie-text strong {
-    color: var(--white);
-  }
-
-  .garantie-text br {
-    display: none;
-  }
-
-  .garantie-text, .sf-note-text, .etape-body, .apropos-text, .c-val {
-    font-size: 14px;
-    line-height: 1.75;
-  }
-
-  .apropos-conclusion {
-    margin-top: 22px;
-    font-size: 22px;
-    line-height: 1.2;
-  }
-
-  .sf-head {
-    margin-bottom: 26px;
-  }
-
-  .proj-grid {
-    margin-top: 28px;
-  }
-
-  .contact-grid {
-    gap: 32px;
-  }
-
-  .c-list {
-    margin-top: 24px;
-  }
-
-  .form {
-    gap: 14px;
-  }
-
-  .form-row {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-
-  .finput, .fselect, .ftextarea {
-    min-height: 52px;
-    padding: 14px 16px;
-    font-size: 16px;
-  }
-
-  .ftextarea {
-    min-height: 124px;
-  }
-
-  .fsubmit {
-    width: 100%;
-  }
-
-  footer {
-    padding: 28px var(--x);
-    padding-bottom: calc(28px + env(safe-area-inset-bottom));
-  }
-
-  .footer-links {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .footer-company {
-    max-width: 280px;
-  }
-
-  .ft-name {
-    letter-spacing: .38em;
-    padding-left: .38em;
-  }
-
-  .ft-baseline {
-    font-size: 9px;
-    line-height: 1.6;
-  }
-
-}
-
-@media (max-width: 390px) {
-  .nav-mobile-actions {
-    display: none;
-  }
-
-  .hero-body > .hero-copy {
-    padding: 20px;
-  }
-
-  h1 {
-    font-size: 30px;
-  }
-
-  .hero-baseline-word {
-    font-size: 9px;
-    letter-spacing: .08em;
-    padding-left: .08em;
-  }
-
-  .sf-list {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
-}
-
-/* Même encart que le résumé situé plus haut */ .sf-note {
-  width: 100%;
-  margin: clamp(40px, 5vw, 64px) 0 0;
-  padding: clamp(22px, 3vw, 36px) clamp(24px, 4vw, 48px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  text-align: center;
-  border: 1px solid var(--rule);
-  border-radius: 18px;
-  background: var(--white);
-  color: var(--ink);
-}
-
-.sf-note-tag {
-  font-family: 'Inter', sans-serif;
-  font-size: 8px;
-  font-weight: 500;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  color: var(--stone);
-}
-
-.sf-note-text {
-  max-width: 760px;
-  margin: 0;
-  font-size: clamp(13px, 1.5vw, 16px);
-  font-weight: 300;
-  line-height: 1.6;
-  text-align: center;
-  color: var(--ink);
-}
-
-@media (max-width: 820px) {
-  .sf-note {
-    width: 100%;
-    margin-top: 32px;
-    padding: 20px 20px 22px;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 14px;
-    text-align: left;
-    border-radius: 20px;
-    box-shadow: var(--shadow-soft);
-  }
-
-  .sf-note-tag {
-    font-size: 8px;
-    letter-spacing: .18em;
-    color: var(--stone);
-  }
-
-  .sf-note-text {
-    width: 100%;
-    max-width: 34ch;
-    margin: 0;
-    font-size: 13.5px;
-    line-height: 1.58;
-    text-align: left;
-    color: var(--ink);
-  }
-
-  .sf-note-line {
-    display: inline;
-    width: auto;
-    font-size: inherit;
-    letter-spacing: normal;
-    white-space: normal;
-  }
-
-}
-
-/* Footer premium MATOBA */ footer {
-  background:#0c0c0c;
-  color:#f3f1ed;
-  padding:clamp(48px,7vw,86px) var(--x) clamp(28px,4vw,42px);
-  display:grid;
-  grid-template-columns:1.15fr .85fr;
-  gap:clamp(42px,7vw,110px);
-  align-items:end;
-  border-top:0
-}
-
-.footer-brand {
-  display:inline-flex;
-  flex-direction:column;
-  align-items:flex-start;
-  gap:12px
-}
-
-.ft-name {
-  font-size:clamp(22px,2.2vw,34px);
-  font-weight:200;
-  letter-spacing:.48em;
-  padding-left:.48em
-}
-
-.ft-baseline {
-  font-size:8px;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  color:rgba(255,255,255,.56)
-}
-
-.footer-legal {
-  display:flex;
-  flex-direction:column;
-  align-items:flex-end;
-  gap:22px;
-  text-align:right
-}
-
-.footer-company {
-  font-size:11px;
-  color:rgba(255,255,255,.58)
-}
-
-.footer-links {
-  display:flex;
-  justify-content:flex-end;
-  gap:24px;
-  flex-wrap:wrap
-}
-
-.footer-links a {
-  font-size:11px;
-  color:rgba(255,255,255,.9)
-}
-
-@media(max-width:760px) {
-  footer {
-    grid-template-columns:1fr
-  }
-
-  .footer-legal {
-    align-items:flex-start;
-    text-align:left
-  }
-
-  .footer-links {
-    justify-content:flex-start
-  }
-
-}
-  
-    /* Pied de page : même typographie que l'en-tête */
-    footer,
-    .footer-brand,
-    .footer-legal,
-    .footer-company,
-    .footer-links,
-    .footer-links a,
-    .ft-name,
-    .ft-baseline {
-      font-family: 'Inter', sans-serif;
-    }
-
-    .ft-name {
-      font-weight: 200;
-    }
-
-    .ft-baseline,
-    .footer-company,
-    .footer-links a {
-      font-weight: 300;
-    }
-
-  
-    /* Pied de page : même fond et même style que le haut de page */
-    footer {
-      background: var(--white);
-      color: var(--ink);
-      border-top: 1px solid var(--rule);
-    }
-
-    footer::before {
-      display: none;
-    }
-
-    .ft-name {
-      color: var(--ink);
-    }
-
-    .ft-baseline,
-    .footer-company {
-      color: var(--stone);
-    }
-
-    .footer-links a {
-      color: var(--ink);
-    }
-
-    .footer-links a::after {
-      background: var(--ink);
-    }
-   .form-reassurance {
-      margin-top: 12px;
-      font-size: 10px;
-      line-height: 1.6;
-      color: var(--stone);
-      letter-spacing: .03em;
-    }
-
-    @media (min-width: 760px) {
-      #contact .form-row {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 14px;
-      }
-    }
-  </style>
- 
-<style id="mobile-footer-final-fix">
-@media (max-width: 760px) {
-  footer {
-    position: static !important;
-    inset: auto !important;
-    width: 100% !important;
-    min-height: 0 !important;
-    margin: 0 !important;
-    padding: 28px 22px calc(26px + env(safe-area-inset-bottom)) !important;
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 20px !important;
-    align-items: start !important;
-    justify-items: start !important;
-    text-align: left !important;
-    background: var(--white) !important;
-    color: var(--ink) !important;
-    border-top: 1px solid var(--rule) !important;
-  }
-
-  footer::before {
-    display: none !important;
-  }
-
-  footer .footer-brand {
-    width: auto !important;
-    margin: 0 !important;
-    display: inline-flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 7px !important;
-    text-align: left !important;
-  }
-
-  footer .ft-name {
-    margin: 0 !important;
-    padding: 0 !important;
-    font-size: 18px !important;
-    line-height: 1 !important;
-    font-weight: 200 !important;
-    letter-spacing: .42em !important;
-    color: var(--ink) !important;
-    text-align: left !important;
-  }
-
-  footer .ft-baseline {
-    margin: 0 !important;
-    padding: 0 !important;
-    font-size: 6.5px !important;
-    line-height: 1.45 !important;
-    letter-spacing: .12em !important;
-    color: var(--stone) !important;
-    text-align: left !important;
-    white-space: nowrap !important;
-  }
-
-  footer .footer-legal {
-    width: 100% !important;
-    margin: 0 !important;
-    display: grid !important;
-    gap: 14px !important;
-    align-items: start !important;
-    justify-items: start !important;
-    text-align: left !important;
-  }
-
-  footer .footer-company {
-    margin: 0 !important;
-    font-size: 9px !important;
-    line-height: 1.55 !important;
-    letter-spacing: .03em !important;
-    color: var(--stone) !important;
-    text-align: left !important;
-  }
-
-  footer .footer-links {
-    width: 100% !important;
-    margin: 0 !important;
-    padding-top: 13px !important;
-    border-top: 1px solid var(--rule) !important;
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    gap: 10px 18px !important;
-    text-align: left !important;
-  }
-
-  footer .footer-links a {
-    margin: 0 !important;
-    padding: 0 !important;
-    font-size: 9px !important;
-    line-height: 1.4 !important;
-    letter-spacing: .07em !important;
-    color: var(--ink) !important;
-    white-space: nowrap !important;
-  }
-}
-
-@media (max-width: 390px) {
-  footer {
-    padding-left: 18px !important;
-    padding-right: 18px !important;
-  }
-
-  footer .footer-links {
-    gap: 10px 14px !important;
-  }
-
-  footer .footer-links a {
-    font-size: 8.5px !important;
-  }
-}
-</style>
-
-
-<style id="mobile-header-final-fix">
-/* En-tête mobile : priorité à la lisibilité, sans tasser la signature MATOBA. */
-@media (max-width: 640px) {
-  nav {
-    min-height: 78px !important;
-    padding: 11px 16px !important;
-    padding-top: calc(11px + env(safe-area-inset-top)) !important;
-    gap: 8px !important;
-    align-items: center !important;
-  }
-
-  .nav-name {
-    flex: 1 1 auto !important;
-    min-width: 0 !important;
-    max-width: none !important;
-    padding-left: 0 !important;
-    gap: 3px !important;
-  }
-
-  .nav-name .brand {
-    font-size: 12px !important;
-    line-height: 1 !important;
-    letter-spacing: .34em !important;
-    padding-left: .34em !important;
-    white-space: nowrap !important;
-  }
-
-  .nav-name > span:nth-child(2) {
-    font-size: 7.5px !important;
-    line-height: 1.2 !important;
-    letter-spacing: .11em !important;
-    white-space: nowrap !important;
-  }
-
-  .nav-name > span:nth-child(3) {
-    font-size: 6.4px !important;
-    line-height: 1.2 !important;
-    letter-spacing: .065em !important;
-    white-space: nowrap !important;
-  }
-
-  .nav-mobile-actions {
-    flex: 0 0 auto !important;
-    margin-left: auto !important;
-    gap: 6px !important;
-  }
-
-  /* L'appel à projet reste accessible dans le menu mobile. */
-  .nav-mobile-actions .nav-client-mobile:first-child {
-    display: none !important;
-  }
-
-  .nav-client-mobile {
-    min-height: 32px !important;
-    padding: 0 10px !important;
-    font-size: 8px !important;
-    letter-spacing: .035em !important;
-  }
-
-  .nav-burger {
-    flex: 0 0 38px !important;
-    width: 38px !important;
-    height: 38px !important;
-    margin: 0 -4px 0 0 !important;
-  }
-
-  .nav-burger span {
-    width: 22px !important;
-  }
-
-  .hero {
-    padding-top: calc(78px + env(safe-area-inset-top)) !important;
-  }
-
-  .hero::before,
-  .hero::after {
-    top: calc(78px + env(safe-area-inset-top)) !important;
-  }
-}
-
-@media (max-width: 390px) {
-  nav {
-    padding-left: 14px !important;
-    padding-right: 14px !important;
-  }
-
-  .nav-mobile-actions {
-    display: none !important;
-  }
-
-  .nav-name > span:nth-child(3) {
-    font-size: 6.1px !important;
-    letter-spacing: .045em !important;
-  }
-}
-</style>
-
 </head>
- <body>
-  <div id="gate">
-   <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px;">
-    <div class="gate-name" id="gateName">
-     <span class="brand">
-      MΛTOBΛ
-     </span>
-    </div>
-    <div id="gateBaseline" style="font-size:11px;letter-spacing:.18em;color:var(--stone);text-transform:uppercase;font-weight:400;">
-     Construction · Rénovation · Aménagement
-    </div>
-   </div>
-  </div>
-  <nav id="nav">
-   <a class="nav-name" href="/" style="display:flex;flex-direction:column;gap:4px;">
-    <span class="brand">
-     MΛTOBΛ
-    </span>
-    <span style="font-size:7.5px;letter-spacing:.16em;color:var(--stone);font-weight:400;text-transform:uppercase;">
-     Contractant général
-     <span class="nav-region">
-      — Provence-Alpes-Côte d'Azur
-     </span>
-    </span>
-    <span style="font-size:6.5px;line-height:1.35;letter-spacing:.13em;color:var(--stone);font-weight:400;text-transform:uppercase;">
-     Construction · Rénovation · Aménagement
-    </span>
-   </a>
-   <ul class="nav-links">
-    <li>
-     <a href="#modele">
-      Notre modèle
-     </a>
-    </li>
-    <li>
-     <a href="#qui-sommes-nous">
-      À propos
-     </a>
-    </li>
-    <li>
-     <a href="#savoir-faire">
-      Savoir-faire
-     </a>
-    </li>
-    <li>
-     <a href="#projets">
-      Projets
-     </a>
-    </li>
-    <li>
-     <a class="nav-cta" href="#contact">
-      Contact
-     </a>
-    </li>
-    <li>
-     <a href="/apporteur-affaires.html">
-      Présenter un projet
-     </a>
-    </li>
-    <li>
-     <a class="nav-cta" href="/suivi-chantier.html" style="border-color:var(--stone);color:var(--stone)!important;">
-      Espace client
-     </a>
-    </li>
-   </ul>
-   <div class="nav-mobile-actions">
-    <a class="nav-client-mobile" href="/apporteur-affaires.html">
-     Présenter un projet
-    </a>
-    <a class="nav-client-mobile" href="/suivi-chantier.html">
-     Connexion
-    </a>
-   </div>
-   <button aria-controls="navDropdown" aria-expanded="false" aria-label="Ouvrir le menu" class="nav-burger" id="navBurger" onclick="toggleMenu()">
-    <span>
-    </span>
-    <span>
-    </span>
-    <span>
-    </span>
-   </button>
-  </nav>
-  <div aria-hidden="true" class="nav-dropdown" id="navDropdown">
-   <div class="nav-dropdown-links">
-    <a href="#modele" onclick="toggleMenu()">
-     Notre modèle
-    </a>
-    <a href="#qui-sommes-nous" onclick="toggleMenu()">
-     À propos
-    </a>
-    <a href="#savoir-faire" onclick="toggleMenu()">
-     Savoir-faire
-    </a>
-    <a href="#projets" onclick="toggleMenu()">
-     Projets
-    </a>
-    <a href="#contact" onclick="toggleMenu()">
-     Contact
-    </a>
-   </div>
-   <div class="nav-dropdown-footer">
-    <a href="/apporteur-affaires.html" onclick="toggleMenu()">
-     Présenter un projet
-    </a>
-    <a href="/suivi-chantier.html" onclick="toggleMenu()">
-     Espace client — Connexion
-    </a>
-   </div>
-  </div>
-  <header class="hero">
-   <div class="hero-body">
-    <div class="hero-copy">
-     <h1>
-      Un projet.
-      <br/>
-      Un pilote.
-      <br/>
-      Une responsabilité.
-     </h1>
-     <p class="hero-sub">
-      Un seul interlocuteur, de la conception à la réception.
-     </p>
-     <div class="hero-cta">
-      <a class="btn" href="#contact">
-       Nous contacter
+<body>
+  <a class="skip" href="#main">Aller au contenu</a>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <div class="wrap">
+      <a class="logo" href="/" aria-label="CIMENTA, accueil">
+        <span class="word">Cimenta</span>
+        <span class="act">Construction</span>
       </a>
-     </div>
-    </div>
-    <div class="hero-drawing">
-     <svg fill="none" viewbox="0 0 560 400" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-       <pattern height="40" id="grid" patternunits="userSpaceOnUse" width="40">
-        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#eceae5" stroke-width=".5">
-        </path>
-       </pattern>
-      </defs>
-      <rect fill="url(#grid)" height="400" width="560">
-      </rect>
-      <line class="dp dp4" stroke="#111" stroke-width="1.5" x1="0" x2="560" y1="340" y2="340">
-      </line>
-      <rect class="dp dp4" fill="none" height="20" stroke="#111" stroke-width=".8" width="480" x="40" y="340">
-      </rect>
-      <line class="dp dp4" stroke="#111" stroke-width=".5" x1="40" x2="60" y1="340" y2="360">
-      </line>
-      <line class="dp dp4" stroke="#111" stroke-width=".5" x1="80" x2="100" y1="340" y2="360">
-      </line>
-      <line class="dp dp4" stroke="#111" stroke-width=".5" x1="120" x2="140" y1="340" y2="360">
-      </line>
-      <line class="dp dp4" stroke="#111" stroke-width=".5" x1="160" x2="180" y1="340" y2="360">
-      </line>
-      <line class="dp dp4" stroke="#111" stroke-width=".5" x1="200" x2="220" y1="340" y2="360">
-      </line>
-      <line class="dp dp4" stroke="#111" stroke-width=".5" x1="240" x2="260" y1="340" y2="360">
-      </line>
-      <line class="dp dp4" stroke="#111" stroke-width=".5" x1="280" x2="300" y1="340" y2="360">
-      </line>
-      <line class="dp dp4" stroke="#111" stroke-width=".5" x1="320" x2="340" y1="340" y2="360">
-      </line>
-      <line class="dp dp4" stroke="#111" stroke-width=".5" x1="360" x2="380" y1="340" y2="360">
-      </line>
-      <line class="dp dp4" stroke="#111" stroke-width=".5" x1="400" x2="420" y1="340" y2="360">
-      </line>
-      <line class="dp dp4" stroke="#111" stroke-width=".5" x1="440" x2="460" y1="340" y2="360">
-      </line>
-      <line class="dp dp4" stroke="#111" stroke-width=".5" x1="480" x2="500" y1="340" y2="360">
-      </line>
-      <rect class="dp" fill="rgba(0,0,0,0.06)" height="280" stroke="#111" stroke-width="1" width="20" x="40" y="60">
-      </rect>
-      <rect class="dp" fill="rgba(0,0,0,0.06)" height="280" stroke="#111" stroke-width="1" width="20" x="500" y="60">
-      </rect>
-      <rect class="dp dp2" fill="rgba(0,0,0,0.04)" height="12" stroke="#111" stroke-width=".8" width="480" x="40" y="220">
-      </rect>
-      <rect class="dp dp2" fill="rgba(0,0,0,0.04)" height="12" stroke="#111" stroke-width=".8" width="480" x="40" y="120">
-      </rect>
-      <path class="dp dp2" d="M 20 60 L 280 16 L 540 60 L 520 60 L 280 36 L 40 60 Z" fill="rgba(0,0,0,0.05)" stroke="#111" stroke-width="1">
-      </path>
-      <rect class="dp dp2" fill="rgba(0,0,0,0.04)" height="160" stroke="#111" stroke-width=".7" width="10" x="170" y="60">
-      </rect>
-      <rect class="dp dp2" fill="rgba(0,0,0,0.04)" height="160" stroke="#111" stroke-width=".7" width="10" x="380" y="60">
-      </rect>
-      <rect class="dp dp3" fill="rgba(0,0,0,0.04)" height="108" stroke="#111" stroke-width=".7" width="10" x="170" y="232">
-      </rect>
-      <rect class="dp dp3" fill="rgba(0,0,0,0.04)" height="108" stroke="#111" stroke-width=".7" width="10" x="380" y="232">
-      </rect>
-      <rect class="dp dp3" fill="white" height="60" stroke="#111" stroke-width=".8" width="80" x="72" y="140">
-      </rect>
-      <line class="dp dp3" stroke="#111" stroke-width=".5" x1="112" x2="112" y1="140" y2="200">
-      </line>
-      <line class="dp dp3" stroke="#111" stroke-width=".5" x1="72" x2="152" y1="170" y2="170">
-      </line>
-      <rect class="dp dp3" fill="white" height="60" stroke="#111" stroke-width=".8" width="174" x="196" y="140">
-      </rect>
-      <line class="dp dp3" stroke="#111" stroke-width=".5" x1="283" x2="283" y1="140" y2="200">
-      </line>
-      <line class="dp dp3" stroke="#111" stroke-width=".5" x1="196" x2="370" y1="170" y2="170">
-      </line>
-      <rect class="dp dp3" fill="white" height="60" stroke="#111" stroke-width=".8" width="80" x="408" y="140">
-      </rect>
-      <line class="dp dp3" stroke="#111" stroke-width=".5" x1="448" x2="448" y1="140" y2="200">
-      </line>
-      <line class="dp dp3" stroke="#111" stroke-width=".5" x1="408" x2="488" y1="170" y2="170">
-      </line>
-      <rect class="dp dp3" fill="white" height="70" stroke="#111" stroke-width=".8" width="80" x="72" y="248">
-      </rect>
-      <line class="dp dp4" stroke="#111" stroke-width=".5" x1="112" x2="112" y1="248" y2="318">
-      </line>
-      <line class="dp dp4" stroke="#111" stroke-width=".5" x1="72" x2="152" y1="283" y2="283">
-      </line>
-      <rect class="dp dp3" fill="white" height="80" stroke="#111" stroke-width=".9" width="100" x="230" y="260">
-      </rect>
-      <path class="dp dp4" d="M230 260 Q280 230 330 260" fill="none" stroke="#111" stroke-width=".75">
-      </path>
-      <line class="dp dp4" stroke="#111" stroke-width="1.2" x1="250" x2="262" y1="302" y2="302">
-      </line>
-      <rect class="dp dp3" fill="white" height="70" stroke="#111" stroke-width=".8" width="80" x="408" y="248">
-      </rect>
-      <line class="dp dp4" stroke="#111" stroke-width=".5" x1="448" x2="448" y1="248" y2="318">
-      </line>
-      <line class="dp dp4" stroke="#111" stroke-width=".5" x1="408" x2="488" y1="283" y2="283">
-      </line>
-      <g class="dl">
-       <line stroke="#9a9792" stroke-width=".6" x1="16" x2="16" y1="132" y2="220">
-       </line>
-       <line stroke="#9a9792" stroke-width=".6" x1="10" x2="22" y1="132" y2="132">
-       </line>
-       <line stroke="#9a9792" stroke-width=".6" x1="10" x2="22" y1="220" y2="220">
-       </line>
-       <text fill="#9a9792" font-family="Space Mono,monospace" font-size="7" letter-spacing="0.5" text-anchor="middle" transform="rotate(-90,8,180)" x="8" y="180">
-        2.70 m
-       </text>
-       <line stroke="#9a9792" stroke-width=".6" x1="16" x2="16" y1="232" y2="340">
-       </line>
-       <line stroke="#9a9792" stroke-width=".6" x1="10" x2="22" y1="232" y2="232">
-       </line>
-       <line stroke="#9a9792" stroke-width=".6" x1="10" x2="22" y1="340" y2="340">
-       </line>
-       <text fill="#9a9792" font-family="Space Mono,monospace" font-size="7" letter-spacing="0.5" text-anchor="middle" transform="rotate(-90,8,292)" x="8" y="292">
-        3.00 m
-       </text>
-       <line stroke="#9a9792" stroke-width=".6" x1="40" x2="520" y1="376" y2="376">
-       </line>
-       <line stroke="#9a9792" stroke-width=".6" x1="40" x2="40" y1="370" y2="382">
-       </line>
-       <line stroke="#9a9792" stroke-width=".6" x1="520" x2="520" y1="370" y2="382">
-       </line>
-       <text fill="#9a9792" font-family="Space Mono,monospace" font-size="7.5" letter-spacing="1" text-anchor="middle" x="280" y="390">
-        L = 24.00 m
-       </text>
-       <text fill="#c0bdb8" font-family="Space Mono,monospace" font-size="7" letter-spacing="1.5" text-anchor="middle" x="280" y="406">
-        COUPE TRANSVERSALE — ÉCH. 1/100
-       </text>
-       <text fill="#9a9792" font-family="Space Mono,monospace" font-size="7" letter-spacing="0.5" x="530" y="344">
-        RDC
-       </text>
-       <text fill="#9a9792" font-family="Space Mono,monospace" font-size="7" letter-spacing="0.5" x="530" y="224">
-        R+1
-       </text>
-       <text fill="#9a9792" font-family="Space Mono,monospace" font-size="7" letter-spacing="0.5" x="530" y="64">
-        R+2
-       </text>
-      </g>
-     </svg>
-    </div>
-   </div>
-   <div class="hero-baseline">
-    <span class="hero-baseline-text">
-     <span class="hero-baseline-word">
-      Conception
-     </span>
-     <span class="hero-baseline-sep">
-     </span>
-     <span class="hero-baseline-word">
-      Ingénierie
-     </span>
-     <span class="hero-baseline-sep">
-     </span>
-     <span class="hero-baseline-word">
-      Construction
-     </span>
-    </span>
-   </div>
-  </header>
-  <section id="modele">
-   <div class="modele-head">
-    <div>
-     <div class="eyebrow" data-reveal="">
-      Comment nous travaillons
-     </div>
-     <h2 data-reveal="1">
-      Nous pilotons votre projet
-      <br/>
-      de A à Z.
-     </h2>
-    </div>
-    <div class="modele-quote" data-reveal="2">
-     Un seul contrat. Un seul interlocuteur.
-     <br/>
-     De la conception à la remise des clés.
-    </div>
-   </div>
-   <div class="orga" data-reveal="">
-    <div class="orga-cell">
-     <div class="orga-eyebrow">
-      Vous
-     </div>
-     <div class="orga-title">
-      Le client
-     </div>
-     <div class="orga-sub">
-      1 contrat
-      <br/>
-      1 interlocuteur
-      <br/>
-      0 coordination à gérer
-     </div>
-    </div>
-    <div class="orga-arrow">
-     <svg fill="none" viewbox="0 0 20 20">
-      <line stroke="#111" stroke-width="1" x1="2" x2="15" y1="10" y2="10">
-      </line>
-      <polyline fill="none" points="11,6 15,10 11,14" stroke="#111" stroke-width="1">
-      </polyline>
-     </svg>
-     <span class="orga-arrow-label">
-      Mission
-     </span>
-    </div>
-    <div class="orga-cell center">
-     <div class="orga-eyebrow">
-      Interlocuteur unique
-     </div>
-     <div class="orga-title">
-      <span class="brand">
-       MΛTOBΛ
-      </span>
-     </div>
-     <div class="orga-sub">
-      Conception & permis
-      <br/>
-      Sélection des intervenants
-      <br/>
-      Coordination de chantier
-      <br/>
-      Suivi & livraison
-     </div>
-    </div>
-    <div class="orga-arrow">
-     <svg fill="none" viewbox="0 0 20 20">
-      <line stroke="#111" stroke-width="1" x1="2" x2="15" y1="10" y2="10">
-      </line>
-      <polyline fill="none" points="11,6 15,10 11,14" stroke="#111" stroke-width="1">
-      </polyline>
-     </svg>
-     <span class="orga-arrow-label">
-      Pilotage
-     </span>
-    </div>
-    <div class="orga-cell light" style="padding:0;">
-     <div class="orga-list">
-      <div class="orga-item">
-       <div class="orga-item-name">
-        Architecte
-       </div>
-       <div class="orga-item-sub">
-        Conception & permis
-       </div>
-      </div>
-      <div class="orga-item">
-       <div class="orga-item-name">
-        BET / Ingénierie
-       </div>
-       <div class="orga-item-sub">
-        Structure & fluides
-       </div>
-      </div>
-      <div class="orga-item">
-       <div class="orga-item-name">
-        Gros œuvre
-       </div>
-       <div class="orga-item-sub">
-        Maçonnerie & structure
-       </div>
-      </div>
-      <div class="orga-item">
-       <div class="orga-item-name">
-        Corps d'état
-       </div>
-       <div class="orga-item-sub">
-        Élec · Plomberie · CVC · Peinture
-       </div>
-      </div>
-      <div class="orga-item">
-       <div class="orga-item-name">
-        Finitions
-       </div>
-       <div class="orga-item-sub">
-        Agencement & décoration
-       </div>
-      </div>
-     </div>
-    </div>
-   </div>
-   <div class="garantie" data-reveal="">
-    <div class="garantie-tag">
-     En résumé
-    </div>
-    <div class="garantie-text">
-     <span class="brand">
-      MΛTOBΛ
-     </span>
-     reste votre
-     <strong>
-      seul interlocuteur
-     </strong>
-     , du premier rendez-vous à la remise des clés.
-    </div>
-   </div>
-   <div class="etapes" data-reveal="">
-    <div class="etape">
-     <div class="etape-num">
-      01
-     </div>
-     <div class="etape-title">
-      Contrat unique
-     </div>
-     <div class="etape-body">
-      Périmètre, prix et délais définis dès le départ.
-     </div>
-    </div>
-    <div class="etape">
-     <div class="etape-num">
-      02
-     </div>
-     <div class="etape-title">
-      Conception & permis
-     </div>
-     <div class="etape-body">
-      Conception, études techniques et autorisations.
-     </div>
-    </div>
-    <div class="etape">
-     <div class="etape-num">
-      03
-     </div>
-     <div class="etape-title">
-      Sélection des intervenants
-     </div>
-     <div class="etape-body">
-      Nous sélectionnons les intervenants adaptés au projet.
-     </div>
-    </div>
-    <div class="etape">
-     <div class="etape-num">
-      04
-     </div>
-     <div class="etape-title">
-      Pilotage de chantier
-     </div>
-     <div class="etape-body">
-      Planning, coordination et comptes rendus.
-     </div>
-    </div>
-    <div class="etape">
-     <div class="etape-num">
-      05
-     </div>
-     <div class="etape-title">
-      Livraison
-     </div>
-     <div class="etape-body">
-      Réception, réserves et remise des documents.
-     </div>
-    </div>
-   </div>
-   <!-- ── QUI SOMMES-NOUS ── -->
-   <div class="apropos-wrap" data-reveal="" id="qui-sommes-nous">
-    <div>
-     <div class="eyebrow">
-      Qui sommes-nous
-     </div>
-     <h2>
-      Un gestionnaire,
-      <br/>
-      un architecte.
-     </h2>
-    </div>
-    <div>
-     <p class="lead apropos-text">
-      Deux associés qui ont créé MΛTOBΛ parce qu'ils en avaient assez de voir des clients perdus entre dix interlocuteurs, des projets professionnels livrés en retard et des budgets qui dérapent.
-     </p>
-     <p class="apropos-conclusion">
-      On a pris la responsabilité
-      <br/>
-      que personne ne voulait.
-     </p>
-    </div>
-   </div>
-  </section>
-  <section class="bg-fog" id="savoir-faire">
-   <div class="sf-head">
-    <div>
-     <div class="eyebrow" data-reveal="">
-      Savoir-faire
-     </div>
-     <h2 data-reveal="1">
-      Chaque compétence, au service de votre projet.
-     </h2>
-    </div>
-    <p class="lead" data-reveal="2">
-     Nous ne vendons pas un corps de métier.
-     <br/>
-     Nous construisons la bonne équipe autour de votre projet.
-    </p>
-   </div>
-   <div class="sf-grid" data-reveal="">
-    <div class="sf-col">
-     <div class="sf-label">
-      Conception
-     </div>
-     <ul class="sf-list">
-      <li>
-       Architecture
-      </li>
-      <li>
-       Ingénierie structure
-      </li>
-      <li>
-       BET fluides
-      </li>
-      <li>
-       Permis de construire
-      </li>
-      <li>
-       Maîtrise d'œuvre
-      </li>
-     </ul>
-    </div>
-    <div class="sf-col">
-     <div class="sf-label">
-      Gros œuvre
-     </div>
-     <ul class="sf-list">
-      <li>
-       Maçonnerie
-      </li>
-      <li>
-       Béton & bois
-      </li>
-      <li>
-       Charpente
-      </li>
-      <li>
-       Étanchéité
-      </li>
-      <li>
-       Surélévation
-      </li>
-     </ul>
-    </div>
-    <div class="sf-col">
-     <div class="sf-label">
-      Second œuvre
-     </div>
-     <ul class="sf-list">
-      <li>
-       Plomberie & CVC
-      </li>
-      <li>
-       Électricité
-      </li>
-      <li>
-       Plâtrerie & isolation
-      </li>
-      <li>
-       Menuiseries
-      </li>
-      <li>
-       Revêtements
-      </li>
-     </ul>
-    </div>
-    <div class="sf-col">
-     <div class="sf-label">
-      Finitions
-     </div>
-     <ul class="sf-list">
-      <li>
-       Peinture
-      </li>
-      <li>
-       Agencement sur mesure
-      </li>
-      <li>
-       Cuisines & dressing
-      </li>
-      <li>
-       Sols & carrelage
-      </li>
-      <li>
-       Façades & ravalement
-      </li>
-     </ul>
-    </div>
-   </div>
-   <div class="sf-note" data-reveal="3">
-    <div class="sf-note-tag">
-     En résumé
-    </div>
-    <div class="sf-note-text">
-     Votre projet définit les besoins.
-     <br/>
-     <span class="sf-note-line">
-      Nous mobilisons les bons intervenants, sans que vous ayez à chercher, comparer ou coordonner.
-     </span>
-    </div>
-   </div>
-  </section>
-  <section id="projets">
-   <div class="eyebrow" data-reveal="">
-    Projets
-   </div>
-   <h2 data-reveal="1">
-    Projets menés.
-   </h2>
-   <div class="proj-grid" data-reveal="2">
-    <div class="proj">
-     <div class="proj-tag">
-      Terrassement · Résidentiel · Cassis
-     </div>
-     <div class="proj-name">
-      Terrassement et préparation de terrain — villa particulier
-     </div>
-    </div>
-    <div class="proj">
-     <div class="proj-tag">
-      Conception & travaux · Restauration · Aix-en-Provence
-     </div>
-     <div class="proj-name">
-      Conception, aménagement et réalisation d'un restaurant
-     </div>
-    </div>
-    <div class="proj">
-     <div class="proj-tag">
-      Division · Restructuration · Marseille 6e
-     </div>
-     <div class="proj-name">
-      Restructuration d'un T3 en deux lots T2 — rue Paradis
-     </div>
-    </div>
-    <div class="proj">
-     <div class="proj-tag">
-      Démolition · Construction neuve · Marseille 5e
-     </div>
-     <div class="proj-name">
-      Démolition complète et construction d'un immeuble R+3 — TCE, gestion globale
-     </div>
-    </div>
-    <div class="proj">
-     <div class="proj-tag">
-      CVC · Tertiaire de santé · Toulon
-     </div>
-     <div class="proj-name">
-      Installation de climatisation et traitement de l'air — centre dentaire
-     </div>
-    </div>
-    <div class="proj" style="display:flex;align-items:center;justify-content:center;background:var(--fog);min-height:80px;">
-     <span style="font-family:'Inter',sans-serif;font-size:8px;letter-spacing:.2em;color:var(--stone);">
-      EN COURS
-     </span>
-    </div>
-   </div>
-  </section>
-  <section class="bg-bone" id="contact">
-   <div class="contact-grid">
-    <div data-reveal="1">
-     <div class="eyebrow">
-      Contact
-     </div>
-     <h2>
-      Parlez-nous
-      <br/>
-      de votre projet.
-     </h2>
-     <p class="lead" style="margin-top:16px;">
-      Construction, rénovation ou aménagement. Quelques informations nous permettront d’étudier votre projet.
-     </p>
-     <div class="c-list">
-      <div class="c-row">
-       <div class="c-lbl">
-        Email
-       </div>
-       <div class="c-val">
-        <a href="mailto:contact@matoba.fr">
-         contact@matoba.fr
-        </a>
-       </div>
-      </div>
-      <div class="c-row">
-       <div class="c-lbl">
-        Zone
-       </div>
-       <div class="c-val">
-        Provence-Alpes-Côte d'Azur
-       </div>
-      </div>
-     </div>
-    </div>
-    <div data-reveal="2">
-     <form action="https://formsubmit.co/contact@matoba.fr" class="form" id="contactForm" method="POST">
-      <input name="_subject" type="hidden" value="Nouveau message depuis matoba.fr"/>
-      <input name="_captcha" type="hidden" value="false"/>
-      <input name="_template" type="hidden" value="table"/>
-      <input name="_next" type="hidden" value="https://matoba.pages.dev/?contact=success"/>
-      <div class="form-row">
-       <div class="fg">
-        <label class="flabel" for="nom">
-         Nom et prénom
-        </label>
-        <input class="finput" id="nom" name="nom" placeholder="Votre nom et prénom" required="" type="text"/>
-       </div>
-       <div class="fg">
-        <label class="flabel" for="email">
-         Adresse e-mail
-        </label>
-        <input class="finput" id="email" name="email" placeholder="vous@entreprise.fr" required="" type="email"/>
-       </div>
-      </div>
-      <div class="form-row">
-       <div class="fg">
-        <label class="flabel" for="telephone">
-         Téléphone
-        </label>
-        <input autocomplete="tel" class="finput" id="telephone" name="telephone" placeholder="Votre numéro de téléphone" required="" type="tel"/>
-       </div>
-       <div class="fg">
-        <label class="flabel" for="localisation">
-         Localisation du projet
-        </label>
-        <input autocomplete="address-level2" class="finput" id="localisation" name="localisation_du_projet" placeholder="Ville ou code postal" required="" type="text"/>
-       </div>
-      </div>
-      <div class="form-row">
-       <div class="fg">
-        <label class="flabel" for="type">
-         Votre projet concerne
-        </label>
-        <select class="fselect" id="type" name="type_de_projet" required="">
-         <option disabled="" selected="" value="">
-          Sélectionnez le type de projet
-         </option>
-         <optgroup label="Résidentiel">
-          <option>
-           Résidence principale ou secondaire
-          </option>
-          <option>
-           Rénovation complète d’un bien
-          </option>
-          <option>
-           Extension ou restructuration
-          </option>
-          <option>
-           Investissement immobilier
-          </option>
-         </optgroup>
-         <optgroup label="Professionnel">
-          <option>
-           Cabinet médical ou dentaire
-          </option>
-          <option>
-           Commerce ou point de vente
-          </option>
-          <option>
-           Restaurant, hôtellerie ou lieu d’accueil
-          </option>
-          <option>
-           Bureaux ou locaux professionnels
-          </option>
-         </optgroup>
-         <optgroup label="Autre">
-          <option>
-           Autre projet
-          </option>
-         </optgroup>
-        </select>
-       </div>
-       <div class="fg">
-        <label class="flabel" for="budget">
-         Enveloppe d’investissement
-        </label>
-        <select class="fselect" id="budget" name="enveloppe_investissement" required="">
-         <option disabled="" selected="" value="">
-          Sélectionnez une enveloppe
-         </option>
-         <option value="jusqua_100k">
-          Jusqu’à 100 k€
-         </option>
-         <option value="100_250k">
-          100 à 250 k€
-         </option>
-         <option value="250_500k">
-          250 à 500 k€
-         </option>
-         <option value="500k_1m">
-          500 k€ à 1 M€
-         </option>
-         <option value="plus_1m">
-          Plus de 1 M€
-         </option>
-         <option value="a_definir">
-          À définir ensemble
-         </option>
-        </select>
-       </div>
-      </div>
-      <div class="fg">
-       <label class="flabel" for="accompagnement">
-        Votre projet aujourd’hui
-       </label>
-       <select class="fselect" id="accompagnement" name="maturite_du_projet" required="">
-        <option disabled="" selected="" value="">
-         Sélectionnez la situation de votre projet
-        </option>
-        <option value="reflexion">
-         Le projet est en phase de réflexion
-        </option>
-        <option value="bien_identifie">
-         Le bien ou le terrain est identifié
-        </option>
-        <option value="etudes_en_cours">
-         Les études ou les plans sont en cours
-        </option>
-        <option value="projet_defini">
-         Le projet est défini et doit être concrétisé
-        </option>
-        <option value="travaux_a_lancer">
-         Les travaux doivent être engagés prochainement
-        </option>
-       </select>
-      </div>
-      <div class="fg">
-       <label class="flabel" for="msg">
-        Décrivez votre projet
-       </label>
-       <textarea class="ftextarea" id="msg" name="message" placeholder="Présentez votre projet, vos objectifs, les contraintes éventuelles et toute information utile à sa bonne compréhension." required=""></textarea>
-      </div>
-      <p class="form-privacy">
-       Chaque demande fait l’objet d’une première analyse afin de préparer un échange adapté à votre projet.
-       <br/>
-       Consultez notre
-       <a href="/politique-confidentialite.html">
-        politique de confidentialité
-       </a>
-       .
-      </p>
-      <button class="fsubmit" type="submit">
-       Échanger sur mon projet
+      <nav class="nav-links" aria-label="Navigation principale">
+        <a href="#methode">Méthode</a>
+        <a href="#prestations">Prestations</a>
+        <a href="#clients">Pour qui</a>
+        <a href="#equipe">Équipe</a>
+        <a href="#projets">Projets</a>
+        <a class="btn" href="#contact">Présenter un projet</a>
+      </nav>
+      <button class="burger" id="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="drawer">
+        <span></span><span></span>
       </button>
-      <p class="form-reassurance">
-       Premier échange sans engagement.
-      </p>
-     </form>
-     <div class="fsuccess" id="fsuccess">
-      <p>
-       Votre message a bien été envoyé.
-       <br/>
-       Nous revenons vers vous rapidement.
-      </p>
-     </div>
     </div>
-   </div>
-  </section>
-  <footer>
-   <a aria-label="Accueil MATOBA" class="footer-brand" href="/">
-    <div class="ft-name">
-     <span class="brand">
-      MΛTOBΛ
-     </span>
+  </header>
+
+  <div class="drawer dark" id="drawer" aria-hidden="true">
+    <nav aria-label="Navigation mobile">
+      <a href="#methode">Méthode</a>
+      <a href="#prestations">Prestations</a>
+      <a href="#clients">Pour qui</a>
+      <a href="#equipe">Équipe</a>
+      <a href="#projets">Projets</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="drawer-foot">
+      <a class="btn btn-solid" href="#contact">Présenter un projet <span class="arr" aria-hidden="true">→</span></a>
+      <a href="mailto:contact@cimenta.fr">contact@cimenta.fr</a>
+      <a href="tel:+33664773700">06 64 77 37 00</a>
     </div>
-    <div class="ft-baseline">
-     Conception  |  Ingénierie  |  Construction
+  </div>
+
+  <main id="main">
+
+    <!-- Haut de page -->
+    <section class="hero dark" aria-labelledby="hero-title">
+      <div class="wrap hero-main">
+        <div>
+          <p class="label" data-reveal>Contractant général — Marseille</p>
+          <h1 id="hero-title" style="margin-top:22px" data-reveal>Rénovation et construction, un seul interlocuteur.</h1>
+          <p class="lead" data-reveal>Un contrat, un prix et une date de livraison fixés avant le début des travaux. Nous choisissons les entreprises, coordonnons le chantier et vous remettons les clés.</p>
+          <div class="ctas" data-reveal>
+            <a class="btn btn-solid" href="#contact">Présenter un projet <span class="arr" aria-hidden="true">→</span></a>
+            <a class="link" href="#methode">La méthode</a>
+          </div>
+        </div>
+
+        <svg class="coupe" viewBox="0 0 560 420" fill="none" stroke="#F7F6F3" role="img" aria-label="Dessin : coupe transversale d'un bâtiment de trois niveaux">
+          <!-- sol et fondations -->
+          <path class="d" pathLength="1" stroke-width="1.2" d="M0 360H560"/>
+          <path class="d" pathLength="1" stroke-width=".5" stroke-opacity=".5" d="M0 374L12 362M14 374L26 362M28 374L40 362M42 374L54 362M126 374L138 362M140 374L152 362M154 374L166 362M168 374L180 362M182 374L194 362M196 374L208 362M210 374L222 362M224 374L236 362M238 374L250 362M252 374L264 362M266 374L278 362M280 374L292 362M294 374L306 362M308 374L320 362M322 374L334 362M336 374L348 362M350 374L362 362M364 374L376 362M378 374L390 362M392 374L404 362M406 374L418 362M420 374L432 362M434 374L446 362M518 374L530 362M532 374L544 362M546 374L558 362"/>
+          <path class="d" pathLength="1" stroke-width=".9" d="M52 360V384H112V360M448 360V384H508V360"/>
+          <!-- murs -->
+          <path class="d" pathLength="1" stroke-width="1" d="M60 360V60M72 360V70M488 360V70M500 360V60"/>
+          <!-- planchers et toiture -->
+          <path class="d d2" pathLength="1" stroke-width=".9" d="M72 250H488M72 240H488M72 150H488M72 140H488"/>
+          <path class="d d2" pathLength="1" stroke-width="1" d="M44 60H516M60 70H500M44 60V48H52V60M516 60V48H508V60"/>
+          <!-- cloisons, escalier, baies -->
+          <path class="d d3" pathLength="1" stroke-width=".6" d="M300 360V250M300 240V150M300 140V70"/>
+          <path class="d d3" pathLength="1" stroke-width=".7" d="M338 360H350V348H362V336H374V324H386V312H398V300H410V288H422V276H434V264H446V250"/>
+          <path class="d d3" pathLength="1" stroke-width=".7" d="M338 240H350V228H362V216H374V204H386V192H398V180H410V168H422V156H434V150"/>
+          <path class="d d3" pathLength="1" stroke-width=".5" stroke-opacity=".7" d="M488 290V330M494 290V330M500 290V330M488 190V230M494 190V230M500 190V230M488 95V125M494 95V125M500 95V125"/>
+          <!-- cotes -->
+          <path class="d d4" pathLength="1" stroke-width=".5" stroke-opacity=".6" d="M28 360V60M22 366L34 354M22 256L34 244M22 156L34 144M22 76L34 64M60 30H500M54 36L66 24M494 36L506 24"/>
+          <g class="t" fill="#F7F6F3" fill-opacity=".6" stroke="none" font-family="Poppins, sans-serif" font-size="9" letter-spacing="1.2">
+            <text x="18" y="305" transform="rotate(-90 18 305)" text-anchor="middle">3,00</text>
+            <text x="18" y="195" transform="rotate(-90 18 195)" text-anchor="middle">3,00</text>
+            <text x="18" y="105" transform="rotate(-90 18 105)" text-anchor="middle">2,70</text>
+            <text x="280" y="22" text-anchor="middle">24,00</text>
+            <text x="524" y="310">RDC</text>
+            <text x="524" y="200">R+1</text>
+            <text x="524" y="110">R+2</text>
+            <text x="0" y="410" letter-spacing="2">COUPE TRANSVERSALE — ÉCH. 1/100</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="wrap">
+        <div class="hero-facts" data-reveal>
+          <div><strong>1 contrat</strong><span>Prix et périmètre écrits avant le démarrage</span></div>
+          <div><strong>1 interlocuteur</strong><span>Du premier rendez-vous à la réception</span></div>
+          <div><strong>1 date de livraison</strong><span>Inscrite au contrat</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Méthode -->
+    <section class="section" id="methode" aria-labelledby="methode-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="label" data-reveal>01 · Méthode</p>
+          <div data-reveal>
+            <h2 id="methode-title">Cinq étapes, un seul responsable.</h2>
+            <p class="intro">Vous signez un contrat. CIMENTA porte la responsabilité du chantier, de la première visite à la réception.</p>
+          </div>
+        </div>
+        <ol class="steps" data-reveal>
+          <li><span class="n">01</span><h3>Visite et contrat</h3><p>Visite du bien, relevé de vos besoins, devis détaillé. Le prix, le périmètre et la date de livraison sont écrits dans un contrat unique.</p></li>
+          <li><span class="n">02</span><h3>Plans et autorisations</h3><p>Plans, études techniques et démarches d'urbanisme, confiés à des architectes et bureaux d'études.</p></li>
+          <li><span class="n">03</span><h3>Entreprises</h3><p>Nous choisissons chaque entreprise et signons avec elle. Vous n'avez aucun devis à comparer.</p></li>
+          <li><span class="n">04</span><h3>Chantier</h3><p>Planning, coordination des corps d'état, contrôle de l'exécution. Un compte rendu vous est adressé chaque semaine.</p></li>
+          <li><span class="n">05</span><h3>Réception</h3><p>Réception des travaux, levée des réserves, remise des plans, des notices et des garanties.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Prestations -->
+    <section class="section" id="prestations" aria-labelledby="prestations-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="label" data-reveal>02 · Prestations</p>
+          <div data-reveal>
+            <h2 id="prestations-title">Tous corps d'état.</h2>
+            <p class="intro">Nous réunissons les métiers nécessaires à votre projet et en assurons la coordination.</p>
+          </div>
+        </div>
+        <div class="trades" data-reveal>
+          <div>
+            <h3>Études</h3>
+            <ul><li>Relevés et plans</li><li>Études de structure</li><li>Études fluides et thermiques</li><li>Autorisations d'urbanisme</li></ul>
+            <p class="note">Réalisées par des architectes et bureaux d'études.</p>
+          </div>
+          <div>
+            <h3>Gros œuvre</h3>
+            <ul><li>Démolition et curage</li><li>Maçonnerie et béton</li><li>Charpente</li><li>Étanchéité</li><li>Surélévation</li></ul>
+          </div>
+          <div>
+            <h3>Second œuvre</h3>
+            <ul><li>Plomberie</li><li>Chauffage et climatisation</li><li>Électricité</li><li>Plâtrerie et isolation</li><li>Menuiseries</li></ul>
+          </div>
+          <div>
+            <h3>Finitions</h3>
+            <ul><li>Peinture</li><li>Sols et carrelage</li><li>Cuisines et dressings</li><li>Agencement sur mesure</li><li>Façades et ravalement</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pour qui -->
+    <section class="section" id="clients" aria-labelledby="clients-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="label" data-reveal>03 · Pour qui</p>
+          <div data-reveal>
+            <h2 id="clients-title">Particuliers, promoteurs, professionnels.</h2>
+          </div>
+        </div>
+        <div class="clients">
+          <article class="client" data-reveal>
+            <span class="label">Particuliers</span>
+            <h3>Rénover un appartement ou une maison</h3>
+            <p>Vous signez un contrat, vous suivez l'avancement, vous recevez les clés.</p>
+            <ul><li>Rénovation complète</li><li>Restructuration et division</li><li>Extension et surélévation</li><li>Cuisine et salle de bains</li></ul>
+          </article>
+          <article class="client" data-reveal>
+            <span class="label">Promoteurs</span>
+            <h3>Gestion de chantier tous corps d'état</h3>
+            <p>Pour vos opérations de logements, de la préparation du chantier à la livraison.</p>
+            <ul><li>Marchés des entreprises</li><li>Planning et date de livraison contractuels</li><li>Pénalités de retard</li><li>Réception et levée des réserves</li></ul>
+          </article>
+          <article class="client" data-reveal>
+            <span class="label">Professionnels</span>
+            <h3>Aménager des locaux d'activité</h3>
+            <p>Travaux planifiés en fonction de la date d'ouverture de votre établissement.</p>
+            <ul><li>Commerces et enseignes</li><li>Cabinets médicaux et dentaires</li><li>Restaurants</li><li>Bureaux</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Équipe -->
+    <section class="section dark" id="equipe" aria-labelledby="equipe-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="label" data-reveal>04 · Équipe</p>
+          <div data-reveal>
+            <h2 id="equipe-title">Un gestionnaire, un architecte.</h2>
+            <p class="intro">CIMENTA est dirigée par ses deux co-fondateurs. Ils suivent chaque projet personnellement.</p>
+          </div>
+        </div>
+        <div class="team" data-reveal>
+          <div class="member">
+            <h3>Tom Piras</h3>
+            <p class="role">Co-fondateur</p>
+            <p>Contrat, budget, planning et relation client. Votre interlocuteur du premier rendez-vous à la remise des clés.</p>
+          </div>
+          <div class="member">
+            <h3>Max Garnier</h3>
+            <p class="role">Co-fondateur · Architecte</p>
+            <p>Conception, choix techniques et suivi de l'exécution. Architecte depuis plus de dix ans.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projets -->
+    <section class="section" id="projets" aria-labelledby="projets-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="label" data-reveal>05 · Projets</p>
+          <div data-reveal>
+            <h2 id="projets-title">Projets menés.</h2>
+          </div>
+        </div>
+        <ul class="projects" data-reveal>
+          <li class="project"><span class="meta">Terrassement · Résidentiel · Cassis</span><h3>Terrassement et préparation de terrain — villa particulier</h3><span></span></li>
+          <li class="project"><span class="meta">Conception et travaux · Restauration · Aix-en-Provence</span><h3>Conception, aménagement et réalisation d'un restaurant</h3><span></span></li>
+          <li class="project"><span class="meta">Division · Restructuration · Marseille 6e</span><h3>Restructuration d'un T3 en deux lots T2 — rue Paradis</h3><span></span></li>
+          <li class="project"><span class="meta">Démolition · Construction neuve · Marseille 5e</span><h3>Démolition complète et construction d'un immeuble R+3 — tous corps d'état, gestion globale</h3><span></span></li>
+          <li class="project"><span class="meta">Climatisation · Santé · Toulon</span><h3>Installation de climatisation et traitement de l'air — centre dentaire</h3><span></span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="wrap contact-grid">
+        <div data-reveal>
+          <p class="label">06 · Contact</p>
+          <h2 id="contact-title" style="margin-top:24px">Parlez-nous de votre projet.</h2>
+          <p class="intro">Quelques informations suffisent. Nous vous rappelons pour fixer un premier rendez-vous.</p>
+          <dl class="coords">
+            <div><dt>E-mail</dt><dd><a href="mailto:contact@cimenta.fr">contact@cimenta.fr</a></dd></div>
+            <div><dt>Téléphone</dt><dd><a href="tel:+33664773700">06 64 77 37 00</a></dd></div>
+            <div><dt>Adresse</dt><dd>4 rue André Isaïa<br>13013 Marseille</dd></div>
+            <div><dt>Zone</dt><dd>Marseille et Provence-Alpes-Côte d'Azur</dd></div>
+          </dl>
+        </div>
+
+        <div data-reveal>
+          <form class="form" data-form="contact" action="https://formsubmit.co/contact@cimenta.fr" method="POST">
+            <input type="hidden" name="_subject" value="Nouveau projet — cimenta.fr">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://cimenta.fr/?envoi=ok">
+            <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+            <div class="row">
+              <div class="field"><label for="f-nom">Nom et prénom</label><input id="f-nom" name="Nom" type="text" autocomplete="name" required></div>
+              <div class="field"><label for="f-mail">E-mail</label><input id="f-mail" name="email" type="email" autocomplete="email" required></div>
+            </div>
+            <div class="row">
+              <div class="field"><label for="f-tel">Téléphone</label><input id="f-tel" name="Téléphone" type="tel" autocomplete="tel" required></div>
+              <div class="field"><label for="f-lieu">Ville du projet</label><input id="f-lieu" name="Localisation" type="text" placeholder="Marseille 7e, Aix-en-Provence…"></div>
+            </div>
+            <div class="field">
+              <label for="f-type">Votre projet</label>
+              <select id="f-type" name="Type de projet" required>
+                <option value="" disabled selected>Sélectionnez</option>
+                <option>Rénovation d'un appartement</option>
+                <option>Rénovation d'une maison</option>
+                <option>Extension ou surélévation</option>
+                <option>Restructuration ou division</option>
+                <option>Opération de promotion immobilière</option>
+                <option>Commerce ou restaurant</option>
+                <option>Cabinet médical ou dentaire</option>
+                <option>Bureaux</option>
+                <option>Autre projet</option>
+              </select>
+            </div>
+            <div class="row">
+              <div class="field">
+                <label for="f-budget">Budget envisagé</label>
+                <select id="f-budget" name="Budget" required>
+                  <option value="" disabled selected>Sélectionnez</option>
+                  <option>Moins de 50 k€</option>
+                  <option>50 à 100 k€</option>
+                  <option>100 à 250 k€</option>
+                  <option>250 à 500 k€</option>
+                  <option>Plus de 500 k€</option>
+                  <option>À définir ensemble</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="f-etat">Avancement</label>
+                <select id="f-etat" name="Avancement" required>
+                  <option value="" disabled selected>Sélectionnez</option>
+                  <option>Réflexion en cours</option>
+                  <option>Bien ou terrain identifié</option>
+                  <option>Plans ou études en cours</option>
+                  <option>Projet défini, à réaliser</option>
+                  <option>Travaux à engager rapidement</option>
+                </select>
+              </div>
+            </div>
+            <div class="field"><label for="f-msg">Votre projet en quelques lignes</label><textarea id="f-msg" name="Message" placeholder="Surface, nature des travaux, délai souhaité…"></textarea></div>
+
+            <div class="form-foot">
+              <small>Vos informations servent uniquement à étudier votre demande. <a href="/politique-confidentialite.html">Politique de confidentialité</a>.</small>
+              <button class="btn btn-solid" type="submit">Envoyer ma demande <span class="arr" aria-hidden="true">→</span></button>
+            </div>
+          </form>
+
+          <div class="success" id="success" role="status">
+            <h3>Votre demande a bien été envoyée.</h3>
+            <p>Nous vous rappelons pour fixer un premier rendez-vous.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Pied de page -->
+  <footer class="footer dark">
+    <div class="wrap">
+      <div class="top">
+        <a class="logo" href="/" aria-label="CIMENTA, accueil"><span class="word">Cimenta</span><span class="act">Construction</span></a>
+        <div class="cols">
+          <div><a href="#methode">Méthode</a><a href="#prestations">Prestations</a><a href="#projets">Projets</a><a href="#contact">Contact</a></div>
+          <div><a href="mailto:contact@cimenta.fr">contact@cimenta.fr</a><a href="tel:+33664773700">06 64 77 37 00</a><span style="color:var(--iv-soft)">4 rue André Isaïa, 13013 Marseille</span></div>
+          <div><a href="/apporteur-affaires.html">Apporteurs d'affaires</a><a href="/mentions-legales.html">Mentions légales</a><a href="/politique-confidentialite.html">Confidentialité</a></div>
+        </div>
+      </div>
+      <div class="bottom">
+        <span>© <span id="year">2026</span> CIMENTA SAS — capital de 5 000 €</span>
+        <span>Contractant général</span>
+      </div>
     </div>
-   </a>
-   <div class="footer-legal">
-    <p class="footer-company">
-     © 2026 MATOBA — SAS au capital de 6 000 €
-    </p>
-    <div aria-label="Informations légales" class="footer-links" role="navigation">
-     <a href="/mentions-legales.html">
-      Mentions légales
-     </a>
-     <a href="/politique-confidentialite.html">
-      Politique de confidentialité
-     </a>
-     <a href="mailto:contact@matoba.fr">
-      Contact
-     </a>
-    </div>
-   </div>
   </footer>
-  <script>
-   window.addEventListener('load', () => {
-    if (window.resetMatobaScroll) window.resetMatobaScroll();
-    requestAnimationFrame(() => window.resetMatobaScroll && window.resetMatobaScroll());
-    setTimeout(() => window.resetMatobaScroll && window.resetMatobaScroll(), 150);
-    const gateName     = document.getElementById('gateName');
-    const gateBaseline = document.getElementById('gateBaseline');
-    if (gateName && gateBaseline) {
-      const baseW = gateBaseline.offsetWidth;
-      const nameW = gateName.offsetWidth;
-      const chars = 6;
-      const extra = (baseW - nameW) / chars;
-      if (extra > 0) {
-        gateName.style.letterSpacing = extra + 'px';
-        gateName.style.paddingLeft   = extra + 'px';
-      }
-    }
-    setTimeout(() => document.getElementById('gate').classList.add('out'), 1200);
-    document.getElementById('gate').addEventListener('click', () => {
-      document.getElementById('gate').classList.add('out');
-    });
-  });
-  function toggleMenu() {
-    const burger = document.getElementById('navBurger');
-    const dropdown = document.getElementById('navDropdown');
-    burger.classList.toggle('open');
-    dropdown.classList.toggle('open');
-    const isOpen = dropdown.classList.contains('open');
-    burger.setAttribute('aria-expanded', String(isOpen));
-    burger.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
-    dropdown.setAttribute('aria-hidden', String(!isOpen));
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-  }
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && document.getElementById('navDropdown').classList.contains('open')) toggleMenu();
-  });
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('stuck', window.scrollY > 50);
-  }, { passive: true });
-  const ro = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); ro.unobserve(e.target); } });
-  }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
-  document.querySelectorAll('[data-reveal]').forEach(el => ro.observe(el));
-  const params = new URLSearchParams(window.location.search);
-  if (params.get('contact') === 'success') {
-    const form = document.getElementById('contactForm');
-    const success = document.getElementById('fsuccess');
 
-    if (form && success) {
-      form.style.display = 'none';
-      success.style.display = 'block';
-    }
-
-    // Affiche la confirmation une seule fois, puis nettoie l'URL.
-    // Ainsi, une actualisation normale fait réapparaître le formulaire.
-    params.delete('contact');
-    const cleanQuery = params.toString();
-    const cleanUrl = window.location.pathname + (cleanQuery ? '?' + cleanQuery : '');
-    history.replaceState(null, '', cleanUrl);
-  }
-  </script>
- </body>
+  <script src="/assets/cimenta.js" defer></script>
+</body>
 </html>
