@@ -601,3 +601,47 @@ ul.plain li { padding: 4px 0; font-size: 15px; color: var(--ink-soft); }
 /* Écran d'accueil : CIMENTA, puis CONSTRUCTION fin et centré */
 .gate-logo { align-items: center; }
 .gate-logo .act { font-weight: 300; margin-left: 0; margin-right: -.42em; color: var(--ink); }
+
+/* À propos côte à côte */
+.about { display: grid; grid-template-columns: 1fr 2fr; gap: 40px clamp(40px, 7vw, 112px); max-width: 1080px; margin: 0 auto; align-items: start; }
+.about h2 { text-align: left; }
+.about-lead { font-weight: 300; font-size: clamp(1.35rem, 2.1vw, 1.75rem); line-height: 1.4; letter-spacing: -.01em; }
+.about-txt { margin-top: 22px; font-size: clamp(1rem, 1.2vw, 1.1rem); color: var(--ink-soft); max-width: 38rem; }
+.about-facts { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: clamp(40px, 5vw, 64px); border-top: 1px solid var(--ink-rule); }
+.about-facts div { padding-top: 22px; }
+.about-facts strong { display: block; font-weight: 300; font-size: clamp(1.4rem, 2.2vw, 1.9rem); line-height: 1.1; }
+.about-facts span { display: block; margin-top: 8px; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-mute); }
+@media (max-width: 800px) {
+  .about { grid-template-columns: 1fr; }
+  .about h2 { text-align: center; }
+  .about-facts { grid-template-columns: 1fr; }
+  .about-facts div { padding: 18px 0; border-bottom: 1px solid var(--ink-rule); }
+}
+/* À propos : titre centré, texte à gauche, repères à droite séparés par un trait fin */
+.about { grid-template-columns: 1.7fr 1fr; gap: 0; margin-top: clamp(56px, 7vw, 88px); align-items: center; }
+.about-l { padding-right: clamp(32px, 5vw, 72px); }
+.about-facts { display: block; margin-top: 0; border-top: 0; border-left: 1px solid var(--ink-rule); padding-left: clamp(32px, 5vw, 72px); }
+.about-facts div { padding: 14px 0; }
+.about-facts div + div { margin-top: 10px; }
+@media (max-width: 800px) {
+  .about { grid-template-columns: 1fr; }
+  .about-l { padding-right: 0; }
+  .about-facts { border-left: 0; border-top: 1px solid var(--ink-rule); padding-left: 0; margin-top: 36px; padding-top: 8px; }
+  .about-facts div { border-bottom: 0; padding: 12px 0; }
+  .about-facts div + div { margin-top: 0; }
+}
+/* Équipe : liste de missions commune */
+.team-tasks { list-style: none; padding: 32px 0 0; margin: 48px auto 0; max-width: 620px; border-top: 1px solid var(--ink-rule); display: grid; grid-template-columns: 1fr 1fr; gap: 10px 40px; text-align: center; }
+.team-tasks li { font-size: 15px; color: var(--ink-soft); }
+.team-note { margin-top: 40px; }
+@media (max-width: 600px) { .team-tasks { grid-template-columns: 1fr; } }
+.team-shared { max-width: 720px; margin: 48px auto 0; padding-top: 32px; border-top: 1px solid var(--ink-rule); text-align: center; }
+.team-shared p { font-size: 15px; color: var(--ink-soft); }
+.team-shared .team-tasks { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 0; margin: 18px 0 0; padding: 0; border: 0; max-width: none; }
+.team-shared .team-tasks li { font-size: 14px; color: var(--ink); }
+.team-shared .team-tasks li + li::before { content: "·"; margin: 0 12px; color: var(--ink-mute); }
+.team-shared .team-tasks { display: grid; grid-template-columns: repeat(4, auto); justify-content: center; gap: 12px 36px; }
+.team-shared .team-tasks li + li::before { content: none; }
+@media (max-width: 700px) { .team-shared .team-tasks { grid-template-columns: repeat(2, auto); gap: 10px 24px; } }
+.about-txt + .about-txt { margin-top: 14px; }
+.about-types { margin-top: 26px; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-mute); }
