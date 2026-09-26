@@ -598,3 +598,6 @@ ul.plain li { padding: 4px 0; font-size: 15px; color: var(--ink-soft); }
 .team-note { font-size: 15px; color: var(--ink-soft); margin-top: 56px; }
 .mgrid .small-note { margin-top: 14px; font-size: 13px; color: var(--ink-mute); }
 .hero-a h1 { font-size: clamp(2.4rem, 6.8vw, 5.8rem); }
+/* Écran d'accueil : CIMENTA, puis CONSTRUCTION fin et centré */
+.gate-logo { align-items: center; }
+.gate-logo .act { font-weight: 300; margin-left: 0; margin-right: -.42em; color: var(--ink); }
