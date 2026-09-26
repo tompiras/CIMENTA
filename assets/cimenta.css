@@ -528,3 +528,73 @@ p { margin: 0; }
 .g-note { margin-top: 28px; font-size: 14px; color: var(--ink-mute); }
 @media (max-width: 1000px) { .guarantees { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 600px) { .guarantees { grid-template-columns: 1fr; } }
+
+/* ---------- Mise en page épurée (V4) ---------- */
+.msec { padding: clamp(96px, 13vw, 170px) 0 0; }
+.msec:last-of-type { padding-bottom: clamp(96px, 13vw, 170px); }
+.msec h2 { text-align: center; font-size: clamp(2.2rem, 4.6vw, 3.6rem); letter-spacing: -.02em; }
+.msec .lede { max-width: 40rem; margin: 22px auto 0; text-align: center; font-size: clamp(1.05rem, 1.35vw, 1.2rem); color: var(--ink-soft); }
+.msec div.lede p + p { margin-top: 14px; }
+.mgrid { list-style: none; padding: 0; margin: clamp(56px, 7vw, 88px) 0 0; display: grid; gap: 48px clamp(24px, 3vw, 48px); }
+.mgrid.c2 { grid-template-columns: repeat(2, 1fr); max-width: 760px; margin-left: auto; margin-right: auto; }
+.mgrid.c3 { grid-template-columns: repeat(3, 1fr); }
+.mgrid.c4 { grid-template-columns: repeat(4, 1fr); }
+.mgrid.c5 { grid-template-columns: repeat(5, 1fr); }
+.mgrid.center { text-align: center; }
+.mgrid h3 { font-size: 1.1rem; font-weight: 400; }
+.mgrid p { margin-top: 8px; font-size: 15px; color: var(--ink-soft); }
+.mgrid .n { display: block; font-size: 12px; letter-spacing: .2em; color: var(--ink-mute); margin-bottom: 14px; }
+.mgrid .big { display: block; font-weight: 300; font-size: clamp(1.7rem, 2.8vw, 2.4rem); line-height: 1.1; letter-spacing: -.01em; }
+.mgrid .big + h3 { margin-top: 16px; }
+.mgrid .cap { display: block; margin-top: 8px; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-mute); }
+.mgrid .cap + p { margin-top: 14px; }
+ul.plain { list-style: none; margin: 14px 0 0; padding: 0; }
+ul.plain li { padding: 4px 0; font-size: 15px; color: var(--ink-soft); }
+.foot-note { margin-top: 48px; text-align: center; font-size: 13px; color: var(--ink-mute); }
+.mlist { list-style: none; padding: 0; margin: clamp(56px, 7vw, 88px) auto 0; max-width: 820px; }
+.mlist li { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--ink-rule); }
+.mlist li:first-child { border-top: 1px solid var(--ink-rule); }
+.mlist h3 { font-size: 1.05rem; font-weight: 400; }
+.mlist span { font-size: 13px; color: var(--ink-mute); white-space: nowrap; }
+.mcontact { display: grid; grid-template-columns: 1fr 1.8fr; gap: clamp(40px, 7vw, 96px); margin: clamp(56px, 7vw, 88px) auto 0; max-width: 1040px; }
+.mcontact .coords { margin-top: 0; }
+@media (max-width: 1000px) {
+  .mgrid.c5 { grid-template-columns: repeat(3, 1fr); }
+  .mgrid.c4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 700px) {
+  .mgrid.c2, .mgrid.c3, .mgrid.c4, .mgrid.c5 { grid-template-columns: 1fr; gap: 36px; }
+  .mlist li { flex-direction: column; gap: 4px; }
+  .mcontact { grid-template-columns: 1fr; }
+}
+.mgrid.c3, .mgrid.c4, .mgrid.c5 { max-width: 1080px; margin-left: auto; margin-right: auto; }
+
+/* Haut de page avec visuel */
+.hero-img { position: relative; overflow: hidden; min-height: 100vh; min-height: 100svh; background: var(--ink); }
+.hero-img .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 40%; z-index: 0; }
+.hero-img::after { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(17,17,17,.45) 0%, rgba(17,17,17,.30) 45%, rgba(17,17,17,.55) 100%); }
+.hero-img .wrap { position: relative; z-index: 2; }
+.hero-img h1 { color: var(--ivory); }
+.hero-img .sub { color: rgba(247,246,243,.85); }
+.hero-img .alink { color: var(--ivory); }
+/* Équipe */
+.team2 { text-align: center; }
+.team2 ul.plain { margin-top: 20px; }
+
+/* Logotype : mention CONSTRUCTION plus lisible, alignée sous le C */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/assets/fonts/poppins-latin-500-normal.woff2') format('woff2');
+}
+.logo .act { font-weight: 500; font-size: calc(19px * .37); letter-spacing: .42em; margin-top: 7px; opacity: 1; }
+.footer .logo .act { font-size: calc(24px * .37); }
+.gate-logo { align-items: flex-start; }
+.gate-logo .act { font-weight: 500; font-size: calc(clamp(30px, 6vw, 64px) * .37); letter-spacing: .42em; margin-right: 0; color: var(--ink); }
+.logo .act, .gate-logo .act { margin-left: .1em; }
+.logo .act, .gate-logo .act, .logo .word, .gate-logo .word { font-kerning: none; }
+.team-note { font-size: 15px; color: var(--ink-soft); margin-top: 56px; }
+.mgrid .small-note { margin-top: 14px; font-size: 13px; color: var(--ink-mute); }
+.hero-a h1 { font-size: clamp(2.4rem, 6.8vw, 5.8rem); }
