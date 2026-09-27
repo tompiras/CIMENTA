@@ -885,3 +885,24 @@ main:has(.cdark) + .footer .wrap { border-top: 1px solid var(--iv-rule); padding
 .form-error a { text-underline-offset: 3px; }
 button[disabled] { opacity: .6; cursor: wait; }
 .form-error .err-code { color: var(--ink-mute); font-size: 11px; }
+
+/* Bouton « Appeler » fixe sur mobile */
+.callbar { display: none; }
+@media (max-width: 700px) {
+  .callbar {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    position: fixed; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom));
+    z-index: 90; height: 50px; padding: 0 20px;
+    background: var(--ink); color: var(--ivory); text-decoration: none;
+    font-size: 12px; letter-spacing: .16em; text-transform: uppercase;
+    border: 1px solid rgba(247,246,243,.18);
+    box-shadow: 0 6px 24px rgba(17,17,17,.18);
+    transform: translateY(calc(100% + 24px)); opacity: 0; pointer-events: none;
+    transition: transform .35s ease, opacity .35s ease;
+  }
+  .callbar .cb-num { letter-spacing: .08em; color: var(--iv-soft); text-transform: none; font-size: 13px; }
+  .callbar.show { transform: none; opacity: 1; pointer-events: auto; }
+  body { padding-bottom: env(safe-area-inset-bottom); }
+  .footer { padding-bottom: 96px; }
+}
+@media (max-width: 700px) and (prefers-reduced-motion: reduce) { .callbar { transition: none; } }

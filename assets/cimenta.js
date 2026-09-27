@@ -117,6 +117,28 @@
   }
 
 
+
+  // Bouton « Appeler » (mobile) : visible après le haut de page, masqué sur la section Contact et le pied de page
+  var callbar = document.getElementById('callbar');
+  if (callbar) {
+    var hidden = {};
+    var hideTargets = document.querySelectorAll('#contact, .footer');
+    var update = function () {
+      var past = window.scrollY > window.innerHeight * 0.6 || !document.querySelector('.hero-a');
+      var blocked = Object.keys(hidden).some(function (k) { return hidden[k]; });
+      callbar.classList.toggle('show', past && !blocked);
+    };
+    if ('IntersectionObserver' in window) {
+      var io2 = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { hidden[e.target.className + e.target.id] = e.isIntersecting; });
+        update();
+      }, { threshold: 0 });
+      hideTargets.forEach(function (el) { io2.observe(el); });
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  }
+
   // Écran d'accueil : un clic le ferme
   var gate = document.getElementById('gate');
   if (gate) {
