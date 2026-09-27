@@ -778,3 +778,21 @@ ul.plain li { padding: 4px 0; font-size: 15px; color: var(--ink-soft); }
 /* Haut de page : bouton « Présenter un projet » transparent */
 .hero-img .ha-links .btn-solid { background: transparent; color: var(--ivory); border-color: rgba(247,246,243,.85); }
 .hero-img .ha-links .btn-solid:hover { background: var(--ivory); color: var(--ink); border-color: var(--ivory); }
+
+/* À propos : points clés et partenaire concepteur */
+.about-points { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; max-width: 1080px; margin: clamp(56px, 7vw, 80px) auto 0; padding-top: 32px; border-top: 1px solid var(--ink-rule); text-align: center; }
+.about-points h3 { font-size: 1.05rem; font-weight: 400; }
+.about-points p { margin-top: 8px; font-size: 14.5px; color: var(--ink-soft); }
+.partner { display: flex; flex-direction: column; align-items: center; margin: clamp(56px, 7vw, 80px) auto 0; text-align: center; }
+.partner-label { font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--ink-mute); }
+.partner-logo { width: 58px; margin-top: 22px; color: var(--ink); }
+.partner-logo svg { width: 100%; height: auto; display: block; }
+.partner-name { margin-top: 16px; font-size: 1.1rem; font-weight: 300; letter-spacing: .01em; }
+@media (max-width: 900px) { .about-points { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 700px) {
+  .about-points { gap: 20px 14px; margin-top: 36px; padding-top: 24px; }
+  .about-points p { font-size: 13.5px; }
+  .partner { margin-top: 40px; }
+  .partner-logo { width: 48px; margin-top: 16px; }
+  .about-facts strong { font-size: 1.05rem; }
+}
