@@ -61,6 +61,7 @@
     dlg.querySelectorAll('[data-close-form]').forEach(function (b) { b.addEventListener('click', function () { dlg.close(); }); });
     dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
     dlg.addEventListener('close', function () { document.body.style.overflow = ''; });
+    if (window.location.hash === '#formulaire') { setTimeout(function () { dlg.showModal(); document.body.style.overflow = 'hidden'; history.replaceState(null, '', window.location.pathname + window.location.search); }, 400); }
   } else if (dlg) {
     document.querySelectorAll('[data-open-form]').forEach(function (a) { a.setAttribute('href', '#formulaire'); });
     dlg.setAttribute('open', '');

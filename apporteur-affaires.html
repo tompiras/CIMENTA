@@ -36,7 +36,7 @@
         <a href="/#equipe">Équipe</a>
         <a href="/#projets">Projets</a>
         <a href="/apporteur-affaires.html">Apporteurs d'affaires</a>
-        <a class="btn" href="/#contact">Présenter un projet</a>
+        <a class="btn" href="#formulaire" data-open-form>Présenter un projet</a>
       </nav>
       <button class="burger" id="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="drawer">
         <span></span><span></span>
@@ -55,7 +55,7 @@
       <a href="/#contact">Contact</a>
     </nav>
     <div class="drawer-foot">
-      <a class="btn btn-solid" href="/#contact">Présenter un projet <span class="arr" aria-hidden="true">→</span></a>
+      <a class="btn btn-solid" href="#formulaire" data-open-form>Présenter un projet <span class="arr" aria-hidden="true">→</span></a>
       <a href="mailto:contact@cimenta.fr">contact@cimenta.fr</a>
       <a href="tel:+33664773700">06 64 77 37 00</a>
     </div>
@@ -68,7 +68,7 @@
         <h1 id="ap-title" data-reveal>Vous connaissez un projet ?</h1>
         <p class="lead" data-reveal>Architectes, agents immobiliers, notaires, artisans : présentez-nous le projet. Nous vous indiquons si CIMENTA peut intervenir.</p>
         <div class="ctas" data-reveal>
-          <a class="btn btn-solid" href="#presenter">Présenter un projet <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn-solid" href="#formulaire" data-open-form>Présenter un projet <span class="arr" aria-hidden="true">→</span></a>
           <a class="link" href="#fonctionnement">Comment ça fonctionne</a>
         </div>
       </div>
@@ -106,20 +106,21 @@
       </div>
     </section>
 
-    <section class="section" id="presenter" aria-labelledby="pr-title">
-      <div class="wrap contact-grid">
-        <div data-reveal>
-          <p class="label">03 · Présenter un projet</p>
-          <h2 id="pr-title" style="margin-top:24px">Parlez-nous du projet.</h2>
-          <p class="intro">Quelques informations suffisent pour démarrer l'étude.</p>
-          <dl class="coords">
-            <div><dt>E-mail</dt><dd><a href="mailto:contact@cimenta.fr">contact@cimenta.fr</a></dd></div>
-            <div><dt>Téléphone</dt><dd><a href="tel:+33664773700">06 64 77 37 00</a></dd></div>
-            <div><dt>Zone</dt><dd>France</dd></div>
-          </dl>
-        </div>
-        <div data-reveal>
-          <form class="form" data-form="presenter" action="/api/contact" method="POST">
+    <section class="cdark dark" id="presenter" aria-labelledby="pr-title">
+      <div class="wrap">
+        <h2 id="pr-title" data-reveal>Vous connaissez un projet ?</h2>
+        <p class="cd-line" data-reveal><a href="tel:+33664773700">06 64 77 37 00</a><span aria-hidden="true">·</span><a href="mailto:contact@cimenta.fr">contact@cimenta.fr</a></p>
+        <div data-reveal><a class="btn cd-btn" href="#formulaire" data-open-form>Présenter un projet</a></div>
+        <p class="cd-ok" id="success" role="status">Le projet a bien été envoyé. Nous revenons vers vous après étude.</p>
+      </div>
+    </section>
+
+    <dialog class="fdialog" id="formulaire" aria-labelledby="fd-title">
+      <div class="fd-head">
+        <h2 id="fd-title">Présenter un projet</h2>
+        <button type="button" class="fd-close" data-close-form aria-label="Fermer">×</button>
+      </div>
+      <form class="form" data-form="presenter" action="/api/contact" method="POST">
             <input type="hidden" name="_form" value="apporteur">
             <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
             <div class="row">
@@ -146,13 +147,7 @@
               <button class="btn btn-solid" type="submit">Envoyer le projet <span class="arr" aria-hidden="true">→</span></button>
             </div>
           </form>
-          <div class="success" id="success" role="status">
-            <h3>Le projet a bien été envoyé.</h3>
-            <p>Nous revenons vers vous après étude.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    </dialog>
   </main>
 
   <footer class="footer dark">
@@ -169,7 +164,7 @@
         </nav>
         <div class="f-col">
           <h2 class="f-h">Contact</h2>
-          <a href="tel:+33664773700">06 64 77 37 00</a><a href="mailto:contact@cimenta.fr">contact@cimenta.fr</a><a href="/#formulaire" data-open-form>Présenter un projet</a>
+          <a href="tel:+33664773700">06 64 77 37 00</a><a href="mailto:contact@cimenta.fr">contact@cimenta.fr</a><a href="#formulaire" data-open-form>Présenter un projet</a>
         </div>
         <div class="f-col">
           <h2 class="f-h">Société</h2>
