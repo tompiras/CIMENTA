@@ -48,6 +48,7 @@ export async function onRequestPost({ request, env }) {
   const email = get('email');
   if (!name || !isEmail(email)) return reply(request, false, cfg.back, 422, 'champs');
 
+  if (!env.BREVO_API_KEY || !String(env.BREVO_API_KEY).trim().startsWith('xkeysib-')) return reply(request, false, cfg.back, 500, 'configuration', env.BREVO_API_KEY ? 'la clé enregistrée n\'est pas une clé API Brevo (xkeysib-…)' : 'BREVO_API_KEY absente');
   if (!env.BREVO_API_KEY) return reply(request, false, cfg.back, 500, 'configuration', 'BREVO_API_KEY absente');
 
   const rows = fields
@@ -61,7 +62,7 @@ export async function onRequestPost({ request, env }) {
   try {
   res = await fetch('https://api.brevo.com/v3/smtp/email', {
     method: 'POST',
-    headers: { 'api-key': env.BREVO_API_KEY, 'content-type': 'application/json', accept: 'application/json' },
+    headers: { 'api-key': String(env.BREVO_API_KEY).trim(), 'content-type': 'application/json', accept: 'application/json' },
     body: JSON.stringify({
       sender: SENDER,
       to: [DEST],
