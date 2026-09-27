@@ -874,3 +874,10 @@ main:has(.cdark) + .footer .wrap { border-top: 1px solid var(--iv-rule); padding
   .fdialog .field textarea { min-height: 64px; }
 }
 @media (max-width: 700px) { .fdialog { height: fit-content; } }
+/* Garanties : titres alignés quelle que soit la longueur du texte */
+@media (min-width: 701px) {
+  .gcell h3 { margin-top: clamp(40px, 5vw, 72px); }
+}
+@media (max-width: 700px) { .gcell .gph { min-height: 2.8em; } }
+@media (max-width: 700px) { .gcell .gph { height: 2.6em; min-height: 0; line-height: 1.3; overflow: hidden; } }
+@media (min-width: 701px) { .gcell { aspect-ratio: auto; min-height: clamp(250px, 21vw, 290px); } }
