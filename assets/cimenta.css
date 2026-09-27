@@ -647,3 +647,49 @@ ul.plain li { padding: 4px 0; font-size: 15px; color: var(--ink-soft); }
 .about-types { margin-top: 26px; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-mute); }
 .team-shared { max-width: 860px; } .team-shared .team-tasks { gap: 12px 32px; }
 .coords div { grid-template-columns: 150px 1fr; }
+
+/* Garanties : cellules + frise travaux / réception */
+.gwrap { max-width: 1080px; margin: clamp(56px, 7vw, 88px) auto 0; }
+.gphase { display: grid; grid-template-columns: 1fr 3fr; position: relative; margin-bottom: 18px; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-mute); }
+.gphase .ph-a { padding-bottom: 12px; border-bottom: 1px solid var(--ink); }
+.gphase .ph-b { padding-bottom: 12px; border-bottom: 1px solid var(--ink-rule); padding-left: 28px; }
+.gphase .ph-mark { position: absolute; left: 25%; bottom: -5px; transform: translateX(-50%); background: var(--ivory); padding: 0 8px; color: var(--ink); line-height: 10px; font-size: 10px; }
+.gphase .ph-mark::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--ink); margin-right: 8px; vertical-align: 0; }
+.gcells { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--ink-rule); border-left: 1px solid var(--ink-rule); }
+.gcell { border-right: 1px solid var(--ink-rule); border-bottom: 1px solid var(--ink-rule); padding: clamp(28px, 3vw, 40px) clamp(22px, 2.4vw, 32px); aspect-ratio: 1 / 1; display: flex; flex-direction: column; transition: background .3s; }
+.gcell:hover { background: rgba(17,17,17,.035); }
+.gcell .gph { display: none; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 14px; }
+.gcell strong { font-weight: 300; font-size: clamp(2.2rem, 3.8vw, 3.2rem); line-height: 1; letter-spacing: -.02em; }
+.gcell h3 { margin-top: auto; font-size: 1.05rem; font-weight: 400; }
+.gcell p { margin-top: 8px; font-size: 14px; color: var(--ink-soft); }
+@media (max-width: 900px) {
+  .gphase { display: none; }
+  .gcells { grid-template-columns: 1fr 1fr; }
+  .gcell .gph { display: block; }
+}
+@media (max-width: 480px) {
+  .gcell { aspect-ratio: auto; min-height: 220px; }
+  .gcell h3 { margin-top: 28px; }
+}
+.gcells { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.gcell strong { font-size: clamp(2rem, 3.2vw, 2.8rem); }
+.gphase .ph-a { padding-right: 16px; }
+.gphase .ph-mark { left: 25%; transform: translateX(-3.5px); padding: 0 8px 0 0; }
+.gphase .ph-mark::before { margin-right: 8px; }
+.gphase .ph-b { padding-left: 24px; }
+.g-why { max-width: 720px; margin: clamp(48px, 6vw, 72px) auto 0; text-align: center; font-size: clamp(1.05rem, 1.35vw, 1.2rem); line-height: 1.6; color: var(--ink); }
+.g-why + .foot-note { margin-top: 24px; }
+.g-compare { display: grid; grid-template-columns: 1fr 1fr; max-width: 900px; margin: clamp(48px, 6vw, 72px) auto 0; }
+.g-compare > div { padding: 4px clamp(24px, 4vw, 48px); }
+.g-compare > div + div { border-left: 1px solid var(--ink-rule); }
+.g-compare .cap-t { display: block; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-mute); }
+.g-compare > div:first-child .cap-t { color: var(--ink); }
+.g-compare p { margin-top: 12px; font-size: 15.5px; line-height: 1.65; color: var(--ink-soft); }
+.g-compare > div:first-child p { color: var(--ink); }
+.g-compare + .foot-note { margin-top: 40px; }
+@media (max-width: 700px) {
+  .g-compare { grid-template-columns: 1fr; }
+  .g-compare > div { padding: 20px 0; }
+  .g-compare > div + div { border-left: 0; border-top: 1px solid var(--ink-rule); }
+}
+@media (max-width: 900px) { .gcells { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
