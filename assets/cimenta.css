@@ -775,3 +775,6 @@ ul.plain li { padding: 4px 0; font-size: 15px; color: var(--ink-soft); }
 }
 .team-shared p { font-size: 15px !important; color: var(--ink-soft) !important; font-weight: 400; line-height: 1.65; max-width: 560px; }
 .todo { background: #111111; color: #F7F6F3; padding: 1px 6px; font-size: .9em; }
+/* Haut de page : bouton « Présenter un projet » transparent */
+.hero-img .ha-links .btn-solid { background: transparent; color: var(--ivory); border-color: rgba(247,246,243,.85); }
+.hero-img .ha-links .btn-solid:hover { background: var(--ivory); color: var(--ink); border-color: var(--ivory); }
