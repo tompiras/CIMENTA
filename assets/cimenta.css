@@ -972,3 +972,19 @@ main:has(.cdark) + .footer .f-top { border-top: 1px solid var(--iv-rule); paddin
 /* Projets : la section se termine proprement avant le bloc Contact */
 .msec:has(+ .cdark) { padding-bottom: clamp(96px, 13vw, 170px); }
 @media (max-width: 720px) { .msec:has(+ .cdark) { padding-bottom: 72px; } }
+
+/* ==== Mobile : tailles ajustées pour que repères et titres tiennent sur une ligne (sept. 2026) ==== */
+@media (max-width: 600px) {
+  .about-facts { grid-template-columns: repeat(3, auto) !important; justify-content: space-between; column-gap: 12px; }
+  .about-facts strong { font-size: 13px; white-space: nowrap; }
+  .about-facts span { font-size: 9px; letter-spacing: .07em; white-space: nowrap; }
+  .about-points h3 { font-size: 15.5px; }
+  .gcell { padding-left: 12px; padding-right: 12px; }
+  .gcell .gph { font-size: 9.5px; letter-spacing: .12em; white-space: nowrap; height: auto !important; min-height: 0 !important; }
+  .gcell h3 { font-size: 14px; white-space: nowrap; }
+}
+@media (max-width: 370px) {
+  .gcell h3 { font-size: 13px; }
+  .about-points h3 { font-size: 14.5px; }
+}
+@media (max-width: 350px) { .gcell h3, .gcell .gph, .about-facts strong, .about-facts span { white-space: normal; } }
