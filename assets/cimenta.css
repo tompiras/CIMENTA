@@ -906,3 +906,37 @@ button[disabled] { opacity: .6; cursor: wait; }
   .footer { padding-bottom: 96px; }
 }
 @media (max-width: 700px) and (prefers-reduced-motion: reduce) { .callbar { transition: none; } }
+
+/* ---------- Pied de page (version haut de gamme) ---------- */
+.footer { padding: clamp(72px, 9vw, 112px) 0 32px; }
+.f-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr; gap: 48px clamp(32px, 4vw, 64px); }
+.f-brand .logo .word { font-size: 28px; }
+.f-brand .logo .act { font-size: calc(28px * .37); }
+.f-tag { margin-top: 32px; font-size: 14px; line-height: 1.7; color: var(--iv-soft); }
+.f-zone { margin-top: 14px; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--iv-mute); }
+.f-col { display: flex; flex-direction: column; gap: 12px; font-size: 14px; line-height: 1.5; }
+.f-h { font-size: 11px; font-weight: 400; letter-spacing: .24em; text-transform: uppercase; color: var(--iv-mute); margin: 0 0 10px; }
+.f-col a, .f-col span { color: var(--iv-soft); text-decoration: none; }
+.f-col a { width: fit-content; background-image: linear-gradient(currentColor, currentColor); background-size: 0 1px; background-position: 0 100%; background-repeat: no-repeat; transition: color .25s, background-size .35s; padding-bottom: 2px; }
+.f-col a:hover { color: var(--ivory); background-size: 100% 1px; }
+.f-mark { margin-top: clamp(64px, 8vw, 104px); font-weight: 300; text-transform: uppercase; letter-spacing: .46em; margin-right: -.46em; line-height: .9; font-size: clamp(3rem, 12.4vw, 11.2rem); color: rgba(247,246,243,.07); white-space: nowrap; overflow: hidden; text-align: center; user-select: none; }
+.f-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 32px; margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--iv-rule); font-size: 12px; color: var(--iv-mute); }
+.f-legal { display: flex; flex-wrap: wrap; gap: 8px 28px; }
+.f-legal a { color: var(--iv-mute); text-decoration: none; transition: color .2s; }
+.f-legal a:hover { color: var(--ivory); }
+main:has(.cdark) + .footer .wrap { border-top: 1px solid var(--iv-rule); padding-top: clamp(64px, 8vw, 96px); }
+@media (max-width: 1000px) { .f-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 700px) {
+  .footer { padding: 48px 0 104px; }
+  main:has(.cdark) + .footer .wrap { padding-top: 48px; }
+  .f-grid { grid-template-columns: 1fr 1fr; gap: 36px 20px; }
+  .f-brand { grid-column: 1 / -1; }
+  .f-tag { margin-top: 20px; }
+  .f-col { font-size: 13.5px; gap: 10px; }
+  .f-grid .f-col:last-child { grid-column: 1 / -1; }
+  .f-mark { margin-top: 48px; }
+  .f-bottom { flex-direction: column; align-items: flex-start; }
+}
+.f-mark { font-size: 0; letter-spacing: 0; margin-right: 0; overflow: visible; line-height: 1; }
+.f-mark svg { display: block; width: 100%; height: auto; }
+.f-mark text { font-family: 'Poppins', sans-serif; font-weight: 300; font-size: 168px; fill: rgba(247,246,243,.07); }
