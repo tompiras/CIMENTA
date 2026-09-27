@@ -884,3 +884,4 @@ main:has(.cdark) + .footer .wrap { border-top: 1px solid var(--iv-rule); padding
 .form-error { font-size: 13px; color: var(--ink); border-left: 2px solid var(--ink); padding: 4px 0 4px 12px; margin-top: 4px; }
 .form-error a { text-underline-offset: 3px; }
 button[disabled] { opacity: .6; cursor: wait; }
+.form-error .err-code { color: var(--ink-mute); font-size: 11px; }

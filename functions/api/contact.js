@@ -13,10 +13,10 @@ const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&
 const clean = (s) => String(s || '').replace(/\r\n?/g, '\n').trim().slice(0, MAX_LEN);
 const isEmail = (s) => /^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(s) && s.length <= 254;
 
-function reply(request, ok, back, status = 200, error = '') {
+function reply(request, ok, back, status = 200, error = '', detail = '') {
   const wantsJson = (request.headers.get('accept') || '').includes('application/json');
   if (wantsJson) {
-    return new Response(JSON.stringify({ ok, error }), { status, headers: { 'content-type': 'application/json; charset=utf-8' } });
+    return new Response(JSON.stringify({ ok, error, detail }), { status, headers: { 'content-type': 'application/json; charset=utf-8' } });
   }
   // Sans JavaScript : retour sur la page d'origine.
   const url = new URL(ok ? back : back.replace('envoi=ok', 'envoi=erreur'), request.url);
@@ -70,7 +70,11 @@ export async function onRequestPost({ request, env }) {
     }),
   });
 
-  if (!res.ok) return reply(request, false, cfg.back, 502, 'envoi');
+  if (!res.ok) {
+    let detail = '';
+    try { const j = await res.json(); detail = `${res.status} ${j.code || ''} ${j.message || ''}`.trim(); } catch { detail = String(res.status); }
+    return reply(request, false, cfg.back, 502, 'envoi', detail.slice(0, 200));
+  }
   return reply(request, true, cfg.back);
 }
 

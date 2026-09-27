@@ -78,17 +78,18 @@
       err.textContent = '';
       if (btn) { btn.disabled = true; btn.dataset.label = btn.innerHTML; btn.textContent = 'Envoi en cours…'; }
       fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
-        .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+        .then(function (r) { return r.json().catch(function () { return { ok: false, error: 'http', detail: String(r.status) }; }); })
         .then(function (res) {
-          if (!res.ok) throw new Error(res.error || 'envoi');
+          if (!res.ok) throw new Error([res.error, res.detail].filter(Boolean).join(' — ') || 'envoi');
           form.reset();
           var ok = document.getElementById('success');
           var dlgEl = form.closest('dialog');
           if (dlgEl && dlgEl.open) dlgEl.close();
           if (ok) { ok.style.display = 'block'; if (!dlgEl) form.style.display = 'none'; ok.scrollIntoView({ block: 'center' }); }
         })
-        .catch(function () {
-          err.innerHTML = "L'envoi n'a pas abouti. Réessayez ou écrivez-nous à <a href=\"mailto:contact@cimenta.fr\">contact@cimenta.fr</a>.";
+        .catch(function (e) {
+          err.innerHTML = "L'envoi n'a pas abouti. Réessayez ou écrivez-nous à <a href=\"mailto:contact@cimenta.fr\">contact@cimenta.fr</a>.<span class=\"err-code\"></span>";
+          err.querySelector('.err-code').textContent = ' (' + (e && e.message ? e.message : 'erreur') + ')';
         })
         .then(function () { if (btn) { btn.disabled = false; btn.innerHTML = btn.dataset.label; } });
     });
