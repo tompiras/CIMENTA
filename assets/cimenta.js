@@ -88,8 +88,8 @@
           if (ok) { ok.style.display = 'block'; if (!dlgEl) form.style.display = 'none'; ok.scrollIntoView({ block: 'center' }); }
         })
         .catch(function (e) {
-          err.innerHTML = "L'envoi n'a pas abouti. Réessayez ou écrivez-nous à <a href=\"mailto:contact@cimenta.fr\">contact@cimenta.fr</a>.<span class=\"err-code\"></span>";
-          err.querySelector('.err-code').textContent = ' (' + (e && e.message ? e.message : 'erreur') + ')';
+          err.innerHTML = "L'envoi n'a pas abouti. Réessayez ou écrivez-nous à <a href=\"mailto:contact@cimenta.fr\">contact@cimenta.fr</a>.";
+          if (window.console) console.warn('Envoi formulaire :', e && e.message);
         })
         .then(function () { if (btn) { btn.disabled = false; btn.innerHTML = btn.dataset.label; } });
     });
