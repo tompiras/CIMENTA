@@ -46,6 +46,26 @@
     document.querySelectorAll('[data-reveal]').forEach(function (el) { el.classList.add('on'); });
   }
 
+
+  // Formulaire « Présenter un projet » en fenêtre
+  var dlg = document.getElementById('formulaire');
+  if (dlg && typeof dlg.showModal === 'function') {
+    document.querySelectorAll('[data-open-form]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (typeof setMenu === 'function') setMenu(false);
+        dlg.showModal(); document.body.style.overflow = 'hidden';
+        var first = dlg.querySelector('input:not([type=hidden]):not(.hp)'); if (first) setTimeout(function(){ first.focus(); }, 50);
+      });
+    });
+    dlg.querySelectorAll('[data-close-form]').forEach(function (b) { b.addEventListener('click', function () { dlg.close(); }); });
+    dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+    dlg.addEventListener('close', function () { document.body.style.overflow = ''; });
+  } else if (dlg) {
+    document.querySelectorAll('[data-open-form]').forEach(function (a) { a.setAttribute('href', '#formulaire'); });
+    dlg.setAttribute('open', '');
+  }
+
   // Retour de FormSubmit : ?envoi=ok affiche la confirmation, puis nettoie l'adresse.
   var params = new URLSearchParams(window.location.search);
   if (params.get('envoi') === 'ok') {

@@ -66,7 +66,7 @@
         <a href="#equipe">Équipe</a>
         <a href="#projets">Projets</a>
         <a href="/apporteur-affaires.html">Apporteurs d'affaires</a>
-        <a class="btn" href="#contact">Présenter un projet</a>
+        <a class="btn" href="#formulaire" data-open-form>Présenter un projet</a>
       </nav>
       <button class="burger" id="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="drawer">
         <span></span><span></span>
@@ -85,7 +85,7 @@
       <a href="#contact">Contact</a>
     </nav>
     <div class="drawer-foot">
-      <a class="btn btn-solid" href="#contact">Présenter un projet <span class="arr" aria-hidden="true">→</span></a>
+      <a class="btn btn-solid" href="#formulaire" data-open-form>Présenter un projet <span class="arr" aria-hidden="true">→</span></a>
       <a href="mailto:contact@cimenta.fr">contact@cimenta.fr</a>
       <a href="tel:+33664773700">06 64 77 37 00</a>
     </div>
@@ -100,7 +100,7 @@
         <h1 id="hero-title">Rénovation et construction.</h1>
         <p class="sub">Contractant général, tous corps d'état.</p>
         <div class="ha-links">
-          <a class="btn btn-solid" href="#contact">Présenter un projet</a>
+          <a class="btn btn-solid" href="#formulaire" data-open-form>Présenter un projet</a>
           <a class="alink" href="#apropos">En savoir plus <span aria-hidden="true">›</span></a>
         </div>
       </div>
@@ -305,7 +305,7 @@ fill="currentColor" stroke="none">
           <div class="gcells">
             <div class="gcell"><span class="gph">Pendant les travaux</span><strong>Chantier</strong><h3>Responsabilité civile</h3><p>Dommages causés aux tiers pendant les travaux.</p></div>
             <div class="gcell"><span class="gph">Après la réception</span><strong>1 an</strong><h3>Parfait achèvement</h3><p>Réparation des désordres signalés dans l'année.</p></div>
-            <div class="gcell"><span class="gph">Après la réception</span><strong>2 ans</strong><h3>Biennale de bon fonctionnement</h3><p>Équipements dissociables de l'ouvrage.</p></div>
+            <div class="gcell"><span class="gph">Après la réception</span><strong>2 ans</strong><h3>Garantie biennale</h3><p>Bon fonctionnement des équipements dissociables de l'ouvrage.</p></div>
             <div class="gcell"><span class="gph">Après la réception</span><strong>10 ans</strong><h3>Décennale</h3><p>Solidité et destination de l'ouvrage.</p></div>
           </div>
         </div>
@@ -346,34 +346,28 @@ fill="currentColor" stroke="none">
     </section>
 
     <!-- Contact -->
-    <section class="msec" id="contact" aria-labelledby="contact-title">
+    <section class="cdark dark" id="contact" aria-labelledby="contact-title">
       <div class="wrap">
-        <h2 id="contact-title" data-reveal>Contact</h2>
-        <p class="lede" data-reveal>Expliquez-nous votre projet.</p>
-        <div class="mcontact" data-reveal>
-          <dl class="coords">
-            <div><dt>E-mail</dt><dd><a href="mailto:contact@cimenta.fr">contact@cimenta.fr</a></dd></div>
-            <div><dt>Téléphone</dt><dd><a href="tel:+33664773700">06 64 77 37 00</a></dd></div>
-            <div><dt>Adresse du siège</dt><dd>4 rue André Isaïa<br>13013 Marseille</dd></div>
-            <div><dt>Zone</dt><dd>France</dd></div>
-          </dl>
-          <div>
-          <form class="form" data-form="contact" action="https://formsubmit.co/contact@cimenta.fr" method="POST">
+        <h2 id="contact-title" data-reveal>Parlons de votre projet.</h2>
+        <p class="cd-line" data-reveal><a href="tel:+33664773700">06 64 77 37 00</a><span aria-hidden="true">·</span><a href="mailto:contact@cimenta.fr">contact@cimenta.fr</a></p>
+        <div data-reveal><a class="btn cd-btn" href="#formulaire" data-open-form>Présenter un projet</a></div>
+        <p class="cd-ok" id="success" role="status">Votre demande a bien été envoyée. Nous vous rappelons rapidement.</p>
+      </div>
+    </section>
+
+    <dialog class="fdialog" id="formulaire" aria-labelledby="fd-title">
+      <div class="fd-head">
+        <h2 id="fd-title">Présenter un projet</h2>
+        <button type="button" class="fd-close" data-close-form aria-label="Fermer">×</button>
+      </div>
+      <form class="form" data-form="contact" action="https://formsubmit.co/contact@cimenta.fr" method="POST">
             <input type="hidden" name="_subject" value="Nouveau projet — cimenta.fr">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_next" value="https://cimenta.fr/?envoi=ok">
             <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-
-            <div class="row">
-              <div class="field"><label for="f-nom">Nom et prénom</label><input id="f-nom" name="Nom" type="text" autocomplete="name" required></div>
-              <div class="field"><label for="f-mail">E-mail</label><input id="f-mail" name="email" type="email" autocomplete="email" required></div>
-            </div>
-            <div class="row">
-              <div class="field"><label for="f-tel">Téléphone</label><input id="f-tel" name="Téléphone" type="tel" autocomplete="tel" required></div>
-              <div class="field"><label for="f-lieu">Ville du projet</label><input id="f-lieu" name="Localisation" type="text" placeholder="Marseille, Paris, Lyon…"></div>
-            </div>
-            <div class="field">
+            <div class="row r3"><div class="field"><label for="f-nom">Nom et prénom</label><input id="f-nom" name="Nom" type="text" autocomplete="name" required></div><div class="field"><label for="f-mail">E-mail</label><input id="f-mail" name="email" type="email" autocomplete="email" required></div><div class="field"><label for="f-tel">Téléphone</label><input id="f-tel" name="Téléphone" type="tel" autocomplete="tel" required></div></div>
+            <div class="row"><div class="field"><label for="f-lieu">Ville du projet</label><input id="f-lieu" name="Localisation" type="text" placeholder="Marseille, Paris, Lyon…"></div><div class="field">
               <label for="f-type">Votre projet</label>
               <select id="f-type" name="Type de projet" required>
                 <option value="" disabled selected>Sélectionnez</option>
@@ -387,9 +381,8 @@ fill="currentColor" stroke="none">
                 <option>Bureaux</option>
                 <option>Autre projet</option>
               </select>
-            </div>
-            <div class="row">
-              <div class="field">
+            </div></div>
+            <div class="row"><div class="field">
                 <label for="f-budget">Budget envisagé</label>
                 <select id="f-budget" name="Budget" required>
                   <option value="" disabled selected>Sélectionnez</option>
@@ -400,8 +393,7 @@ fill="currentColor" stroke="none">
                   <option>Plus de 500 k€</option>
                   <option>À définir ensemble</option>
                 </select>
-              </div>
-              <div class="field">
+              </div><div class="field">
                 <label for="f-etat">Avancement</label>
                 <select id="f-etat" name="Avancement" required>
                   <option value="" disabled selected>Sélectionnez</option>
@@ -411,23 +403,14 @@ fill="currentColor" stroke="none">
                   <option>Projet défini, à réaliser</option>
                   <option>Travaux à engager rapidement</option>
                 </select>
-              </div>
-            </div>
+              </div></div>
             <div class="field"><label for="f-msg">Votre projet en quelques lignes</label><textarea id="f-msg" name="Message" placeholder="Surface, nature des travaux, délai souhaité…"></textarea></div>
-
             <div class="form-foot">
               <small>Vos données sont traitées par CIMENTA pour répondre à votre demande. Pour en savoir plus et exercer vos droits : <a href="/politique-confidentialite.html">politique de confidentialité</a>.</small>
               <button class="btn btn-solid" type="submit">Envoyer ma demande <span class="arr" aria-hidden="true">→</span></button>
             </div>
           </form>
-          <div class="success" id="success" role="status">
-            <h3>Votre demande a bien été envoyée.</h3>
-            <p>Nous vous rappelons pour fixer un premier rendez-vous.</p>
-          </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    </dialog>
 
   </main>
 
