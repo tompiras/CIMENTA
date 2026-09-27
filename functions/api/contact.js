@@ -16,7 +16,8 @@ const isEmail = (s) => /^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(s) && s.length <=
 function reply(request, ok, back, status = 200, error = '', detail = '') {
   const wantsJson = (request.headers.get('accept') || '').includes('application/json');
   if (wantsJson) {
-    return new Response(JSON.stringify({ ok, error, detail }), { status, headers: { 'content-type': 'application/json; charset=utf-8' } });
+    // Toujours 200 en JSON : Cloudflare remplace les réponses 5xx par sa propre page d'erreur.
+    return new Response(JSON.stringify({ ok, error, detail }), { status: 200, headers: { 'content-type': 'application/json; charset=utf-8' } });
   }
   // Sans JavaScript : retour sur la page d'origine.
   const url = new URL(ok ? back : back.replace('envoi=ok', 'envoi=erreur'), request.url);
@@ -47,7 +48,7 @@ export async function onRequestPost({ request, env }) {
   const email = get('email');
   if (!name || !isEmail(email)) return reply(request, false, cfg.back, 422, 'champs');
 
-  if (!env.BREVO_API_KEY) return reply(request, false, cfg.back, 500, 'configuration');
+  if (!env.BREVO_API_KEY) return reply(request, false, cfg.back, 500, 'configuration', 'BREVO_API_KEY absente');
 
   const rows = fields
     .filter(([, v]) => v)
@@ -56,7 +57,9 @@ export async function onRequestPost({ request, env }) {
   const html = `<div style="font-family:Arial,sans-serif;font-size:14px"><p style="margin:0 0 16px">${esc(cfg.subject)}</p><table style="border-collapse:collapse">${rows}</table><p style="margin-top:24px;color:#999;font-size:12px">Envoyé depuis le formulaire du site cimenta.fr. Répondre à ce message écrit directement à l'expéditeur.</p></div>`;
   const text = fields.filter(([, v]) => v).map(([k, v]) => `${k === 'email' ? 'E-mail' : k} : ${v}`).join('\n');
 
-  const res = await fetch('https://api.brevo.com/v3/smtp/email', {
+  let res;
+  try {
+  res = await fetch('https://api.brevo.com/v3/smtp/email', {
     method: 'POST',
     headers: { 'api-key': env.BREVO_API_KEY, 'content-type': 'application/json', accept: 'application/json' },
     body: JSON.stringify({
@@ -69,10 +72,13 @@ export async function onRequestPost({ request, env }) {
       tags: ['site', kind],
     }),
   });
+  } catch (e) {
+    return reply(request, false, cfg.back, 502, 'reseau', String(e && e.message || e).slice(0, 200));
+  }
 
   if (!res.ok) {
     let detail = '';
-    try { const j = await res.json(); detail = `${res.status} ${j.code || ''} ${j.message || ''}`.trim(); } catch { detail = String(res.status); }
+    try { const t = await res.text(); let j = {}; try { j = JSON.parse(t); } catch {} detail = `${res.status} ${j.code || ''} ${j.message || t.slice(0, 120)}`.trim(); } catch { detail = String(res.status); }
     return reply(request, false, cfg.back, 502, 'envoi', detail.slice(0, 200));
   }
   return reply(request, true, cfg.back);
