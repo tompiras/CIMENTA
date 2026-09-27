@@ -66,8 +66,41 @@
     dlg.setAttribute('open', '');
   }
 
-  // Retour de FormSubmit : ?envoi=ok affiche la confirmation, puis nettoie l'adresse.
+
+  // Envoi des formulaires sans rechargement (fonction /api/contact → Brevo)
+  document.querySelectorAll('form[data-form]').forEach(function (form) {
+    if (!window.fetch || !window.FormData) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = form.querySelector('button[type=submit]');
+      var err = form.querySelector('.form-error');
+      if (!err) { err = document.createElement('p'); err.className = 'form-error'; err.setAttribute('role', 'alert'); form.appendChild(err); }
+      err.textContent = '';
+      if (btn) { btn.disabled = true; btn.dataset.label = btn.innerHTML; btn.textContent = 'Envoi en cours…'; }
+      fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+        .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+        .then(function (res) {
+          if (!res.ok) throw new Error(res.error || 'envoi');
+          form.reset();
+          var ok = document.getElementById('success');
+          var dlgEl = form.closest('dialog');
+          if (dlgEl && dlgEl.open) dlgEl.close();
+          if (ok) { ok.style.display = 'block'; if (!dlgEl) form.style.display = 'none'; ok.scrollIntoView({ block: 'center' }); }
+        })
+        .catch(function () {
+          err.innerHTML = "L'envoi n'a pas abouti. Réessayez ou écrivez-nous à <a href=\"mailto:contact@cimenta.fr\">contact@cimenta.fr</a>.";
+        })
+        .then(function () { if (btn) { btn.disabled = false; btn.innerHTML = btn.dataset.label; } });
+    });
+  });
+
+  // Retour sans JavaScript (?envoi=ok / ?envoi=erreur) : ?envoi=ok affiche la confirmation, puis nettoie l'adresse.
   var params = new URLSearchParams(window.location.search);
+  if (params.get('envoi') === 'erreur') {
+    var f = document.querySelector('form[data-form]');
+    if (f) { var m = document.createElement('p'); m.className = 'form-error'; m.innerHTML = "L'envoi n'a pas abouti. Réessayez ou écrivez-nous à <a href=\"mailto:contact@cimenta.fr\">contact@cimenta.fr</a>."; f.appendChild(m); }
+    params.delete('envoi'); history.replaceState(null, '', window.location.pathname);
+  }
   if (params.get('envoi') === 'ok') {
     var form = document.querySelector('form[data-form]');
     var ok = document.getElementById('success');

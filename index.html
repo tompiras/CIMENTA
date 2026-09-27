@@ -360,11 +360,8 @@ fill="currentColor" stroke="none">
         <h2 id="fd-title">Présenter un projet</h2>
         <button type="button" class="fd-close" data-close-form aria-label="Fermer">×</button>
       </div>
-      <form class="form" data-form="contact" action="https://formsubmit.co/contact@cimenta.fr" method="POST">
-            <input type="hidden" name="_subject" value="Nouveau projet — cimenta.fr">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://cimenta.fr/?envoi=ok">
+      <form class="form" data-form="contact" action="/api/contact" method="POST">
+            <input type="hidden" name="_form" value="contact">
             <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
             <div class="row r3"><div class="field"><label for="f-nom">Nom et prénom</label><input id="f-nom" name="Nom" type="text" autocomplete="name" required></div><div class="field"><label for="f-mail">E-mail</label><input id="f-mail" name="email" type="email" autocomplete="email" required></div><div class="field"><label for="f-tel">Téléphone</label><input id="f-tel" name="Téléphone" type="tel" autocomplete="tel" required></div></div>
             <div class="row"><div class="field"><label for="f-lieu">Ville du projet</label><input id="f-lieu" name="Localisation" type="text" placeholder="Marseille, Paris, Lyon…"></div><div class="field">

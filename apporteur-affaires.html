@@ -119,11 +119,8 @@
           </dl>
         </div>
         <div data-reveal>
-          <form class="form" data-form="presenter" action="https://formsubmit.co/contact@cimenta.fr" method="POST">
-            <input type="hidden" name="_subject" value="Apporteur d'affaires — cimenta.fr">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://cimenta.fr/apporteur-affaires.html?envoi=ok">
+          <form class="form" data-form="presenter" action="/api/contact" method="POST">
+            <input type="hidden" name="_form" value="apporteur">
             <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
             <div class="row">
               <div class="field"><label for="a-nom">Nom et prénom</label><input id="a-nom" name="Nom" type="text" autocomplete="name" required></div>

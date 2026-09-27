@@ -1,0 +1,79 @@
+// CIMENTA — envoi des formulaires du site via l'API Brevo (Sendinblue SAS, France).
+// La clé est lue dans le secret Cloudflare BREVO_API_KEY : elle n'apparaît jamais dans le code.
+
+const DEST = { email: 'contact@cimenta.fr', name: 'CIMENTA' };
+const SENDER = { email: 'contact@cimenta.fr', name: 'Site CIMENTA' };
+const FORMS = {
+  contact: { subject: 'Nouveau projet — cimenta.fr', back: '/?envoi=ok' },
+  apporteur: { subject: "Apporteur d'affaires — cimenta.fr", back: '/apporteur-affaires.html?envoi=ok' },
+};
+const MAX_LEN = 5000;
+
+const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const clean = (s) => String(s || '').replace(/\r\n?/g, '\n').trim().slice(0, MAX_LEN);
+const isEmail = (s) => /^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(s) && s.length <= 254;
+
+function reply(request, ok, back, status = 200, error = '') {
+  const wantsJson = (request.headers.get('accept') || '').includes('application/json');
+  if (wantsJson) {
+    return new Response(JSON.stringify({ ok, error }), { status, headers: { 'content-type': 'application/json; charset=utf-8' } });
+  }
+  // Sans JavaScript : retour sur la page d'origine.
+  const url = new URL(ok ? back : back.replace('envoi=ok', 'envoi=erreur'), request.url);
+  return Response.redirect(url.toString(), 303);
+}
+
+export async function onRequestPost({ request, env }) {
+  let data;
+  try { data = await request.formData(); } catch { return reply(request, false, '/', 400, 'format'); }
+
+  const kind = FORMS[data.get('_form')] ? data.get('_form') : 'contact';
+  const cfg = FORMS[kind];
+
+  // Anti-spam : champ piège rempli = robot. On répond « ok » sans rien envoyer.
+  if (clean(data.get('_honey'))) return reply(request, true, cfg.back);
+
+  // Requêtes venant d'un autre site refusées.
+  const origin = request.headers.get('origin');
+  if (origin && new URL(origin).host !== new URL(request.url).host) return reply(request, false, cfg.back, 403, 'origine');
+
+  const fields = [];
+  for (const [key, value] of data.entries()) {
+    if (key.startsWith('_') || typeof value !== 'string') continue;
+    fields.push([clean(key).slice(0, 60), clean(value)]);
+  }
+  const get = (k) => (fields.find(([key]) => key === k) || [])[1] || '';
+  const name = get('Nom');
+  const email = get('email');
+  if (!name || !isEmail(email)) return reply(request, false, cfg.back, 422, 'champs');
+
+  if (!env.BREVO_API_KEY) return reply(request, false, cfg.back, 500, 'configuration');
+
+  const rows = fields
+    .filter(([, v]) => v)
+    .map(([k, v]) => `<tr><td style="padding:8px 16px 8px 0;color:#666;vertical-align:top;white-space:nowrap">${esc(k === 'email' ? 'E-mail' : k)}</td><td style="padding:8px 0;color:#111">${esc(v).replace(/\n/g, '<br>')}</td></tr>`)
+    .join('');
+  const html = `<div style="font-family:Arial,sans-serif;font-size:14px"><p style="margin:0 0 16px">${esc(cfg.subject)}</p><table style="border-collapse:collapse">${rows}</table><p style="margin-top:24px;color:#999;font-size:12px">Envoyé depuis le formulaire du site cimenta.fr. Répondre à ce message écrit directement à l'expéditeur.</p></div>`;
+  const text = fields.filter(([, v]) => v).map(([k, v]) => `${k === 'email' ? 'E-mail' : k} : ${v}`).join('\n');
+
+  const res = await fetch('https://api.brevo.com/v3/smtp/email', {
+    method: 'POST',
+    headers: { 'api-key': env.BREVO_API_KEY, 'content-type': 'application/json', accept: 'application/json' },
+    body: JSON.stringify({
+      sender: SENDER,
+      to: [DEST],
+      replyTo: { email, name: name.slice(0, 100) },
+      subject: `${cfg.subject} — ${name.slice(0, 80)}`,
+      htmlContent: html,
+      textContent: text,
+      tags: ['site', kind],
+    }),
+  });
+
+  if (!res.ok) return reply(request, false, cfg.back, 502, 'envoi');
+  return reply(request, true, cfg.back);
+}
+
+export function onRequest() {
+  return new Response('Méthode non autorisée', { status: 405, headers: { allow: 'POST' } });
+}
