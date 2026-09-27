@@ -968,3 +968,7 @@ main:has(.cdark) + .footer .f-top { border-top: 1px solid var(--iv-rule); paddin
 @media (max-width: 720px) { main:has(.cdark) + .footer .f-top { padding-top: 36px; } }
 .f-top .f-info { margin: 0; }
 @media (max-width: 720px) { .f-top .f-info { margin-top: 4px; } }
+
+/* Projets : la section se termine proprement avant le bloc Contact */
+.msec:has(+ .cdark) { padding-bottom: clamp(96px, 13vw, 170px); }
+@media (max-width: 720px) { .msec:has(+ .cdark) { padding-bottom: 72px; } }
