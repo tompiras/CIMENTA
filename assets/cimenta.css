@@ -1047,29 +1047,6 @@ main:has(.cdark) + .footer .f-top { border-top: 1px solid var(--iv-rule); paddin
   .about-points p { font-size: 14px; }
   .partner { margin-top: 64px; }
 
-  /* Rangées à faire défiler du doigt : même disposition en ligne que l'ordinateur */
-  #methode .mgrid.c5, .gcells {
-    display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
-    margin-left: calc(-1 * var(--pad)); margin-right: calc(-1 * var(--pad)); padding: 0 var(--pad) 6px; scroll-padding-left: var(--pad);
-    scrollbar-width: none;
-  }
-  #methode .mgrid.c5::-webkit-scrollbar, .gcells::-webkit-scrollbar { display: none; }
-  #methode .mgrid.c5 { gap: 14px !important; border-top: 0; }
-  #methode .mgrid.c5 > li { flex: 0 0 74%; scroll-snap-align: start; border-top: 1px solid var(--ink); padding-top: 20px; }
-  #methode .mgrid .n { margin-bottom: 14px; }
-  #methode .mgrid h3 { font-size: 1.15rem; }
-  #methode .mgrid p { font-size: 15px; margin-top: 10px; }
-
-  .gcells { border: 0 !important; gap: 0; }
-  .gcell { flex: 0 0 72%; scroll-snap-align: start; aspect-ratio: 1 / 1 !important; min-height: 0 !important; padding: 26px 22px !important; border: 1px solid var(--ink-rule) !important; margin-left: -1px; display: flex !important; flex-direction: column; }
-  .gcell:first-child { margin-left: 0; }
-  .gcell .gph { font-size: 10px !important; letter-spacing: .18em !important; margin-bottom: 18px; }
-  .gcell strong { font-size: 2.3rem !important; }
-  .gcell h3 { margin-top: auto !important; font-size: 1.02rem !important; white-space: normal !important; }
-  .gcell p { font-size: 14px !important; }
-
-  .swipe-hint { display: block; margin-top: 14px; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-mute); text-align: right; }
-
   /* Prestations : lecture plus confortable */
   #prestations .mgrid.c4 { gap: 36px 18px !important; }
   #prestations .mgrid h3 { font-size: 1.1rem; }
@@ -1082,21 +1059,17 @@ main:has(.cdark) + .footer .f-top { border-top: 1px solid var(--iv-rule); paddin
   .team2 .cap-dot { display: none; }
   .team2 .cap-nl { display: block; }
 }
-@media (min-width: 601px) { .swipe-hint { display: none; } }
-/* Mobile v2 : Prestations et Clients aussi en rangées à faire défiler */
-@media (max-width: 600px) {
-  #prestations .mgrid.c4, #clients .mgrid.c3 {
-    display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
-    margin-left: calc(-1 * var(--pad)); margin-right: calc(-1 * var(--pad)); padding: 0 var(--pad) 6px; scroll-padding-left: var(--pad);
-    scrollbar-width: none; gap: 14px !important;
-  }
-  #prestations .mgrid.c4::-webkit-scrollbar, #clients .mgrid.c3::-webkit-scrollbar { display: none; }
-  #prestations .mgrid.c4 > div, #clients .mgrid.c3 > div { flex: 0 0 74%; scroll-snap-align: start; border-top: 1px solid var(--ink); padding-top: 20px; }
-  #prestations .mgrid h3, #clients .mgrid h3 { font-size: 1.15rem; }
-  #prestations ul.plain { margin-top: 12px; line-height: 1.5; }
-  #prestations ul.plain li { display: block !important; padding: 5px 0 !important; font-size: 15px !important; }
-  #prestations ul.plain li + li::before { content: none !important; }
-  #clients .mgrid p { font-size: 15px; margin-top: 10px; }
-  .presta-note { margin-top: 36px !important; }
-}
 
+
+/* Mobile v2 : blocs empilés (sans défilement horizontal), filet noir fin en tête de chaque bloc comme les colonnes de l'ordinateur */
+@media (max-width: 600px) {
+  #methode .mgrid.c5, #clients .mgrid.c3 { grid-template-columns: 1fr !important; gap: 36px !important; }
+  #methode .mgrid.c5 > li, #clients .mgrid.c3 > div { border-top: 1px solid var(--ink); padding-top: 18px; }
+  #methode .mgrid .n { margin-bottom: 12px; }
+  #methode .mgrid h3, #clients .mgrid h3 { font-size: 1.15rem; }
+  #methode .mgrid p, #clients .mgrid p { font-size: 15px; margin-top: 8px; }
+  #prestations .mgrid.c4 { grid-template-columns: 1fr 1fr !important; gap: 40px 18px !important; }
+  #prestations .mgrid.c4 > div { border-top: 1px solid var(--ink); padding-top: 18px; }
+  #prestations ul.plain li { display: block !important; padding: 4px 0 !important; font-size: 14px !important; }
+  #prestations ul.plain li + li::before { content: none !important; }
+}
