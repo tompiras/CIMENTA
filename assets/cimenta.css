@@ -1002,3 +1002,20 @@ main:has(.cdark) + .footer .f-top { border-top: 1px solid var(--iv-rule); paddin
 @media (max-width: 700px) { #garanties .lede { text-wrap: balance; } }
 .presta-note .pn-l { display: block; }
 @media (min-width: 901px) { .presta-note { max-width: none; } .presta-note .pn-l { white-space: nowrap; } }
+
+/* ==== Page apporteurs d'affaires harmonisée avec l'accueil (sept. 2026) ==== */
+.ap-hero { min-height: 78vh; min-height: 78svh; background: var(--ink); }
+.ap-hero .ap-label { font-size: 14px; letter-spacing: .26em; margin-right: -.26em; text-transform: uppercase; color: var(--iv-mute); margin-bottom: 26px; }
+.ap-hero h1 { max-width: 13ch; font-size: clamp(2.6rem, 6.4vw, 5.6rem); }
+.ap-hero .sub { max-width: 36rem; margin-left: auto; margin-right: auto; font-size: clamp(1.05rem, 1.5vw, 1.25rem); }
+#projets-etudies .lede { white-space: normal; }
+@media (max-width: 600px) {
+  .ap-hero { min-height: 82svh; }
+  .ap-hero .ap-label { font-size: 12.5px; margin-bottom: 18px; }
+}
+.ap-hero h1 { color: var(--ivory); }
+.ap-hero .sub { color: var(--iv-soft); }
+.ap-hero .alink { color: var(--ivory); }
+.ap-hero .ha-links .btn-solid { background: transparent; color: var(--ivory); border-color: rgba(247,246,243,.85); }
+.ap-hero .ha-links .btn-solid:hover { background: var(--ivory); color: var(--ink); border-color: var(--ivory); }
+@media (max-width: 600px) { #projets-etudies .mgrid.c4 { grid-template-columns: 1fr 1fr !important; gap: 28px 14px; } #projets-etudies ul.plain li { font-size: 13px; } }
