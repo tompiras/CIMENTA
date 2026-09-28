@@ -30,8 +30,9 @@ function reply(request, ok, back, status = 200, error = '', detail = '') {
 const toIntl = (tel) => {
   const d = String(tel || '').replace(/[^\d+]/g, '');
   if (/^0[1-9]\d{8}$/.test(d)) return '+33' + d.slice(1);
-  if (/^\+\d{8,15}$/.test(d)) return d;
-  if (/^00\d{8,15}$/.test(d)) return '+' + d.slice(2);
+  const intl = d.replace(/^00/, '+').replace(/^\+330/, '+33');
+  if (/^\+33[1-9]\d{8}$/.test(intl)) return intl;
+  if (/^\+(?!33)[1-9]\d{7,14}$/.test(intl)) return intl;
   return '';
 };
 
@@ -91,6 +92,7 @@ export async function onRequestPost({ request, env, waitUntil }) {
   const name = get('Nom');
   const email = get('email');
   if (!name || !isEmail(email)) return reply(request, false, cfg.back, 422, 'champs');
+  if (get('Téléphone') && !toIntl(get('Téléphone'))) return reply(request, false, cfg.back, 422, 'telephone');
 
   if (!env.BREVO_API_KEY || !String(env.BREVO_API_KEY).trim().startsWith('xkeysib-')) return reply(request, false, cfg.back, 500, 'configuration', env.BREVO_API_KEY ? 'la clé enregistrée n\'est pas une clé API Brevo (xkeysib-…)' : 'BREVO_API_KEY absente');
   if (!env.BREVO_API_KEY) return reply(request, false, cfg.back, 500, 'configuration', 'BREVO_API_KEY absente');

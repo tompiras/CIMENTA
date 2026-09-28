@@ -68,11 +68,48 @@
   }
 
 
+  // Vérification du numéro de téléphone (France : 10 chiffres ; étranger : +indicatif)
+  function phoneOk(v) {
+    var d = String(v || '').replace(/[\s.\-()\/]/g, '').replace(/^(\+|00)330/, '+33');
+    return /^0[1-9]\d{8}$/.test(d) || /^(\+|00)33[1-9]\d{8}$/.test(d) || /^(\+|00)(?!33)[1-9]\d{7,14}$/.test(d);
+  }
+  function setFieldMsg(input, msg) {
+    var field = input.closest('.field') || input.parentNode;
+    var label = field.querySelector('label');
+    var el = field.querySelector('.field-msg');
+    if (label && !label.dataset.base) label.dataset.base = label.textContent;
+    if (!msg) {
+      input.removeAttribute('aria-invalid'); field.classList.remove('is-invalid');
+      if (label) label.textContent = label.dataset.base;
+      if (el) el.remove();
+      return;
+    }
+    if (!el) { el = document.createElement('span'); el.className = 'field-msg'; el.id = input.id + '-msg'; el.setAttribute('role', 'alert'); field.appendChild(el); }
+    el.textContent = msg;
+    field.classList.add('is-invalid');
+    if (label) label.textContent = msg;
+    input.setAttribute('aria-invalid', 'true');
+    input.setAttribute('aria-describedby', el.id);
+  }
+  var PHONE_MSG = 'Téléphone invalide';
+  document.querySelectorAll('form[data-form] input[type=tel]').forEach(function (inp) {
+    inp.addEventListener('input', function () { if (inp.getAttribute('aria-invalid')) setFieldMsg(inp, phoneOk(inp.value) ? '' : PHONE_MSG); });
+    inp.addEventListener('blur', function () { if (inp.value.trim()) setFieldMsg(inp, phoneOk(inp.value) ? '' : PHONE_MSG); });
+  });
+
   // Envoi des formulaires sans rechargement (fonction /api/contact → Brevo)
+  document.querySelectorAll('form[data-form]').forEach(function (form) {
+    form.addEventListener('submit', function (e) {
+      var tel = form.querySelector('input[type=tel]');
+      if (tel && tel.value.trim() && !phoneOk(tel.value)) { e.preventDefault(); setFieldMsg(tel, PHONE_MSG); tel.focus(); }
+    });
+  });
   document.querySelectorAll('form[data-form]').forEach(function (form) {
     if (!window.fetch || !window.FormData) return;
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      var telIn = form.querySelector('input[type=tel]');
+      if (telIn && telIn.getAttribute('aria-invalid')) return;
       var btn = form.querySelector('button[type=submit]');
       var err = form.querySelector('.form-error');
       if (!err) { err = document.createElement('p'); err.className = 'form-error'; err.setAttribute('role', 'alert'); form.appendChild(err); }
@@ -81,6 +118,7 @@
       fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
         .then(function (r) { return r.json().catch(function () { return { ok: false, error: 'http', detail: String(r.status) }; }); })
         .then(function (res) {
+          if (!res.ok && res.error === 'telephone' && telIn) { setFieldMsg(telIn, PHONE_MSG); telIn.focus(); return; }
           if (!res.ok) throw new Error([res.error, res.detail].filter(Boolean).join(' — ') || 'envoi');
           form.reset();
           var ok = document.getElementById('success');

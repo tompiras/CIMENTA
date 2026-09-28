@@ -1024,3 +1024,8 @@ main:has(.cdark) + .footer .f-top { border-top: 1px solid var(--iv-rule); paddin
 #presenter h2 { white-space: nowrap; font-size: min(clamp(1.9rem, 3.6vw, 2.9rem), calc((100vw - 48px) / 14)); }
 @media (max-width: 600px) { .ap-hero .sub { font-size: 15px; } }
 .ap-hero h1 { font-size: min(clamp(2rem, 4vw, 3.6rem), calc((100vw - 48px) / 16)); }
+/* Message d'erreur sous un champ (ex. téléphone invalide) */
+.field-msg { margin-top: 6px; font-size: 12.5px; line-height: 1.4; color: #9b2c22; }
+.field input[aria-invalid="true"] { border-bottom-color: #9b2c22; }
+.field-msg { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.field.is-invalid label { color: #9b2c22; }
