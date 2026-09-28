@@ -1023,3 +1023,4 @@ main:has(.cdark) + .footer .f-top { border-top: 1px solid var(--iv-rule); paddin
 .ap-hero h1 { white-space: nowrap; max-width: none; font-size: min(clamp(2.6rem, 5.4vw, 4.8rem), calc((100vw - 48px) / 13.8)); }
 #presenter h2 { white-space: nowrap; font-size: min(clamp(1.9rem, 3.6vw, 2.9rem), calc((100vw - 48px) / 14)); }
 @media (max-width: 600px) { .ap-hero .sub { font-size: 15px; } }
+.ap-hero h1 { font-size: min(clamp(2rem, 4vw, 3.6rem), calc((100vw - 48px) / 16)); }
