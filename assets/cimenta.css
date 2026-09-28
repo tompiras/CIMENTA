@@ -1137,3 +1137,12 @@ a.ig svg { display: block; width: 17px; height: 17px; }
 .cd-line a[href^="tel:"] { padding-right: 16px; border-right: 1px solid rgba(247,246,243,.28); line-height: 1.2; }
 .cd-line a[href^="mailto:"] { padding-left: 16px; line-height: 1.2; }
 @media (max-width: 720px) { .cd-line a[href^="tel:"] { padding-right: 14px; } .cd-line a[href^="mailto:"] { padding-left: 14px; } }
+
+/* ---------- Logotype dessiné (septembre 2026) ---------- */
+.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+.logo-svg { display: block; width: auto; fill: currentColor; overflow: visible; }
+.logo .logo-svg { height: 34px; }
+.footer .logo .logo-svg { height: 40px; }
+.f-brand .logo .logo-svg { height: 46px; }
+.f-top .logo .logo-svg { height: 34px; }
+.gate-logo .logo-svg { height: clamp(56px, 10.5vw, 112px); }
