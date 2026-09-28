@@ -1124,3 +1124,11 @@ a.ig svg { display: block; width: 17px; height: 17px; }
   .f-social { justify-content: flex-start; margin-top: 16px; }
   .f-social svg { width: 19px; height: 19px; }
 }
+/* Mobile : bloc contact — téléphone | e-mail sur une ligne, Instagram seulement dans le pied de page */
+@media (max-width: 720px) {
+  .cd-line { flex-direction: row !important; flex-wrap: nowrap; justify-content: center; align-items: center; gap: 0 !important; font-size: 15px !important; }
+  .cd-line span { display: none !important; }
+  .cd-line a.ig { display: none !important; }
+  .cd-line a[href^="tel:"] { padding-right: 14px; border-right: 1px solid rgba(247,246,243,.28); line-height: 1.2; }
+  .cd-line a[href^="mailto:"] { padding-left: 14px; line-height: 1.2; }
+}
