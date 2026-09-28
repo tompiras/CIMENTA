@@ -1105,3 +1105,13 @@ main:has(.cdark) + .footer .f-top { border-top: 1px solid var(--iv-rule); paddin
   #prestations .mgrid.c4 { column-gap: 14px !important; }
   #prestations ul.plain li { font-size: 12.5px !important; }
 }
+/* Lien Instagram en icône */
+a.ig { display: inline-flex; align-items: center; line-height: 0; }
+a.ig svg { display: block; width: 17px; height: 17px; }
+.f-info a.ig { align-self: center; }
+@media (max-width: 720px) { a.ig svg { width: 20px; height: 20px; } }
+.cd-line a.ig { align-self: center; justify-content: center; }
+@media (max-width: 720px) {
+  .cd-line a.ig { margin: 2px auto 0; }
+  .f-info a.ig { align-self: flex-start; margin: 2px 0; }
+}
