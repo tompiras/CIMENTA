@@ -26,7 +26,7 @@ function reply(request, ok, back, status = 200, error = '', detail = '') {
 
 
 // ---- Base de contacts Brevo : chaque demande envoyée depuis le site est ajoutée (ou mise à jour) ----
-// Listes facultatives : variables Cloudflare BREVO_LIST_CLIENTS et BREVO_LIST_APPORTEURS (numéros de liste Brevo).
+// Listes : « Site — Clients » (#9) et « Site — Apporteurs » (#8), ou variables Cloudflare BREVO_LIST_CLIENTS / BREVO_LIST_APPORTEURS.
 const toIntl = (tel) => {
   const d = String(tel || '').replace(/[^\d+]/g, '');
   if (/^0[1-9]\d{8}$/.test(d)) return '+33' + d.slice(1);
@@ -37,7 +37,8 @@ const toIntl = (tel) => {
 
 async function saveContact(env, kind, email, name, tel) {
   const key = String(env.BREVO_API_KEY || '').trim();
-  const listId = parseInt(kind === 'apporteur' ? env.BREVO_LIST_APPORTEURS : env.BREVO_LIST_CLIENTS, 10);
+  // Listes Brevo « Site — Apporteurs » (#8) et « Site — Clients » (#9) ; modifiables via les variables Cloudflare.
+  const listId = parseInt(kind === 'apporteur' ? (env.BREVO_LIST_APPORTEURS || 8) : (env.BREVO_LIST_CLIENTS || 9), 10);
   const phone = toIntl(tel);
   const base = { email, updateEnabled: true };
   if (listId > 0) base.listIds = [listId];
