@@ -998,3 +998,5 @@ main:has(.cdark) + .footer .f-top { border-top: 1px solid var(--iv-rule); paddin
   .msec h2 { font-size: 12.5px; }
   .msec h2 + * { margin-top: 26px !important; }
 }
+@media (min-width: 701px) { #garanties .lede { max-width: none; white-space: nowrap; } }
+@media (max-width: 700px) { #garanties .lede { text-wrap: balance; } }
