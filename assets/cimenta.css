@@ -1000,3 +1000,5 @@ main:has(.cdark) + .footer .f-top { border-top: 1px solid var(--iv-rule); paddin
 }
 @media (min-width: 701px) { #garanties .lede { max-width: none; white-space: nowrap; } }
 @media (max-width: 700px) { #garanties .lede { text-wrap: balance; } }
+.presta-note .pn-l { display: block; }
+@media (min-width: 901px) { .presta-note { max-width: none; } .presta-note .pn-l { white-space: nowrap; } }
