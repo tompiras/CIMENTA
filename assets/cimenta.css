@@ -1115,3 +1115,12 @@ a.ig svg { display: block; width: 17px; height: 17px; }
   .cd-line a.ig { margin: 2px auto 0; }
   .f-info a.ig { align-self: flex-start; margin: 2px 0; }
 }
+/* Pied de page : Instagram sous l'adresse */
+.f-social { display: flex; justify-content: flex-end; margin: 14px 0 0; }
+.f-social a { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; color: var(--iv-soft); text-decoration: none; transition: color .2s; }
+.f-social a:hover { color: var(--ivory); }
+.f-social svg { width: 17px; height: 17px; display: block; }
+@media (max-width: 720px) {
+  .f-social { justify-content: flex-start; margin-top: 16px; }
+  .f-social svg { width: 19px; height: 19px; }
+}
