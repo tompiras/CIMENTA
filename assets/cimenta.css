@@ -1019,3 +1019,7 @@ main:has(.cdark) + .footer .f-top { border-top: 1px solid var(--iv-rule); paddin
 .ap-hero .ha-links .btn-solid { background: transparent; color: var(--ivory); border-color: rgba(247,246,243,.85); }
 .ap-hero .ha-links .btn-solid:hover { background: var(--ivory); color: var(--ink); border-color: var(--ivory); }
 @media (max-width: 600px) { #projets-etudies .mgrid.c4 { grid-template-columns: 1fr 1fr !important; gap: 28px 14px; } #projets-etudies ul.plain li { font-size: 13px; } }
+/* « Vous connaissez un projet ? » sur une seule ligne */
+.ap-hero h1 { white-space: nowrap; max-width: none; font-size: min(clamp(2.6rem, 5.4vw, 4.8rem), calc((100vw - 48px) / 13.8)); }
+#presenter h2 { white-space: nowrap; font-size: min(clamp(1.9rem, 3.6vw, 2.9rem), calc((100vw - 48px) / 14)); }
+@media (max-width: 600px) { .ap-hero .sub { font-size: 15px; } }
