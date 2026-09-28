@@ -1132,3 +1132,8 @@ a.ig svg { display: block; width: 17px; height: 17px; }
   .cd-line a[href^="tel:"] { padding-right: 14px; border-right: 1px solid rgba(247,246,243,.28); line-height: 1.2; }
   .cd-line a[href^="mailto:"] { padding-left: 14px; line-height: 1.2; }
 }
+/* Bloc contact : téléphone | e-mail séparés par un trait vertical fin (ordi et mobile) */
+.cd-line { align-items: center; gap: 0 !important; }
+.cd-line a[href^="tel:"] { padding-right: 16px; border-right: 1px solid rgba(247,246,243,.28); line-height: 1.2; }
+.cd-line a[href^="mailto:"] { padding-left: 16px; line-height: 1.2; }
+@media (max-width: 720px) { .cd-line a[href^="tel:"] { padding-right: 14px; } .cd-line a[href^="mailto:"] { padding-left: 14px; } }
