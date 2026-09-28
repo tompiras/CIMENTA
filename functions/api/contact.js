@@ -24,7 +24,50 @@ function reply(request, ok, back, status = 200, error = '', detail = '') {
   return Response.redirect(url.toString(), 303);
 }
 
-export async function onRequestPost({ request, env }) {
+
+// ---- Base de contacts Brevo : chaque demande envoyée depuis le site est ajoutée (ou mise à jour) ----
+// Listes facultatives : variables Cloudflare BREVO_LIST_CLIENTS et BREVO_LIST_APPORTEURS (numéros de liste Brevo).
+const toIntl = (tel) => {
+  const d = String(tel || '').replace(/[^\d+]/g, '');
+  if (/^0[1-9]\d{8}$/.test(d)) return '+33' + d.slice(1);
+  if (/^\+\d{8,15}$/.test(d)) return d;
+  if (/^00\d{8,15}$/.test(d)) return '+' + d.slice(2);
+  return '';
+};
+
+async function saveContact(env, kind, email, name, tel) {
+  const key = String(env.BREVO_API_KEY || '').trim();
+  const listId = parseInt(kind === 'apporteur' ? env.BREVO_LIST_APPORTEURS : env.BREVO_LIST_CLIENTS, 10);
+  const phone = toIntl(tel);
+  const base = { email, updateEnabled: true };
+  if (listId > 0) base.listIds = [listId];
+  // Les comptes Brevo en français utilisent NOM / PRENOM, les comptes en anglais LASTNAME / FIRSTNAME :
+  // on essaie du plus complet au plus simple, pour que le contact soit toujours enregistré.
+  const attempts = [];
+  if (phone) attempts.push({ NOM: name, SMS: phone }, { LASTNAME: name, SMS: phone });
+  attempts.push({ NOM: name }, { LASTNAME: name }, null);
+  for (const attributes of attempts) {
+    const body = attributes ? { ...base, attributes } : base;
+    try {
+      const r = await fetch('https://api.brevo.com/v3/contacts', {
+        method: 'POST',
+        headers: { 'api-key': key, 'content-type': 'application/json', accept: 'application/json' },
+        body: JSON.stringify(body),
+      });
+      if (r.ok || r.status === 204) return true;
+      if (r.status === 401 || r.status === 403) return false;
+      if (r.status === 400) {
+        let j = {}; try { j = await r.json(); } catch {}
+        if (j.code === 'duplicate_parameter') return true; // téléphone déjà utilisé par un autre contact : le contact existe déjà
+        continue;
+      }
+      return false;
+    } catch { return false; }
+  }
+  return false;
+}
+
+export async function onRequestPost({ request, env, waitUntil }) {
   let data;
   try { data = await request.formData(); } catch { return reply(request, false, '/', 400, 'format'); }
 
@@ -82,6 +125,9 @@ export async function onRequestPost({ request, env }) {
     try { const t = await res.text(); let j = {}; try { j = JSON.parse(t); } catch {} detail = `${res.status} ${j.code || ''} ${j.message || t.slice(0, 120)}`.trim(); } catch { detail = String(res.status); }
     return reply(request, false, cfg.back, 502, 'envoi', detail.slice(0, 200));
   }
+  // Ajout à la base de contacts Brevo, sans retarder ni bloquer la réponse au visiteur.
+  const sync = saveContact(env, kind, email, name.slice(0, 100), get('Téléphone')).catch(() => false);
+  if (typeof waitUntil === 'function') waitUntil(sync); else await sync;
   return reply(request, true, cfg.back);
 }
 
