@@ -992,7 +992,7 @@ main:has(.cdark) + .footer .f-top { border-top: 1px solid var(--iv-rule); paddin
 /* ==== Titres de section discrets + liseré court entre les sections (sept. 2026) ==== */
 .msec h2 { font-size: 14px; font-weight: 400; letter-spacing: .26em; margin-right: -.26em; text-transform: uppercase; color: var(--ink-mute); line-height: 1.4; }
 .msec h2 + * { margin-top: clamp(32px, 4vw, 48px) !important; }
-.msec h2 + .lede { margin-top: 18px !important; font-size: clamp(1.25rem, 1.9vw, 1.6rem); font-weight: 300; color: var(--ink); }
+.msec h2 + .lede { margin-top: 16px !important; font-size: clamp(1rem, 1.2vw, 1.1rem); color: var(--ink-soft); }
 .msec .lede + * { margin-top: clamp(36px, 4.5vw, 56px); }
 @media (max-width: 600px) {
   .msec h2 { font-size: 12.5px; }
