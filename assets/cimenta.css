@@ -1239,3 +1239,13 @@ p, li { text-wrap: pretty; }
     linear-gradient(180deg, rgba(17,17,17,.40) 0%, rgba(17,17,17,.30) 45%, rgba(17,17,17,.38) 100%),
     radial-gradient(ellipse 75% 50% at 50% 52%, rgba(17,17,17,.18) 0%, rgba(17,17,17,0) 100%);
 }
+
+/* ---------- Fondu du haut rétabli (seul le bas reste allégé) ; photo plein écran aussi sur téléphone ---------- */
+.hero-img::after {
+  background:
+    linear-gradient(180deg, rgba(17,17,17,.62) 0%, rgba(17,17,17,.30) 11%, rgba(17,17,17,0) 26%),
+    linear-gradient(0deg, var(--ivory) 0%, rgba(247,246,243,.28) 2.5%, rgba(247,246,243,0) 7%),
+    linear-gradient(180deg, rgba(17,17,17,.40) 0%, rgba(17,17,17,.30) 45%, rgba(17,17,17,.38) 100%),
+    radial-gradient(ellipse 75% 50% at 50% 52%, rgba(17,17,17,.18) 0%, rgba(17,17,17,0) 100%);
+}
+@media (max-width: 700px) { .hero-img { min-height: 100vh; min-height: 100svh; } }
