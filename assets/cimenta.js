@@ -40,7 +40,7 @@
       entries.forEach(function (e) {
         if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
       });
-    }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+    }, { threshold: 0.06, rootMargin: '0px 0px -8% 0px' });
     document.querySelectorAll('[data-reveal]').forEach(function (el) { io.observe(el); });
   } else {
     document.querySelectorAll('[data-reveal]').forEach(function (el) { el.classList.add('on'); });
@@ -182,6 +182,22 @@
   var gate = document.getElementById('gate');
   if (gate) {
     gate.addEventListener('click', function () { gate.classList.add('out'); });
+  }
+
+  // Photo du haut de page : défile plus lentement que la page (effet de profondeur)
+  var heroBg = document.querySelector('.hero-img .hero-bg');
+  var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (heroBg && !calm) {
+    var ticking = false;
+    var drift = function () {
+      var sy = window.scrollY;
+      if (sy <= window.innerHeight) heroBg.style.translate = '0 ' + (sy * 0.25).toFixed(1) + 'px';
+      ticking = false;
+    };
+    window.addEventListener('scroll', function () {
+      if (!ticking) { ticking = true; window.requestAnimationFrame(drift); }
+    }, { passive: true });
+    drift();
   }
 
   var y = document.getElementById('year');

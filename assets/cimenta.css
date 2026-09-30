@@ -1146,3 +1146,34 @@ a.ig svg { display: block; width: 17px; height: 17px; }
 .f-brand .logo .logo-svg { height: 46px; }
 .f-top .logo .logo-svg { height: 34px; }
 .gate-logo .logo-svg { height: clamp(56px, 10.5vw, 112px); }
+
+/* ---------- Mouvement (septembre 2026) : photo du haut de page et apparitions au défilement ---------- */
+:root { --ease-r: cubic-bezier(.2, .65, .25, 1); }
+
+/* Photo du haut de page : léger recul à l'ouverture, puis défilement plus lent que la page */
+.js .hero-img .hero-bg { animation: hero-zoom 2.8s var(--ease-r) .05s both; will-change: scale, translate; }
+.js body:has(.gate) .hero-img .hero-bg { animation-delay: 1.7s; }
+@keyframes hero-zoom { from { scale: 1.08; } to { scale: 1; } }
+
+/* Apparitions : mouvement plus doux et plus ample */
+.js [data-reveal] { transform: translateY(24px); transition: opacity .9s var(--ease-r), transform .9s var(--ease-r); }
+.js [data-reveal].on { transform: none; }
+
+/* Grilles et listes : les éléments arrivent l'un après l'autre */
+.js .mgrid[data-reveal], .js .about-points[data-reveal], .js .mlist[data-reveal] { opacity: 1; transform: none; }
+.js .mgrid[data-reveal] > *, .js .about-points[data-reveal] > *, .js .mlist[data-reveal] > *, .js .gwrap[data-reveal] .gcell {
+  opacity: 0; transform: translateY(22px);
+  transition: opacity .9s var(--ease-r), transform .9s var(--ease-r), background .3s;
+}
+.js .mgrid[data-reveal].on > *, .js .about-points[data-reveal].on > *, .js .mlist[data-reveal].on > *, .js .gwrap[data-reveal].on .gcell { opacity: 1; transform: none; }
+.js .mgrid[data-reveal] > :nth-child(2), .js .about-points[data-reveal] > :nth-child(2), .js .mlist[data-reveal] > :nth-child(2), .js .gwrap[data-reveal] .gcell:nth-child(2) { transition-delay: .09s; }
+.js .mgrid[data-reveal] > :nth-child(3), .js .about-points[data-reveal] > :nth-child(3), .js .mlist[data-reveal] > :nth-child(3), .js .gwrap[data-reveal] .gcell:nth-child(3) { transition-delay: .18s; }
+.js .mgrid[data-reveal] > :nth-child(4), .js .about-points[data-reveal] > :nth-child(4), .js .mlist[data-reveal] > :nth-child(4), .js .gwrap[data-reveal] .gcell:nth-child(4) { transition-delay: .27s; }
+.js .mgrid[data-reveal] > :nth-child(5), .js .about-points[data-reveal] > :nth-child(5), .js .mlist[data-reveal] > :nth-child(5) { transition-delay: .36s; }
+.js .mgrid[data-reveal] > :nth-child(n+6), .js .about-points[data-reveal] > :nth-child(n+6), .js .mlist[data-reveal] > :nth-child(n+6) { transition-delay: .45s; }
+.js .gwrap[data-reveal].on .gcell:hover { transition-delay: 0s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .js .hero-img .hero-bg { animation: none; }
+  .js [data-reveal], .js .mgrid[data-reveal] > *, .js .about-points[data-reveal] > *, .js .mlist[data-reveal] > *, .js .gwrap[data-reveal] .gcell { opacity: 1; transform: none; transition: none; }
+}
