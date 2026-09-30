@@ -1230,3 +1230,12 @@ p, li { text-wrap: pretty; }
 }
 /* Transitions plus soyeuses sur les boutons et liens */
 .btn, .alink, .nav-links a, .f-info a, .cd-line a { transition-timing-function: var(--ease-r); }
+
+/* ---------- Fondus haut et bas allégés ---------- */
+.hero-img::after {
+  background:
+    linear-gradient(180deg, rgba(17,17,17,.42) 0%, rgba(17,17,17,.14) 9%, rgba(17,17,17,0) 18%),
+    linear-gradient(0deg, var(--ivory) 0%, rgba(247,246,243,.28) 2.5%, rgba(247,246,243,0) 7%),
+    linear-gradient(180deg, rgba(17,17,17,.40) 0%, rgba(17,17,17,.30) 45%, rgba(17,17,17,.38) 100%),
+    radial-gradient(ellipse 75% 50% at 50% 52%, rgba(17,17,17,.18) 0%, rgba(17,17,17,0) 100%);
+}
