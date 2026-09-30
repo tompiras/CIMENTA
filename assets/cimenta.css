@@ -1177,3 +1177,13 @@ a.ig svg { display: block; width: 17px; height: 17px; }
   .js .hero-img .hero-bg { animation: none; }
   .js [data-reveal], .js .mgrid[data-reveal] > *, .js .about-points[data-reveal] > *, .js .mlist[data-reveal] > *, .js .gwrap[data-reveal] .gcell { opacity: 1; transform: none; transition: none; }
 }
+
+/* ---------- Photo du haut de page plus lumineuse (septembre 2026) ---------- */
+/* Voile réduit : assombrit seulement derrière le menu et le titre, le reste de la photo reste clair */
+.hero-img::after {
+  background:
+    linear-gradient(180deg, rgba(17,17,17,.38) 0%, rgba(17,17,17,0) 24%),
+    radial-gradient(ellipse 62% 42% at 50% 50%, rgba(17,17,17,.30) 0%, rgba(17,17,17,.12) 60%, rgba(17,17,17,0) 100%);
+}
+.hero-img .hero-bg { filter: brightness(1.05) contrast(1.06) saturate(1.04); }
+.hero-img h1, .hero-img .sub { text-shadow: 0 1px 28px rgba(17,17,17,.38), 0 1px 3px rgba(17,17,17,.22); }
