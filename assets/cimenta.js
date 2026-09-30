@@ -200,8 +200,6 @@
     drift();
   }
 
-  // Méthode : cartes empilées — la carte recouverte recule légèrement
-  var stackCards = Array.prototype.slice.call(document.querySelectorAll('#methode .stack > li'));
   // Texte qui s'éclaire mot à mot
   var lightEls = Array.prototype.slice.call(document.querySelectorAll('[data-light]'));
   lightEls.forEach(function (el) {
@@ -209,15 +207,10 @@
     el.setAttribute('aria-label', el.textContent.trim());
     el.innerHTML = words.map(function (w) { return '<span class="w" aria-hidden="true">' + w + '</span>'; }).join(' ');
   });
-  if (!calm && (stackCards.length || lightEls.length)) {
+  if (!calm && lightEls.length) {
     var busy = false;
     var paint = function () {
       var vh = window.innerHeight;
-      for (var i = 0; i < stackCards.length - 1; i++) {
-        var a = stackCards[i].getBoundingClientRect(), b = stackCards[i + 1].getBoundingClientRect();
-        var p = Math.min(Math.max(1 - (b.top - a.top) / a.height, 0), 1);
-        stackCards[i].style.setProperty('--s', (1 - p * 0.05).toFixed(4));
-      }
       lightEls.forEach(function (el) {
         var r = el.getBoundingClientRect();
         var start = vh * 0.85, end = vh * 0.40;
