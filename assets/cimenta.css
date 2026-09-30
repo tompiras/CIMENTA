@@ -1218,78 +1218,51 @@ a.ig svg { display: block; width: 17px; height: 17px; }
     radial-gradient(ellipse 75% 50% at 50% 52%, rgba(17,17,17,.18) 0%, rgba(17,17,17,0) 100%);
 }
 
-/* ---------- Méthode : cartes empilées au défilement ---------- */
-#methode .mgrid.c5.stack {
-  display: block !important; max-width: 880px; margin-left: auto; margin-right: auto;
-  border: 0 !important; gap: 0 !important;
+/* ---------- Méthode façon Apple : section figée, une étape à la fois (30/09/2026) ---------- */
+/* Sans JavaScript : simple liste centrée */
+#methode .mgrid.c5.stack { display: block !important; max-width: 720px; margin: 0 auto !important; border: 0 !important; text-align: center; }
+#methode .mgrid.c5.stack > li { border: 0 !important; padding: 0 !important; margin: 0 0 56px; }
+#methode .mgrid.c5.stack .n { font-size: 12px !important; letter-spacing: .2em; color: var(--ink-mute) !important; margin: 0 0 18px !important; font-weight: 400; }
+#methode .mgrid.c5.stack h3 { font-weight: 300; font-size: clamp(2.2rem, 5.6vw, 4.6rem) !important; line-height: 1.05; letter-spacing: -.035em; }
+#methode .mgrid.c5.stack p { margin: 22px auto 0 !important; max-width: 30ch; font-size: clamp(1.05rem, 1.5vw, 1.3rem) !important; line-height: 1.5 !important; color: var(--ink-soft); }
+.stack-bar { display: none; }
+
+/* Avec JavaScript : la section reste à l'écran pendant que les étapes se succèdent */
+.js #methode .stack-track { height: 460vh; height: 460svh; margin-top: 0 !important; }
+.js #methode .stack-stage {
+  position: sticky; top: var(--nav-h); height: calc(100vh - var(--nav-h)); height: calc(100svh - var(--nav-h));
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
 }
-#methode .mgrid.c5.stack > li {
-  position: sticky; top: calc(var(--nav-h) + 28px + var(--i, 0) * 16px);
-  display: grid; grid-template-columns: minmax(96px, 180px) 1fr; column-gap: clamp(24px, 4vw, 56px); align-items: start;
-  min-height: clamp(230px, 36vh, 330px); margin: 0 0 clamp(64px, 14vh, 130px);
-  padding: clamp(28px, 4vw, 52px) !important;
-  background: var(--ivory); border: 1px solid var(--ink-rule) !important;
-  box-shadow: 0 -14px 34px -22px rgba(17,17,17,.28);
-  transform-origin: 50% 0; scale: var(--s, 1);
-  grid-column: auto !important;
+.js #methode .mgrid.c5.stack { position: relative; width: 100%; height: clamp(300px, 52vh, 460px); }
+.js #methode .mgrid.c5.stack > li {
+  position: absolute; inset: 0; margin: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  opacity: 0; transform: translateY(28px); filter: blur(6px);
+  transition: opacity .7s var(--ease-r), transform .9s var(--ease-r), filter .7s var(--ease-r);
+  pointer-events: none;
 }
-#methode .mgrid.c5.stack > li:last-child { margin-bottom: 0; background: var(--ink); color: var(--ivory); border-color: var(--ink) !important; }
-#methode .mgrid.c5.stack > li:last-child p, #methode .mgrid.c5.stack > li:last-child .n { color: rgba(247,246,243,.72) !important; }
-#methode .mgrid.c5.stack > li:nth-child(2) { --i: 1; }
-#methode .mgrid.c5.stack > li:nth-child(3) { --i: 2; }
-#methode .mgrid.c5.stack > li:nth-child(4) { --i: 3; }
-#methode .mgrid.c5.stack > li:nth-child(5) { --i: 4; }
-#methode .mgrid.c5.stack .n {
-  grid-row: 1 / span 2; margin: 0 !important; font-weight: 300; letter-spacing: -.03em; line-height: .85;
-  font-size: clamp(3.4rem, 8vw, 6.4rem) !important; color: var(--ink);
-}
-#methode .mgrid.c5.stack h3 { font-weight: 300; font-size: clamp(1.4rem, 2.6vw, 2.1rem) !important; line-height: 1.15; letter-spacing: -.01em; margin-top: .2em; }
-#methode .mgrid.c5.stack p { margin-top: 14px !important; max-width: 36ch; font-size: clamp(1rem, 1.3vw, 1.12rem) !important; line-height: 1.55 !important; color: var(--ink-soft); }
-.js #methode .mgrid[data-reveal].stack > * { opacity: 1; transform: none; transition: none; }
+.js #methode .mgrid.c5.stack > li.past { transform: translateY(-28px); }
+.js #methode .mgrid.c5.stack > li.active { opacity: 1; transform: none; filter: none; pointer-events: auto; }
+.js #methode .stack-bar { display: flex; gap: 8px; margin-top: clamp(24px, 4vh, 44px); }
+.js #methode .stack-bar span { position: relative; width: 36px; height: 2px; background: var(--ink-rule); overflow: hidden; }
+.js #methode .stack-bar span::after { content: ""; position: absolute; inset: 0; background: var(--ink); transform-origin: 0 50%; transform: scaleX(var(--f, 0)); }
 @media (max-width: 600px) {
-  #methode .mgrid.c5.stack > li {
-    top: calc(var(--nav-h) + 14px + var(--i, 0) * 10px);
-    grid-template-columns: 1fr; min-height: 200px; margin-bottom: 56px;
-    padding: 26px 22px 28px !important;
-  }
-  #methode .mgrid.c5.stack .n { grid-row: auto; font-size: 3rem !important; margin-bottom: 18px !important; }
-  #methode .mgrid.c5.stack h3 { font-size: 1.35rem !important; margin-top: 0; }
-  #methode .mgrid.c5.stack p { font-size: 15px !important; }
+  .js #methode .stack-track { height: 420vh; height: 420svh; }
+  .js #methode .mgrid.c5.stack { height: 56svh; }
+  #methode .mgrid.c5.stack h3 { font-size: 2.3rem !important; }
+  #methode .mgrid.c5.stack p { font-size: 1.05rem !important; max-width: 26ch; }
+  .js #methode .stack-bar span { width: 28px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .js #methode .mgrid.c5.stack > li { transition: none; filter: none; transform: none; }
 }
 
-/* ---------- Texte qui s'éclaire au défilement ---------- */
+/* ---------- Texte de l'équipe qui s'éclaire, façon Apple ---------- */
+.team-shared { border-top: 0 !important; max-width: 980px !important; }
 .team-shared p[data-light] {
-  font-size: clamp(1.35rem, 2.6vw, 2.05rem) !important; font-weight: 300; line-height: 1.4 !important;
-  letter-spacing: -.01em; max-width: 30ch; color: var(--ink) !important;
+  font-size: clamp(1.7rem, 3.6vw, 3rem) !important; font-weight: 300; line-height: 1.22 !important;
+  letter-spacing: -.028em; max-width: 24ch; margin: 0 auto; color: var(--ink) !important;
 }
-.team-shared p[data-light] .w { color: rgba(17,17,17,.16); transition: color .35s ease; }
+.team-shared p[data-light] .w { color: rgba(17,17,17,.14); transition: color .4s ease; }
 .team-shared p[data-light] .w.lit { color: var(--ink); }
-@media (max-width: 600px) { .team-shared p[data-light] { font-size: 1.3rem !important; max-width: none; } }
+@media (max-width: 600px) { .team-shared p[data-light] { font-size: 1.65rem !important; max-width: none; } }
 @media (prefers-reduced-motion: reduce) { .team-shared p[data-light] .w { color: var(--ink); transition: none; } }
-
-/* ---------- Version épurée (30/09/2026) : sans cadre, sans ombre, sans carte noire ---------- */
-#methode .mgrid.c5.stack > li {
-  border: 0 !important; border-top: 1px solid var(--ink-rule) !important; box-shadow: none; scale: none;
-  background: var(--ivory); color: var(--ink);
-  top: calc(var(--nav-h) + 24px + var(--i, 0) * 12px);
-  grid-template-columns: 1fr; min-height: clamp(180px, 26vh, 240px);
-  padding: 28px 0 40px !important; margin-bottom: clamp(48px, 10vh, 96px);
-}
-#methode .mgrid.c5.stack > li:last-child { background: var(--ivory); color: var(--ink); border-color: var(--ink-rule) !important; margin-bottom: 0; }
-#methode .mgrid.c5.stack > li:last-child p { color: var(--ink-soft) !important; }
-#methode .mgrid.c5.stack > li:last-child .n, #methode .mgrid.c5.stack .n {
-  grid-row: auto; font-size: 12px !important; letter-spacing: .2em; line-height: 1; font-weight: 400;
-  color: var(--ink-mute) !important; margin: 0 0 18px !important;
-}
-#methode .mgrid.c5.stack h3 { font-size: clamp(1.25rem, 1.9vw, 1.6rem) !important; margin-top: 0; }
-#methode .mgrid.c5.stack p { margin-top: 10px !important; font-size: 15px !important; }
-@media (max-width: 600px) {
-  #methode .mgrid.c5.stack > li { top: calc(var(--nav-h) + 12px + var(--i, 0) * 8px); min-height: 160px; padding: 22px 0 30px !important; margin-bottom: 44px; }
-  #methode .mgrid.c5.stack .n { margin-bottom: 14px !important; font-size: 11px !important; }
-  #methode .mgrid.c5.stack h3 { font-size: 1.2rem !important; }
-  #methode .mgrid.c5.stack p { font-size: 14px !important; }
-}
-.team-shared p[data-light] { font-size: clamp(1.1rem, 1.6vw, 1.35rem) !important; line-height: 1.55 !important; max-width: 36ch; letter-spacing: 0; }
-.team-shared p[data-light] .w { color: rgba(17,17,17,.22); }
-@media (max-width: 600px) { .team-shared p[data-light] { font-size: 1.05rem !important; } }
-#methode .mgrid.c5.stack > li { align-content: start; }
