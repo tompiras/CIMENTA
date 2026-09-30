@@ -200,6 +200,38 @@
     drift();
   }
 
+  // Méthode : cartes empilées — la carte recouverte recule légèrement
+  var stackCards = Array.prototype.slice.call(document.querySelectorAll('#methode .stack > li'));
+  // Texte qui s'éclaire mot à mot
+  var lightEls = Array.prototype.slice.call(document.querySelectorAll('[data-light]'));
+  lightEls.forEach(function (el) {
+    var words = el.textContent.trim().split(/\s+/);
+    el.setAttribute('aria-label', el.textContent.trim());
+    el.innerHTML = words.map(function (w) { return '<span class="w" aria-hidden="true">' + w + '</span>'; }).join(' ');
+  });
+  if (!calm && (stackCards.length || lightEls.length)) {
+    var busy = false;
+    var paint = function () {
+      var vh = window.innerHeight;
+      for (var i = 0; i < stackCards.length - 1; i++) {
+        var a = stackCards[i].getBoundingClientRect(), b = stackCards[i + 1].getBoundingClientRect();
+        var p = Math.min(Math.max(1 - (b.top - a.top) / a.height, 0), 1);
+        stackCards[i].style.setProperty('--s', (1 - p * 0.05).toFixed(4));
+      }
+      lightEls.forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        var start = vh * 0.85, end = vh * 0.40;
+        var prog = Math.min(Math.max((start - r.top) / (start - end), 0), 1);
+        var ws = el.querySelectorAll('.w'), n = Math.round(prog * ws.length);
+        for (var k = 0; k < ws.length; k++) ws[k].classList.toggle('lit', k < n);
+      });
+      busy = false;
+    };
+    window.addEventListener('scroll', function () { if (!busy) { busy = true; window.requestAnimationFrame(paint); } }, { passive: true });
+    window.addEventListener('resize', paint);
+    paint();
+  }
+
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 })();
