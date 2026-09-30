@@ -1187,3 +1187,12 @@ a.ig svg { display: block; width: 17px; height: 17px; }
 }
 .hero-img .hero-bg { filter: brightness(1.05) contrast(1.06) saturate(1.04); }
 .hero-img h1, .hero-img .sub { text-shadow: 0 1px 28px rgba(17,17,17,.38), 0 1px 3px rgba(17,17,17,.22); }
+
+/* ---------- Fondus de la photo du haut de page ---------- */
+/* Haut : fondu vers le noir, sous le menu (garde le menu lisible) ; bas : fondu vers l'ivoire de la section suivante */
+.hero-img::after {
+  background:
+    linear-gradient(180deg, rgba(17,17,17,.62) 0%, rgba(17,17,17,.30) 11%, rgba(17,17,17,0) 26%),
+    linear-gradient(0deg, var(--ivory) 0%, rgba(247,246,243,.72) 7%, rgba(247,246,243,0) 24%),
+    radial-gradient(ellipse 62% 42% at 50% 50%, rgba(17,17,17,.30) 0%, rgba(17,17,17,.12) 60%, rgba(17,17,17,0) 100%);
+}
