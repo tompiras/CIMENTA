@@ -1266,3 +1266,30 @@ a.ig svg { display: block; width: 17px; height: 17px; }
 .team-shared p[data-light] .w.lit { color: var(--ink); }
 @media (max-width: 600px) { .team-shared p[data-light] { font-size: 1.3rem !important; max-width: none; } }
 @media (prefers-reduced-motion: reduce) { .team-shared p[data-light] .w { color: var(--ink); transition: none; } }
+
+/* ---------- Version épurée (30/09/2026) : sans cadre, sans ombre, sans carte noire ---------- */
+#methode .mgrid.c5.stack > li {
+  border: 0 !important; border-top: 1px solid var(--ink-rule) !important; box-shadow: none; scale: none;
+  background: var(--ivory); color: var(--ink);
+  top: calc(var(--nav-h) + 24px + var(--i, 0) * 12px);
+  grid-template-columns: 1fr; min-height: clamp(180px, 26vh, 240px);
+  padding: 28px 0 40px !important; margin-bottom: clamp(48px, 10vh, 96px);
+}
+#methode .mgrid.c5.stack > li:last-child { background: var(--ivory); color: var(--ink); border-color: var(--ink-rule) !important; margin-bottom: 0; }
+#methode .mgrid.c5.stack > li:last-child p { color: var(--ink-soft) !important; }
+#methode .mgrid.c5.stack > li:last-child .n, #methode .mgrid.c5.stack .n {
+  grid-row: auto; font-size: 12px !important; letter-spacing: .2em; line-height: 1; font-weight: 400;
+  color: var(--ink-mute) !important; margin: 0 0 18px !important;
+}
+#methode .mgrid.c5.stack h3 { font-size: clamp(1.25rem, 1.9vw, 1.6rem) !important; margin-top: 0; }
+#methode .mgrid.c5.stack p { margin-top: 10px !important; font-size: 15px !important; }
+@media (max-width: 600px) {
+  #methode .mgrid.c5.stack > li { top: calc(var(--nav-h) + 12px + var(--i, 0) * 8px); min-height: 160px; padding: 22px 0 30px !important; margin-bottom: 44px; }
+  #methode .mgrid.c5.stack .n { margin-bottom: 14px !important; font-size: 11px !important; }
+  #methode .mgrid.c5.stack h3 { font-size: 1.2rem !important; }
+  #methode .mgrid.c5.stack p { font-size: 14px !important; }
+}
+.team-shared p[data-light] { font-size: clamp(1.1rem, 1.6vw, 1.35rem) !important; line-height: 1.55 !important; max-width: 36ch; letter-spacing: 0; }
+.team-shared p[data-light] .w { color: rgba(17,17,17,.22); }
+@media (max-width: 600px) { .team-shared p[data-light] { font-size: 1.05rem !important; } }
+#methode .mgrid.c5.stack > li { align-content: start; }
