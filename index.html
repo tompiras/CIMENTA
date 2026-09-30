@@ -19,6 +19,7 @@
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <link rel="preload" href="/assets/fonts/poppins-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/poppins-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" type="image/webp" imagesrcset="/assets/hero-800.webp 800w, /assets/hero-1400.webp 1400w, /assets/hero-2000.webp 2000w, /assets/hero-2560.webp 2560w" imagesizes="(max-aspect-ratio: 3/2) 150vh, 100vw" fetchpriority="high">
   <link rel="stylesheet" href="/assets/cimenta.css">
   <script>document.documentElement.classList.add('js');</script>
   <script type="application/ld+json">
@@ -96,7 +97,7 @@
 
     <!-- Haut de page -->
     <section class="hero-a hero-img dark" aria-labelledby="hero-title">
-      <img class="hero-bg" src="/assets/hero-1400.jpg" srcset="/assets/hero-800.jpg 800w, /assets/hero-1400.jpg 1400w, /assets/hero-2000.jpg 2000w, /assets/hero-2560.jpg 2560w" sizes="(max-aspect-ratio: 3/2) 150vh, 100vw" alt="" fetchpriority="high">
+      <picture><source type="image/webp" srcset="/assets/hero-800.webp 800w, /assets/hero-1400.webp 1400w, /assets/hero-2000.webp 2000w, /assets/hero-2560.webp 2560w" sizes="(max-aspect-ratio: 3/2) 150vh, 100vw"><img class="hero-bg" src="/assets/hero-1400.jpg" srcset="/assets/hero-800.jpg 800w, /assets/hero-1400.jpg 1400w, /assets/hero-2000.jpg 2000w, /assets/hero-2560.jpg 2560w" sizes="(max-aspect-ratio: 3/2) 150vh, 100vw" alt="" fetchpriority="high"></picture>
       <div class="wrap">
         <h1 id="hero-title">Rénovation et construction.</h1>
         <p class="sub">Contractant général, tous corps d'état.</p>
@@ -256,18 +257,13 @@ fill="currentColor" stroke="none">
     <section class="msec" id="methode" aria-labelledby="methode-title">
       <div class="wrap">
         <h2 id="methode-title" data-reveal>Méthode</h2>
-        <div class="stack-track" data-reveal>
-          <div class="stack-stage">
-            <ol class="mgrid c5 stack">
+        <ol class="mgrid c5" data-reveal>
           <li><span class="n">01</span><h3>Visite et devis</h3><p>Relevé des besoins, devis détaillé.</p></li>
           <li><span class="n">02</span><h3>Contrat</h3><p>Prix, périmètre et date de livraison.</p></li>
           <li><span class="n">03</span><h3>Études</h3><p>Plans et autorisations confiés à des architectes indépendants, ou à votre architecte.</p></li>
           <li><span class="n">04</span><h3>Travaux</h3><p>Coordination des entreprises, compte rendu chaque semaine.</p></li>
           <li><span class="n">05</span><h3>Réception</h3><p>Levée des réserves, remise des garanties.</p></li>
         </ol>
-            <div class="stack-bar" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -332,7 +328,7 @@ fill="currentColor" stroke="none">
           <div><strong class="big">Max Garnier</strong><span class="cap">Co-fondateur<span class="cap-dot"> · </span><span class="cap-nl">Architecte</span></span></div>
         </div>
         <div class="team-shared" data-reveal>
-          <p data-light>Ensemble, nous chiffrons votre projet, choisissons les entreprises, tenons votre budget et votre planning, puis coordonnons le chantier jusqu'à la remise des clés.</p>
+          <p>Ensemble, nous chiffrons votre projet, choisissons les entreprises, tenons votre budget et votre planning, puis coordonnons le chantier jusqu'à la remise des clés.</p>
         </div>
       </div>
     </section>
