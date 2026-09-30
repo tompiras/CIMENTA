@@ -201,17 +201,31 @@
   }
 
   // Texte qui s'éclaire mot à mot
+  var track = document.querySelector('#methode .stack-track');
+  var steps = track ? track.querySelectorAll('.stack > li') : [];
+  var bars = track ? track.querySelectorAll('.stack-bar span') : [];
   var lightEls = Array.prototype.slice.call(document.querySelectorAll('[data-light]'));
   lightEls.forEach(function (el) {
     var words = el.textContent.trim().split(/\s+/);
     el.setAttribute('aria-label', el.textContent.trim());
     el.innerHTML = words.map(function (w) { return '<span class="w" aria-hidden="true">' + w + '</span>'; }).join(' ');
   });
-  if (!calm && lightEls.length) {
+  if (lightEls.length || track) {
     var busy = false;
     var paint = function () {
       var vh = window.innerHeight;
-      lightEls.forEach(function (el) {
+      if (track && steps.length) {
+        var tr = track.getBoundingClientRect();
+        var run = Math.max(tr.height - (vh - (nav ? nav.offsetHeight : 0)), 1);
+        var pr = Math.min(Math.max(-tr.top / run, 0), 0.9999);
+        var pos = pr * steps.length, cur = Math.floor(pos);
+        for (var j = 0; j < steps.length; j++) {
+          steps[j].classList.toggle('active', j === cur);
+          steps[j].classList.toggle('past', j < cur);
+          if (bars[j]) bars[j].style.setProperty('--f', j < cur ? 1 : (j === cur ? (pos - cur).toFixed(3) : 0));
+        }
+      }
+      if (!calm) lightEls.forEach(function (el) {
         var r = el.getBoundingClientRect();
         var start = vh * 0.85, end = vh * 0.40;
         var prog = Math.min(Math.max((start - r.top) / (start - end), 0), 1);
