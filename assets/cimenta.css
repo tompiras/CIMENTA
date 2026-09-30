@@ -1177,3 +1177,75 @@ a.ig svg { display: block; width: 17px; height: 17px; }
   .js .hero-img .hero-bg { animation: none; }
   .js [data-reveal], .js .mgrid[data-reveal] > *, .js .about-points[data-reveal] > *, .js .mlist[data-reveal] > *, .js .gwrap[data-reveal] .gcell { opacity: 1; transform: none; transition: none; }
 }
+
+/* ---------- Photo du haut de page plus lumineuse (septembre 2026) ---------- */
+/* Voile réduit : assombrit seulement derrière le menu et le titre, le reste de la photo reste clair */
+.hero-img::after {
+  background:
+    linear-gradient(180deg, rgba(17,17,17,.38) 0%, rgba(17,17,17,0) 24%),
+    radial-gradient(ellipse 62% 42% at 50% 50%, rgba(17,17,17,.30) 0%, rgba(17,17,17,.12) 60%, rgba(17,17,17,0) 100%);
+}
+.hero-img .hero-bg { filter: brightness(1.05) contrast(1.06) saturate(1.04); }
+.hero-img h1, .hero-img .sub { text-shadow: 0 1px 28px rgba(17,17,17,.38), 0 1px 3px rgba(17,17,17,.22); }
+
+/* ---------- Fondus de la photo du haut de page ---------- */
+/* Haut : fondu vers le noir, sous le menu (garde le menu lisible) ; bas : fondu vers l'ivoire de la section suivante */
+.hero-img::after {
+  background:
+    linear-gradient(180deg, rgba(17,17,17,.62) 0%, rgba(17,17,17,.30) 11%, rgba(17,17,17,0) 26%),
+    linear-gradient(0deg, var(--ivory) 0%, rgba(247,246,243,.72) 7%, rgba(247,246,243,0) 24%),
+    radial-gradient(ellipse 62% 42% at 50% 50%, rgba(17,17,17,.30) 0%, rgba(17,17,17,.12) 60%, rgba(17,17,17,0) 100%);
+}
+
+/* ---------- Lisibilité du texte sur la photo ---------- */
+.hero-img::after {
+  background:
+    linear-gradient(180deg, rgba(17,17,17,.62) 0%, rgba(17,17,17,.30) 11%, rgba(17,17,17,0) 26%),
+    linear-gradient(0deg, var(--ivory) 0%, rgba(247,246,243,.45) 4%, rgba(247,246,243,.12) 9%, rgba(247,246,243,0) 14%),
+    radial-gradient(ellipse 75% 50% at 50% 52%, rgba(17,17,17,.52) 0%, rgba(17,17,17,.34) 45%, rgba(17,17,17,.10) 80%, rgba(17,17,17,0) 100%);
+}
+.hero-img h1, .hero-img .sub, .hero-img .alink { text-shadow: 0 2px 36px rgba(17,17,17,.55), 0 1px 4px rgba(17,17,17,.40); }
+.hero-img .sub { color: var(--ivory); }
+.hero-img .ha-links .btn-solid { background: rgba(17,17,17,.18); }
+
+/* ---------- Retour à la tonalité d'origine de la photo (plus dense), en gardant netteté et fondus ---------- */
+.hero-img .hero-bg { filter: none; }
+.hero-img::after {
+  background:
+    linear-gradient(180deg, rgba(17,17,17,.62) 0%, rgba(17,17,17,.30) 11%, rgba(17,17,17,0) 26%),
+    linear-gradient(0deg, var(--ivory) 0%, rgba(247,246,243,.45) 4%, rgba(247,246,243,.12) 9%, rgba(247,246,243,0) 14%),
+    linear-gradient(180deg, rgba(17,17,17,.40) 0%, rgba(17,17,17,.30) 45%, rgba(17,17,17,.38) 100%),
+    radial-gradient(ellipse 75% 50% at 50% 52%, rgba(17,17,17,.18) 0%, rgba(17,17,17,0) 100%);
+}
+
+/* ---------- Finitions générales (30/09/2026) ---------- */
+html { text-rendering: optimizeLegibility; font-kerning: normal; }
+* { -webkit-tap-highlight-color: transparent; }
+/* Retours à la ligne équilibrés : plus de mot isolé en fin de titre ou de paragraphe */
+h1, h2, h3, .hero-a .sub, .lede, .cd-line { text-wrap: balance; }
+p, li { text-wrap: pretty; }
+/* Menu figé : fond ivoire légèrement translucide et flouté */
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .nav.stuck { background: rgba(247,246,243,.80); -webkit-backdrop-filter: saturate(1.3) blur(18px); backdrop-filter: saturate(1.3) blur(18px); }
+}
+/* Transitions plus soyeuses sur les boutons et liens */
+.btn, .alink, .nav-links a, .f-info a, .cd-line a { transition-timing-function: var(--ease-r); }
+
+/* ---------- Fondus haut et bas allégés ---------- */
+.hero-img::after {
+  background:
+    linear-gradient(180deg, rgba(17,17,17,.42) 0%, rgba(17,17,17,.14) 9%, rgba(17,17,17,0) 18%),
+    linear-gradient(0deg, var(--ivory) 0%, rgba(247,246,243,.28) 2.5%, rgba(247,246,243,0) 7%),
+    linear-gradient(180deg, rgba(17,17,17,.40) 0%, rgba(17,17,17,.30) 45%, rgba(17,17,17,.38) 100%),
+    radial-gradient(ellipse 75% 50% at 50% 52%, rgba(17,17,17,.18) 0%, rgba(17,17,17,0) 100%);
+}
+
+/* ---------- Fondu du haut rétabli (seul le bas reste allégé) ; photo plein écran aussi sur téléphone ---------- */
+.hero-img::after {
+  background:
+    linear-gradient(180deg, rgba(17,17,17,.62) 0%, rgba(17,17,17,.30) 11%, rgba(17,17,17,0) 26%),
+    linear-gradient(0deg, var(--ivory) 0%, rgba(247,246,243,.28) 2.5%, rgba(247,246,243,0) 7%),
+    linear-gradient(180deg, rgba(17,17,17,.40) 0%, rgba(17,17,17,.30) 45%, rgba(17,17,17,.38) 100%),
+    radial-gradient(ellipse 75% 50% at 50% 52%, rgba(17,17,17,.18) 0%, rgba(17,17,17,0) 100%);
+}
+@media (max-width: 700px) { .hero-img { min-height: 100vh; min-height: 100svh; } }
