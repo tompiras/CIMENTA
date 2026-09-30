@@ -1217,3 +1217,52 @@ a.ig svg { display: block; width: 17px; height: 17px; }
     linear-gradient(180deg, rgba(17,17,17,.40) 0%, rgba(17,17,17,.30) 45%, rgba(17,17,17,.38) 100%),
     radial-gradient(ellipse 75% 50% at 50% 52%, rgba(17,17,17,.18) 0%, rgba(17,17,17,0) 100%);
 }
+
+/* ---------- Méthode : cartes empilées au défilement ---------- */
+#methode .mgrid.c5.stack {
+  display: block !important; max-width: 880px; margin-left: auto; margin-right: auto;
+  border: 0 !important; gap: 0 !important;
+}
+#methode .mgrid.c5.stack > li {
+  position: sticky; top: calc(var(--nav-h) + 28px + var(--i, 0) * 16px);
+  display: grid; grid-template-columns: minmax(96px, 180px) 1fr; column-gap: clamp(24px, 4vw, 56px); align-items: start;
+  min-height: clamp(230px, 36vh, 330px); margin: 0 0 clamp(64px, 14vh, 130px);
+  padding: clamp(28px, 4vw, 52px) !important;
+  background: var(--ivory); border: 1px solid var(--ink-rule) !important;
+  box-shadow: 0 -14px 34px -22px rgba(17,17,17,.28);
+  transform-origin: 50% 0; scale: var(--s, 1);
+  grid-column: auto !important;
+}
+#methode .mgrid.c5.stack > li:last-child { margin-bottom: 0; background: var(--ink); color: var(--ivory); border-color: var(--ink) !important; }
+#methode .mgrid.c5.stack > li:last-child p, #methode .mgrid.c5.stack > li:last-child .n { color: rgba(247,246,243,.72) !important; }
+#methode .mgrid.c5.stack > li:nth-child(2) { --i: 1; }
+#methode .mgrid.c5.stack > li:nth-child(3) { --i: 2; }
+#methode .mgrid.c5.stack > li:nth-child(4) { --i: 3; }
+#methode .mgrid.c5.stack > li:nth-child(5) { --i: 4; }
+#methode .mgrid.c5.stack .n {
+  grid-row: 1 / span 2; margin: 0 !important; font-weight: 300; letter-spacing: -.03em; line-height: .85;
+  font-size: clamp(3.4rem, 8vw, 6.4rem) !important; color: var(--ink);
+}
+#methode .mgrid.c5.stack h3 { font-weight: 300; font-size: clamp(1.4rem, 2.6vw, 2.1rem) !important; line-height: 1.15; letter-spacing: -.01em; margin-top: .2em; }
+#methode .mgrid.c5.stack p { margin-top: 14px !important; max-width: 36ch; font-size: clamp(1rem, 1.3vw, 1.12rem) !important; line-height: 1.55 !important; color: var(--ink-soft); }
+.js #methode .mgrid[data-reveal].stack > * { opacity: 1; transform: none; transition: none; }
+@media (max-width: 600px) {
+  #methode .mgrid.c5.stack > li {
+    top: calc(var(--nav-h) + 14px + var(--i, 0) * 10px);
+    grid-template-columns: 1fr; min-height: 200px; margin-bottom: 56px;
+    padding: 26px 22px 28px !important;
+  }
+  #methode .mgrid.c5.stack .n { grid-row: auto; font-size: 3rem !important; margin-bottom: 18px !important; }
+  #methode .mgrid.c5.stack h3 { font-size: 1.35rem !important; margin-top: 0; }
+  #methode .mgrid.c5.stack p { font-size: 15px !important; }
+}
+
+/* ---------- Texte qui s'éclaire au défilement ---------- */
+.team-shared p[data-light] {
+  font-size: clamp(1.35rem, 2.6vw, 2.05rem) !important; font-weight: 300; line-height: 1.4 !important;
+  letter-spacing: -.01em; max-width: 30ch; color: var(--ink) !important;
+}
+.team-shared p[data-light] .w { color: rgba(17,17,17,.16); transition: color .35s ease; }
+.team-shared p[data-light] .w.lit { color: var(--ink); }
+@media (max-width: 600px) { .team-shared p[data-light] { font-size: 1.3rem !important; max-width: none; } }
+@media (prefers-reduced-motion: reduce) { .team-shared p[data-light] .w { color: var(--ink); transition: none; } }
