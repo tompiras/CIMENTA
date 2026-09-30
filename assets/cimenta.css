@@ -1201,7 +1201,7 @@ a.ig svg { display: block; width: 17px; height: 17px; }
 .hero-img::after {
   background:
     linear-gradient(180deg, rgba(17,17,17,.62) 0%, rgba(17,17,17,.30) 11%, rgba(17,17,17,0) 26%),
-    linear-gradient(0deg, var(--ivory) 0%, rgba(247,246,243,.72) 7%, rgba(247,246,243,0) 24%),
+    linear-gradient(0deg, var(--ivory) 0%, rgba(247,246,243,.45) 4%, rgba(247,246,243,.12) 9%, rgba(247,246,243,0) 14%),
     radial-gradient(ellipse 75% 50% at 50% 52%, rgba(17,17,17,.52) 0%, rgba(17,17,17,.34) 45%, rgba(17,17,17,.10) 80%, rgba(17,17,17,0) 100%);
 }
 .hero-img h1, .hero-img .sub, .hero-img .alink { text-shadow: 0 2px 36px rgba(17,17,17,.55), 0 1px 4px rgba(17,17,17,.40); }
