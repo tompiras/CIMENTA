@@ -1218,51 +1218,15 @@ a.ig svg { display: block; width: 17px; height: 17px; }
     radial-gradient(ellipse 75% 50% at 50% 52%, rgba(17,17,17,.18) 0%, rgba(17,17,17,0) 100%);
 }
 
-/* ---------- Méthode façon Apple : section figée, une étape à la fois (30/09/2026) ---------- */
-/* Sans JavaScript : simple liste centrée */
-#methode .mgrid.c5.stack { display: block !important; max-width: 720px; margin: 0 auto !important; border: 0 !important; text-align: center; }
-#methode .mgrid.c5.stack > li { border: 0 !important; padding: 0 !important; margin: 0 0 56px; }
-#methode .mgrid.c5.stack .n { font-size: 12px !important; letter-spacing: .2em; color: var(--ink-mute) !important; margin: 0 0 18px !important; font-weight: 400; }
-#methode .mgrid.c5.stack h3 { font-weight: 300; font-size: clamp(2.2rem, 5.6vw, 4.6rem) !important; line-height: 1.05; letter-spacing: -.035em; }
-#methode .mgrid.c5.stack p { margin: 22px auto 0 !important; max-width: 30ch; font-size: clamp(1.05rem, 1.5vw, 1.3rem) !important; line-height: 1.5 !important; color: var(--ink-soft); }
-.stack-bar { display: none; }
-
-/* Avec JavaScript : la section reste à l'écran pendant que les étapes se succèdent */
-.js #methode .stack-track { height: 460vh; height: 460svh; margin-top: 0 !important; }
-.js #methode .stack-stage {
-  position: sticky; top: var(--nav-h); height: calc(100vh - var(--nav-h)); height: calc(100svh - var(--nav-h));
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
+/* ---------- Finitions générales (30/09/2026) ---------- */
+html { text-rendering: optimizeLegibility; font-kerning: normal; }
+* { -webkit-tap-highlight-color: transparent; }
+/* Retours à la ligne équilibrés : plus de mot isolé en fin de titre ou de paragraphe */
+h1, h2, h3, .hero-a .sub, .lede, .cd-line { text-wrap: balance; }
+p, li { text-wrap: pretty; }
+/* Menu figé : fond ivoire légèrement translucide et flouté */
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .nav.stuck { background: rgba(247,246,243,.80); -webkit-backdrop-filter: saturate(1.3) blur(18px); backdrop-filter: saturate(1.3) blur(18px); }
 }
-.js #methode .mgrid.c5.stack { position: relative; width: 100%; height: clamp(300px, 52vh, 460px); }
-.js #methode .mgrid.c5.stack > li {
-  position: absolute; inset: 0; margin: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
-  opacity: 0; transform: translateY(28px); filter: blur(6px);
-  transition: opacity .7s var(--ease-r), transform .9s var(--ease-r), filter .7s var(--ease-r);
-  pointer-events: none;
-}
-.js #methode .mgrid.c5.stack > li.past { transform: translateY(-28px); }
-.js #methode .mgrid.c5.stack > li.active { opacity: 1; transform: none; filter: none; pointer-events: auto; }
-.js #methode .stack-bar { display: flex; gap: 8px; margin-top: clamp(24px, 4vh, 44px); }
-.js #methode .stack-bar span { position: relative; width: 36px; height: 2px; background: var(--ink-rule); overflow: hidden; }
-.js #methode .stack-bar span::after { content: ""; position: absolute; inset: 0; background: var(--ink); transform-origin: 0 50%; transform: scaleX(var(--f, 0)); }
-@media (max-width: 600px) {
-  .js #methode .stack-track { height: 420vh; height: 420svh; }
-  .js #methode .mgrid.c5.stack { height: 56svh; }
-  #methode .mgrid.c5.stack h3 { font-size: 2.3rem !important; }
-  #methode .mgrid.c5.stack p { font-size: 1.05rem !important; max-width: 26ch; }
-  .js #methode .stack-bar span { width: 28px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .js #methode .mgrid.c5.stack > li { transition: none; filter: none; transform: none; }
-}
-
-/* ---------- Texte de l'équipe qui s'éclaire, façon Apple ---------- */
-.team-shared { border-top: 0 !important; max-width: 980px !important; }
-.team-shared p[data-light] {
-  font-size: clamp(1.7rem, 3.6vw, 3rem) !important; font-weight: 300; line-height: 1.22 !important;
-  letter-spacing: -.028em; max-width: 24ch; margin: 0 auto; color: var(--ink) !important;
-}
-.team-shared p[data-light] .w { color: rgba(17,17,17,.14); transition: color .4s ease; }
-.team-shared p[data-light] .w.lit { color: var(--ink); }
-@media (max-width: 600px) { .team-shared p[data-light] { font-size: 1.65rem !important; max-width: none; } }
-@media (prefers-reduced-motion: reduce) { .team-shared p[data-light] .w { color: var(--ink); transition: none; } }
+/* Transitions plus soyeuses sur les boutons et liens */
+.btn, .alink, .nav-links a, .f-info a, .cd-line a { transition-timing-function: var(--ease-r); }
