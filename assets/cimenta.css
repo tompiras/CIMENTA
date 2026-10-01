@@ -1249,3 +1249,15 @@ p, li { text-wrap: pretty; }
     radial-gradient(ellipse 75% 50% at 50% 52%, rgba(17,17,17,.18) 0%, rgba(17,17,17,0) 100%);
 }
 @media (max-width: 700px) { .hero-img { min-height: 100vh; min-height: 100svh; } }
+
+/* ---------- Fondu du bas plus naturel : courbe progressive, sans passer par le gris ---------- */
+.hero-img::after {
+  background:
+    linear-gradient(180deg, rgba(17,17,17,.62) 0%, rgba(17,17,17,.30) 11%, rgba(17,17,17,0) 26%),
+    linear-gradient(0deg,
+      rgba(247,246,243,1) 0%, rgba(247,246,243,.86) 2%, rgba(247,246,243,.66) 4%, rgba(247,246,243,.46) 6%,
+      rgba(247,246,243,.30) 8%, rgba(247,246,243,.18) 10%, rgba(247,246,243,.09) 12.5%, rgba(247,246,243,.035) 15%,
+      rgba(247,246,243,0) 18%),
+    linear-gradient(180deg, rgba(17,17,17,.40) 0%, rgba(17,17,17,.30) 45%, rgba(17,17,17,.24) 85%, rgba(17,17,17,.10) 100%),
+    radial-gradient(ellipse 75% 50% at 50% 52%, rgba(17,17,17,.18) 0%, rgba(17,17,17,0) 100%);
+}
