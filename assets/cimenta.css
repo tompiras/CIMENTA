@@ -1261,3 +1261,59 @@ p, li { text-wrap: pretty; }
     linear-gradient(180deg, rgba(17,17,17,.40) 0%, rgba(17,17,17,.30) 45%, rgba(17,17,17,.24) 85%, rgba(17,17,17,.10) 100%),
     radial-gradient(ellipse 75% 50% at 50% 52%, rgba(17,17,17,.18) 0%, rgba(17,17,17,0) 100%);
 }
+
+/* ---------- Haut de page « grand groupe » (01/10/2026) ---------- */
+.hero-pro { display: block; padding: 0; min-height: 100vh; min-height: 100svh; }
+.hero-pro .wrap.hpro {
+  min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end;
+  padding-top: var(--nav-h); text-align: left;
+}
+.hero-pro .hp-main { padding-bottom: clamp(36px, 7vh, 84px); }
+.hero-pro .hp-kicker {
+  order: 0; margin: 0 0 clamp(18px, 2.4vh, 28px) !important; font-size: 12px !important; font-weight: 400;
+  letter-spacing: .24em; text-transform: uppercase; color: rgba(247,246,243,.82) !important;
+}
+.hero-pro h1 {
+  margin: 0; max-width: 11ch; font-weight: 300;
+  font-size: clamp(3.1rem, 9.4vw, 8.8rem) !important; line-height: .96; letter-spacing: -.045em;
+}
+.hero-pro .ha-links { justify-content: flex-start; margin-top: clamp(28px, 4vh, 48px); gap: 16px 32px; }
+.hero-pro .ha-links .btn-solid, .hero-pro .ha-links .btn-solid:hover {
+  background: var(--ivory); color: var(--ink); border-color: var(--ivory);
+}
+.hero-pro .ha-links .btn-solid:hover { background: transparent; color: var(--ivory); }
+.hero-pro .hp-strip {
+  display: flex; align-items: center; gap: 12px clamp(20px, 3vw, 44px); flex-wrap: wrap;
+  border-top: 1px solid rgba(247,246,243,.26); padding: 18px 0 calc(22px + env(safe-area-inset-bottom, 0px));
+  font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: rgba(247,246,243,.70);
+}
+.hero-pro .hp-scroll { margin-left: auto; display: inline-flex; align-items: center; gap: 12px; }
+.hero-pro .hp-scroll i { position: relative; display: block; width: 1px; height: 28px; background: rgba(247,246,243,.25); overflow: hidden; }
+.hero-pro .hp-scroll i::after { content: ""; position: absolute; left: 0; top: -40%; width: 1px; height: 40%; background: var(--ivory); animation: hp-drop 2.2s var(--ease-r) infinite; }
+@keyframes hp-drop { to { top: 100%; } }
+/* Lumière : sombre en bas à gauche (sous le texte), photo libre ailleurs ; pas de fondu ivoire sous le bandeau */
+.hero-pro::after {
+  background:
+    linear-gradient(180deg, rgba(17,17,17,.55) 0%, rgba(17,17,17,.18) 12%, rgba(17,17,17,0) 26%),
+    linear-gradient(0deg, rgba(17,17,17,.78) 0%, rgba(17,17,17,.45) 30%, rgba(17,17,17,.10) 60%, rgba(17,17,17,0) 75%),
+    linear-gradient(90deg, rgba(17,17,17,.30) 0%, rgba(17,17,17,0) 60%) !important;
+}
+.hero-pro h1, .hero-pro .sub, .hero-pro .alink { text-shadow: 0 1px 24px rgba(17,17,17,.30); }
+/* Variante centrée */
+.hp-center .wrap.hpro { text-align: center; }
+.hp-center h1 { margin: 0 auto; }
+.hp-center .ha-links { justify-content: center; }
+.hp-center::after {
+  background:
+    linear-gradient(180deg, rgba(17,17,17,.55) 0%, rgba(17,17,17,.18) 12%, rgba(17,17,17,0) 26%),
+    linear-gradient(0deg, rgba(17,17,17,.78) 0%, rgba(17,17,17,.45) 30%, rgba(17,17,17,.10) 60%, rgba(17,17,17,0) 75%) !important;
+}
+@media (max-width: 700px) {
+  .hero-pro .hp-main { padding-bottom: 32px; }
+  .hero-pro h1 { font-size: clamp(2.9rem, 13.5vw, 4rem) !important; }
+  .hero-pro .ha-links { flex-direction: column; align-items: flex-start; gap: 22px; }
+  .hp-center .ha-links { align-items: center; }
+  .hero-pro .hp-strip { gap: 8px 18px; font-size: 10px; letter-spacing: .16em; padding-bottom: calc(86px + env(safe-area-inset-bottom, 0px)); }
+  .hero-pro .hp-scroll { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .hero-pro .hp-scroll i::after { animation: none; } }
