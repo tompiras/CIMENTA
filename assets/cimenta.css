@@ -1363,57 +1363,61 @@ p, li { text-wrap: pretty; }
   .rv-bot { max-height: 42vh; overflow: auto; }
 }
 
-/* ==== Réalisations : chantiers en chapitres (oct. 2026) ==== */
-.rx-index { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px; max-width: 980px; margin-left: auto; margin-right: auto; }
-.rx-index a { font-size: 13px; color: var(--ink-soft); text-decoration: none; transition: color .2s; white-space: nowrap; }
-.rx-index a span { font-size: 11px; letter-spacing: .1em; color: var(--ink-mute); margin-right: 8px; font-variant-numeric: tabular-nums; }
-.rx-index a:hover { color: var(--ink); }
-.rx-list { margin-top: clamp(72px, 9vw, 120px); display: flex; flex-direction: column; gap: clamp(110px, 13vw, 180px); }
-.rx { scroll-margin-top: calc(var(--nav-h) + 24px); }
-.rx-head { display: grid; grid-template-columns: 5fr 7fr; gap: 24px 48px; align-items: end; margin-bottom: clamp(28px, 3.2vw, 44px); }
-.rx-n { display: block; font-size: 12px; letter-spacing: .2em; color: var(--ink-mute); font-variant-numeric: tabular-nums; margin-bottom: 14px; }
-.rx-tl h3 { font-size: clamp(1.7rem, 3vw, 2.6rem); font-weight: 300; letter-spacing: -.02em; line-height: 1.1; }
-.rx-facts { display: grid; grid-template-columns: repeat(4, auto); justify-content: space-between; gap: 16px 28px; margin: 0; padding: 0 0 16px; border-bottom: 1px solid var(--ink-rule); }
-.rx-facts dt { font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 6px; }
-.rx-facts dd { margin: 0; font-size: 14px; color: var(--ink); white-space: nowrap; }
-.rx-desc { margin-top: 16px; font-size: 14px; line-height: 1.65; color: var(--ink-soft); }
-.rx-gal { display: flex; flex-direction: column; gap: 8px; }
-.rx-row { display: flex; gap: 8px; }
-.rx-it { all: unset; box-sizing: border-box; flex: var(--r) 1 0; min-width: 0; display: block; position: relative; overflow: hidden; cursor: zoom-in; background: #ebe9e4; aspect-ratio: var(--r); -webkit-tap-highlight-color: transparent; }
-.rx-it img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 1.4s cubic-bezier(.16,.8,.2,1), filter .6s ease; }
+/* ==== Réalisations : ouverture pleine largeur + chantiers par paires (oct. 2026) ==== */
+.rx-list { display: flex; flex-direction: column; gap: clamp(96px, 11vw, 150px); }
+.rx-pairs { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(96px, 11vw, 150px) clamp(28px, 3.4vw, 48px); align-items: start; }
+.rx-media { display: grid; gap: 8px; }
+.rx-sm { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.rx-it { all: unset; box-sizing: border-box; display: block; position: relative; overflow: hidden; cursor: zoom-in; background: #ebe9e4; aspect-ratio: 4 / 3; -webkit-tap-highlight-color: transparent; }
+.rx-main { aspect-ratio: 3 / 2; }
+.rx-it img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: var(--op, 50% 50%); transition: transform 1.4s cubic-bezier(.16,.8,.2,1); }
 .rx-it:hover img { transform: scale(1.025); }
-.rx-it:focus-visible { outline: 1px solid var(--ink); outline-offset: 3px; }
-.js .rx-row[data-reveal] { opacity: 1; transform: none; }
-.js .rx-row[data-reveal] .rx-it { clip-path: inset(0 0 100% 0); transition: clip-path 1.2s cubic-bezier(.7,0,.2,1); }
-.js .rx-row[data-reveal] .rx-it img { transform: scale(1.12); }
-.js .rx-row[data-reveal].on .rx-it { clip-path: inset(0 0 0 0); }
-.js .rx-row[data-reveal].on .rx-it img { transform: scale(1); }
-.js .rx-row[data-reveal].on .rx-it:hover img { transform: scale(1.025); }
-.js .rx-row[data-reveal] .rx-it:nth-child(2) { transition-delay: .08s; } .js .rx-row[data-reveal] .rx-it:nth-child(2) img { transition-delay: .08s; }
-.js .rx-row[data-reveal] .rx-it:nth-child(3) { transition-delay: .16s; } .js .rx-row[data-reveal] .rx-it:nth-child(3) img { transition-delay: .16s; }
-.js .rx-row[data-reveal] .rx-it:nth-child(4) { transition-delay: .24s; } .js .rx-row[data-reveal] .rx-it:nth-child(4) img { transition-delay: .24s; }
+.rx-it:focus-visible, .rx-more:focus-visible { outline: 1px solid var(--ink); outline-offset: 3px; }
+.rx-feat .rx-media { grid-template-columns: 2fr 1fr; }
+.rx-feat .rx-sm { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; }
+.rx-feat .rx-sm .rx-it { aspect-ratio: auto; }
+.rx-cap { margin-top: 22px; }
+.rx-cap h3 { font-size: clamp(1.35rem, 2vw, 1.75rem); font-weight: 300; letter-spacing: -.015em; line-height: 1.15; }
+.rx-facts { display: flex; flex-wrap: wrap; gap: 12px 36px; margin: 16px 0 0; padding: 14px 0 0; border-top: 1px solid var(--ink-rule); }
+.rx-facts dt { font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 5px; }
+.rx-facts dd { margin: 0; font-size: 14px; color: var(--ink); }
+.rx-desc { margin-top: 14px; font-size: 14px; line-height: 1.65; color: var(--ink-soft); max-width: 36rem; }
+.rx-more { all: unset; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; margin-top: 16px; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--ink); padding-bottom: 4px; border-bottom: 1px solid var(--ink-rule); transition: border-color .25s; }
+.rx-more span { transition: transform .3s ease; }
+.rx-more:hover { border-color: var(--ink); }
+.rx-more:hover span { transform: translateX(4px); }
+.rx-feat .rx-cap { display: grid; grid-template-columns: 2fr 1fr; gap: 0 8px; }
+.rx-feat .rx-cap h3 { font-size: clamp(1.6rem, 2.6vw, 2.3rem); }
+.rx-feat .rx-info { grid-column: 1; }
+.js .rx-media[data-reveal] { opacity: 1; transform: none; }
+.js .rx-media[data-reveal] .rx-it { clip-path: inset(0 0 100% 0); transition: clip-path 1.2s cubic-bezier(.7,0,.2,1); }
+.js .rx-media[data-reveal] .rx-it img { transform: scale(1.12); }
+.js .rx-media[data-reveal].on .rx-it { clip-path: inset(0 0 0 0); }
+.js .rx-media[data-reveal].on .rx-it img { transform: scale(1); }
+.js .rx-media[data-reveal].on .rx-it:hover img { transform: scale(1.025); }
+.js .rx-media[data-reveal] .rx-sm .rx-it:nth-child(1), .js .rx-media[data-reveal] .rx-sm .rx-it:nth-child(1) img { transition-delay: .1s; }
+.js .rx-media[data-reveal] .rx-sm .rx-it:nth-child(2), .js .rx-media[data-reveal] .rx-sm .rx-it:nth-child(2) img { transition-delay: .2s; }
 @media (max-width: 900px) {
-  .rx-head { grid-template-columns: 1fr; align-items: start; }
-  .rx-facts { grid-template-columns: repeat(2, auto); justify-content: start; gap: 16px 48px; }
+  .rx-feat .rx-cap { display: block; }
 }
 @media (max-width: 700px) {
-  .rx-index { display: none; }
-  .rx-list { margin-top: 8px; gap: 88px; }
-  .rx-head { gap: 20px; margin-bottom: 20px; }
-  .rx-n { margin-bottom: 8px; font-size: 11px; }
-  .rx-tl h3 { font-size: 1.6rem; }
-  .rx-facts { grid-template-columns: 1fr 1fr; gap: 14px 20px; }
-  .rx-facts dd { font-size: 13px; white-space: normal; }
-  .rx-desc { font-size: 13px; margin-top: 14px; }
-  .rx-gal { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
-  .rx-row { display: contents; }
-  .rx-it { aspect-ratio: 1; }
-  .rx-row:first-child .rx-it:first-child { grid-column: 1 / -1; aspect-ratio: var(--r); }
-  .js .rx-row[data-reveal] .rx-it { clip-path: none; }
-  .js .rx-row[data-reveal] .rx-it img { transform: none; }
+  .rx-list { gap: 80px; }
+  .rx-pairs { grid-template-columns: 1fr; gap: 80px; }
+  .rx-media { gap: 6px; }
+  .rx-sm { gap: 6px; }
+  .rx-feat .rx-media { grid-template-columns: 1fr; }
+  .rx-feat .rx-sm { grid-template-columns: 1fr 1fr; grid-template-rows: none; }
+  .rx-feat .rx-sm .rx-it { aspect-ratio: 4 / 3; }
+  .rx-cap { margin-top: 18px; }
+  .rx-cap h3, .rx-feat .rx-cap h3 { font-size: 1.45rem; }
+  .rx-facts { gap: 12px 28px; }
+  .rx-facts dd { font-size: 13px; }
+  .rx-desc { font-size: 13px; }
+  .js .rx-media[data-reveal] .rx-it { clip-path: none; }
+  .js .rx-media[data-reveal] .rx-it img { transform: none; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .js .rx-row[data-reveal] .rx-it { clip-path: none; transition: none; }
-  .js .rx-row[data-reveal] .rx-it img { transform: none; transition: none; }
+  .js .rx-media[data-reveal] .rx-it { clip-path: none; transition: none; }
+  .js .rx-media[data-reveal] .rx-it img { transform: none; transition: none; }
 }
 @media (max-width: 700px) { .rv-th { width: 46px; height: 34px; } .rv-thumbs { gap: 6px; } }
