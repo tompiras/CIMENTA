@@ -260,6 +260,26 @@
     }, { passive: true });
   }
 
+  // Photos des réalisations : fondu quand la vraie photo est chargée
+  document.querySelectorAll('.rx-it img').forEach(function (im) {
+    var done = function () { im.classList.add('is-loaded'); };
+    if (im.complete && im.naturalWidth) done(); else { im.addEventListener('load', done); im.addEventListener('error', done); }
+  });
+
+  // Menu : s'efface quand on descend, revient dès qu'on remonte
+  if (nav) {
+    var lastY = window.scrollY, navTick = false;
+    var navHide = function () {
+      var y = window.scrollY, open = nav.classList.contains('menu-open');
+      if (open || y < 160 || y < lastY - 4) nav.classList.remove('nav-hide');
+      else if (y > lastY + 4) nav.classList.add('nav-hide');
+      if (Math.abs(y - lastY) > 4) lastY = y;
+      navTick = false;
+    };
+    window.addEventListener('scroll', function () { if (!navTick) { navTick = true; window.requestAnimationFrame(navHide); } }, { passive: true });
+    nav.addEventListener('focusin', function () { nav.classList.remove('nav-hide'); });
+  }
+
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 })();

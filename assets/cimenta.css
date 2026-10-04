@@ -20,10 +20,10 @@
   --ink: #111111;
   --ivory: #F7F6F3;
   --ink-soft: rgba(17, 17, 17, .66);
-  --ink-mute: rgba(17, 17, 17, .46);
+  --ink-mute: rgba(17, 17, 17, .58);
   --ink-rule: rgba(17, 17, 17, .14);
   --iv-soft: rgba(247, 246, 243, .68);
-  --iv-mute: rgba(247, 246, 243, .46);
+  --iv-mute: rgba(247, 246, 243, .58);
   --iv-rule: rgba(247, 246, 243, .16);
   --pad: clamp(20px, 5vw, 64px);
   --max: 1240px;
@@ -1421,3 +1421,24 @@ p, li { text-wrap: pretty; }
   .js .rx-media[data-reveal] .rx-it img { transform: none; transition: none; }
 }
 @media (max-width: 700px) { .rv-th { width: 46px; height: 34px; } .rv-thumbs { gap: 6px; } }
+
+/* ==== Finitions (oct. 2026) ==== */
+/* Photos : version floue de la photo pendant le chargement, puis fondu */
+.rx-it::before { content: ""; position: absolute; inset: -8%; background: var(--lq, none) center / cover no-repeat; filter: blur(18px); transform: scale(1.05); z-index: 0; }
+.rx-it img { position: relative; z-index: 1; transition: opacity .9s ease, transform 1.4s cubic-bezier(.16,.8,.2,1); }
+.js .rx-it img:not(.is-loaded) { opacity: 0; }
+/* Menu : soulignement fin qui se dessine au survol */
+.nav-links a:not(.btn) { background: linear-gradient(currentColor, currentColor) left 100% / 0 1px no-repeat; padding-bottom: 3px; transition: opacity .2s, background-size .45s cubic-bezier(.16,.8,.2,1); }
+.nav-links a:not(.btn):hover, .nav-links a:not(.btn):focus-visible { background-size: 100% 1px; }
+/* Menu qui s'efface en descendant et revient en remontant */
+.nav { transition: background .3s, color .3s, border-color .3s, transform .45s cubic-bezier(.16,.8,.2,1); will-change: transform; }
+.nav.nav-hide { transform: translateY(-100%); }
+/* Sélection de texte et barre de défilement aux couleurs de la marque */
+::selection { background: var(--ink); color: var(--ivory); }
+.dark ::selection, .cdark ::selection, .rv ::selection { background: var(--ivory); color: var(--ink); }
+html { scrollbar-width: thin; scrollbar-color: rgba(17,17,17,.32) transparent; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(17,17,17,.28); border-radius: 8px; border: 2px solid var(--ivory); }
+::-webkit-scrollbar-thumb:hover { background: rgba(17,17,17,.45); }
+@media (prefers-reduced-motion: reduce) { .nav { transition: none; } .rx-it img { transition: none; } }
