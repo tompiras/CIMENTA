@@ -200,6 +200,66 @@
     drift();
   }
 
+  // Réalisations : visionneuse plein écran
+  var rv = document.getElementById('rv');
+  var rvData = document.getElementById('rv-data');
+  if (rv && rvData && typeof rv.showModal === 'function') {
+    var R = JSON.parse(rvData.textContent), cur = 0, idx = 0, sx = null;
+    var img = rv.querySelector('.rv-img'), thumbs = rv.querySelector('.rv-thumbs');
+    var src = function (s, n, w) { return '/assets/realisations/' + s + '-' + n + '-' + w + '.webp'; };
+    var show = function (i) {
+      var p = R[cur], n = p.a.length;
+      idx = (i + n) % n;
+      img.classList.remove('ok');
+      img.onload = function () { img.classList.add('ok'); };
+      img.src = src(p.s, idx + 1, window.innerWidth * (window.devicePixelRatio || 1) > 1100 ? 2000 : 1000);
+      img.alt = p.a[idx];
+      if (img.complete) img.classList.add('ok');
+      rv.querySelector('.rv-count').textContent = (idx + 1) + ' / ' + n;
+      thumbs.querySelectorAll('.rv-th').forEach(function (b, k) { b.setAttribute('aria-selected', String(k === idx)); });
+      var nx = new Image(); nx.src = src(p.s, ((idx + 1) % n) + 1, window.innerWidth > 700 ? 2000 : 1000);
+    };
+    var open = function (k) {
+      var p = R[k]; cur = k;
+      rv.querySelector('#rv-title').textContent = p.t;
+      rv.querySelector('.rv-meta').textContent = p.f.map(function (x) { return x[1]; }).join(' · ');
+      rv.querySelector('.rv-desc').textContent = p.d;
+      var dl = rv.querySelector('.rv-facts'); dl.innerHTML = '';
+      var dt = document.createElement('dt'); dt.textContent = 'Travaux';
+      var dd = document.createElement('dd'); dd.textContent = p.w;
+      dl.appendChild(dt); dl.appendChild(dd);
+      thumbs.innerHTML = '';
+      p.a.forEach(function (a, j) {
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'rv-th'; b.setAttribute('role', 'tab'); b.setAttribute('aria-label', a);
+        b.style.backgroundImage = 'url(' + src(p.s, j + 1, 1000) + ')';
+        b.addEventListener('click', function () { show(j); });
+        thumbs.appendChild(b);
+      });
+      rv.showModal(); rv.focus(); document.body.style.overflow = 'hidden';
+      show(0);
+    };
+    document.querySelectorAll('[data-rv]').forEach(function (b) {
+      b.addEventListener('click', function () { open(+b.getAttribute('data-rv')); });
+    });
+    rv.querySelector('.rv-close').addEventListener('click', function () { rv.close(); });
+    rv.querySelector('.rv-prev').addEventListener('click', function () { show(idx - 1); });
+    rv.querySelector('.rv-next').addEventListener('click', function () { show(idx + 1); });
+    rv.addEventListener('close', function () { document.body.style.overflow = ''; img.removeAttribute('src'); });
+    rv.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { e.preventDefault(); show(idx + 1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); show(idx - 1); }
+    });
+    var stage = rv.querySelector('.rv-stage');
+    stage.addEventListener('click', function (e) { if (e.target === stage || e.target.classList.contains('rv-fig')) rv.close(); });
+    stage.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+    stage.addEventListener('touchend', function (e) {
+      if (sx === null) return;
+      var dx = e.changedTouches[0].clientX - sx; sx = null;
+      if (Math.abs(dx) > 40) show(idx + (dx < 0 ? 1 : -1));
+    }, { passive: true });
+  }
+
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 })();
