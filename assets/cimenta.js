@@ -208,39 +208,39 @@
     var img = rv.querySelector('.rv-img'), thumbs = rv.querySelector('.rv-thumbs');
     var src = function (s, n, w) { return '/assets/realisations/' + s + '-' + n + '-' + w + '.webp'; };
     var show = function (i) {
-      var p = R[cur], n = p.a.length;
+      var p = R[cur], n = p.o.length;
       idx = (i + n) % n;
       img.classList.remove('ok');
       img.onload = function () { img.classList.add('ok'); };
-      img.src = src(p.s, idx + 1, window.innerWidth * (window.devicePixelRatio || 1) > 1100 ? 2000 : 1000);
-      img.alt = p.a[idx];
+      img.src = src(p.s, p.o[idx], window.innerWidth * (window.devicePixelRatio || 1) > 1100 ? 2000 : 1000);
+      img.alt = p.t + ', photo ' + (idx + 1);
       if (img.complete) img.classList.add('ok');
       rv.querySelector('.rv-count').textContent = (idx + 1) + ' / ' + n;
       thumbs.querySelectorAll('.rv-th').forEach(function (b, k) { b.setAttribute('aria-selected', String(k === idx)); });
-      var nx = new Image(); nx.src = src(p.s, ((idx + 1) % n) + 1, window.innerWidth > 700 ? 2000 : 1000);
+      var nx = new Image(); nx.src = src(p.s, p.o[(idx + 1) % n], window.innerWidth > 700 ? 2000 : 1000);
     };
-    var open = function (k) {
+    var open = function (k, start) {
       var p = R[k]; cur = k;
       rv.querySelector('#rv-title').textContent = p.t;
-      rv.querySelector('.rv-meta').textContent = p.f.map(function (x) { return x[1]; }).join(' · ');
+      rv.querySelector('.rv-meta').textContent = p.m;
       rv.querySelector('.rv-desc').textContent = p.d;
       var dl = rv.querySelector('.rv-facts'); dl.innerHTML = '';
       var dt = document.createElement('dt'); dt.textContent = 'Travaux';
       var dd = document.createElement('dd'); dd.textContent = p.w;
       dl.appendChild(dt); dl.appendChild(dd);
       thumbs.innerHTML = '';
-      p.a.forEach(function (a, j) {
+      p.o.forEach(function (num, j) {
         var b = document.createElement('button');
-        b.type = 'button'; b.className = 'rv-th'; b.setAttribute('role', 'tab'); b.setAttribute('aria-label', a);
-        b.style.backgroundImage = 'url(' + src(p.s, j + 1, 1000) + ')';
+        b.type = 'button'; b.className = 'rv-th'; b.setAttribute('role', 'tab'); b.setAttribute('aria-label', 'Photo ' + (j + 1));
+        b.style.backgroundImage = 'url(' + src(p.s, num, 1000) + ')';
         b.addEventListener('click', function () { show(j); });
         thumbs.appendChild(b);
       });
       rv.showModal(); rv.focus(); document.body.style.overflow = 'hidden';
-      show(0);
+      show(start || 0);
     };
     document.querySelectorAll('[data-rv]').forEach(function (b) {
-      b.addEventListener('click', function () { open(+b.getAttribute('data-rv')); });
+      b.addEventListener('click', function () { open(+b.getAttribute('data-rv'), +(b.getAttribute('data-i') || 0)); });
     });
     rv.querySelector('.rv-close').addEventListener('click', function () { rv.close(); });
     rv.querySelector('.rv-prev').addEventListener('click', function () { show(idx - 1); });
