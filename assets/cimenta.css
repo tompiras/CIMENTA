@@ -1278,10 +1278,10 @@ p, li { text-wrap: pretty; }
   font-size: clamp(3.1rem, 9.4vw, 8.8rem) !important; line-height: .96; letter-spacing: -.045em;
 }
 .hero-pro .ha-links { justify-content: flex-start; margin-top: clamp(28px, 4vh, 48px); gap: 16px 32px; }
-.hero-pro .ha-links .btn-solid, .hero-pro .ha-links .btn-solid:hover {
-  background: var(--ivory); color: var(--ink); border-color: var(--ivory);
+.hero-pro .ha-links .btn-solid {
+  background: transparent; color: var(--ivory); border-color: rgba(247,246,243,.85);
 }
-.hero-pro .ha-links .btn-solid:hover { background: transparent; color: var(--ivory); }
+.hero-pro .ha-links .btn-solid:hover { background: var(--ivory); color: var(--ink); border-color: var(--ivory); }
 .hero-pro .hp-strip {
   display: flex; align-items: center; gap: 12px clamp(20px, 3vw, 44px); flex-wrap: wrap;
   border-top: 1px solid rgba(247,246,243,.26); padding: 18px 0 calc(22px + env(safe-area-inset-bottom, 0px));
