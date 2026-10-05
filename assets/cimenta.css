@@ -165,7 +165,8 @@ p { margin: 0; }
 .nav-links a:not(.btn):hover { opacity: 1; }
 .nav-links .btn { padding: 11px 18px; font-size: 12px; }
 .nav.stuck .nav-links .btn, .nav.light .nav-links .btn { background: var(--ink); color: var(--ivory); border-color: var(--ink); }
-.nav.stuck .nav-links .btn:hover, .nav.light .nav-links .btn:hover { background: transparent; color: var(--ink); }
+.nav-links .btn:hover { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+.nav.stuck .nav-links .btn:hover, .nav.light .nav-links .btn:hover { background: var(--ink); color: var(--ivory); border-color: var(--ink); }
 
 .burger {
   display: none;
@@ -1281,7 +1282,7 @@ p, li { text-wrap: pretty; }
 .hero-pro .ha-links .btn-solid {
   background: transparent; color: var(--ivory); border-color: rgba(247,246,243,.85);
 }
-.hero-pro .ha-links .btn-solid:hover { background: var(--ivory); color: var(--ink); border-color: var(--ivory); }
+.hero-pro .ha-links .btn-solid:hover { background: transparent; color: var(--ivory); border-color: rgba(247,246,243,.85); text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 1px; }
 .hero-pro .hp-strip {
   display: flex; align-items: center; gap: 12px clamp(20px, 3vw, 44px); flex-wrap: wrap;
   border-top: 1px solid rgba(247,246,243,.26); padding: 18px 0 calc(22px + env(safe-area-inset-bottom, 0px));
