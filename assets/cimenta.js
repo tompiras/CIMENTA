@@ -286,7 +286,7 @@
   if (stack && !still) {
     var names = stack.getAttribute('data-slides').split(',');
     var imgs = [stack.querySelector('.hs')];
-    var cur = 0, HOLD = 6000;
+    var cur = 0, HOLD = 5000;
     var make = function (k) {
       if (imgs[k]) return imgs[k];
       var n = names[k], R = '/assets/realisations/';
