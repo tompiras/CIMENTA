@@ -293,7 +293,7 @@
       var im = document.createElement('img');
       im.className = 'hs'; im.alt = ''; im.decoding = 'async';
       im.sizes = '(max-aspect-ratio: 3/2) 150vh, 100vw';
-      im.srcset = R + n + '-1000.webp 1000w, ' + R + n + '-2000.webp 2000w';
+      im.srcset = R + n + '-1000.webp 1000w, ' + R + n + '-2000.webp 2560w';
       im.src = R + n + '-2000.webp';
       stack.appendChild(im);
       return (imgs[k] = im);
