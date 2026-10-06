@@ -1275,7 +1275,7 @@ p, li { text-wrap: pretty; }
 }
 .hero-pro h1 {
   margin: 0; max-width: 11ch; font-weight: 300;
-  font-size: clamp(3.1rem, 9.4vw, 8.8rem) !important; line-height: .96; letter-spacing: -.045em;
+  font-size: clamp(2.7rem, 8vw, 7.4rem) !important; line-height: .96; letter-spacing: -.045em;
 }
 .hero-pro .ha-links { justify-content: flex-start; margin-top: clamp(28px, 4vh, 48px); gap: 16px 32px; }
 .hero-pro .ha-links .btn-solid {
@@ -1310,7 +1310,7 @@ p, li { text-wrap: pretty; }
 }
 @media (max-width: 700px) {
   .hero-pro .hp-main { padding-bottom: 32px; }
-  .hero-pro h1 { font-size: clamp(2.9rem, 13.5vw, 4rem) !important; }
+  .hero-pro h1 { font-size: clamp(2.5rem, 11.5vw, 3.4rem) !important; }
   .hero-pro .ha-links { flex-direction: column; align-items: flex-start; gap: 22px; }
   .hp-center .ha-links { align-items: center; }
   .hero-pro .hp-strip { gap: 8px 18px; font-size: 10px; letter-spacing: .16em; padding-bottom: calc(86px + env(safe-area-inset-bottom, 0px)); }
