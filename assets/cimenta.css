@@ -1464,12 +1464,17 @@ html { scrollbar-width: thin; scrollbar-color: rgba(17,17,17,.32) transparent; }
 @keyframes hs-drift { from { scale: 1; } to { scale: 1.045; } }
 @media (prefers-reduced-motion: reduce) { .js .hero-stack .hs.on, .js .hero-stack .hs.out { animation: none; } .hero-stack .hs { transition: none; } }
 
-/* ---------- Sections : espaces un peu resserrés, fine barre verticale au-dessus de chaque titre (octobre 2026) ---------- */
+/* ---------- Sections : espaces un peu resserrés ; fines barres verticales très claires entre les étapes (octobre 2026) ---------- */
 .msec { padding-top: clamp(80px, 10.5vw, 136px); }
 .msec:has(+ .cdark) { padding-bottom: clamp(80px, 10.5vw, 136px); }
-.msec h2::before { content: ""; display: block; width: 1px; height: 44px; margin: 0 auto 26px; background: var(--ink); transform: translateX(-.13em); }
 @media (max-width: 600px) {
   .msec { padding-top: 84px; }
   .msec:has(+ .cdark) { padding-bottom: 84px; }
-  .msec h2::before { height: 32px; margin-bottom: 20px; }
+}
+@media (min-width: 1001px) {
+  .mgrid.c3 > *, .mgrid.c4 > *, .mgrid.c5 > *, .about-points > * { position: relative; }
+  .mgrid.c3 > * + *::before, .mgrid.c4 > * + *::before, .mgrid.c5 > * + *::before, .about-points > * + *::before {
+    content: ""; position: absolute; top: 0; bottom: 0; left: calc(clamp(24px, 3vw, 48px) / -2); width: 1px; background: rgba(17, 17, 17, .09);
+  }
+  .about-points > * + *::before { left: -16px; }
 }
