@@ -1453,3 +1453,13 @@ html { scrollbar-width: thin; scrollbar-color: rgba(17,17,17,.32) transparent; }
 .hero-pro .ha-links .btn-solid:hover::after, .nav-links .btn:hover::after,
 .hero-pro .ha-links .btn-solid:focus-visible::after, .nav-links .btn:focus-visible::after { transform: scaleX(1); }
 @media (prefers-reduced-motion: reduce) { .hero-pro .ha-links .btn-solid::after, .nav-links .btn::after { transition: none; } }
+
+/* ---------- Haut de page : défilement des photos de réalisations (octobre 2026) ---------- */
+/* Fondu lent entre les photos, léger mouvement de caméra ; photos d'origine, sans filtre */
+.hero-stack { overflow: hidden; }
+.hero-stack .hs { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 50%; opacity: 0; transition: opacity 2s ease-in-out; }
+.hero-stack .hs.on { opacity: 1; z-index: 2; }
+.hero-stack .hs.out { z-index: 1; }
+.js .hero-stack .hs.on, .js .hero-stack .hs.out { animation: hs-drift 9s linear both; }
+@keyframes hs-drift { from { scale: 1; } to { scale: 1.045; } }
+@media (prefers-reduced-motion: reduce) { .js .hero-stack .hs.on, .js .hero-stack .hs.out { animation: none; } .hero-stack .hs { transition: none; } }

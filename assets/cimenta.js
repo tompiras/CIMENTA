@@ -280,6 +280,46 @@
     nav.addEventListener('focusin', function () { nav.classList.remove('nav-hide'); });
   }
 
+  // Haut de page : défilement des photos de réalisations (fondu lent, en boucle)
+  var stack = document.querySelector('.hero-stack[data-slides]');
+  var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (stack && !still) {
+    var names = stack.getAttribute('data-slides').split(',');
+    var imgs = [stack.querySelector('.hs')];
+    var cur = 0, HOLD = 6500;
+    var make = function (k) {
+      if (imgs[k]) return imgs[k];
+      var n = names[k], R = '/assets/realisations/';
+      var im = document.createElement('img');
+      im.className = 'hs'; im.alt = ''; im.decoding = 'async';
+      im.sizes = '(max-aspect-ratio: 3/2) 150vh, 100vw';
+      im.srcset = R + n + '-1000.webp 1000w, ' + R + n + '-2000.webp 2000w';
+      im.src = R + n + '-2000.webp';
+      stack.appendChild(im);
+      return (imgs[k] = im);
+    };
+    var ready = function (im) {
+      if (im.complete && im.naturalWidth) return Promise.resolve();
+      return (im.decode ? im.decode() : new Promise(function (r) { im.onload = r; })).catch(function () {});
+    };
+    var next = function () {
+      var k = (cur + 1) % names.length, im = make(k);
+      ready(im).then(function () {
+        if (document.hidden) { setTimeout(next, 1000); return; }
+        var prev = imgs[cur];
+        prev.classList.add('out'); prev.classList.remove('on');
+        setTimeout(function () { prev.classList.remove('out'); }, 2200);
+        void im.offsetWidth;
+        im.classList.add('on');
+        cur = k;
+        make((cur + 1) % names.length);
+        setTimeout(next, HOLD);
+      });
+    };
+    var start = function () { make(1); setTimeout(next, HOLD); };
+    if (document.readyState === 'complete') start(); else window.addEventListener('load', start);
+  }
+
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 })();
