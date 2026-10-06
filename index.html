@@ -20,7 +20,7 @@
   <link rel="preload" href="/assets/fonts/poppins-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/poppins-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" as="image" type="image/webp" imagesrcset="/assets/hero-800.webp 800w, /assets/hero-1400.webp 1400w, /assets/hero-2000.webp 2000w, /assets/hero-2560.webp 2560w" imagesizes="(max-aspect-ratio: 3/2) 150vh, 100vw" fetchpriority="high">
-  <link rel="stylesheet" href="/assets/cimenta.css?v=20261010">
+  <link rel="stylesheet" href="/assets/cimenta.css?v=20261011">
   <script>document.documentElement.classList.add('js');</script>
   <script type="application/ld+json">
   {
@@ -63,10 +63,10 @@
         <svg class="logo-svg" viewBox="0 -6.0 2551.1 619.0" aria-hidden="true" focusable="false"><use href="#logo-cimenta"/></svg>
       </a>
       <nav class="nav-links" aria-label="Navigation principale">
-        <a href="#methode">Méthode</a>
         <a href="#prestations">Prestations</a>
-        <a href="#clients">Clients</a>
         <a href="#realisations">Réalisations</a>
+        <a href="#methode">Méthode</a>
+        <a href="#clients">Clients</a>
         <a href="#equipe">Équipe</a>
         <a href="/apporteur-affaires.html">Apporteurs d'affaires</a>
         <a class="btn" href="#formulaire" data-open-form>Présenter un projet</a>
@@ -79,10 +79,10 @@
 
   <div class="drawer dark" id="drawer" aria-hidden="true">
     <nav aria-label="Navigation mobile">
-      <a href="#methode">Méthode</a>
       <a href="#prestations">Prestations</a>
-      <a href="#clients">Clients</a>
       <a href="#realisations">Réalisations</a>
+      <a href="#methode">Méthode</a>
+      <a href="#clients">Clients</a>
       <a href="#equipe">Équipe</a>
       <a href="/apporteur-affaires.html">Apporteurs d'affaires</a>
       <a href="#contact">Contact</a>
@@ -260,20 +260,6 @@ fill="currentColor" stroke="none">
       </div>
     </section>
 
-    <!-- Méthode -->
-    <section class="msec" id="methode" aria-labelledby="methode-title">
-      <div class="wrap">
-        <h2 id="methode-title" data-reveal>Méthode</h2>
-        <ol class="mgrid c5" data-reveal>
-          <li><span class="n">01</span><h3>Visite</h3><p>Vos besoins, un premier budget.</p></li>
-          <li><span class="n">02</span><h3>Études</h3><p>Étude approfondie de votre projet, pour une proposition au plus juste.</p></li>
-          <li><span class="n">03</span><h3>Contrat</h3><p>Prix, périmètre et date de livraison.</p></li>
-          <li><span class="n">04</span><h3>Travaux</h3><p>Exécution des travaux, suivi régulier.</p></li>
-          <li><span class="n">05</span><h3>Réception</h3><p>Nettoyage, levée des réserves, remise des garanties.</p></li>
-        </ol>
-      </div>
-    </section>
-
     <!-- Prestations -->
     <section class="msec" id="prestations" aria-labelledby="prestations-title">
       <div class="wrap">
@@ -285,44 +271,6 @@ fill="currentColor" stroke="none">
           <div><h3>Finitions</h3><ul class="plain"><li>Peinture</li><li>Sols et carrelage</li><li>Cuisines et agencement</li><li>Façades</li></ul></div>
         </div>
         <p class="foot-note presta-note" data-reveal><span class="pn-l">Pour la phase d'études, nous coordonnons l'ensemble des expertises grâce à nos cabinets partenaires.</span> <span class="pn-l">Si vous avez déjà votre propre architecte ou bureau d'études, nous travaillons directement en lien avec eux.</span></p>
-      </div>
-    </section>
-
-    <!-- Clients -->
-    <section class="msec" id="clients" aria-labelledby="clients-title">
-      <div class="wrap">
-        <h2 id="clients-title" data-reveal>Clients</h2>
-        <div class="mgrid c3" data-reveal>
-          <div><h3>Particuliers</h3><p>Rénovation d'appartement ou de maison, extension, restructuration.</p></div>
-          <div><h3>Professionnels</h3><p>Commerces, restaurants, cabinets médicaux, bureaux.</p></div>
-          <div><h3>Promoteurs</h3><p>Gestion de chantier tous corps d'état, planning et date de livraison contractuels.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Garanties -->
-    <section class="msec" id="garanties" aria-labelledby="garanties-title">
-      <div class="wrap">
-        <h2 id="garanties-title" data-reveal>Vos garanties</h2>
-        <p class="lede" data-reveal>Chaque chantier est couvert par les assurances obligatoires du bâtiment.</p>
-        <div class="gwrap" data-reveal>
-          <div class="gphase" aria-hidden="true">
-            <span class="ph-a">Pendant les travaux</span>
-            <span class="ph-mark">Réception</span>
-            <span class="ph-b">Après la réception</span>
-          </div>
-          <div class="gcells">
-            <div class="gcell"><span class="gph">Pendant les travaux</span><strong>Chantier</strong><h3>Responsabilité civile</h3><p>Dommages causés aux tiers pendant les travaux.</p></div>
-            <div class="gcell"><span class="gph">Après la réception</span><strong>1 an</strong><h3>Parfait achèvement</h3><p>Réparation des désordres signalés dans l'année.</p></div>
-            <div class="gcell"><span class="gph">Après la réception</span><strong>2 ans</strong><h3>Garantie biennale</h3><p>Bon fonctionnement des équipements dissociables de l'ouvrage.</p></div>
-            <div class="gcell"><span class="gph">Après la réception</span><strong>10 ans</strong><h3>Décennale</h3><p>Solidité et destination de l'ouvrage.</p></div>
-          </div>
-        </div>
-        <div class="g-compare" data-reveal>
-          <div><span class="cap-t">Avec CIMENTA</span><p>Un seul contrat couvre l'ensemble des travaux. En cas de désordre, vous avez un seul interlocuteur : nous en répondons et nous le faisons réparer.</p></div>
-          <div><span class="cap-t">En gérant seul votre chantier</span><p>Chaque artisan n'est assuré que pour sa partie. En cas de désordre, c'est à vous d'identifier le responsable et de faire jouer la bonne assurance.</p></div>
-        </div>
-        <p class="foot-note" data-reveal>Attestations d'assurance disponibles sur simple demande.</p>
       </div>
     </section>
 
@@ -399,6 +347,58 @@ fill="currentColor" stroke="none">
       <div class="rv-bot"><div class="rv-text"><p class="rv-desc"></p><dl class="rv-facts"></dl></div><div class="rv-thumbs" role="tablist" aria-label="Photos du chantier"></div></div>
     </dialog>
     <script type="application/json" id="rv-data">[{"s": "pool-house", "t": "Pool House Puyricard", "m": "Particulier · Puyricard · Pool house & extérieurs", "d": "Réhabilitation complète d'un pool house dans une propriété à Puyricard.", "w": "Gros œuvre repris intégralement, aménagements intérieurs sur mesure : espace détente, kitchenette, salle d'eau complète avec vasque bois massif et douche italienne carrelée pierre. Terrasse en pierre naturelle et abords de piscine.", "o": [1, 2, 3, 4, 5, 6]}, {"s": "cadenelle", "t": "Appartement Cadenelle", "m": "Particulier · Marseille · 95 m²", "d": "Rénovation d'un appartement contemporain ouvert sur les calanques, à Marseille.", "w": "Mobilier et volumes retravaillés. Tons clairs, bois naturel.", "o": [1, 3, 4, 2, 5, 6]}, {"s": "grand-baie", "t": "Appartement Grand Baie", "m": "Particulier · Marseille · 30 m²", "d": "Transformation complète d'un espace salon / cuisine dans un appartement de standing à Marseille.", "w": "Électricité et plomberie reprises, parquet contrecollé, éclairage intégré, éléments bois conçus et fabriqués sur mesure. Cuisine ouverte sur îlot bois cuivré, hotte chromée.", "o": [1, 2, 4, 3, 5, 6]}, {"s": "puyricard", "t": "Villa Puyricard", "m": "Particulier · Puyricard · 150 m²", "d": "Transformation complète d'une ancienne bergerie en pleine campagne aixoise.", "w": "Gros œuvre et second œuvre intégralement repris : restructuration intérieure, pompe à chaleur, 4 chambres, 3 salles de bain, cuisine entièrement repensée, garage intégré au volume bâti.", "o": [1, 2, 6, 3, 4, 5]}, {"s": "estaque", "t": "Villa L'Estaque", "m": "Particulier · Marseille · Villa avec terrasse", "d": "Rénovation lourde d'une villa à l'Estaque, sur les hauteurs de Marseille, suite à un feu de forêt.", "w": "Coordination complète avec les assureurs et les experts, réfection totale du gros œuvre et du second œuvre, cuisine et salle de bain intégralement repensées, séjour et salle à manger prolongés vers la terrasse pergola, menuiseries aluminium sur mesure.", "o": [1, 5, 3, 4, 6]}, {"s": "montebello", "t": "Appartement Montebello", "m": "Particulier · Marseille · 47 m²", "d": "Rénovation complète d'un appartement dans un petit immeuble du quartier Montebello, à Marseille.", "w": "Combles récupérés pour créer une mezzanine et un escalier sur mesure. Mobilier et menuiserie sur mesure.", "o": [1, 2, 5, 3, 4, 6]}, {"s": "cabinet", "t": "Cabinet d'avocats", "m": "Professionnel · Marseille · 200 m²", "d": "Rénovation complète d'un cabinet d'avocats en plein cœur de Marseille.", "w": "Mission en maîtrise d'œuvre. Boiseries, moulures et parquet d'origine restaurés à l'identique.", "o": [1, 2, 5, 3, 4, 6]}]</script>
+
+    <!-- Méthode -->
+    <section class="msec" id="methode" aria-labelledby="methode-title">
+      <div class="wrap">
+        <h2 id="methode-title" data-reveal>Méthode</h2>
+        <ol class="mgrid c5" data-reveal>
+          <li><span class="n">01</span><h3>Visite</h3><p>Vos besoins, un premier budget.</p></li>
+          <li><span class="n">02</span><h3>Études</h3><p>Étude approfondie de votre projet, pour une proposition au plus juste.</p></li>
+          <li><span class="n">03</span><h3>Contrat</h3><p>Prix, périmètre et date de livraison.</p></li>
+          <li><span class="n">04</span><h3>Travaux</h3><p>Exécution des travaux, suivi régulier.</p></li>
+          <li><span class="n">05</span><h3>Réception</h3><p>Nettoyage, levée des réserves, remise des garanties.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Clients -->
+    <section class="msec" id="clients" aria-labelledby="clients-title">
+      <div class="wrap">
+        <h2 id="clients-title" data-reveal>Clients</h2>
+        <div class="mgrid c3" data-reveal>
+          <div><h3>Particuliers</h3><p>Rénovation d'appartement ou de maison, extension, restructuration.</p></div>
+          <div><h3>Professionnels</h3><p>Commerces, restaurants, cabinets médicaux, bureaux.</p></div>
+          <div><h3>Promoteurs</h3><p>Gestion de chantier tous corps d'état, planning et date de livraison contractuels.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Garanties -->
+    <section class="msec" id="garanties" aria-labelledby="garanties-title">
+      <div class="wrap">
+        <h2 id="garanties-title" data-reveal>Vos garanties</h2>
+        <p class="lede" data-reveal>Chaque chantier est couvert par les assurances obligatoires du bâtiment.</p>
+        <div class="gwrap" data-reveal>
+          <div class="gphase" aria-hidden="true">
+            <span class="ph-a">Pendant les travaux</span>
+            <span class="ph-mark">Réception</span>
+            <span class="ph-b">Après la réception</span>
+          </div>
+          <div class="gcells">
+            <div class="gcell"><span class="gph">Pendant les travaux</span><strong>Chantier</strong><h3>Responsabilité civile</h3><p>Dommages causés aux tiers pendant les travaux.</p></div>
+            <div class="gcell"><span class="gph">Après la réception</span><strong>1 an</strong><h3>Parfait achèvement</h3><p>Réparation des désordres signalés dans l'année.</p></div>
+            <div class="gcell"><span class="gph">Après la réception</span><strong>2 ans</strong><h3>Garantie biennale</h3><p>Bon fonctionnement des équipements dissociables de l'ouvrage.</p></div>
+            <div class="gcell"><span class="gph">Après la réception</span><strong>10 ans</strong><h3>Décennale</h3><p>Solidité et destination de l'ouvrage.</p></div>
+          </div>
+        </div>
+        <div class="g-compare" data-reveal>
+          <div><span class="cap-t">Avec CIMENTA</span><p>Un seul contrat couvre l'ensemble des travaux. En cas de désordre, vous avez un seul interlocuteur : nous en répondons et nous le faisons réparer.</p></div>
+          <div><span class="cap-t">En gérant seul votre chantier</span><p>Chaque artisan n'est assuré que pour sa partie. En cas de désordre, c'est à vous d'identifier le responsable et de faire jouer la bonne assurance.</p></div>
+        </div>
+        <p class="foot-note" data-reveal>Attestations d'assurance disponibles sur simple demande.</p>
+      </div>
+    </section>
 
     <!-- Équipe -->
     <section class="msec" id="equipe" aria-labelledby="equipe-title">
@@ -496,6 +496,6 @@ fill="currentColor" stroke="none">
   </footer>
 
   <a class="callbar" id="callbar" href="tel:+33664773700" aria-label="Appeler CIMENTA"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.4" d="M6.6 3.5h3l1.5 4-2 1.3a11 11 0 0 0 6.1 6.1l1.3-2 4 1.5v3A2 2 0 0 1 18.4 19.5 15.9 15.9 0 0 1 4.5 5.6 2 2 0 0 1 6.6 3.5z"/></svg><span>Appeler</span></a>
-  <script src="/assets/cimenta.js?v=20261010" defer></script>
+  <script src="/assets/cimenta.js?v=20261011" defer></script>
 </body>
 </html>
