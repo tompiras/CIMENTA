@@ -1481,3 +1481,6 @@ html { scrollbar-width: thin; scrollbar-color: rgba(17,17,17,.32) transparent; }
 }
 
 @media (max-width: 700px) { .hero-pro .hp-kicker { font-size: 13px !important; } }
+
+/* Alignement optique du grand titre sur la ligne au-dessus (approche de la lettre R) */
+.hero-pro h1 { margin-left: -.075em !important; }
