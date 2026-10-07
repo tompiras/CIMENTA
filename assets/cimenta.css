@@ -1270,8 +1270,9 @@ p, li { text-wrap: pretty; }
 }
 .hero-pro .hp-main { padding-bottom: clamp(36px, 7vh, 84px); }
 .hero-pro .hp-kicker {
-  order: 0; margin: 0 0 clamp(18px, 2.4vh, 28px) !important; font-size: 12px !important; font-weight: 400;
-  letter-spacing: .24em; text-transform: uppercase; color: rgba(247,246,243,.82) !important;
+  order: 0; margin: 0 0 clamp(18px, 2.4vh, 28px) !important; font-size: 13px !important; font-weight: 500;
+  letter-spacing: .22em; text-transform: uppercase; color: var(--ivory) !important;
+  text-shadow: 0 1px 14px rgba(17,17,17,.55), 0 1px 3px rgba(17,17,17,.45) !important;
 }
 .hero-pro h1 {
   margin: 0; max-width: 11ch; font-weight: 300;
