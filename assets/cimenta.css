@@ -1511,3 +1511,19 @@ html { scrollbar-width: thin; scrollbar-color: rgba(17,17,17,.32) transparent; }
 .mgrid p .alink-hl span { margin-left: 6px; }
 .mgrid p .alink-hl:hover { text-decoration-thickness: 1.5px; }
 @media (max-width: 700px) { .mgrid p .alink-hl { font-size: 13px; } }
+
+/* Page rénovation : secteur en deux régions (07/10/2026) */
+.se-zones { display: grid; grid-template-columns: 1fr 1fr; max-width: 60rem; margin: 22px auto 0; text-align: center; }
+.se-zones > div { padding: 0 clamp(20px, 3vw, 44px); }
+.se-zones h3 { font-size: clamp(1.15rem, 1.6vw, 1.4rem); font-weight: 300; letter-spacing: -.01em; line-height: 1.25; }
+.se-zones p { margin-top: 12px; font-size: 13px; line-height: 1.7; color: var(--ink-mute); }
+.se-rest { max-width: 44rem; margin: clamp(36px, 4.5vw, 52px) auto 0; text-align: center; font-size: 13px; line-height: 1.7; color: var(--ink-soft); }
+.se-zones p span, .se-rest span { white-space: nowrap; }
+.se-zones p, .se-rest { text-wrap: balance; }
+@media (min-width: 1001px) { .se-zones > div + div { border-left: 1px solid rgba(17,17,17,.09); } }
+@media (max-width: 700px) {
+  .se-zones { grid-template-columns: 1fr; gap: 32px; margin-top: 14px; }
+  .se-zones > div { padding: 0; }
+  .se-zones p, .se-rest { font-size: 12.5px; }
+  .se-rest { margin-top: 32px; }
+}
