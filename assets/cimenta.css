@@ -1506,3 +1506,8 @@ html { scrollbar-width: thin; scrollbar-color: rgba(17,17,17,.32) transparent; }
   .faq details p { font-size: 12.5px; padding-right: 0; }
   .pg-apts p { font-size: 12px; }
 }
+/* Lien mis en avant (Clients → Particuliers) */
+.mgrid p .alink-hl { color: var(--ink); font-size: 14px; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px; }
+.mgrid p .alink-hl span { margin-left: 6px; }
+.mgrid p .alink-hl:hover { text-decoration-thickness: 1.5px; }
+@media (max-width: 700px) { .mgrid p .alink-hl { font-size: 13px; } }
