@@ -1527,3 +1527,8 @@ html { scrollbar-width: thin; scrollbar-color: rgba(17,17,17,.32) transparent; }
   .se-zones p, .se-rest { font-size: 12.5px; }
   .se-rest { margin-top: 32px; }
 }
+
+/* Ouverture pleine largeur : les 2 petites photos s'alignent exactement sur la hauteur de la grande (07/10/2026) */
+.rx-feat .rx-sm { min-height: 0; }
+.rx-feat .rx-sm .rx-it { min-height: 0; }
+.rx-feat .rx-sm .rx-it img { position: absolute; inset: 0; }
