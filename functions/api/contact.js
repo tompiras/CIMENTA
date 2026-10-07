@@ -5,7 +5,7 @@ const DEST = { email: 'contact@cimenta.fr', name: 'CIMENTA' };
 const SENDER = { email: 'contact@cimenta.fr', name: 'Site CIMENTA' };
 const FORMS = {
   contact: { subject: 'Nouveau projet — cimenta.fr', back: '/?envoi=ok' },
-  apporteur: { subject: "Apporteur d'affaires — cimenta.fr", back: '/apporteur-affaires.html?envoi=ok' },
+  apporteur: { subject: "Apporteur d'affaires — cimenta.fr", back: '/apporteur-affaires?envoi=ok' },
 };
 const MAX_LEN = 5000;
 
