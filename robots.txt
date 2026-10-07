@@ -1,4 +1,21 @@
 User-agent: *
 Allow: /
 
+# Moteurs de recherche et assistants IA : accès autorisé
+User-agent: Googlebot
+User-agent: Bingbot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: GPTBot
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: Google-Extended
+User-agent: Applebot
+User-agent: Applebot-Extended
+User-agent: DuckDuckBot
+Allow: /
+
 Sitemap: https://cimenta.fr/sitemap.xml
