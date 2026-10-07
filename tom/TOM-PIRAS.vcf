@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Piras;Tom;;;
+FN:Tom Piras
+ORG:CIMENTA CONSTRUCTION
+TITLE:Co-fondateur
+TEL;TYPE=CELL,VOICE:+33664773700
+EMAIL;TYPE=WORK:contact@cimenta.fr
+URL:https://cimenta.fr
+ADR;TYPE=WORK:;;4 rue André Isaïa;Marseille;;13013;France
+NOTE:Contractant général tous corps d’état — Études · Gros œuvre · Second œuvre · Finitions
+END:VCARD
