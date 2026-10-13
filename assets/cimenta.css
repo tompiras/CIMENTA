@@ -1535,7 +1535,6 @@ html { scrollbar-width: thin; scrollbar-color: rgba(17,17,17,.32) transparent; }
 
 /* Mobile — finitions (13/10/2026) */
 @media (max-width: 700px) {
-  .hero-pro .hp-kicker { font-size: 11.5px !important; letter-spacing: .2em; white-space: nowrap; }
   .about-points { text-align: left; }
   .about-points p { max-width: 15em; }
   .rx-list, .rx-pairs { gap: 56px; }
