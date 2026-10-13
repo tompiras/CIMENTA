@@ -1,4 +1,4 @@
-/* CIMENTA — comportements communs : menu, navigation, apparitions, confirmation des formulaires */
+/* CIMENTA CONSTRUCTION — comportements communs : menu, navigation, apparitions, confirmation des formulaires */
 (function () {
   var nav = document.getElementById('nav');
   var burger = document.getElementById('burger');

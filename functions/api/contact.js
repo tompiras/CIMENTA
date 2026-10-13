@@ -1,8 +1,8 @@
-// CIMENTA — envoi des formulaires du site via l'API Brevo (Sendinblue SAS, France).
+// CIMENTA CONSTRUCTION — envoi des formulaires du site via l'API Brevo (Sendinblue SAS, France).
 // La clé est lue dans le secret Cloudflare BREVO_API_KEY : elle n'apparaît jamais dans le code.
 
-const DEST = { email: 'contact@cimenta.fr', name: 'CIMENTA' };
-const SENDER = { email: 'contact@cimenta.fr', name: 'Site CIMENTA' };
+const DEST = { email: 'contact@cimenta.fr', name: 'CIMENTA CONSTRUCTION' };
+const SENDER = { email: 'contact@cimenta.fr', name: 'Site CIMENTA CONSTRUCTION' };
 const FORMS = {
   contact: { subject: 'Nouveau projet — cimenta.fr', back: '/?envoi=ok' },
   apporteur: { subject: "Apporteur d'affaires — cimenta.fr", back: '/apporteur-affaires?envoi=ok' },
