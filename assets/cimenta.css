@@ -1541,3 +1541,15 @@ html { scrollbar-width: thin; scrollbar-color: rgba(17,17,17,.32) transparent; }
   .rx-more { padding-top: 12px; margin-top: 6px; }
   .g-compare p { font-size: 14px; line-height: 1.65; }
 }
+
+/* Page locaux professionnels (15/10/2026) */
+.pg-cap { text-align: center; margin-top: 26px; }
+.pg-cap h3 { font-size: 1.1rem; font-weight: 400; }
+.pg-cap p { margin-top: 6px; font-size: 13px; letter-spacing: .04em; color: var(--ink-mute); }
+#professionnels .about-points { border-top: 0; padding-top: 0; }
+@media (max-width: 700px) {
+  #realisations-pro .pg-apts { grid-template-columns: 1fr 1fr !important; gap: 8px !important; }
+  #realisations-pro .pg-apts > :first-child { grid-column: 1 / -1; }
+  #realisations-pro .pg-apts > *::before { display: none; }
+  .pg-cap p { font-size: 12px; }
+}
