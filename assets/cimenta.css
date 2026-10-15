@@ -1561,3 +1561,6 @@ html { scrollbar-width: thin; scrollbar-color: rgba(17,17,17,.32) transparent; }
   .ap-hero .ap-zones { font-size: 11px; letter-spacing: .18em; margin-right: -.18em; }
   .ap-hero .ap-zones span + span::before { margin: 0 .6em; }
 }
+/* Page locaux professionnels : titre sur deux lignes, jamais coupé */
+.ap-hero.pg-pro h1 { line-height: 1.08; font-size: min(clamp(2rem, 4vw, 3.6rem), calc((100vw - 48px) / 12.2)); }
+.ap-hero.pg-pro .sub .sl { display: block; text-wrap: balance; }
