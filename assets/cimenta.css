@@ -1557,3 +1557,7 @@ html { scrollbar-width: thin; scrollbar-color: rgba(17,17,17,.32) transparent; }
 /* Zones d'intervention au-dessus du titre des pages services (15/10/2026) */
 .ap-hero .ap-zones span { display: inline-block; }
 .ap-hero .ap-zones span + span::before { content: "·"; margin: 0 .9em; }
+@media (max-width: 600px) {
+  .ap-hero .ap-zones { font-size: 11px; letter-spacing: .18em; margin-right: -.18em; }
+  .ap-hero .ap-zones span + span::before { margin: 0 .6em; }
+}
