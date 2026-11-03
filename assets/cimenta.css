@@ -1568,5 +1568,4 @@ html { scrollbar-width: thin; scrollbar-color: rgba(17,17,17,.32) transparent; }
 /* Programme partenaires */
 .fcheck { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; color: var(--ink-soft); line-height: 1.5; cursor: pointer; }
 .fcheck input { margin-top: 3px; width: 16px; height: 16px; flex: none; accent-color: var(--ink); }
-ul.ap-cond { max-width: 40rem; margin: clamp(40px, 5vw, 64px) auto 0; text-align: center; }
-ul.ap-cond li { padding: 6px 0; }
+.ap-note { margin: clamp(36px, 4.5vw, 56px) auto 0; text-align: center; font-size: 14px; letter-spacing: .02em; color: var(--ink-mute); }
