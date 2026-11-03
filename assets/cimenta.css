@@ -1564,3 +1564,9 @@ html { scrollbar-width: thin; scrollbar-color: rgba(17,17,17,.32) transparent; }
 /* Page locaux professionnels : titre sur deux lignes, jamais coupé */
 .ap-hero.pg-pro h1 { line-height: 1.08; font-size: min(clamp(2rem, 4vw, 3.6rem), calc((100vw - 48px) / 12.2)); }
 .ap-hero.pg-pro .sub .sl { display: block; text-wrap: balance; }
+
+/* Programme partenaires */
+.fcheck { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; color: var(--ink-soft); line-height: 1.5; cursor: pointer; }
+.fcheck input { margin-top: 3px; width: 16px; height: 16px; flex: none; accent-color: var(--ink); }
+ul.ap-cond { max-width: 40rem; margin: clamp(40px, 5vw, 64px) auto 0; text-align: center; }
+ul.ap-cond li { padding: 6px 0; }
