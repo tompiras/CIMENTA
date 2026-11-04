@@ -176,6 +176,16 @@
     }
     window.addEventListener('scroll', update, { passive: true });
     update();
+    // S'efface quand on descend (lecture), revient dès qu'on remonte
+    var cbY = window.scrollY, cbTick = false;
+    window.addEventListener('scroll', function () {
+      if (cbTick) return; cbTick = true;
+      window.requestAnimationFrame(function () {
+        var y = window.scrollY, d = y - cbY;
+        if (Math.abs(d) > 6) { callbar.classList.toggle('cb-away', d > 0 && y > window.innerHeight); cbY = y; }
+        cbTick = false;
+      });
+    }, { passive: true });
   }
 
   // Écran d'accueil : un clic le ferme
@@ -187,7 +197,8 @@
   // Photo du haut de page : défile plus lentement que la page (effet de profondeur)
   var heroBg = document.querySelector('.hero-img .hero-bg');
   var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (heroBg && !calm) {
+  var small = window.matchMedia && window.matchMedia('(max-width: 700px)').matches;
+  if (heroBg && !calm && !small) {
     var ticking = false;
     var drift = function () {
       var sy = window.scrollY;
