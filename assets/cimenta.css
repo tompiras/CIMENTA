@@ -1740,3 +1740,20 @@ html { scrollbar-width: thin; scrollbar-color: rgba(17,17,17,.32) transparent; }
   html body main:has(.cdark) + .footer .f-info a { display: none !important; }
   html body main:has(.cdark) + .footer .f-info { margin-top: 24px !important; }
 }
+
+/* Pied de page mobile — version B, inspirée d'Apple (nov. 2026) : aligné à gauche, texte petit et gris, icônes, séparateurs fins */
+@media (max-width:720px){
+ html body .footer{text-align:left!important;padding-bottom:calc(28px + env(safe-area-inset-bottom))!important}
+ html body main:has(.cdark) + .footer .f-top{align-items:flex-start!important;padding-top:40px!important}
+ html body .footer .f-top .logo .word{font-size:16px!important}
+ html body .footer .f-info{align-items:flex-start!important;margin-top:20px!important;font-size:12px!important;color:rgba(249,249,247,.56)!important}
+ html body .footer .f-info span{color:rgba(249,249,247,.56)!important}
+ html body .footer .f-social{justify-content:flex-start!important;margin-top:14px!important;gap:22px!important}
+ html body .footer .f-social a{font-size:12px!important;gap:8px!important}
+ html body .footer .f-social svg{width:15px;height:15px}
+ html body .footer .f-bottom{align-items:flex-start!important;text-align:left!important;margin-top:28px!important;padding-top:18px!important;gap:12px!important;font-size:11px!important;line-height:1.6!important;color:rgba(249,249,247,.42)!important}
+ html body .footer .f-bottom a{color:rgba(249,249,247,.42)!important} html body .footer .f-legal a{color:rgba(249,249,247,.62)!important}
+ html body .footer .f-id{align-items:flex-start!important}
+ html body .footer .f-legal{justify-content:flex-start!important;gap:0!important}
+ html body .footer .f-legal a+a{border-left:1px solid rgba(249,249,247,.2);margin-left:10px;padding-left:10px}
+}
