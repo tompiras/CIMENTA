@@ -1740,23 +1740,3 @@ html { scrollbar-width: thin; scrollbar-color: rgba(17,17,17,.32) transparent; }
   html body main:has(.cdark) + .footer .f-info a { display: none !important; }
   html body main:has(.cdark) + .footer .f-info { margin-top: 24px !important; }
 }
-/* Pied de page mobile — version puriste (nov. 2026) : petites capitales, pas d'icônes, beaucoup d'air */
-@media (max-width: 720px) {
-  html body main:has(.cdark) + .footer .f-top { padding-top: 56px !important; }
-  html body .footer .f-top .logo .word { font-size: 15px !important; }
-  html body .footer .f-top .logo .act { font-size: calc(15px * .37) !important; }
-  html body .footer .f-top .logo svg { height: 22px; width: auto; }
-  html body .footer .f-info { margin-top: 32px !important; font-size: 10px !important; letter-spacing: .22em; text-transform: uppercase; line-height: 1.8 !important; }
-  html body .footer .f-info span { color: var(--iv-mute) !important; }
-  html body .footer .f-social { margin-top: 14px !important; gap: 0 !important; }
-  html body .footer .f-social svg { display: none !important; }
-  html body .footer .f-social a { gap: 0 !important; font-size: 10px !important; letter-spacing: .22em !important; text-transform: uppercase; color: var(--iv-mute) !important; padding: 6px 0; }
-  html body .footer .f-social a + a::before { content: "·"; margin: 0 14px; color: var(--iv-mute); letter-spacing: 0; }
-  html body .footer .f-bottom { margin-top: 48px !important; padding-top: 28px !important; gap: 18px !important; font-size: 10.5px !important; line-height: 1.75 !important; color: rgba(249,249,247,.42) !important; }
-  html body .footer .f-bottom a { color: rgba(249,249,247,.42) !important; }
-  html body .footer .f-legal { gap: 0 !important; }
-  html body .footer .f-legal a { font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; }
-  html body .footer .f-legal a + a::before { content: "·"; margin: 0 12px; letter-spacing: 0; }
-  html body .footer .f-id .f-l + .f-l { margin-top: 0; }
-  html body .cdark { padding-bottom: 72px !important; }
-}
