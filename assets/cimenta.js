@@ -188,6 +188,21 @@
     }, { passive: true });
   }
 
+  // Réalisations (mobile) : affiche les autres chantiers
+  var rxAll = document.getElementById('rx-all');
+  var rxList = document.querySelector('.rx-list');
+  if (rxAll && rxList) {
+    rxAll.addEventListener('click', function () {
+      rxList.classList.add('rx-open');
+      rxAll.setAttribute('aria-expanded', 'true');
+      var first = rxList.querySelector('.rx-pairs > .rx:nth-child(2)');
+      if (first) {
+        var h = first.querySelector('h3');
+        if (h) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
+      }
+    });
+  }
+
   // Écran d'accueil : un clic le ferme
   var gate = document.getElementById('gate');
   if (gate) {

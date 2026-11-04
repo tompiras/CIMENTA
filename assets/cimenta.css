@@ -1702,3 +1702,18 @@ html { scrollbar-width: thin; scrollbar-color: rgba(17,17,17,.32) transparent; }
 @media (max-width: 700px) and (prefers-reduced-motion: reduce) {
   html.js [data-reveal], html.js .rx-media[data-reveal] .rx-it { opacity: 1; transform: none; transition: none; }
 }
+
+/* Réalisations sur mobile : 3 chantiers, puis « Voir les autres réalisations » */
+.rx-all-wrap { display: none; }
+@media (max-width: 700px) {
+  html body .rx-list:not(.rx-open) .rx-pairs > .rx:nth-child(n+2) { display: none; }
+  .rx-all-wrap { display: flex; justify-content: center; margin-top: 56px; }
+  .rx-list.rx-open + .rx-all-wrap { display: none; }
+  .rx-all {
+    font: inherit; font-size: 11px; letter-spacing: .24em; text-transform: uppercase;
+    color: var(--ink); background: transparent; border: 1px solid rgba(17,17,17,.85);
+    height: 50px; padding: 0 28px; cursor: pointer; border-radius: 0;
+    transition: background .3s, color .3s;
+  }
+  .rx-all:active { background: var(--ink); color: var(--ivory); }
+}
