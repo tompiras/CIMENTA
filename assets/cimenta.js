@@ -127,7 +127,7 @@
           if (ok) { ok.style.display = 'block'; if (!dlgEl) form.style.display = 'none'; ok.scrollIntoView({ block: 'center' }); }
         })
         .catch(function (e) {
-          err.innerHTML = "L'envoi n'a pas abouti. Réessayez ou écrivez-nous à <a href=\"mailto:contact@cimenta.fr\">contact@cimenta.fr</a>.";
+          err.innerHTML = "L’envoi n’a pas abouti. Réessayez ou écrivez-nous à <a href=\"mailto:contact@cimenta.fr\">contact@cimenta.fr</a>.";
           if (window.console) console.warn('Envoi formulaire :', e && e.message);
         })
         .then(function () { if (btn) { btn.disabled = false; btn.innerHTML = btn.dataset.label; } });
@@ -138,7 +138,7 @@
   var params = new URLSearchParams(window.location.search);
   if (params.get('envoi') === 'erreur') {
     var f = document.querySelector('form[data-form]');
-    if (f) { var m = document.createElement('p'); m.className = 'form-error'; m.innerHTML = "L'envoi n'a pas abouti. Réessayez ou écrivez-nous à <a href=\"mailto:contact@cimenta.fr\">contact@cimenta.fr</a>."; f.appendChild(m); }
+    if (f) { var m = document.createElement('p'); m.className = 'form-error'; m.innerHTML = "L’envoi n’a pas abouti. Réessayez ou écrivez-nous à <a href=\"mailto:contact@cimenta.fr\">contact@cimenta.fr</a>."; f.appendChild(m); }
     params.delete('envoi'); history.replaceState(null, '', window.location.pathname);
   }
   if (params.get('envoi') === 'ok') {

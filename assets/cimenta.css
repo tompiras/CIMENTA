@@ -1717,3 +1717,21 @@ html { scrollbar-width: thin; scrollbar-color: rgba(17,17,17,.32) transparent; }
   }
   .rx-all:active { background: var(--ink); color: var(--ivory); }
 }
+
+/* Pied de page mobile — version épurée (nov. 2026) : centré comme le bloc Contact, mentions légales sur des lignes propres */
+@media (max-width: 720px) {
+  html body .footer { padding: 0 0 calc(32px + env(safe-area-inset-bottom)) !important; text-align: center; }
+  html body .footer .f-top { flex-direction: column !important; align-items: center !important; gap: 0 !important; padding-top: 48px !important; }
+  html body .footer .f-top .logo { display: inline-block; }
+  html body .footer .f-top .logo .word { font-size: 18px; }
+  html body .footer .f-info { flex-direction: column !important; align-items: center; gap: 8px !important; margin: 28px 0 0 !important; font-size: 13px; line-height: 1.5; }
+  html body .footer .f-info a, html body .footer .f-info span { color: var(--iv-soft); }
+  html body .footer .f-social { display: flex; justify-content: center; gap: 28px; margin: 24px 0 0; }
+  html body .footer .f-social a { font-size: 12px; letter-spacing: .02em; }
+  html body .footer .f-bottom { flex-direction: column !important; align-items: center !important; gap: 14px !important; margin-top: 32px !important; padding-top: 24px !important; font-size: 11px !important; line-height: 1.7 !important; text-align: center; }
+  html body .footer .f-id { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+  html body .footer .f-sep { display: none; }
+  html body .footer .f-l { display: block; }
+  html body .footer .f-legal { justify-content: center; gap: 6px 22px !important; }
+  html body main:has(.cdark) + .footer .f-top { border-top: 1px solid var(--iv-rule); }
+}
