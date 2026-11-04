@@ -1735,3 +1735,8 @@ html { scrollbar-width: thin; scrollbar-color: rgba(17,17,17,.32) transparent; }
   html body .footer .f-legal { justify-content: center; gap: 6px 22px !important; }
   html body main:has(.cdark) + .footer .f-top { border-top: 1px solid var(--iv-rule); }
 }
+/* Pied de page mobile : téléphone et e-mail déjà présents dans le bloc Contact juste au-dessus */
+@media (max-width: 720px) {
+  html body main:has(.cdark) + .footer .f-info a { display: none !important; }
+  html body main:has(.cdark) + .footer .f-info { margin-top: 24px !important; }
+}
